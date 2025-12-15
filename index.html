@@ -194,6 +194,13 @@
             background: linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #1A1A1A 100%);
         }
         
+        /* Reduced top padding on larger screens (desktops/laptops) */
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 90px 40px 60px;
+            }
+        }
+        
         .hero::before {
             content: '';
             position: absolute;
