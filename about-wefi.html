@@ -207,7 +207,7 @@
             margin-bottom: 30px;
             font-size: 14px;
             font-weight: 600;
-            color: var(--lime-green);
+            color: #FFFFFF;
             letter-spacing: 0.5px;
         }
         
@@ -497,18 +497,67 @@
             font-weight: 500;
         }
         
-        /* ===== BUTTONS ===== */
+        /* ===== ENHANCED CTA BUTTONS WITH ANIMATIONS ===== */
         .btn {
             display: inline-block;
-            padding: 16px 40px;
+            padding: 18px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
             font-size: 16px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             border: none;
             cursor: pointer;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            font-family: var(--font-primary);
+        }
+        
+        /* Ripple effect on click */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            pointer-events: none;
+        }
+        
+        .btn:active::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        /* Shimmer effect */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            transform: skewX(-25deg);
+            transition: left 0.8s ease;
+        }
+        
+        .btn:hover::after {
+            left: 200%;
+        }
+        
+        .btn span {
+            position: relative;
+            z-index: 1;
         }
         
         .btn-primary {
@@ -518,8 +567,12 @@
         }
         
         .btn-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px) scale(0.98);
         }
         
         .btn-secondary {
@@ -530,7 +583,12 @@
         
         .btn-secondary:hover {
             background: rgba(199, 241, 96, 0.1);
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
+        }
+        
+        .btn-secondary:active {
+            transform: translateY(-1px) scale(0.98);
         }
         
         .cta-buttons {
@@ -1336,8 +1394,8 @@
                 
                 <!-- Video CTA -->
                 <div class="video-cta" style="text-align: center; margin-top: 40px;">
-                    <a href="#" class="video-link" onclick="openVideoModal(event, 'vimeo', '1145731075')" style="display: inline-block; background: linear-gradient(135deg, var(--lime-green), var(--bright-green)); color: #000; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);">
-                        ▶️ WATCH WEFI INTRO VIDEO (10 MIN) →
+                    <a href="#" class="btn btn-primary" onclick="openVideoModal(event, 'vimeo', '1145731075')">
+                        <span>▶️ WATCH WEFI INTRO VIDEO (10 MIN) →</span>
                     </a>
                 </div>
             </div>
