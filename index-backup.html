@@ -166,6 +166,30 @@
             width: 100%;
         }
         
+        /* Navigation CTA Button */
+        .nav-cta {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            color: var(--black);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);
+            white-space: nowrap;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
+        }
+        
+        .nav-cta:active {
+            transform: translateY(0);
+        }
+        
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -926,6 +950,10 @@
                 display: flex;
             }
             
+            .nav-cta {
+                display: none;
+            }
+            
             .nav-container {
                 padding: 20px;
             }
@@ -1559,6 +1587,7 @@
                 <li><a href="faq.html" class="nav-link">FAQ</a></li>
                 <li><a href="getting-started.html" class="nav-link">Getting Started</a></li>
             </ul>
+            <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank">Sign Up</a>
             <div class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
