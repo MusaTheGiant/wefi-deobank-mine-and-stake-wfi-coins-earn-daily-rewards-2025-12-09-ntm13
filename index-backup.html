@@ -118,6 +118,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
         
         .logo {
@@ -179,6 +180,10 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);
             white-space: nowrap;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .nav-cta:hover {
@@ -909,6 +914,12 @@
         
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 1024px) {
+            .nav-cta {
+                padding: 9px 20px;
+                font-size: 13px;
+                min-height: 40px;
+            }
+            
             .section {
                 padding: 80px 30px;
             }
@@ -948,10 +959,19 @@
             
             .mobile-menu-btn {
                 display: flex;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
             
             .nav-cta {
-                display: none;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 20px;
+                padding: 8px 20px;
+                font-size: 13px;
+                min-height: 36px;
             }
             
             .nav-container {
@@ -1076,6 +1096,27 @@
             
             .logo {
                 font-size: 24px;
+            }
+            
+            .nav-cta {
+                right: 16px;
+                padding: 6px 16px;
+                font-size: 12px;
+                min-height: 32px;
+            }
+        }
+        
+        /* Ultra-small screens (360px and below) */
+        @media (max-width: 360px) {
+            .nav-cta {
+                right: 12px;
+                padding: 5px 12px;
+                font-size: 11px;
+                min-height: 30px;
+            }
+            
+            .logo {
+                font-size: 22px;
             }
         }
         
@@ -1587,12 +1628,12 @@
                 <li><a href="faq.html" class="nav-link">FAQ</a></li>
                 <li><a href="getting-started.html" class="nav-link">Getting Started</a></li>
             </ul>
-            <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank">Sign Up</a>
             <div class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
+            <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank">Sign Up</a>
         </div>
     </nav>
 
