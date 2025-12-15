@@ -17,10 +17,10 @@
     <!-- Favicon -->
     <link rel="icon" href="https://www.deobankdefi.com/images/favicon.png">
     
-    <!-- Google Fonts - Inter -->
+    <!-- Google Fonts - Inter & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Vimeo Player API - Pre-loaded for reliability -->
     <script src="https://player.vimeo.com/api/player.js" async></script>
@@ -243,13 +243,19 @@
         }
         
         .hero-title {
-            font-size: clamp(40px, 8vw, 80px);
-            font-weight: 900;
-            line-height: 1.15;
-            margin-bottom: 24px;
-            letter-spacing: -1px;
-            word-spacing: 0.1em;
-            animation: fadeInUp 0.8s ease-out;
+            box-sizing: border-box;
+            color: rgb(212, 239, 137);
+            display: inline;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 38px;
+            font-weight: 500;
+            height: auto;
+            letter-spacing: -1.9px;
+            line-height: 38px;
+            margin-bottom: 0px;
+            margin-top: 0px;
+            text-size-adjust: 100%;
+            width: auto;
         }
         
         .hero-title .highlight {
