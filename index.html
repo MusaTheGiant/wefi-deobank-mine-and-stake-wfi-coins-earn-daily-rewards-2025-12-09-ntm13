@@ -63,9 +63,9 @@
             --section-padding: 120px;
             --section-padding-mobile: 60px;
             
-            /* NEW: Fluid spacing system using clamp */
-            --spacing-hero-top: clamp(80px, 12vh, 120px);
-            --spacing-hero-bottom: clamp(40px, 8vh, 80px);
+            /* NEW: Fluid spacing system using clamp - OPTIMIZED FOR MOBILE */
+            --spacing-hero-top: clamp(20px, 4vh, 40px);
+            --spacing-hero-bottom: clamp(20px, 3vh, 30px);
             --spacing-hero-inline: clamp(20px, 5vw, 60px);
             
             /* NEW: Safe area support */
@@ -242,8 +242,8 @@
         
         /* === Hero Section Base Styles === */
         .hero {
-            /* Fixed height to prevent jumping on scroll */
-            min-height: 100vh;
+            /* Optimized height for compact layout */
+            min-height: auto;
             
             /* Fluid padding with safe area compensation and navbar offset */
             padding-block-start: calc(var(--navbar-height) + var(--spacing-hero-top) + var(--safe-area-top));
@@ -325,9 +325,9 @@
             border-radius: 50px;
             box-shadow: 0 4px 15px rgba(199, 241, 96, 0.1);
             
-            /* Fluid padding and spacing */
+            /* Fluid padding and spacing - OPTIMIZED */
             padding: clamp(8px, 1.5vw, 12px) clamp(18px, 3vw, 28px);
-            margin-block-end: clamp(18px, 3vh, 24px);
+            margin-block-end: clamp(12px, 2vh, 16px);
             
             /* Fluid typography */
             font-size: clamp(11px, 1.8vw, 13px);
@@ -353,8 +353,8 @@
             line-height: 1.2;
             letter-spacing: clamp(-0.5px, -0.1vw, -1px);
             
-            /* Spacing */
-            margin-block-end: clamp(14px, 2.5vh, 20px);
+            /* Spacing - OPTIMIZED */
+            margin-block-end: clamp(10px, 1.5vh, 14px);
             
             /* Font */
             font-family: "Space Grotesk", sans-serif;
@@ -392,8 +392,8 @@
             color: var(--lime-light);
             line-height: 1.4;
             
-            /* Spacing */
-            margin-block-end: clamp(12px, 2vh, 16px);
+            /* Spacing - OPTIMIZED */
+            margin-block-end: clamp(10px, 1.5vh, 12px);
             
             /* Readability */
             max-width: 750px;
@@ -413,7 +413,7 @@
             /* Optimal reading width */
             max-width: min(750px, 100%);
             margin-inline: auto;
-            margin-block-end: clamp(24px, 4vh, 36px);
+            margin-block-end: clamp(20px, 3vh, 28px);
             
             /* Readability */
             word-spacing: 0.03em;
@@ -638,6 +638,52 @@
             
             .hero::before {
                 display: none;
+            }
+        }
+        
+        /* === MOBILE-SPECIFIC HERO OPTIMIZATIONS === */
+        @media (max-width: 768px) {
+            .hero {
+                padding-block-start: calc(var(--navbar-height) + 15px + var(--safe-area-top));
+                padding-block-end: calc(15px + var(--safe-area-bottom));
+            }
+            
+            .hero-badge {
+                margin-block-end: 10px;
+            }
+            
+            .hero-title {
+                margin-block-end: 10px;
+            }
+            
+            .hero-description {
+                margin-block-end: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                padding-block-start: calc(var(--navbar-height) + 12px + var(--safe-area-top));
+                padding-block-end: calc(12px + var(--safe-area-bottom));
+            }
+            
+            .hero-badge {
+                margin-block-end: 8px;
+            }
+            
+            .hero-title {
+                margin-block-end: 8px;
+            }
+            
+            .hero-description {
+                margin-block-end: 16px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .hero {
+                padding-block-start: calc(var(--navbar-height) + 10px + var(--safe-area-top));
+                padding-block-end: calc(10px + var(--safe-area-bottom));
             }
         }
         /* ===== SECTIONS ===== */
@@ -1900,7 +1946,9 @@
     <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">DeobankDeFi</div>
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo">DeobankDeFi</div>
+            </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="about-wefi.html" class="nav-link">About WeFi</a></li>
                 <li><a href="wfi-token.html" class="nav-link">WFI Token</a></li>
