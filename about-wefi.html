@@ -79,8 +79,8 @@
             --safe-area-left: env(safe-area-inset-left, 0px);
             --safe-area-right: env(safe-area-inset-right, 0px);
             
-            /* Navbar height for calculation */
-            --navbar-height: 68px;
+            /* Navbar height for calculation - OPTIMIZED */
+            --navbar-height: 56px;
             
             /* NEW: Dynamic viewport height with fallback */
             --viewport-height: 100dvh;
@@ -155,7 +155,7 @@
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 40px;
+            padding: 16px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -163,7 +163,7 @@
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             letter-spacing: -1px;
             background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
@@ -1182,13 +1182,13 @@
             
             /* CRITICAL FIX: Reduce logo size on mobile to prevent overlap with badge */
             .logo {
-                font-size: 20px;
+                font-size: 18px;
                 letter-spacing: -0.5px;
             }
             
             .nav-menu {
                 position: fixed;
-                top: 70px;
+                top: 60px;
                 left: -100%;
                 flex-direction: column;
                 background: rgba(0, 0, 0, 0.98);
@@ -1222,7 +1222,7 @@
             }
             
             .nav-container {
-                padding: 20px;
+                padding: 14px 20px;
             }
             
             .section {
@@ -1310,8 +1310,12 @@
         @media (max-width: 480px) {
             /* Further reduce logo size on very small screens */
             .logo {
-                font-size: 18px;
+                font-size: 16px;
                 letter-spacing: -0.3px;
+            }
+            
+            .nav-container {
+                padding: 12px 15px;
             }
             
             .nav-cta {
