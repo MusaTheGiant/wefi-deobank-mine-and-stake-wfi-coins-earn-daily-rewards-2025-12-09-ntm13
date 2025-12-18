@@ -356,20 +356,6 @@
                 inset 0 2px 5px rgba(0, 0, 0, 0.6);
         }
         
-        /* Dynamic Island Notch - Smaller like reference */
-        .phone-notch {
-            position: absolute;
-            top: clamp(10px, 1.3vh, 15px);
-            left: 50%;
-            transform: translateX(-50%);
-            width: clamp(80px, 10vw, 110px);
-            height: clamp(24px, 2.8vh, 30px);
-            background: #000;
-            border-radius: clamp(12px, 1.5vw, 16px);
-            z-index: 10;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-        }
-        
         /* Video Inside Phone - Ensure full visibility */
         .phone-video {
             width: 100%;
@@ -564,9 +550,6 @@
                         <div class="phone-frame">
                             <!-- Phone Screen -->
                             <div class="phone-screen">
-                                <!-- Dynamic Island Notch -->
-                                <div class="phone-notch"></div>
-                                
                                 <!-- WeFi App Video -->
                                 <video 
                                     class="phone-video" 
