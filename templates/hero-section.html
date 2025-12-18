@@ -285,12 +285,17 @@
             position: relative;
             width: 160px;
             height: 325px;
-            transform: perspective(1200px) rotateY(-8deg) rotateX(2deg);
+            transform: perspective(1200px) rotateY(-12deg) rotateX(3deg) rotateZ(-2deg);
             transition: transform 0.5s ease;
+            filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.6))
+                    drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
         }
         
         .phone-mockup:hover {
-            transform: perspective(1200px) rotateY(-5deg) rotateX(1deg) translateY(-10px);
+            transform: perspective(1200px) rotateY(-8deg) rotateX(2deg) rotateZ(-1deg) translateY(-8px);
+            filter: drop-shadow(0 35px 70px rgba(0, 0, 0, 0.7))
+                    drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5))
+                    drop-shadow(0 0 40px rgba(199, 241, 96, 0.3));
         }
         
         /* Phone Frame (Premium iPhone Style) */
@@ -298,13 +303,22 @@
             position: relative;
             width: 100%;
             height: 100%;
-            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            background: linear-gradient(145deg, #2f2f2f, #1a1a1a);
             border-radius: 24px;
             padding: 5px;
             box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.8),
-                inset 0 2px 4px rgba(255, 255, 255, 0.1);
-            border: 1px solid #333;
+                /* Main 3D depth shadows */
+                -8px 8px 16px rgba(0, 0, 0, 0.8),
+                -15px 15px 30px rgba(0, 0, 0, 0.6),
+                -20px 20px 40px rgba(0, 0, 0, 0.4),
+                /* Inner highlights for realism */
+                inset 2px -2px 4px rgba(255, 255, 255, 0.15),
+                inset -2px 2px 4px rgba(0, 0, 0, 0.6),
+                /* Subtle green glow on left edge */
+                -2px 0 20px rgba(199, 241, 96, 0.2);
+            border: 1.5px solid #3a3a3a;
+            border-left-color: #4a4a4a;
+            border-top-color: #4a4a4a;
         }
         
         /* Phone Screen */
@@ -315,6 +329,12 @@
             background: #000;
             border-radius: 20px;
             overflow: hidden;
+            box-shadow: 
+                /* Deep screen inset shadow */
+                inset 0 0 15px rgba(0, 0, 0, 0.9),
+                inset 0 2px 8px rgba(0, 0, 0, 0.8),
+                /* Subtle screen glow */
+                0 0 10px rgba(199, 241, 96, 0.15);
         }
         
         /* Dynamic Island Notch */
@@ -343,11 +363,26 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(199, 241, 96, 0.15), transparent 70%);
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(ellipse, 
+                rgba(199, 241, 96, 0.25) 0%, 
+                rgba(0, 255, 136, 0.15) 40%,
+                transparent 70%);
             z-index: -1;
-            filter: blur(20px);
+            filter: blur(30px);
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { 
+                opacity: 0.7;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.15);
+            }
         }
         
         /* ===== RESPONSIVE DESIGN ===== */
@@ -367,6 +402,8 @@
             .phone-mockup {
                 width: 140px;
                 height: 285px;
+                filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6))
+                        drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
             }
         }
         
@@ -386,7 +423,13 @@
             }
             
             .phone-mockup {
-                transform: perspective(1200px) rotateY(0deg) rotateX(0deg);
+                transform: perspective(1200px) rotateY(-5deg) rotateX(2deg) rotateZ(-1deg);
+                filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.6))
+                        drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+            }
+            
+            .phone-mockup:hover {
+                transform: perspective(1200px) rotateY(-3deg) rotateX(1deg) rotateZ(0deg) translateY(-5px);
             }
             
             .hero-grid-bg {
