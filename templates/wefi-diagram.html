@@ -168,10 +168,21 @@
                 margin-bottom: 40px;
             }
 
+            .diagram-wrapper {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                padding: 20px 0;
+            }
+
             .boxes-grid {
-                grid-template-columns: 1fr;
-                gap: 120px;
-                padding: 0 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                width: 100%;
+                max-width: 400px;
+                order: 2;
             }
 
             .center-circle {
@@ -182,19 +193,34 @@
                 left: 0;
                 top: 0;
                 transform: none;
-                margin: 60px auto;
+                margin: 0;
+                order: 1;
             }
 
             .box {
                 min-height: auto;
                 padding: 30px 20px;
-            }
-
-            .connection-line {
-                display: none;
+                width: 100%;
             }
 
             .connections-svg {
+                display: none;
+            }
+
+            /* Mobile vertical connector lines */
+            .box::before {
+                content: '';
+                position: absolute;
+                width: 3px;
+                height: 30px;
+                background: #5a7a3c;
+                opacity: 0.5;
+                left: 50%;
+                transform: translateX(-50%);
+                top: -30px;
+            }
+
+            .box:first-child::before {
                 display: none;
             }
         }
@@ -240,6 +266,9 @@
                 <line class="connection-line" x1="820" y1="530" x2="680" y2="380" />
             </svg>
 
+            <!-- Center Circle -->
+            <div class="center-circle">WeFi</div>
+
             <div class="boxes-grid">
                 <!-- Top Left Box -->
                 <div class="box">
@@ -271,9 +300,6 @@
                     <h2>Gift Certificates<br>of Ownership</h2>
                 </div>
             </div>
-
-            <!-- Center Circle -->
-            <div class="center-circle">WeFi</div>
         </div>
     </div>
 </body>
