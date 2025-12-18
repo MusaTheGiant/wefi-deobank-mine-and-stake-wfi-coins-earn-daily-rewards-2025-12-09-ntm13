@@ -237,25 +237,25 @@
         }
         
         .trust-label {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 12px;
         }
         
         .trust-logos {
             display: flex;
-            gap: 12px;
+            gap: 16px;
             align-items: center;
             flex-wrap: wrap;
         }
         
         .trust-logo {
-            height: 14px;
+            height: 20px;
             width: auto;
-            opacity: 0.6;
+            opacity: 0.75;
             filter: grayscale(100%) brightness(1.5);
             transition: all 0.3s ease;
         }
@@ -263,12 +263,13 @@
         .trust-logo:hover {
             opacity: 1;
             filter: grayscale(0%) brightness(1);
+            transform: scale(1.05);
         }
         
         .trust-divider {
             height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.15);
+            margin: 16px 0;
         }
         
         /* ===== RIGHT COLUMN - PHONE WITH 3D TILT ===== */
@@ -443,11 +444,15 @@
             }
             
             .trust-logos {
-                gap: 8px;
+                gap: 10px;
             }
             
             .trust-logo {
-                height: 12px;
+                height: 16px;
+            }
+            
+            .trust-label {
+                font-size: 10px;
             }
             
             .hero-badge {
@@ -483,18 +488,25 @@
                     
                     <!-- Main Headline (Two Lines) -->
                     <h1 class="hero-headline">
-                        <span class="hero-headline-line1">Financial Freedom Starts Here</span>
-                        <span class="hero-headline-line2">DeFi Banking That Pays</span>
+                        <span class="hero-headline-line1">Tired of broken promises and</span>
+                        <span class="hero-headline-line2">failed opportunities?</span>
                     </h1>
                     
                     <!-- Paragraph Block 1 -->
                     <p class="hero-paragraph">
-                        Tired of broken promises and failed opportunities? WeFi delivers what others only dream about: real passive income, real banking services, and real wealth-building potential. Join the revolution that's redefining finance.
+                        WeFi delivers what others only dream about:
+                    </p>
+                    
+                    <!-- Paragraph Block 2 - Benefits List -->
+                    <p class="hero-paragraph">
+                        • Real passive income<br>
+                        • Real banking services, and<br>
+                        • Real wealth-building potential.
                     </p>
                     
                     <!-- Paragraph Block 3 -->
                     <p class="hero-paragraph">
-                        Join 50,000+ users who've already made the switch to decentralized banking.
+                        Join the revolution that's redefining finance.
                     </p>
                     
                     <!-- Single CTA Button -->
