@@ -150,18 +150,18 @@
             background: rgba(199, 241, 96, 0.15);
             border: 1px solid rgba(199, 241, 96, 0.3);
             border-radius: 30px;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
-            color: var(--lime-green);
+            color: #FFFFFF;
             margin-bottom: 16px;
         }
         
         /* Main Headline (Two Lines with Gradient) */
         .hero-headline {
             font-family: var(--font-display);
-            font-size: 28px;
+            font-size: clamp(20px, 5vw, 31px);
             font-weight: 700;
             line-height: 1.15;
             letter-spacing: -1px;
@@ -183,7 +183,7 @@
         
         /* Paragraph Blocks (Stacked) */
         .hero-paragraph {
-            font-size: 14px;
+            font-size: clamp(12px, 2.5vw, 15px);
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 10px;
@@ -207,7 +207,7 @@
             padding: 8px 16px;
             background: var(--lime-green);
             color: #000;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
             border-radius: 50px;
             text-decoration: none;
@@ -237,7 +237,7 @@
         }
         
         .trust-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             letter-spacing: 0.3px;
             color: rgba(255, 255, 255, 0.65);
@@ -395,10 +395,6 @@
                 gap: 30px;
             }
             
-            .hero-headline {
-                font-size: 24px;
-            }
-            
             .phone-mockup {
                 width: 140px;
                 height: 285px;
@@ -446,19 +442,10 @@
                 padding: 0 16px;
             }
             
-            .hero-headline {
-                font-size: 20px;
-            }
-            
-            .hero-paragraph {
-                font-size: 12px;
-            }
-            
             .cta-btn {
                 width: 100%;
                 justify-content: center;
                 padding: 10px 20px;
-                font-size: 12px;
             }
             
             .phone-mockup {
@@ -472,14 +459,6 @@
         }
         
         @media (max-width: 480px) {
-            .hero-headline {
-                font-size: 18px;
-            }
-            
-            .hero-paragraph {
-                font-size: 11px;
-            }
-            
             .phone-mockup {
                 width: 120px;
                 height: 245px;
@@ -493,12 +472,8 @@
                 height: 18px;
             }
             
-            .trust-label {
-                font-size: 11px;
-            }
-            
             .hero-badge {
-                font-size: 8px;
+                font-size: 9px;
                 padding: 3px 8px;
             }
         }
