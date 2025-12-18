@@ -51,12 +51,12 @@
         /* ===== HERO SECTION ===== */
         .hero-section {
             position: relative;
-            min-height: 100vh;
+            min-height: 50vh;
             display: flex;
             align-items: center;
             background: #000;
             overflow: hidden;
-            padding: 100px 0;
+            padding: 50px 0;
         }
         
         /* ===== GRID BACKGROUND (Like Reference Image) ===== */
@@ -126,7 +126,7 @@
             position: relative;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 80px;
+            padding: 0 40px;
             z-index: 10;
         }
         
@@ -134,7 +134,7 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 100px;
+            gap: 50px;
             align-items: center;
         }
         
@@ -146,26 +146,26 @@
         /* Small Badge at Top */
         .hero-badge {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 4px 10px;
             background: rgba(199, 241, 96, 0.15);
             border: 1px solid rgba(199, 241, 96, 0.3);
             border-radius: 30px;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             color: var(--lime-green);
-            margin-bottom: 32px;
+            margin-bottom: 16px;
         }
         
         /* Main Headline (Two Lines with Gradient) */
         .hero-headline {
             font-family: var(--font-display);
-            font-size: 56px;
+            font-size: 28px;
             font-weight: 700;
             line-height: 1.15;
             letter-spacing: -1px;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
         }
         
         .hero-headline-line1 {
@@ -183,10 +183,10 @@
         
         /* Paragraph Blocks (Stacked) */
         .hero-paragraph {
-            font-size: 17px;
-            line-height: 1.7;
+            font-size: 14px;
+            line-height: 1.6;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-weight: 400;
         }
         
@@ -197,17 +197,17 @@
         
         /* Single CTA Button */
         .hero-cta-group {
-            margin-top: 40px;
+            margin-top: 20px;
         }
         
         .cta-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            padding: 16px 32px;
+            gap: 6px;
+            padding: 8px 16px;
             background: var(--lime-green);
             color: #000;
-            font-size: 16px;
+            font-size: 13px;
             font-weight: 700;
             border-radius: 50px;
             text-decoration: none;
@@ -223,7 +223,7 @@
         }
         
         .cta-icon {
-            font-size: 18px;
+            font-size: 14px;
             transition: transform 0.3s ease;
         }
         
@@ -233,27 +233,27 @@
         
         /* Trust Signals (Bottom of Left Column) */
         .trust-section {
-            margin-top: 60px;
+            margin-top: 30px;
         }
         
         .trust-label {
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
         
         .trust-logos {
             display: flex;
-            gap: 24px;
+            gap: 12px;
             align-items: center;
             flex-wrap: wrap;
         }
         
         .trust-logo {
-            height: 28px;
+            height: 14px;
             width: auto;
             opacity: 0.6;
             filter: grayscale(100%) brightness(1.5);
@@ -268,7 +268,7 @@
         .trust-divider {
             height: 1px;
             background: rgba(255, 255, 255, 0.1);
-            margin: 20px 0;
+            margin: 10px 0;
         }
         
         /* ===== RIGHT COLUMN - PHONE WITH 3D TILT ===== */
@@ -277,14 +277,14 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            height: 700px;
+            height: 350px;
         }
         
         /* Phone Container with 3D Perspective */
         .phone-mockup {
             position: relative;
-            width: 320px;
-            height: 650px;
+            width: 160px;
+            height: 325px;
             transform: perspective(1200px) rotateY(-8deg) rotateX(2deg);
             transition: transform 0.5s ease;
         }
@@ -299,12 +299,12 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
-            border-radius: 48px;
-            padding: 10px;
+            border-radius: 24px;
+            padding: 5px;
             box-shadow: 
-                0 40px 80px rgba(0, 0, 0, 0.8),
+                0 20px 40px rgba(0, 0, 0, 0.8),
                 inset 0 2px 4px rgba(255, 255, 255, 0.1);
-            border: 2px solid #333;
+            border: 1px solid #333;
         }
         
         /* Phone Screen */
@@ -313,20 +313,20 @@
             width: 100%;
             height: 100%;
             background: #000;
-            border-radius: 40px;
+            border-radius: 20px;
             overflow: hidden;
         }
         
         /* Dynamic Island Notch */
         .phone-notch {
             position: absolute;
-            top: 12px;
+            top: 6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 110px;
-            height: 30px;
+            width: 55px;
+            height: 15px;
             background: #000;
-            border-radius: 18px;
+            border-radius: 9px;
             z-index: 10;
         }
         
@@ -343,45 +343,45 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 400px;
-            height: 400px;
+            width: 200px;
+            height: 200px;
             background: radial-gradient(circle, rgba(199, 241, 96, 0.15), transparent 70%);
             z-index: -1;
-            filter: blur(40px);
+            filter: blur(20px);
         }
         
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 1200px) {
             .hero-container {
-                padding: 0 60px;
+                padding: 0 30px;
             }
             
             .hero-grid {
-                gap: 60px;
+                gap: 30px;
             }
             
             .hero-headline {
-                font-size: 48px;
+                font-size: 24px;
             }
             
             .phone-mockup {
-                width: 280px;
-                height: 570px;
+                width: 140px;
+                height: 285px;
             }
         }
         
         @media (max-width: 968px) {
             .hero-container {
-                padding: 0 40px;
+                padding: 0 20px;
             }
             
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 60px;
+                gap: 30px;
             }
             
             .hero-visual {
-                height: 600px;
+                height: 300px;
                 justify-content: center;
             }
             
@@ -396,52 +396,63 @@
         
         @media (max-width: 640px) {
             .hero-section {
-                padding: 80px 0 60px;
+                padding: 40px 0 30px;
             }
             
             .hero-container {
-                padding: 0 24px;
+                padding: 0 16px;
             }
             
             .hero-headline {
-                font-size: 38px;
+                font-size: 20px;
             }
             
             .hero-paragraph {
-                font-size: 16px;
+                font-size: 12px;
             }
             
             .cta-btn {
                 width: 100%;
                 justify-content: center;
+                padding: 10px 20px;
+                font-size: 12px;
             }
             
             .phone-mockup {
-                width: 260px;
-                height: 530px;
+                width: 130px;
+                height: 265px;
             }
             
             .hero-visual {
-                height: 550px;
+                height: 275px;
             }
         }
         
         @media (max-width: 480px) {
             .hero-headline {
-                font-size: 32px;
+                font-size: 18px;
+            }
+            
+            .hero-paragraph {
+                font-size: 11px;
             }
             
             .phone-mockup {
-                width: 240px;
-                height: 490px;
+                width: 120px;
+                height: 245px;
             }
             
             .trust-logos {
-                gap: 16px;
+                gap: 8px;
             }
             
             .trust-logo {
-                height: 24px;
+                height: 12px;
+            }
+            
+            .hero-badge {
+                font-size: 8px;
+                padding: 3px 8px;
             }
         }
     </style>
