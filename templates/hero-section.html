@@ -51,12 +51,12 @@
         /* ===== HERO SECTION ===== */
         .hero-section {
             position: relative;
-            min-height: 50vh;
+            min-height: 52.5vh;
             display: flex;
             align-items: center;
             background: #000;
             overflow: hidden;
-            padding: 50px 0;
+            padding: clamp(40px, 8vh, 60px) 0;
         }
         
         /* ===== GRID BACKGROUND (Like Reference Image) ===== */
@@ -126,7 +126,7 @@
             position: relative;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 clamp(20px, 5vw, 42px);
             z-index: 10;
         }
         
@@ -134,7 +134,7 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: clamp(30px, 6vw, 52px);
             align-items: center;
         }
         
@@ -146,26 +146,26 @@
         /* Small Badge at Top */
         .hero-badge {
             display: inline-block;
-            padding: 4px 10px;
+            padding: clamp(3px, 0.5vh, 5px) clamp(8px, 1.5vw, 11px);
             background: rgba(199, 241, 96, 0.15);
             border: 1px solid rgba(199, 241, 96, 0.3);
             border-radius: 30px;
-            font-size: 11px;
+            font-size: clamp(9px, 1.5vw, 12px);
             font-weight: 700;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             color: #FFFFFF;
-            margin-bottom: 16px;
+            margin-bottom: clamp(14px, 2vh, 17px);
         }
         
         /* Main Headline (Two Lines with Gradient) */
         .hero-headline {
             font-family: var(--font-display);
-            font-size: clamp(20px, 5vw, 31px);
+            font-size: clamp(21px, 5.5vw, 33px);
             font-weight: 700;
             line-height: 1.15;
             letter-spacing: -1px;
-            margin-bottom: 16px;
+            margin-bottom: clamp(14px, 2vh, 17px);
         }
         
         .hero-headline-line1 {
@@ -183,10 +183,10 @@
         
         /* Paragraph Blocks (Stacked) */
         .hero-paragraph {
-            font-size: clamp(12px, 2.5vw, 15px);
+            font-size: clamp(13px, 2.7vw, 16px);
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 10px;
+            margin-bottom: clamp(8px, 1.5vh, 11px);
             font-weight: 400;
         }
         
@@ -197,17 +197,17 @@
         
         /* Single CTA Button */
         .hero-cta-group {
-            margin-top: 20px;
+            margin-top: clamp(18px, 3vh, 21px);
         }
         
         .cta-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
+            gap: clamp(5px, 1vw, 7px);
+            padding: clamp(8px, 1.5vh, 9px) clamp(14px, 2.5vw, 17px);
             background: var(--lime-green);
             color: #000;
-            font-size: 14px;
+            font-size: clamp(13px, 2vw, 15px);
             font-weight: 700;
             border-radius: 50px;
             text-decoration: none;
@@ -233,26 +233,26 @@
         
         /* Trust Signals (Bottom of Left Column) */
         .trust-section {
-            margin-top: 30px;
+            margin-top: clamp(28px, 4.5vh, 32px);
         }
         
         .trust-label {
-            font-size: 13px;
+            font-size: clamp(12px, 1.8vw, 14px);
             font-weight: 600;
             letter-spacing: 0.3px;
             color: rgba(255, 255, 255, 0.65);
-            margin-bottom: 14px;
+            margin-bottom: clamp(12px, 2vh, 15px);
         }
         
         .trust-logos {
             display: flex;
-            gap: 20px;
+            gap: clamp(16px, 3vw, 21px);
             align-items: center;
             flex-wrap: wrap;
         }
         
         .trust-logo {
-            height: 24px;
+            height: clamp(20px, 3.5vw, 25px);
             width: auto;
             opacity: 0.8;
             filter: grayscale(100%) brightness(1.5);
@@ -268,7 +268,7 @@
         .trust-divider {
             height: 1px;
             background: rgba(255, 255, 255, 0.15);
-            margin: 16px 0;
+            margin: clamp(14px, 2.5vh, 17px) 0;
         }
         
         /* ===== RIGHT COLUMN - PHONE WITH 3D TILT ===== */
@@ -277,14 +277,14 @@
             display: flex;
             justify-content: center;
             align-items: flex-end;
-            height: 350px;
+            height: clamp(300px, 45vh, 368px);
         }
         
         /* Phone Container with 3D Perspective */
         .phone-mockup {
             position: relative;
-            width: 160px;
-            height: 325px;
+            width: clamp(120px, 20vw, 168px);
+            height: clamp(245px, 40vh, 341px);
             transform: perspective(1200px) rotateY(-12deg) rotateX(3deg) rotateZ(-2deg);
             transition: transform 0.5s ease;
             filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.6))
@@ -388,33 +388,26 @@
         /* ===== RESPONSIVE DESIGN ===== */
         @media (max-width: 1200px) {
             .hero-container {
-                padding: 0 30px;
+                padding: 0 clamp(24px, 4vw, 32px);
             }
             
             .hero-grid {
-                gap: 30px;
-            }
-            
-            .phone-mockup {
-                width: 140px;
-                height: 285px;
-                filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.6))
-                        drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
+                gap: clamp(24px, 5vw, 32px);
             }
         }
         
         @media (max-width: 968px) {
             .hero-container {
-                padding: 0 20px;
+                padding: 0 clamp(16px, 3vw, 21px);
             }
             
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: clamp(24px, 5vh, 32px);
             }
             
             .hero-visual {
-                height: 300px;
+                height: clamp(280px, 40vh, 315px);
                 justify-content: center;
             }
             
@@ -435,46 +428,27 @@
         
         @media (max-width: 640px) {
             .hero-section {
-                padding: 40px 0 30px;
+                padding: clamp(35px, 7vh, 50px) 0 clamp(28px, 5vh, 40px);
             }
             
             .hero-container {
-                padding: 0 16px;
+                padding: 0 clamp(14px, 3vw, 17px);
             }
             
             .cta-btn {
                 width: 100%;
                 justify-content: center;
-                padding: 10px 20px;
-            }
-            
-            .phone-mockup {
-                width: 130px;
-                height: 265px;
+                padding: clamp(9px, 2vh, 11px) clamp(18px, 4vw, 21px);
             }
             
             .hero-visual {
-                height: 275px;
+                height: clamp(260px, 38vh, 289px);
             }
         }
         
         @media (max-width: 480px) {
-            .phone-mockup {
-                width: 120px;
-                height: 245px;
-            }
-            
             .trust-logos {
-                gap: 12px;
-            }
-            
-            .trust-logo {
-                height: 18px;
-            }
-            
-            .hero-badge {
-                font-size: 9px;
-                padding: 3px 8px;
+                gap: clamp(10px, 2.5vw, 13px);
             }
         }
     </style>
