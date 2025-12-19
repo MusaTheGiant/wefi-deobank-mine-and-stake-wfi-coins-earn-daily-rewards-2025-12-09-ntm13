@@ -199,7 +199,7 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            background: var(--lime-green);
             color: var(--black);
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);
@@ -211,6 +211,7 @@
         }
         
         .nav-cta:hover {
+            background: var(--bright-green);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
         }
@@ -234,6 +235,266 @@
             background: var(--lime-green);
             transition: all 0.3s ease;
             border-radius: 2px;
+        }
+        
+        /* ========================================
+           ITO NODES HERO SECTION
+           ======================================== */
+        
+        .ito-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--navbar-height) + 40px) 40px 80px;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ito-hero-container {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Left Content */
+        .ito-hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .ito-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: 32px;
+            padding: 0 16px;
+            background: rgba(212, 239, 137, 0.15);
+            border: 1px solid rgba(212, 239, 137, 0.3);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+        
+        .ito-hero-title {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--white);
+            font-family: "Space Grotesk", sans-serif;
+            letter-spacing: -1px;
+        }
+        
+        .gradient-text {
+            font-weight: 600;
+            color: var(--lime-green);
+        }
+        
+        .ito-hero-subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.4;
+        }
+        
+        .ito-hero-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .ito-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--lime-green);
+            color: var(--black);
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+            width: fit-content;
+        }
+        
+        .ito-cta-button:hover {
+            background: var(--bright-green);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(199, 241, 96, 0.4);
+        }
+        
+        .ito-cta-button svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .ito-cta-button:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* Right Visual */
+        .ito-hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+        }
+        
+        /* Phone Mockup */
+        .phone-mockup {
+            position: relative;
+            z-index: 3;
+            filter: drop-shadow(0 30px 60px rgba(0, 255, 136, 0.3));
+        }
+        
+        .phone-frame {
+            width: 300px;
+            height: 600px;
+            background: #1A1A1A;
+            border-radius: 40px;
+            border: 8px solid #2A2A2A;
+            padding: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #1A1A1A;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 10;
+        }
+        
+        .phone-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 32px;
+        }
+        
+        /* Background Elements */
+        .ito-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(199, 241, 96, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(199, 241, 96, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+        }
+        
+        .ito-glow-orb {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(199, 241, 96, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 4s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                opacity: 0.3; 
+                transform: translate(-50%, -50%) scale(1); 
+            }
+            50% { 
+                opacity: 0.5; 
+                transform: translate(-50%, -50%) scale(1.1); 
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .ito-hero-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+            
+            .ito-hero-content {
+                align-items: center;
+            }
+            
+            .ito-cta-button {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .ito-hero-visual {
+                height: 500px;
+            }
+            
+            .phone-frame {
+                width: 260px;
+                height: 520px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ito-hero {
+                padding: calc(var(--navbar-height) + 30px) 20px 60px;
+            }
+            
+            .ito-hero-title {
+                font-size: 36px;
+            }
+            
+            .ito-hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .ito-hero-description {
+                font-size: 15px;
+            }
+            
+            .ito-hero-visual {
+                height: 450px;
+            }
+            
+            .phone-frame {
+                width: 240px;
+                height: 480px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ito-hero-title {
+                font-size: 32px;
+            }
+            
+            .ito-hero-visual {
+                height: 400px;
+            }
+            
+            .phone-frame {
+                width: 220px;
+                height: 440px;
+            }
         }
         
         /* ========================================
@@ -359,6 +620,7 @@
             /* Font */
             font-family: "Space Grotesk", sans-serif;
             word-spacing: 0.1em;
+            color: var(--white);
             
             /* Prevent orphans and improve text wrapping */
             text-wrap: balance;
@@ -378,10 +640,7 @@
         
         /* === Gradient Highlight === */
         .hero-title .highlight {
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--lime-green);
             display: inline;
         }
         
@@ -532,12 +791,13 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            background: var(--lime-green);
             color: var(--black);
             box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
         }
         
         .btn-primary:hover {
+            background: var(--bright-green);
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
         }
@@ -547,15 +807,17 @@
         }
         
         .btn-secondary {
-            background: transparent;
-            color: var(--white);
+            background: var(--lime-green);
+            color: var(--black);
             border: 2px solid var(--lime-green);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
         }
         
         .btn-secondary:hover {
-            background: rgba(199, 241, 96, 0.1);
+            background: var(--bright-green);
+            border-color: var(--bright-green);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
+            box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
         }
         
         .btn-secondary:active {
@@ -711,13 +973,11 @@
             line-height: 1.2;
             word-spacing: 0.05em;
             font-family: "Space Grotesk", sans-serif;
+            color: var(--white);
         }
         
         .section-title .highlight {
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--lime-green);
         }
         
         .section-subtitle {
@@ -796,7 +1056,7 @@
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 12px;
-            color: var(--lime-light);
+            color: var(--lime-green);
             line-height: 1.3;
             font-family: "Space Grotesk", sans-serif;
         }
@@ -1482,7 +1742,7 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            background: var(--lime-green);
             color: var(--black);
             border: none;
             border-radius: 50%;
@@ -1506,6 +1766,7 @@
         }
         
         .scroll-to-top:hover {
+            background: var(--bright-green);
             transform: scale(1.1) translateY(-3px);
             box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6);
         }
@@ -1966,23 +2227,53 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-badge">🏆 WORLD'S FIRST DEOBANK</div>
-            <h1 class="hero-title">
-                Your Gateway to <span class="highlight">Financial Freedom</span> Through DeFi
-            </h1>
-            <p class="hero-description">
-                Tired of broken promises and failed opportunities? WeFi delivers what others only dream about: real passive income, real banking services, and real wealth-building potential. Join the revolution that's redefining finance.
-            </p>
-            <div class="hero-cta">
-                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank">
-                    <span>Sign Up →</span>
+    <!-- ITO NODES HERO SECTION -->
+    <section class="ito-hero">
+        <div class="ito-hero-container">
+            <!-- Left Content -->
+            <div class="ito-hero-content">
+                <div class="ito-badge">🏆 WORLD'S FIRST DEOBANK</div>
+                <h1 class="ito-hero-title">
+                    <span class="gradient-text">Broke? Broken Promises? Done Waiting?</span>
+                </h1>
+                
+                <p class="ito-hero-description">
+                    WeFi delivers what others only dream about:<br>
+                    - Real passive income<br>
+                    - Real banking services<br>
+                    - Real wealth-building potential.<br><br>
+                    Join the revolution that's redefining finance.
+                </p>
+                
+                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="ito-cta-button" target="_blank" rel="noopener noreferrer">
+                    <span>Buy ITO Units</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </a>
-                <a href="https://app.wechain.ai" class="btn btn-secondary" target="_blank">
-                    <span>Sign In →</span>
-                </a>
+            </div>
+            
+            <!-- Right Video/Phone Mockup -->
+            <div class="ito-hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <video 
+                            class="phone-video" 
+                            autoplay 
+                            muted 
+                            loop 
+                            playsinline
+                            poster="https://www.deobankdefi.com/images/wefi-app-poster.jpg">
+                            <source src="https://www.deobankdefi.com/videos/wefi-app.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- Animated Background Elements -->
+                <div class="ito-bg-grid"></div>
+                <div class="ito-glow-orb"></div>
             </div>
         </div>
     </section>
@@ -2152,7 +2443,7 @@
 
             <div class="text-center mt-40">
                 <a href="#compensation" class="btn btn-primary">
-                    <span>See Full Compensation Plan →</span>
+                    <span>View Compensation →</span>
                 </a>
             </div>
         </div>
@@ -2202,7 +2493,7 @@
 
             <div class="text-center mt-40">
                 <a href="#getting-started" class="btn btn-primary">
-                    <span>Follow Our Step-by-Step Guide →</span>
+                    <span>Get Started Guide →</span>
                 </a>
             </div>
         </div>
