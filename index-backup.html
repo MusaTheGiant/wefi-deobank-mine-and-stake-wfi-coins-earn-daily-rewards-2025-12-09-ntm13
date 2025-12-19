@@ -313,6 +313,41 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
+        /* Benefits List with Checkmark Circles */
+        .ito-benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .ito-benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        
+        .check-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
         .ito-cta-button {
             display: inline-flex;
             align-items: center;
@@ -1070,21 +1105,34 @@
         .feature-bullets {
             list-style: none;
             margin-bottom: 20px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         
         .feature-bullets li {
-            padding-left: 25px;
-            position: relative;
-            margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
         }
         
         .feature-bullets li::before {
             content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--bright-green);
-            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
         }
         
         /* Dynamic price styling */
@@ -2238,10 +2286,16 @@
                 </h1>
                 
                 <p class="ito-hero-description">
-                    WeFi delivers what others only dream about:<br>
-                    - Real passive income<br>
-                    - Real banking services<br>
-                    - Real wealth-building potential.<br><br>
+                    WeFi delivers what others only dream about:
+                </p>
+                
+                <ul class="ito-benefits-list">
+                    <li><span class="check-circle">✓</span> Real passive income</li>
+                    <li><span class="check-circle">✓</span> Real banking services</li>
+                    <li><span class="check-circle">✓</span> Real wealth-building potential</li>
+                </ul>
+                
+                <p class="ito-hero-description">
                     Join the revolution that's redefining finance.
                 </p>
                 
