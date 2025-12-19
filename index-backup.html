@@ -238,6 +238,107 @@
         }
         
         /* ========================================
+           TRUST SIGNALS SECTION
+           ======================================== */
+        
+        .trust-section {
+            padding: 60px 40px;
+            background: var(--black);
+            border-top: 1px solid rgba(199, 241, 96, 0.1);
+            border-bottom: 1px solid rgba(199, 241, 96, 0.1);
+        }
+        
+        .trust-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .trust-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .trust-heading {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .trust-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .trust-logo {
+            height: 40px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            filter: grayscale(100%) brightness(0) invert(1);
+        }
+        
+        .trust-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .trust-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .trust-section {
+                padding: 50px 20px;
+            }
+            
+            .trust-heading {
+                font-size: 14px;
+            }
+            
+            .trust-logos {
+                gap: 30px;
+            }
+            
+            .trust-logo {
+                height: 32px;
+                max-width: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .trust-section {
+                padding: 40px 20px;
+            }
+            
+            .trust-logos {
+                gap: 25px;
+            }
+            
+            .trust-logo {
+                height: 28px;
+                max-width: 100px;
+            }
+        }
+        
+        /* ========================================
            ITO NODES HERO SECTION
            ======================================== */
         
@@ -2328,6 +2429,32 @@
                 <!-- Animated Background Elements -->
                 <div class="ito-bg-grid"></div>
                 <div class="ito-glow-orb"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SIGNALS SECTION -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <!-- Left Column: Trusted by Industry -->
+            <div class="trust-column">
+                <h3 class="trust-heading">Trusted by Industry</h3>
+                <div class="trust-logos">
+                    <img src="http://deobankdefi.com/images/block.png" alt="Blockchain Partner" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/visa.png" alt="Visa" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/inno.png" alt="Innovation Partner" class="trust-logo">
+                </div>
+            </div>
+            
+            <!-- Right Column: What They Say About WeFi -->
+            <div class="trust-column">
+                <h3 class="trust-heading">What They Say About WeFi</h3>
+                <div class="trust-logos">
+                    <img src="http://deobankdefi.com/images/cointelegraph.png" alt="Cointelegraph" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/entrepreneur.png" alt="Entrepreneur" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/nasdaq.png" alt="Nasdaq" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/forbes.png" alt="Forbes" class="trust-logo">
+                </div>
             </div>
         </div>
     </section>
