@@ -1624,8 +1624,21 @@
             font-size: 16px;
         }
         
+        .faq-answer .inline-link {
+            color: var(--lime-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+        
+        .faq-answer .inline-link:hover {
+            color: var(--bright-green);
+            border-bottom-color: var(--bright-green);
+        }
+        
         .faq-answer.active {
-            max-height: 500px; /* Increased from 200px - ensures full answer displays on desktop */
+            max-height: 600px; /* Increased to accommodate longer answers with links */
             padding-top: 10px;
             padding-bottom: 5px;
         }
@@ -2671,7 +2684,7 @@
             
             <div class="feature-grid">
                 <div class="feature-card fade-in-on-scroll">
-                    <div class="feature-icon">🏦</div>
+                    <div class="feature-icon">🏦⛓️</div>
                     <h3 class="feature-title">Real Banking, Real DeFi</h3>
                     <p class="feature-description">
                         WeFi is the world's first Deobank. It combines traditional banking security with DeFi's unlimited potential. Get your Visa card, manage accounts, and access global payments while earning crypto rewards.
@@ -2912,38 +2925,74 @@
     <section class="section">
         <div class="section-container">
             <div class="mini-faq fade-in-on-scroll">
-                <h2 class="faq-title">Quick Answers</h2>
+                <h2 class="faq-title">Your Questions <span class="highlight">Answered</span></h2>
                 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What makes WeFi different from other crypto platforms?
+                        What is WeFi?
                     </button>
                     <div class="faq-answer">
-                        WeFi is the world's first Deobank: a fully decentralized, on-chain bank that combines traditional banking services (Visa cards, accounts, payments) with DeFi innovation. Unlike neobanks that just digitize old systems, WeFi runs entirely on blockchain with AI-powered compliance, giving you true financial freedom plus real-world utility.
+                        WeFi is the world's first Deobank: a decentralized, on-chain bank that merges traditional banking services with blockchain innovation. You get Visa cards accepted at 140M+ merchants, self-custody wallets, global payments, and DeFi earning opportunities, all in one platform. <a href="about-wefi.html" class="inline-link">Learn more about WeFi's vision →</a>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        How much can I realistically earn with WeFi?
+                        How does WeFi actually work?
                     </button>
                     <div class="faq-answer">
-                        Your earnings depend on your investment and involvement. With just $1,000 in ITO units, you could accumulate ~15,000 WFI tokens over 7 years. If WFI reaches projected values, that's potentially $150,000+ in token value alone, plus your 5% equity stake worth up to $160,000. Add referral commissions and staking rewards, and you're building serious wealth.
+                        WeFi operates on the WeChain blockchain with AI-powered compliance nodes. You purchase ITO Units starting at $50, which mine WFI tokens continuously until 2032. These tokens unlock banking services, earning opportunities through staking and liquidity pools, plus equity participation in WeFi's growth. Every transaction is on-chain, transparent, and under your control. <a href="getting-started.html" class="inline-link">See the step-by-step process →</a>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Is WeFi legitimate and safe?
+                        Who founded WeFi and why does that matter?
                     </button>
                     <div class="faq-answer">
-                        Absolutely. WeFi was founded by Reeve Collins (co-founder & ex-CEO of Tether) and is backed by a team from Wise, National Bank of Abu Dhabi, and other financial giants. WeFi holds regulatory licenses across 5 jurisdictions, won Digital Bank of the Year 2025, and set a Guinness World Record. This is as legitimate as it gets in crypto.
+                        WeFi was founded by Reeve Collins, co-founder and former CEO of Tether (USDT), the world's most-used stablecoin with $170+ billion market cap. The team includes 40+ specialists from Tether, Wise, Binance, National Bank of Abu Dhabi, and Visa. This isn't an experiment. It's built by proven crypto and finance veterans with decades of combined experience. <a href="about-wefi.html" class="inline-link">Meet the full leadership team →</a>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is WeFi legitimate and properly registered?
+                    </button>
+                    <div class="faq-answer">
+                        Yes. WeFi holds regulatory licenses across 5 jurisdictions, won Digital Bank of the Year 2025, and set a Guinness World Record for blockchain innovation. The platform uses advanced AI-driven compliance to prevent financial crimes and maintains full regulatory compliance globally. WeFi operates transparently with published terms, legal documentation, and established partnerships with major financial institutions.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What can I realistically earn with WeFi?
+                    </button>
+                    <div class="faq-answer">
+                        Earnings depend on your ITO investment and network building. A $1,000 ITO position mines approximately 15,000 WFI tokens over 7 years, plus 5% equity worth up to $160,000 at projected valuations. Add referral commissions (3-15% on direct sales, 3-8% on network volume), staking rewards, and liquidity pool earnings. Top affiliates earn $10,000-$50,000+ monthly. <a href="compensation.html" class="inline-link">View the complete compensation plan →</a>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How is WeFi different from traditional banks or crypto platforms?
+                    </button>
+                    <div class="faq-answer">
+                        Traditional banks control your money, freeze accounts, and pay near-zero interest. Crypto platforms offer DeFi but lack real-world banking. WeFi combines both: true self-custody (you control your keys), real banking services (Visa cards, accounts, payments), and DeFi earning opportunities (staking, liquidity pools, token appreciation). You're not a customer. You're an owner with equity participation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What's required to get started with WeFi?
+                    </button>
+                    <div class="faq-answer">
+                        Getting started takes under 5 minutes. Create your free account, choose an ITO package ($50 minimum to test, $250+ for full earning potential), activate your position, and start earning immediately. No credit checks, no bank requirements, no complicated paperwork. Just your email and you're in. <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="inline-link" target="_blank" rel="noopener noreferrer">Sign up now →</a>
                     </div>
                 </div>
 
                 <div class="faq-cta">
-                    <a href="#faq" class="btn btn-secondary">
-                        <span>Get All Your Answers →</span>
+                    <a href="faq.html" class="btn btn-secondary">
+                        <span>Explore Detailed FAQs →</span>
                     </a>
                 </div>
             </div>
