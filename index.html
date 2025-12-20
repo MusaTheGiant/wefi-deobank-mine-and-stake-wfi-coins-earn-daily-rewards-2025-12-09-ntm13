@@ -149,10 +149,7 @@
             font-size: 28px;
             font-weight: 800;
             letter-spacing: -1px;
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--lime-green);
             font-family: "Space Grotesk", sans-serif;
         }
         
@@ -199,7 +196,7 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            background: var(--lime-green);
             color: var(--black);
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);
@@ -211,6 +208,7 @@
         }
         
         .nav-cta:hover {
+            background: var(--bright-green);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
         }
@@ -234,6 +232,538 @@
             background: var(--lime-green);
             transition: all 0.3s ease;
             border-radius: 2px;
+        }
+        
+        /* ========================================
+           TRUST SIGNALS SECTION
+           ======================================== */
+        
+        .trust-section {
+            padding: 60px 40px;
+            background: var(--black);
+            border-top: 1px solid rgba(199, 241, 96, 0.1);
+            border-bottom: 1px solid rgba(199, 241, 96, 0.1);
+        }
+        
+        .trust-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        
+        .trust-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .trust-heading {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .trust-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .trust-logo {
+            height: 40px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            filter: brightness(0) invert(1);
+        }
+        
+        .trust-logo:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .trust-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .trust-section {
+                padding: 50px 20px;
+            }
+            
+            .trust-heading {
+                font-size: 14px;
+            }
+            
+            .trust-logos {
+                gap: 30px;
+            }
+            
+            .trust-logo {
+                height: 32px;
+                max-width: 120px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .trust-section {
+                padding: 40px 20px;
+            }
+            
+            .trust-logos {
+                gap: 25px;
+            }
+            
+            .trust-logo {
+                height: 28px;
+                max-width: 100px;
+            }
+        }
+        
+        /* ========================================
+           FOUNDER SPOTLIGHT SECTION
+           ======================================== */
+        
+        .founder-spotlight-section {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(10, 10, 10, 0.9));
+            border-top: 1px solid rgba(199, 241, 96, 0.15);
+            border-bottom: 1px solid rgba(199, 241, 96, 0.15);
+        }
+        
+        .founder-spotlight-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .founder-card {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(30, 30, 30, 0.5));
+            border-radius: 24px;
+            padding: 50px;
+            border: 1px solid rgba(199, 241, 96, 0.2);
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            transition: all 0.3s ease;
+            margin-top: 40px;
+        }
+        
+        .founder-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--lime-green);
+            box-shadow: 0 20px 60px rgba(199, 241, 96, 0.15);
+        }
+        
+        .founder-image {
+            flex-shrink: 0;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            padding: 4px;
+        }
+        
+        .founder-content {
+            flex: 1;
+        }
+        
+        .founder-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--lime-light);
+            font-family: "Space Grotesk", sans-serif;
+        }
+        
+        .founder-role {
+            font-size: 16px;
+            color: var(--lime-green);
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .founder-bio {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+        
+        .founder-link {
+            color: var(--lime-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .founder-link:hover {
+            color: var(--bright-green);
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .founder-spotlight-section {
+                padding: 60px 20px;
+            }
+            
+            .founder-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 30px;
+                gap: 25px;
+            }
+            
+            .founder-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .founder-name {
+                font-size: 24px;
+            }
+            
+            .founder-role {
+                font-size: 14px;
+            }
+            
+            .founder-bio {
+                font-size: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .founder-spotlight-section {
+                padding: 50px 20px;
+            }
+            
+            .founder-card {
+                padding: 30px 20px;
+            }
+            
+            .founder-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .founder-name {
+                font-size: 22px;
+            }
+            
+            .founder-bio {
+                font-size: 14px;
+            }
+        }
+        
+        /* ========================================
+           ITO NODES HERO SECTION
+           ======================================== */
+        
+        .ito-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(var(--navbar-height) + 40px) 40px 80px;
+            background: var(--black);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ito-hero-container {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Left Content */
+        .ito-hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .ito-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: 32px;
+            padding: 0 16px;
+            background: rgba(212, 239, 137, 0.15);
+            border: 1px solid rgba(212, 239, 137, 0.3);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+        
+        .ito-hero-title {
+            font-size: clamp(40px, 5vw, 56px);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--white);
+            font-family: "Space Grotesk", sans-serif;
+            letter-spacing: -1px;
+        }
+        
+        .gradient-text {
+            font-weight: 600;
+            color: var(--lime-green);
+        }
+        
+        .ito-hero-subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.4;
+        }
+        
+        .ito-hero-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Benefits List with Checkmark Circles */
+        .ito-benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .ito-benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+        
+        .check-circle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        .ito-cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--lime-green);
+            color: var(--black);
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+            width: fit-content;
+        }
+        
+        .ito-cta-button:hover {
+            background: var(--bright-green);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(199, 241, 96, 0.4);
+        }
+        
+        .ito-cta-button svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .ito-cta-button:hover svg {
+            transform: translateX(4px);
+        }
+        
+        /* Right Visual */
+        .ito-hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+        }
+        
+        /* Phone Mockup */
+        .phone-mockup {
+            position: relative;
+            z-index: 3;
+            filter: drop-shadow(0 30px 60px rgba(0, 255, 136, 0.3));
+        }
+        
+        .phone-frame {
+            width: 300px;
+            height: 600px;
+            background: #1A1A1A;
+            border-radius: 40px;
+            border: 8px solid #2A2A2A;
+            padding: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.1),
+                inset 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 28px;
+            background: #1A1A1A;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            z-index: 10;
+        }
+        
+        .phone-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 32px;
+        }
+        
+        /* Background Elements */
+        .ito-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(199, 241, 96, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(199, 241, 96, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+        }
+        
+        .ito-glow-orb {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(199, 241, 96, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse-glow 4s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { 
+                opacity: 0.3; 
+                transform: translate(-50%, -50%) scale(1); 
+            }
+            50% { 
+                opacity: 0.5; 
+                transform: translate(-50%, -50%) scale(1.1); 
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .ito-hero-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+                text-align: center;
+            }
+            
+            .ito-hero-content {
+                align-items: center;
+            }
+            
+            .ito-cta-button {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .ito-hero-visual {
+                height: 500px;
+            }
+            
+            .phone-frame {
+                width: 260px;
+                height: 520px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ito-hero {
+                padding: calc(var(--navbar-height) + 30px) 20px 60px;
+            }
+            
+            .ito-hero-title {
+                font-size: 36px;
+            }
+            
+            .ito-hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .ito-hero-description {
+                font-size: 15px;
+            }
+            
+            .ito-hero-visual {
+                height: 450px;
+            }
+            
+            .phone-frame {
+                width: 240px;
+                height: 480px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ito-hero-title {
+                font-size: 32px;
+            }
+            
+            .ito-hero-visual {
+                height: 400px;
+            }
+            
+            .phone-frame {
+                width: 220px;
+                height: 440px;
+            }
         }
         
         /* ========================================
@@ -359,6 +889,7 @@
             /* Font */
             font-family: "Space Grotesk", sans-serif;
             word-spacing: 0.1em;
+            color: var(--white);
             
             /* Prevent orphans and improve text wrapping */
             text-wrap: balance;
@@ -378,10 +909,7 @@
         
         /* === Gradient Highlight === */
         .hero-title .highlight {
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--lime-green);
             display: inline;
         }
         
@@ -532,12 +1060,13 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            background: var(--lime-green);
             color: var(--black);
             box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
         }
         
         .btn-primary:hover {
+            background: var(--bright-green);
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
         }
@@ -547,15 +1076,17 @@
         }
         
         .btn-secondary {
-            background: transparent;
-            color: var(--white);
+            background: var(--lime-green);
+            color: var(--black);
             border: 2px solid var(--lime-green);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
         }
         
         .btn-secondary:hover {
-            background: rgba(199, 241, 96, 0.1);
+            background: var(--bright-green);
+            border-color: var(--bright-green);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
+            box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
         }
         
         .btn-secondary:active {
@@ -711,13 +1242,11 @@
             line-height: 1.2;
             word-spacing: 0.05em;
             font-family: "Space Grotesk", sans-serif;
+            color: var(--white);
         }
         
         .section-title .highlight {
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--lime-green);
         }
         
         .section-subtitle {
@@ -796,7 +1325,7 @@
             font-size: 24px;
             font-weight: 700;
             margin-bottom: 12px;
-            color: var(--lime-light);
+            color: var(--lime-green);
             line-height: 1.3;
             font-family: "Space Grotesk", sans-serif;
         }
@@ -810,21 +1339,34 @@
         .feature-bullets {
             list-style: none;
             margin-bottom: 20px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
         
         .feature-bullets li {
-            padding-left: 25px;
-            position: relative;
-            margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
         }
         
         .feature-bullets li::before {
             content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--bright-green);
-            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
         }
         
         /* Dynamic price styling */
@@ -1232,6 +1774,10 @@
                 transform: translateX(-50%);
             }
             
+            .mobile-menu-btn span {
+                background: white;
+            }
+            
             .nav-cta {
                 position: absolute;
                 top: 50%;
@@ -1482,7 +2028,7 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            background: var(--lime-green);
             color: var(--black);
             border: none;
             border-radius: 50%;
@@ -1506,6 +2052,7 @@
         }
         
         .scroll-to-top:hover {
+            background: var(--bright-green);
             transform: scale(1.1) translateY(-3px);
             box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6);
         }
@@ -1966,23 +2513,112 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-badge">🏆 WORLD'S FIRST DEOBANK</div>
-            <h1 class="hero-title">
-                Your Gateway to <span class="highlight">Financial Freedom</span> Through DeFi
-            </h1>
-            <p class="hero-description">
-                Tired of broken promises and failed opportunities? WeFi delivers what others only dream about: real passive income, real banking services, and real wealth-building potential. Join the revolution that's redefining finance.
-            </p>
-            <div class="hero-cta">
-                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank">
-                    <span>Sign Up →</span>
+    <!-- ITO NODES HERO SECTION -->
+    <section class="ito-hero">
+        <div class="ito-hero-container">
+            <!-- Left Content -->
+            <div class="ito-hero-content">
+                <div class="ito-badge">🏆 WORLD'S FIRST DEOBANK</div>
+                <h1 class="ito-hero-title">
+                    <span class="gradient-text">Finally. Banking That <span style="color: white;">Actually Pays You</span></span>
+                </h1>
+                
+                <p class="ito-hero-description">
+                    Stop dreaming. Start earning with WeFi:
+                </p>
+                
+                <ul class="ito-benefits-list">
+                    <li><span class="check-circle">✓</span> Earn while you sleep</li>
+                    <li><span class="check-circle">✓</span> Bank like the wealthy</li>
+                    <li><span class="check-circle">✓</span> Build generational wealth</li>
+                </ul>
+                
+                <p class="ito-hero-description">
+                    Join the revolution that's redefining banking.
+                </p>
+                
+                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="ito-cta-button" target="_blank" rel="noopener noreferrer">
+                    <span>Buy ITO Units</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </a>
-                <a href="https://app.wechain.ai" class="btn btn-secondary" target="_blank">
-                    <span>Sign In →</span>
-                </a>
+            </div>
+            
+            <!-- Right Video/Phone Mockup -->
+            <div class="ito-hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <video 
+                            class="phone-video" 
+                            autoplay 
+                            muted 
+                            loop 
+                            playsinline
+                            poster="https://www.deobankdefi.com/images/wefi-app-poster.jpg">
+                            <source src="https://www.deobankdefi.com/videos/wefi-app.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- Animated Background Elements -->
+                <div class="ito-bg-grid"></div>
+                <div class="ito-glow-orb"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST SIGNALS SECTION -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <!-- Left Column: Trusted by Industry -->
+            <div class="trust-column">
+                <h3 class="trust-heading">Trusted by Industry</h3>
+                <div class="trust-logos">
+                    <img src="https://www.deobankdefi.com/images/block-gemini-logo.png" alt="Blockchain Partner" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/visa.png" alt="Visa" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/inno.png" alt="Innovation Partner" class="trust-logo">
+                </div>
+            </div>
+            
+            <!-- Right Column: What They Say About WeFi -->
+            <div class="trust-column">
+                <h3 class="trust-heading">What They Say About WeFi</h3>
+                <div class="trust-logos">
+                    <img src="http://deobankdefi.com/images/cointelegraph.png" alt="Cointelegraph" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/entrepreneur.png" alt="Entrepreneur" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/nasdaq.png" alt="Nasdaq" class="trust-logo">
+                    <img src="http://deobankdefi.com/images/forbes.png" alt="Forbes" class="trust-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOUNDER SPOTLIGHT SECTION -->
+    <section class="founder-spotlight-section">
+        <div class="founder-spotlight-container">
+            <div class="section-header fade-in-on-scroll">
+                <h2 class="section-title">Built by Proven Leaders</h2>
+            </div>
+            
+            <div class="founder-card fade-in-on-scroll">
+                <div class="founder-image">
+                    <img src="https://www.deobankdefi.com/images/reeve-collins.png" 
+                         alt="Reeve Collins - WeFi Chairman and Tether Co-Founder" 
+                         width="120" 
+                         height="120" 
+                         loading="lazy"
+                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <div class="founder-content">
+                    <h3 class="founder-name">Reeve Collins</h3>
+                    <p class="founder-role">Chairman & Board Member</p>
+                    <p class="founder-bio">
+                        Founder and former CEO of Tether (USDT), the world's most-used stablecoin with $170+ billion market cap. Pioneer in bridging crypto and traditional finance. <a href="about-wefi.html#team" class="founder-link">MEET THE FULL LEADERSHIP TEAM →</a>
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -2152,7 +2788,7 @@
 
             <div class="text-center mt-40">
                 <a href="#compensation" class="btn btn-primary">
-                    <span>See Full Compensation Plan →</span>
+                    <span>View Compensation →</span>
                 </a>
             </div>
         </div>
@@ -2202,7 +2838,7 @@
 
             <div class="text-center mt-40">
                 <a href="#getting-started" class="btn btn-primary">
-                    <span>Follow Our Step-by-Step Guide →</span>
+                    <span>Get Started Guide →</span>
                 </a>
             </div>
         </div>
