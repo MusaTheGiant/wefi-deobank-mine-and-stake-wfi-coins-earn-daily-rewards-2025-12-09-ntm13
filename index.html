@@ -1321,6 +1321,21 @@
             margin-bottom: 20px;
         }
         
+        .step-number {
+            width: 80px;
+            height: 80px;
+            border: 3px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            font-family: "Space Grotesk", sans-serif;
+        }
+        
         .feature-title {
             font-size: 24px;
             font-weight: 700;
@@ -1334,6 +1349,22 @@
             color: rgba(255, 255, 255, 0.7);
             line-height: 1.7;
             margin-bottom: 20px;
+        }
+        
+        .feature-cta-link {
+            color: var(--lime-green);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-left: 8px;
+        }
+        
+        .feature-cta-link:hover {
+            color: var(--bright-green);
+            transform: translateX(3px);
         }
         
         .feature-bullets {
@@ -1453,6 +1484,13 @@
             .feature-description {
                 font-size: 15px;
                 line-height: 1.6;
+            }
+            
+            .step-number {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                border-width: 2px;
             }
         }
         
@@ -2747,7 +2785,7 @@
 
             <div class="feature-grid">
                 <div class="feature-card fade-in-on-scroll">
-                    <div class="feature-icon">💎</div>
+                    <div class="feature-icon">⛏️</div>
                     <h3 class="feature-title">ITO Mining Rewards</h3>
                     <p class="feature-description">
                         Purchase ITO Units and earn WFI tokens every single second until 2032. It's like owning a piece of the bank that pays you continuously.
@@ -2804,15 +2842,15 @@
 
             <div class="feature-grid">
                 <div class="feature-card fade-in-on-scroll">
-                    <div class="feature-icon">1️⃣</div>
+                    <div class="feature-icon step-number">1</div>
                     <h3 class="feature-title">Create Your Account</h3>
                     <p class="feature-description">
-                        Sign up for free in under 2 minutes. No credit checks, no complicated paperwork. Just your email and you're in.
+                        Sign up for free in under 2 minutes. No credit checks, no complicated paperwork. Just your email and you're in. <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="feature-cta-link" target="_blank" rel="noopener noreferrer">SIGN UP</a>
                     </p>
                 </div>
 
                 <div class="feature-card fade-in-on-scroll">
-                    <div class="feature-icon">2️⃣</div>
+                    <div class="feature-icon step-number">2</div>
                     <h3 class="feature-title">Choose Your ITO Package</h3>
                     <p class="feature-description">
                         Start with as little as $50 to test, or invest $1,000+ to maximize your earning potential. You control your destiny.
@@ -2820,7 +2858,7 @@
                 </div>
 
                 <div class="feature-card fade-in-on-scroll">
-                    <div class="feature-icon">3️⃣</div>
+                    <div class="feature-icon step-number">3</div>
                     <h3 class="feature-title">Activate & Start Earning</h3>
                     <p class="feature-description">
                         Your ITO nodes begin mining WFI immediately. Watch your tokens accumulate in real-time, 24/7/365.
@@ -2828,7 +2866,7 @@
                 </div>
 
                 <div class="feature-card fade-in-on-scroll">
-                    <div class="feature-icon">4️⃣</div>
+                    <div class="feature-icon step-number">4</div>
                     <h3 class="feature-title">Share & Multiply</h3>
                     <p class="feature-description">
                         Use your unique referral link to invite others. Every person you bring in increases your passive income exponentially.
