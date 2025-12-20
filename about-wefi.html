@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>About WeFi - The World's First Deobank | DeobankDeFi</title>
     
     <!-- SEO Meta Tags -->
@@ -1908,6 +1908,82 @@
             }
         }
         
+        /* ===== TABLET-SPECIFIC OPTIMIZATIONS (769px - 1024px) ===== */
+        /* These rules ensure videos play perfectly on iPad, Android tablets, and all tablet devices */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .video-modal {
+                /* Ensure proper stacking and interaction on tablets */
+                -webkit-overflow-scrolling: touch;
+                touch-action: manipulation;
+            }
+            
+            .video-container {
+                width: 92%;
+                max-width: 900px;
+                padding: 8px;
+            }
+            
+            .video-wrapper {
+                /* Ensure proper aspect ratio on tablets */
+                padding-bottom: 56.25%;
+            }
+            
+            .video-wrapper iframe,
+            .video-wrapper > div[id^="youtube-player-"] {
+                /* Critical for tablet video playback */
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+                border: none;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+            }
+            
+            .video-close {
+                /* Larger touch target for tablets */
+                width: 44px;
+                height: 44px;
+                font-size: 26px;
+                top: -55px;
+            }
+        }
+        
+        /* iPad Portrait (768x1024) */
+        @media (min-width: 768px) and (max-width: 768px) and (orientation: portrait) {
+            .video-container {
+                width: 94%;
+                max-height: 80vh;
+            }
+        }
+        
+        /* iPad Landscape (1024x768) */
+        @media (min-width: 1024px) and (max-width: 1024px) and (orientation: landscape) {
+            .video-container {
+                width: 90%;
+                max-height: 75vh;
+            }
+        }
+        
+        /* iPad Pro Portrait (1024x1366) */
+        @media (min-width: 1024px) and (max-width: 1024px) and (min-height: 1300px) and (orientation: portrait) {
+            .video-container {
+                width: 92%;
+                max-height: 70vh;
+            }
+        }
+        
+        /* iPad Pro Landscape (1366x1024) */
+        @media (min-width: 1366px) and (max-width: 1366px) and (max-height: 1024px) and (orientation: landscape) {
+            .video-container {
+                width: 88%;
+                max-height: 75vh;
+            }
+        }
+        
         /* Laptop screen optimization (768px - 1600px width) */
         @media (min-width: 769px) and (max-width: 1600px) {
             .video-container {
@@ -2608,7 +2684,7 @@
                 
                 await waitForVimeo();
                 
-                const vimeoUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&autopause=0&muted=0&controls=1&title=0&byline=0&portrait=0&color=C7F160`;
+                const vimeoUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&autopause=0&muted=0&controls=1&title=0&byline=0&portrait=0&color=C7F160&playsinline=1&dnt=1`;
                 
                 videoIframe.src = vimeoUrl;
                 await new Promise(resolve => setTimeout(resolve, 500));
@@ -2672,6 +2748,9 @@
                         
                         console.log('Creating YouTube player...');
                         
+                        // Detect if device is tablet for optimal settings
+                        const isTablet = /iPad|Android/i.test(navigator.userAgent) && window.innerWidth >= 768 && window.innerWidth <= 1024;
+                        
                         // Create YouTube player
                         youtubePlayer = new YT.Player(playerDiv.id, {
                             videoId: videoId,
@@ -2685,7 +2764,10 @@
                                 showinfo: 0,
                                 fs: 1,
                                 iv_load_policy: 3,
-                                color: 'white'
+                                color: 'white',
+                                playsinline: 1, // Critical for iOS/iPad playback
+                                enablejsapi: 1, // Enable JavaScript API
+                                origin: window.location.origin // Security requirement for tablets
                             },
                             events: {
                                 onReady: function(event) {
