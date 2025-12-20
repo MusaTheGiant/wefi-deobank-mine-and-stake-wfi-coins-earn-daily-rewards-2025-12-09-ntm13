@@ -2643,13 +2643,9 @@
         let youtubePlayer = null;
         let videoModal = null;
         let videoIframe = null;
-        let youtubeAPIReady = false;
         
-        // YouTube API ready callback (called automatically by YouTube)
-        window.onYouTubeIframeAPIReady = function() {
-            console.log('YouTube API Ready');
-            youtubeAPIReady = true;
-        };
+        // Initialize YouTube API Ready Flag on window object for global access
+        window.youtubeAPIReady = false;
         
         // ===== VIDEO MODAL FUNCTIONS =====
         
@@ -2725,38 +2721,6 @@
                     
                     const loadingElement = document.getElementById('videoLoading');
                     
-                    // Detect mobile/tablet devices
-                    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                    const isTablet = /iPad|Android/i.test(navigator.userAgent) && window.innerWidth >= 768 && window.innerWidth <= 1024;
-                    const isMobileOrTablet = isMobile || isTablet;
-                    
-                    // For mobile/tablet: Use simple iframe approach (works perfectly like Vimeo)
-                    if (isMobileOrTablet) {
-                        console.log('📱 Mobile/Tablet detected - Using iframe method');
-                        
-                        // Build YouTube embed URL with mobile-optimized parameters
-                        const youtubeUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&showinfo=0&fs=1&iv_load_policy=3&playsinline=1&enablejsapi=0&origin=${encodeURIComponent(window.location.origin)}`;
-                        
-                        // Set iframe src directly
-                        videoIframe.style.display = '';
-                        videoIframe.src = youtubeUrl;
-                        videoIframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; accelerometer; gyroscope');
-                        videoIframe.setAttribute('allowfullscreen', 'true');
-                        
-                        // Hide loading after delay
-                        setTimeout(() => {
-                            if (loadingElement) {
-                                loadingElement.classList.add('hidden');
-                            }
-                            resolve(true);
-                        }, 1500);
-                        
-                        return;
-                    }
-                    
-                    // For desktop: Use YouTube API for better control
-                    console.log('💻 Desktop detected - Using YouTube API');
-                    
                     // Create container div for YouTube player
                     const playerDiv = document.createElement('div');
                     playerDiv.id = 'youtube-player-' + Date.now();
@@ -2772,7 +2736,7 @@
                     
                     // Check if YouTube API is ready
                     const initPlayer = () => {
-                        if (!window.YT || !window.YT.Player || !youtubeAPIReady) {
+                        if (!window.YT || !window.YT.Player || !window.youtubeAPIReady) {
                             console.log('Waiting for YouTube API...');
                             setTimeout(initPlayer, 100);
                             return;
@@ -2793,9 +2757,7 @@
                                 showinfo: 0,
                                 fs: 1,
                                 iv_load_policy: 3,
-                                color: 'white',
-                                enablejsapi: 1,
-                                origin: window.location.origin
+                                color: 'white'
                             },
                             events: {
                                 onReady: function(event) {
@@ -2956,6 +2918,12 @@
         // ===== DOM CONTENT LOADED =====
         document.addEventListener('DOMContentLoaded', function() {
             console.log('✅ DOMContentLoaded fired');
+            
+            // YouTube API ready callback (called automatically by YouTube)
+            window.onYouTubeIframeAPIReady = function() {
+                console.log('YouTube API Ready');
+                window.youtubeAPIReady = true;
+            };
             
             // Set dynamic copyright year
             document.getElementById('currentYear').textContent = new Date().getFullYear();
