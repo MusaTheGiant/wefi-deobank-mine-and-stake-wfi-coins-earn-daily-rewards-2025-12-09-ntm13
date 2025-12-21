@@ -1725,24 +1725,40 @@
                 maxRetries: 3
             },
             
-            elements: {
-                currentPrice: document.getElementById('currentPrice'),
-                marketCapRank: document.getElementById('marketCapRank'),
-                marketCap: document.getElementById('marketCap'),
-                volume24h: document.getElementById('volume24h'),
-                circulatingSupply: document.getElementById('circulatingSupply'),
-                athPrice: document.getElementById('athPrice'),
-                athDate: document.getElementById('athDate'),
-                atlPrice: document.getElementById('atlPrice'),
-                atlDate: document.getElementById('atlDate'),
-                priceChange24h: document.getElementById('priceChange24h'),
-                currentPriceTable: document.getElementById('currentPriceTable')
-            },
+            elements: {},
             
             retryCount: 0,
             
             init: async function() {
                 console.log('🚀 Initializing WFI Price Manager - REAL DATA MODE');
+                
+                // Grab elements AFTER DOM is ready
+                this.elements = {
+                    currentPrice: document.getElementById('currentPrice'),
+                    marketCapRank: document.getElementById('marketCapRank'),
+                    marketCap: document.getElementById('marketCap'),
+                    volume24h: document.getElementById('volume24h'),
+                    circulatingSupply: document.getElementById('circulatingSupply'),
+                    athPrice: document.getElementById('athPrice'),
+                    athDate: document.getElementById('athDate'),
+                    atlPrice: document.getElementById('atlPrice'),
+                    atlDate: document.getElementById('atlDate'),
+                    priceChange24h: document.getElementById('priceChange24h'),
+                    currentPriceTable: document.getElementById('currentPriceTable')
+                };
+                
+                console.log('📍 Elements found:', {
+                    currentPrice: !!this.elements.currentPrice,
+                    marketCapRank: !!this.elements.marketCapRank,
+                    marketCap: !!this.elements.marketCap,
+                    volume24h: !!this.elements.volume24h,
+                    circulatingSupply: !!this.elements.circulatingSupply,
+                    athPrice: !!this.elements.athPrice,
+                    athDate: !!this.elements.athDate,
+                    atlPrice: !!this.elements.atlPrice,
+                    atlDate: !!this.elements.atlDate,
+                    priceChange24h: !!this.elements.priceChange24h
+                });
                 
                 // Fetch fresh prices immediately
                 await this.fetchAndUpdate();
