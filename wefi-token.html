@@ -1769,22 +1769,25 @@
             
             fetchAndUpdate: async function() {
                 try {
-                    console.log('📡 Fetching LIVE WFI data from CoinGecko...');
+                    console.log('📡 Fetching LIVE WFI data from CoinMarketCap...');
                     
-                    const response = await fetch('https://api.coingecko.com/api/v3/coins/wfi?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false');
+                    // Using CoinMarketCap's public widget API (no API key required)
+                    // This endpoint is used by their public widgets and doesn't require authentication
+                    const cmcId = '33771'; // WFI's CoinMarketCap ID
+                    const response = await fetch(`https://api.coinmarketcap.com/data-api/v3/cryptocurrency/detail/chart?id=${cmcId}&range=1D`);
                     
                     if (!response.ok) {
-                        throw new Error(`CoinGecko API returned status ${response.status}`);
+                        throw new Error(`CoinMarketCap API returned status ${response.status}`);
                     }
                     
                     const data = await response.json();
-                    console.log('✅ CoinGecko data received:', data);
+                    console.log('✅ CoinMarketCap data received:', data);
                     
-                    if (data && data.market_data) {
-                        this.updateAllStats(data);
+                    if (data && data.data) {
+                        this.updateFromCoinMarketCap(data.data);
                         this.retryCount = 0;
                     } else {
-                        throw new Error('Invalid data structure from CoinGecko');
+                        throw new Error('Invalid data structure from CoinMarketCap');
                     }
                     
                 } catch (error) {
@@ -1802,71 +1805,67 @@
                 }
             },
             
-            updateAllStats: function(data) {
-                const md = data.market_data;
+            updateFromCoinMarketCap: function(data) {
+                console.log('📊 Processing CMC data:', data);
+                
+                // Get the latest point from the chart data
+                const points = data.points;
+                if (!points || Object.keys(points).length === 0) {
+                    console.error('No price points available');
+                    this.showError();
+                    return;
+                }
+                
+                // Get the most recent timestamp
+                const timestamps = Object.keys(points).sort((a, b) => b - a);
+                const latestPoint = points[timestamps[0]];
+                
+                // Get statistics
+                const stats = data.statistics;
                 
                 // Current Price
-                if (this.elements.currentPrice && md.current_price) {
-                    this.updateElement(this.elements.currentPrice, `$${md.current_price.usd.toFixed(4)}`);
+                if (this.elements.currentPrice && latestPoint && latestPoint.v && latestPoint.v[0]) {
+                    const price = latestPoint.v[0];
+                    this.updateElement(this.elements.currentPrice, `$${price.toFixed(4)}`);
+                    
+                    // Update table price too
+                    if (this.elements.currentPriceTable) {
+                        this.elements.currentPriceTable.textContent = `$${price.toFixed(4)}`;
+                    }
                 }
                 
                 // Market Cap Rank
-                if (this.elements.marketCapRank && data.market_cap_rank) {
-                    this.updateElement(this.elements.marketCapRank, `#${data.market_cap_rank}`);
+                if (this.elements.marketCapRank && stats && stats.rank) {
+                    this.updateElement(this.elements.marketCapRank, `#${stats.rank}`);
                 }
                 
                 // Market Cap
-                if (this.elements.marketCap && md.market_cap) {
-                    const mcap = md.market_cap.usd;
+                if (this.elements.marketCap && stats && stats.marketCap) {
+                    const mcap = stats.marketCap;
                     const formatted = mcap >= 1e9 ? `$${(mcap / 1e9).toFixed(2)}B` : `$${(mcap / 1e6).toFixed(2)}M`;
                     this.updateElement(this.elements.marketCap, formatted);
                 }
                 
                 // 24h Volume
-                if (this.elements.volume24h && md.total_volume) {
-                    const vol = md.total_volume.usd;
+                if (this.elements.volume24h && stats && stats.volume24h) {
+                    const vol = stats.volume24h;
                     const formatted = vol >= 1e6 ? `$${(vol / 1e6).toFixed(2)}M` : `$${(vol / 1e3).toFixed(2)}K`;
                     this.updateElement(this.elements.volume24h, formatted);
                 }
                 
                 // Circulating Supply
-                if (this.elements.circulatingSupply && md.circulating_supply) {
-                    const cs = md.circulating_supply;
+                if (this.elements.circulatingSupply && stats && stats.circulatingSupply) {
+                    const cs = stats.circulatingSupply;
                     const formatted = cs >= 1e6 ? `${(cs / 1e6).toFixed(2)}M` : `${(cs / 1e3).toFixed(2)}K`;
                     this.updateElement(this.elements.circulatingSupply, formatted);
                 }
                 
-                // All-Time High
-                if (this.elements.athPrice && md.ath) {
-                    this.updateElement(this.elements.athPrice, `$${md.ath.usd.toFixed(4)}`);
-                }
-                
-                if (this.elements.athDate && md.ath_date) {
-                    const date = new Date(md.ath_date.usd);
-                    const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-                    this.elements.athDate.textContent = formatted;
-                    this.elements.athDate.classList.remove('loading');
-                }
-                
-                // All-Time Low
-                if (this.elements.atlPrice && md.atl) {
-                    this.updateElement(this.elements.atlPrice, `$${md.atl.usd.toFixed(4)}`);
-                }
-                
-                if (this.elements.atlDate && md.atl_date) {
-                    const date = new Date(md.atl_date.usd);
-                    const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-                    this.elements.atlDate.textContent = formatted;
-                    this.elements.atlDate.classList.remove('loading');
-                }
-                
                 // Price Change 24h
-                if (this.elements.priceChange24h && md.price_change_percentage_24h) {
-                    const change = md.price_change_percentage_24h;
+                if (this.elements.priceChange24h && stats && stats.priceChange24h !== undefined) {
+                    const change = stats.priceChange24h;
                     const formatted = `${change >= 0 ? '+' : ''}${change.toFixed(2)}%`;
                     this.updateElement(this.elements.priceChange24h, formatted);
                     
-                    // Color based on positive/negative
                     if (change >= 0) {
                         this.elements.priceChange24h.style.color = 'var(--lime-green)';
                     } else {
@@ -1874,12 +1873,31 @@
                     }
                 }
                 
-                // Table price
-                if (this.elements.currentPriceTable && md.current_price) {
-                    this.elements.currentPriceTable.textContent = `$${md.current_price.usd.toFixed(4)}`;
+                // All-Time High
+                if (this.elements.athPrice && stats && stats.high) {
+                    this.updateElement(this.elements.athPrice, `$${stats.high.toFixed(4)}`);
                 }
                 
-                console.log('✅ All stats updated with REAL data');
+                if (this.elements.athDate && stats && stats.highTimestamp) {
+                    const date = new Date(stats.highTimestamp * 1000);
+                    const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                    this.elements.athDate.textContent = formatted;
+                    this.elements.athDate.classList.remove('loading');
+                }
+                
+                // All-Time Low
+                if (this.elements.atlPrice && stats && stats.low) {
+                    this.updateElement(this.elements.atlPrice, `$${stats.low.toFixed(4)}`);
+                }
+                
+                if (this.elements.atlDate && stats && stats.lowTimestamp) {
+                    const date = new Date(stats.lowTimestamp * 1000);
+                    const formatted = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                    this.elements.atlDate.textContent = formatted;
+                    this.elements.atlDate.classList.remove('loading');
+                }
+                
+                console.log('✅ All stats updated from CoinMarketCap');
             },
             
             updateElement: function(element, value) {
