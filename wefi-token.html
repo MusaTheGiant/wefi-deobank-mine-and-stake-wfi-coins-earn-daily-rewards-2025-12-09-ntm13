@@ -1720,10 +1720,10 @@
         const WFIPriceManager = {
             // Configuration
             config: {
-                updateInterval: 5 * 60 * 1000, // Update every 5 minutes
-                cacheExpiry: 3 * 60 * 1000, // Cache for 3 minutes
-                retryAttempts: 3,
-                retryDelay: 2000
+                updateInterval: 60 * 1000, // Update every 60 seconds for real-time data
+                cacheExpiry: 2 * 60 * 1000, // Cache for 2 minutes only
+                retryAttempts: 5, // More retry attempts
+                retryDelay: 3000 // 3 second delay between retries
             },
             
             // Storage keys
@@ -1767,7 +1767,7 @@
                     this.fetchPrices();
                 }, this.config.updateInterval);
                 
-                console.log('✅ WFI Price Manager initialized - updates every 5 minutes');
+                console.log('✅ WFI Price Manager initialized - updates every 60 seconds');
             },
             
             // Fetch prices from APIs
@@ -1822,39 +1822,22 @@
                 }
             },
             
-            // Fetch from CoinGecko API (WORKING - same as index.html)
+            // Fetch from CoinGecko API (Primary)
             fetchFromCoinGecko: async function() {
                 try {
+                    // Correct CoinGecko ID is "wfi" from https://www.coingecko.com/en/coins/wfi
                     const response = await fetch(
                         'https://api.coingecko.com/api/v3/coins/wfi?' +
                         'localization=false&tickers=false&community_data=false&developer_data=false&sparkline=false'
                     );
                     
-                    if (!response.ok) throw new Error('CoinGecko API error');
+                    if (!response.ok) throw new Error(`CoinGecko API error: ${response.status}`);
                     
                     const data = await response.json();
+                    console.log('✅ CoinGecko data received:', data);
+                    
                     if (data && data.market_data) {
-                        const md = data.market_data;
-                        return {
-                            currentPrice: md.current_price.usd,
-                            ath: md.ath.usd,
-                            athDate: new Date(md.ath_date.usd).toLocaleDateString('en-US', {
-                                month: 'short',
-                                day: 'numeric',
-                                year: 'numeric'
-                            }),
-                            atl: md.atl.usd,
-                            atlDate: new Date(md.atl_date.usd).toLocaleDateString('en-US', {
-                                month: 'short',
-                                day: 'numeric',
-                                year: 'numeric'
-                            }),
-                            marketCap: md.market_cap.usd,
-                            marketCapRank: data.market_cap_rank,
-                            volume24h: md.total_volume.usd,
-                            circulatingSupply: md.circulating_supply,
-                            priceChange24h: md.price_change_percentage_24h
-                        };
+                        return this.parseCoinGeckoData(data);
                     }
                     return null;
                 } catch (error) {
@@ -1863,36 +1846,136 @@
                 }
             },
             
-            // Fetch from CoinMarketCap API
+            parseCoinGeckoData: function(data) {
+                const md = data.market_data;
+                return {
+                    currentPrice: md.current_price.usd,
+                    ath: md.ath.usd,
+                    athDate: new Date(md.ath_date.usd).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                    }),
+                    atl: md.atl.usd,
+                    atlDate: new Date(md.atl_date.usd).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                    }),
+                    marketCap: md.market_cap.usd,
+                    marketCapRank: data.market_cap_rank,
+                    volume24h: md.total_volume.usd,
+                    circulatingSupply: md.circulating_supply,
+                    priceChange24h: md.price_change_percentage_24h
+                };
+            },
+            
+            // Fetch from CoinMarketCap API (Fallback - using public widget endpoint)
             fetchFromCoinMarketCap: async function() {
                 try {
-                    console.warn('CoinMarketCap integration requires backend proxy with API key');
-                    return null;
+                    // From https://coinmarketcap.com/currencies/wfi/ - ID should be extractable from their widget API
+                    // Try their public quote endpoint first
+                    const response = await fetch(
+                        'https://api.coinmarketcap.com/data-api/v3/cryptocurrency/detail?slug=wfi&aux=ath,atl'
+                    );
+                    
+                    if (!response.ok) {
+                        // Fallback to ID-based endpoint (33771 is WFI's ID)
+                        const response2 = await fetch(
+                            'https://api.coinmarketcap.com/data-api/v3/cryptocurrency/detail?id=33771&aux=ath,atl'
+                        );
+                        
+                        if (!response2.ok) throw new Error(`CoinMarketCap API error: ${response2.status}`);
+                        
+                        const result = await response2.json();
+                        return this.parseCoinMarketCapData(result);
+                    }
+                    
+                    const result = await response.json();
+                    console.log('✅ CoinMarketCap data received:', result);
+                    return this.parseCoinMarketCapData(result);
                 } catch (error) {
                     console.warn('CoinMarketCap fetch failed:', error.message);
                     return null;
                 }
             },
             
-            // Fetch from custom API or blockchain
+            parseCoinMarketCapData: function(result) {
+                if (result && result.data) {
+                    const data = result.data;
+                    const quote = data.quote ? data.quote[0] : null;
+                    
+                    if (quote) {
+                        return {
+                            currentPrice: quote.price,
+                            ath: data.statistics?.high || quote.ath,
+                            athDate: data.statistics?.highTimestamp 
+                                ? new Date(data.statistics.highTimestamp * 1000).toLocaleDateString('en-US', {
+                                    month: 'short',
+                                    day: 'numeric',
+                                    year: 'numeric'
+                                })
+                                : 'Dec 3, 2025',
+                            atl: data.statistics?.low || quote.atl,
+                            atlDate: data.statistics?.lowTimestamp
+                                ? new Date(data.statistics.lowTimestamp * 1000).toLocaleDateString('en-US', {
+                                    month: 'short',
+                                    day: 'numeric',
+                                    year: 'numeric'
+                                })
+                                : 'Nov 25, 2024',
+                            marketCap: quote.marketCap,
+                            marketCapRank: data.statistics?.rank || data.cmcRank,
+                            volume24h: quote.volume24h,
+                            circulatingSupply: data.circulatingSupply,
+                            priceChange24h: quote.percentChange24h
+                        };
+                    }
+                }
+                return null;
+            },
+            
+            // Fetch from custom API or blockchain (REMOVED - we want REAL data only)
             fetchFromCustomAPI: async function() {
                 try {
-                    // Fallback to static values (last resort)
-                    console.warn('Using fallback static values - please configure API');
-                    return {
-                        currentPrice: 2.37,
-                        ath: 2.51,
-                        athDate: 'Dec 3, 2025',
-                        atl: 0.1513,
-                        atlDate: 'Nov 25, 2024',
-                        marketCap: 178000000,
-                        marketCapRank: 297,
-                        volume24h: 5000000,
-                        circulatingSupply: 75580000,
-                        priceChange24h: 0
-                    };
+                    // Try alternative CoinGecko simple price endpoint with correct ID
+                    const response = await fetch(
+                        'https://api.coingecko.com/api/v3/simple/price?ids=wfi&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true'
+                    );
+                    
+                    if (response.ok) {
+                        const data = await response.json();
+                        console.log('✅ CoinGecko simple API data received:', data);
+                        
+                        if (data && data.wfi) {
+                            // Get full data for additional fields
+                            const fullResponse = await fetch('https://api.coingecko.com/api/v3/coins/wfi');
+                            if (fullResponse.ok) {
+                                const fullData = await fullResponse.json();
+                                return this.parseCoinGeckoData(fullData);
+                            }
+                            
+                            // Return basic data if full fetch fails
+                            return {
+                                currentPrice: data.wfi.usd,
+                                marketCap: data.wfi.usd_market_cap,
+                                volume24h: data.wfi.usd_24h_vol,
+                                priceChange24h: data.wfi.usd_24h_change || 0,
+                                // These will be filled from cache or shown as loading
+                                ath: null,
+                                athDate: null,
+                                atl: null,
+                                atlDate: null,
+                                marketCapRank: null,
+                                circulatingSupply: null
+                            };
+                        }
+                    }
+                    
+                    console.error('All API endpoints failed - no live data available');
+                    return null;
                 } catch (error) {
-                    console.warn('Custom API fetch failed:', error.message);
+                    console.warn('Final API attempt failed:', error.message);
                     return null;
                 }
             },
@@ -2055,21 +2138,59 @@
             
             // Show error state
             showError: function() {
-                const fallback = {
-                    currentPrice: 2.37,
-                    ath: 2.51,
-                    athDate: 'Dec 3, 2025',
-                    atl: 0.1513,
-                    atlDate: 'Nov 25, 2024',
-                    marketCap: 178000000,
-                    marketCapRank: 297,
-                    volume24h: 5000000,
-                    circulatingSupply: 75580000,
-                    priceChange24h: 0
-                };
+                console.error('⚠️ Unable to fetch live data from any source');
                 
-                console.warn('Using fallback values');
-                this.updatePrices(fallback);
+                // Show "Unable to fetch" for all fields
+                if (this.elements.currentPrice) {
+                    this.elements.currentPrice.textContent = 'Unable to fetch';
+                    this.elements.currentPrice.classList.remove('loading');
+                    this.elements.currentPrice.classList.add('error');
+                }
+                
+                if (this.elements.marketCapRank) {
+                    this.elements.marketCapRank.textContent = '--';
+                    this.elements.marketCapRank.classList.remove('loading');
+                }
+                
+                if (this.elements.marketCap) {
+                    this.elements.marketCap.textContent = 'Unable to fetch';
+                    this.elements.marketCap.classList.remove('loading');
+                }
+                
+                if (this.elements.volume24h) {
+                    this.elements.volume24h.textContent = 'Unable to fetch';
+                    this.elements.volume24h.classList.remove('loading');
+                }
+                
+                if (this.elements.circulatingSupply) {
+                    this.elements.circulatingSupply.textContent = 'Unable to fetch';
+                    this.elements.circulatingSupply.classList.remove('loading');
+                }
+                
+                if (this.elements.athPrice) {
+                    this.elements.athPrice.textContent = 'Unable to fetch';
+                    this.elements.athPrice.classList.remove('loading');
+                }
+                
+                if (this.elements.athDate) {
+                    this.elements.athDate.textContent = '--';
+                    this.elements.athDate.classList.remove('loading');
+                }
+                
+                if (this.elements.atlPrice) {
+                    this.elements.atlPrice.textContent = 'Unable to fetch';
+                    this.elements.atlPrice.classList.remove('loading');
+                }
+                
+                if (this.elements.atlDate) {
+                    this.elements.atlDate.textContent = '--';
+                    this.elements.atlDate.classList.remove('loading');
+                }
+                
+                if (this.elements.priceChange24h) {
+                    this.elements.priceChange24h.textContent = '--';
+                    this.elements.priceChange24h.classList.remove('loading');
+                }
             }
         };
         
