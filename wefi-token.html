@@ -1157,29 +1157,14 @@
                         <div class="stat-subtext">Live from DexScreener</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">24h Price Change</div>
-                        <div class="stat-value" id="priceChange24h">Loading...</div>
-                        <div class="stat-subtext">Daily Movement</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">24h Volume</div>
-                        <div class="stat-value" id="volume24h">Loading...</div>
-                        <div class="stat-subtext">Trading Activity</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-label">Liquidity (USD)</div>
-                        <div class="stat-value" id="liquidity">Loading...</div>
-                        <div class="stat-subtext">Total Liquidity</div>
-                    </div>
-                    <div class="stat-card">
                         <div class="stat-label">Market Cap</div>
                         <div class="stat-value" id="marketCap">Loading...</div>
-                        <div class="stat-subtext">Fully Diluted</div>
+                        <div class="stat-subtext">Fully Diluted Valuation</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">24h Transactions</div>
-                        <div class="stat-value" id="txns24h">Loading...</div>
-                        <div class="stat-subtext">Buys + Sells</div>
+                        <div class="stat-label">Holders</div>
+                        <div class="stat-value" id="holders">Loading...</div>
+                        <div class="stat-subtext">Total Token Holders</div>
                     </div>
                 </div>
                 
@@ -1774,22 +1759,29 @@
         let videoModal = null;
         let videoIframe = null;
         
-        // ===== DEXSCREENER PRICE FETCHER =====
-        const DexScreenerFetcher = {
-            pairAddress: '0xdbbb8c123f0ee395efcaaf6b3285562470ab40e0',
-            apiUrl: 'https://api.dexscreener.com/latest/dex/pairs/bsc/',
+        // ===== DEXSCREENER + BSCSCAN DATA FETCHER =====
+        const WFIDataFetcher = {
+            dexScreenerUrl: 'https://api.dexscreener.com/latest/dex/pairs/bsc/0xdbbb8c123f0ee395efcaaf6b3285562470ab40e0',
+            tokenAddress: '0x4e49685d28012ba446cd4855bf547087ccc9063a', // WFI token contract
             
             init: function() {
-                console.log('🚀 Initializing DexScreener Price Fetcher...');
-                this.fetchData();
-                // Update every 30 seconds
-                setInterval(() => this.fetchData(), 30000);
+                console.log('🚀 Initializing WFI Data Fetcher...');
+                this.fetchAllData();
+                // Update every 60 seconds
+                setInterval(() => this.fetchAllData(), 60000);
             },
             
-            fetchData: async function() {
+            fetchAllData: async function() {
+                // Fetch price and market cap from DexScreener
+                await this.fetchDexScreenerData();
+                // Fetch holder count from BscScan
+                await this.fetchHolderCount();
+            },
+            
+            fetchDexScreenerData: async function() {
                 try {
                     console.log('📡 Fetching from DexScreener...');
-                    const response = await fetch(this.apiUrl + this.pairAddress);
+                    const response = await fetch(this.dexScreenerUrl);
                     
                     if (!response.ok) {
                         throw new Error(`DexScreener API error: ${response.status}`);
@@ -1798,62 +1790,32 @@
                     const data = await response.json();
                     console.log('✅ DexScreener data received:', data);
                     
+                    let pair = null;
                     if (data && data.pair) {
-                        this.updateStats(data.pair);
+                        pair = data.pair;
                     } else if (data && data.pairs && data.pairs[0]) {
-                        this.updateStats(data.pairs[0]);
+                        pair = data.pairs[0];
+                    }
+                    
+                    if (pair) {
+                        this.updatePriceAndMarketCap(pair);
                     } else {
-                        throw new Error('Invalid data structure from DexScreener');
+                        throw new Error('No pair data found');
                     }
                 } catch (error) {
                     console.error('❌ DexScreener fetch failed:', error);
-                    this.showError();
+                    this.showPriceError();
                 }
             },
             
-            updateStats: function(pair) {
+            updatePriceAndMarketCap: function(pair) {
                 // Current Price
                 const priceUsd = parseFloat(pair.priceUsd);
                 const currentPrice = document.getElementById('currentPrice');
                 if (currentPrice && priceUsd) {
                     currentPrice.textContent = `$${priceUsd.toFixed(4)}`;
                     currentPrice.classList.remove('loading');
-                }
-                
-                // 24h Price Change
-                const priceChange = parseFloat(pair.priceChange?.h24);
-                const priceChange24h = document.getElementById('priceChange24h');
-                if (priceChange24h && priceChange !== undefined) {
-                    const formatted = `${priceChange >= 0 ? '+' : ''}${priceChange.toFixed(2)}%`;
-                    priceChange24h.textContent = formatted;
-                    priceChange24h.style.color = priceChange >= 0 ? 'var(--lime-green)' : '#ff4444';
-                    priceChange24h.classList.remove('loading');
-                }
-                
-                // 24h Volume
-                const volume = parseFloat(pair.volume?.h24);
-                const volume24h = document.getElementById('volume24h');
-                if (volume24h && volume) {
-                    const formatted = volume >= 1e6 
-                        ? `$${(volume / 1e6).toFixed(2)}M` 
-                        : volume >= 1e3
-                        ? `$${(volume / 1e3).toFixed(2)}K`
-                        : `$${volume.toFixed(2)}`;
-                    volume24h.textContent = formatted;
-                    volume24h.classList.remove('loading');
-                }
-                
-                // Liquidity
-                const liquidityUsd = parseFloat(pair.liquidity?.usd);
-                const liquidity = document.getElementById('liquidity');
-                if (liquidity && liquidityUsd) {
-                    const formatted = liquidityUsd >= 1e6 
-                        ? `$${(liquidityUsd / 1e6).toFixed(2)}M` 
-                        : liquidityUsd >= 1e3
-                        ? `$${(liquidityUsd / 1e3).toFixed(2)}K`
-                        : `$${liquidityUsd.toFixed(2)}`;
-                    liquidity.textContent = formatted;
-                    liquidity.classList.remove('loading');
+                    console.log('✅ Price updated:', priceUsd);
                 }
                 
                 // Market Cap (Fully Diluted Valuation)
@@ -1867,35 +1829,63 @@
                         : `$${(fdv / 1e3).toFixed(2)}K`;
                     marketCap.textContent = formatted;
                     marketCap.classList.remove('loading');
+                    console.log('✅ Market Cap updated:', formatted);
                 }
-                
-                // 24h Transactions
-                const txns = pair.txns?.h24;
-                const txns24h = document.getElementById('txns24h');
-                if (txns24h && txns) {
-                    const buys = txns.buys || 0;
-                    const sells = txns.sells || 0;
-                    const total = buys + sells;
-                    txns24h.textContent = `${total} (${buys}/${sells})`;
-                    txns24h.classList.remove('loading');
-                }
-                
-                console.log('✅ All stats updated from DexScreener');
             },
             
-            showError: function() {
-                const elements = [
-                    'currentPrice', 'priceChange24h', 'volume24h', 
-                    'liquidity', 'marketCap', 'txns24h'
-                ];
-                
-                elements.forEach(id => {
-                    const el = document.getElementById(id);
-                    if (el) {
-                        el.textContent = 'Error loading';
-                        el.classList.remove('loading');
+            fetchHolderCount: async function() {
+                try {
+                    console.log('📡 Fetching holder count from BscScan...');
+                    
+                    // BscScan API endpoint for token holder count
+                    // Note: This requires an API key. Using public endpoint which may be rate limited
+                    const bscScanUrl = `https://api.bscscan.com/api?module=token&action=tokenholderlist&contractaddress=${this.tokenAddress}&page=1&offset=1`;
+                    
+                    const response = await fetch(bscScanUrl);
+                    
+                    if (!response.ok) {
+                        throw new Error(`BscScan API error: ${response.status}`);
                     }
-                });
+                    
+                    const data = await response.json();
+                    console.log('✅ BscScan response:', data);
+                    
+                    // BscScan doesn't provide total count in free tier, use alternative approach
+                    // Fetch from DexScreener's info field or show static reliable number
+                    this.updateHolderCount();
+                    
+                } catch (error) {
+                    console.warn('⚠️ BscScan fetch failed, using alternative:', error);
+                    // Use alternative holder count source
+                    this.updateHolderCount();
+                }
+            },
+            
+            updateHolderCount: function() {
+                const holders = document.getElementById('holders');
+                if (holders) {
+                    // Since BscScan free API doesn't provide total holder count,
+                    // we'll fetch from an alternative or use DexScreener data
+                    // For now, showing that data is available on BscScan
+                    holders.innerHTML = '<a href="https://bscscan.com/token/0x4e49685d28012ba446cd4855bf547087ccc9063a#balances" target="_blank" style="color: var(--lime-green); text-decoration: none;">View on BscScan →</a>';
+                    holders.classList.remove('loading');
+                    console.log('✅ Holder link added');
+                }
+            },
+            
+            showPriceError: function() {
+                const currentPrice = document.getElementById('currentPrice');
+                const marketCap = document.getElementById('marketCap');
+                
+                if (currentPrice) {
+                    currentPrice.textContent = 'Unable to load';
+                    currentPrice.classList.remove('loading');
+                }
+                
+                if (marketCap) {
+                    marketCap.textContent = 'Unable to load';
+                    marketCap.classList.remove('loading');
+                }
             }
         };
         
@@ -1977,11 +1967,11 @@
                 });
             });
             
-            // Initialize DexScreener Price Fetcher
+            // Initialize WFI Data Fetcher
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', () => DexScreenerFetcher.init());
+                document.addEventListener('DOMContentLoaded', () => WFIDataFetcher.init());
             } else {
-                DexScreenerFetcher.init();
+                WFIDataFetcher.init();
             }
             
             console.log('✅ All event listeners attached');
