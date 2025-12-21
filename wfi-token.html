@@ -650,6 +650,76 @@
     .comparison-table tr:last-child td { border-bottom: none; }
     .comparison-table tr:hover { background: rgba(199, 241, 96, 0.05); }
 
+    /* Mobile-first responsive table */
+    @media (max-width: 768px) {
+      .comparison-table {
+        overflow-x: visible;
+      }
+
+      .comparison-table table,
+      .comparison-table thead,
+      .comparison-table tbody,
+      .comparison-table th,
+      .comparison-table td,
+      .comparison-table tr {
+        display: block;
+      }
+
+      .comparison-table thead {
+        display: none;
+      }
+
+      .comparison-table tr {
+        margin-bottom: 20px;
+        border: 1px solid rgba(199, 241, 96, 0.2);
+        border-radius: 8px;
+        background: rgba(26, 26, 26, 0.8);
+        padding: 15px;
+      }
+
+      .comparison-table td {
+        padding: 10px 0;
+        border: none;
+        text-align: left;
+        position: relative;
+        padding-left: 0;
+      }
+
+      .comparison-table td:first-child {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--lime-green);
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(199, 241, 96, 0.2);
+      }
+
+      .comparison-table td:nth-child(2)::before {
+        content: "WFI Token: ";
+        font-weight: 600;
+        color: var(--lime-green);
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      .comparison-table td:nth-child(3)::before {
+        content: "Typical DeFi: ";
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.5);
+        display: block;
+        margin-bottom: 5px;
+        margin-top: 15px;
+        font-size: 14px;
+      }
+
+      .comparison-table td:nth-child(2),
+      .comparison-table td:nth-child(3) {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+    }
+
     .faq-container { max-width: 900px; margin: 0 auto; }
     .faq-item { margin-bottom: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 20px; }
     .faq-item:last-child { border-bottom: none; }
@@ -1409,6 +1479,72 @@
     </div>
   </section>
 
+  <!-- Community Building & Rewards Section -->
+  <section class="section" id="community-rewards" style="background: linear-gradient(135deg, rgba(199, 241, 96, 0.03), rgba(0, 255, 136, 0.03));">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-badge" style="color: white;">🤝 COMMUNITY EMPOWERMENT</div>
+        <h2 class="section-title">Amplify Your <span class="highlight">Impact & Earnings</span></h2>
+        <p class="section-description">
+          Thousands in the WeFi community are earning instant USDT commissions by sharing life-changing financial tools with people they care about.
+        </p>
+      </div>
+
+      <div class="feature-grid" style="margin-bottom: 50px;">
+        <div class="feature-card">
+          <span class="feature-icon">💰</span>
+          <h3 class="feature-title">Instant USDT Rewards</h3>
+          <p class="feature-description">
+            Earn immediate community building commissions in USDT when you share WeFi's revolutionary products with friends, family, and your network. No waiting, no complexity.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">🌍</span>
+          <h3 class="feature-title">Complete Ecosystem</h3>
+          <p class="feature-description">
+            Share any WeFi product: Deobank apps, banking services, WFI token, crypto-Visa cards, ATM machines, POS devices, vending machines, and more coming in the roadmap.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <span class="feature-icon">❤️</span>
+          <h3 class="feature-title">Empower Those You Love</h3>
+          <p class="feature-description">
+            Help the people you care about access cutting-edge financial tools that provide true ownership, control, and wealth-building opportunities. Make a difference while building your income.
+          </p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h3 class="cta-title">It's <span class="highlight">Optional,</span> But Powerful</h3>
+        <p class="cta-description">
+          You can earn with WFI through mining and staking alone. But many community members choose to amplify their impact by sharing WeFi's vision of financial freedom. When you help others discover these tools, everyone wins.
+        </p>
+        
+        <div style="background: rgba(26, 26, 26, 0.6); border: 1px solid rgba(199, 241, 96, 0.2); border-radius: 12px; padding: 30px; margin: 30px auto; max-width: 700px;">
+          <h4 style="color: var(--lime-green); font-size: clamp(20px, 3vw, 24px); margin-bottom: 20px; font-family: 'Space Grotesk', sans-serif; text-align: center;">What You Can Share:</h4>
+          <ul class="benefits-list" style="margin-bottom: 0;">
+            <li>Deobank apps & banking services</li>
+            <li>WFI token mining & staking opportunities</li>
+            <li>Crypto-Visa cards & payment solutions</li>
+            <li>Non-custodial wallets (coming soon)</li>
+            <li>Decentralized exchange (coming soon)</li>
+            <li>ATM machines, POS devices & vending machines</li>
+          </ul>
+        </div>
+
+        <p class="cta-description" style="margin-bottom: 35px;">
+          Growing the WeFi community isn't just about earning commissions - it's about being part of a movement that's democratizing access to financial services worldwide.
+        </p>
+
+        <div class="btn-group">
+          <a href="#" class="btn btn-primary" id="compPlanBtn" style="cursor: pointer;">Explore the Rewards Structure</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ Section -->
   <section class="section" id="faq">
     <div class="section-container">
@@ -1487,7 +1623,7 @@
         </p>
         <div class="btn-group">
           <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary">Get Started with WFI</a>
-          <a href="index.html" class="btn btn-secondary">Learn More About WeFi</a>
+          <a href="https://www.deobankdefi.com/about-wefi.html" class="btn btn-secondary">Learn More About WeFi</a>
         </div>
       </div>
     </div>
@@ -1883,6 +2019,22 @@
 
       // Initialize data fetcher
       WFIDataFetcher.init();
+
+      // Comp Plan button handler - update href when page is ready
+      const compPlanBtn = document.getElementById('compPlanBtn');
+      if (compPlanBtn) {
+        compPlanBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          // TODO: Update this URL when compensation page is ready
+          // For now, scroll to getting started or show a message
+          const gettingStartedSection = document.querySelector('.faq-container');
+          if (gettingStartedSection) {
+            gettingStartedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          // When compensation.html is ready, update to:
+          // window.location.href = 'compensation.html';
+        });
+      }
 
       console.log('All scripts initialized successfully.');
     });
