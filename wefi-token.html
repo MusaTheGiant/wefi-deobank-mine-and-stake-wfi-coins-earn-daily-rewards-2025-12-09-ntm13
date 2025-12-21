@@ -1168,20 +1168,6 @@
                     </div>
                 </div>
                 
-                <!-- Explosive Growth Potential Card - CLEANED VERSION -->
-                <div class="feature-card fade-in-on-scroll" style="max-width: 800px; margin: 40px auto 0;">
-                    <div class="feature-icon" style="font-size: 64px;">📈</div>
-                    <h3 class="feature-title" style="font-size: 32px; margin: 20px 0;">Explosive Growth Potential</h3>
-                    <p class="feature-description" style="font-size: 18px; line-height: 1.8;">
-                        WFI has a fixed maximum supply of 1 billion tokens. Early adopters are positioned for massive gains as adoption increases.
-                    </p>
-                    <ul class="feature-bullets" style="font-size: 18px; margin: 30px 0;">
-                        <li>Maximum Supply: 1 Billion WFI (Fixed Forever)</li>
-                        <li>No Inflation - Capped Supply Model</li>
-                        <li>Listed on BitMart, BingX, PancakeSwap</li>
-                        <li>ITO Mining Active Until 2032</li>
-                    </ul>
-                </div>
                 
                 <div class="btn-group" style="margin-top: 40px;">
                     <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary">Start Earning WFI</a>
@@ -1762,129 +1748,126 @@
         // ===== DEXSCREENER + BSCSCAN DATA FETCHER =====
         const WFIDataFetcher = {
             dexScreenerUrl: 'https://api.dexscreener.com/latest/dex/pairs/bsc/0xdbbb8c123f0ee395efcaaf6b3285562470ab40e0',
-            tokenAddress: '0x4e49685d28012ba446cd4855bf547087ccc9063a', // WFI token contract
+            tokenAddress: '0x4e49685d28012ba446cd4855bf547087ccc9063a',
             
             init: function() {
                 console.log('🚀 Initializing WFI Data Fetcher...');
+                
+                // Try to fetch live data immediately
                 this.fetchAllData();
-                // Update every 60 seconds
-                setInterval(() => this.fetchAllData(), 60000);
+                
+                // Update every 30 seconds for fresh data
+                setInterval(() => this.fetchAllData(), 30000);
             },
             
             fetchAllData: async function() {
-                // Fetch price and market cap from DexScreener
                 await this.fetchDexScreenerData();
-                // Fetch holder count from BscScan
-                await this.fetchHolderCount();
+                this.updateHolderCount();
             },
             
             fetchDexScreenerData: async function() {
                 try {
-                    console.log('📡 Fetching from DexScreener...');
+                    console.log('📡 Fetching from DexScreener API...');
                     const response = await fetch(this.dexScreenerUrl);
                     
                     if (!response.ok) {
-                        throw new Error(`DexScreener API error: ${response.status}`);
+                        console.warn('DexScreener API returned:', response.status);
+                        this.showFallbackNumbers();
+                        return;
                     }
                     
                     const data = await response.json();
-                    console.log('✅ DexScreener data received:', data);
+                    console.log('✅ Full DexScreener response:', JSON.stringify(data, null, 2));
                     
+                    // DexScreener returns { pair: {...} } or { pairs: [{...}] }
                     let pair = null;
-                    if (data && data.pair) {
+                    if (data.pair) {
                         pair = data.pair;
-                    } else if (data && data.pairs && data.pairs[0]) {
+                    } else if (data.pairs && data.pairs.length > 0) {
                         pair = data.pairs[0];
                     }
                     
                     if (pair) {
+                        console.log('✅ Pair data found:', pair);
                         this.updatePriceAndMarketCap(pair);
                     } else {
-                        throw new Error('No pair data found');
+                        console.warn('No pair data in response, using fallback');
+                        this.showFallbackNumbers();
                     }
                 } catch (error) {
-                    console.error('❌ DexScreener fetch failed:', error);
-                    this.showPriceError();
+                    console.error('❌ DexScreener fetch failed:', error.message);
+                    this.showFallbackNumbers();
                 }
             },
             
             updatePriceAndMarketCap: function(pair) {
+                console.log('📊 Updating stats from pair data...');
+                
                 // Current Price
-                const priceUsd = parseFloat(pair.priceUsd);
+                const priceUsd = pair.priceUsd;
+                console.log('Price from API:', priceUsd, typeof priceUsd);
+                
                 const currentPrice = document.getElementById('currentPrice');
                 if (currentPrice && priceUsd) {
-                    currentPrice.textContent = `$${priceUsd.toFixed(4)}`;
-                    currentPrice.classList.remove('loading');
-                    console.log('✅ Price updated:', priceUsd);
+                    const price = parseFloat(priceUsd);
+                    if (!isNaN(price)) {
+                        currentPrice.textContent = '$' + price.toFixed(4);
+                        currentPrice.classList.remove('loading');
+                        console.log('✅ Price updated to:', price);
+                    }
                 }
                 
                 // Market Cap (Fully Diluted Valuation)
-                const fdv = parseFloat(pair.fdv);
+                const fdv = pair.fdv || pair.marketCap;
+                console.log('FDV/MarketCap from API:', fdv, typeof fdv);
+                
                 const marketCap = document.getElementById('marketCap');
                 if (marketCap && fdv) {
-                    const formatted = fdv >= 1e9 
-                        ? `$${(fdv / 1e9).toFixed(2)}B` 
-                        : fdv >= 1e6
-                        ? `$${(fdv / 1e6).toFixed(2)}M`
-                        : `$${(fdv / 1e3).toFixed(2)}K`;
-                    marketCap.textContent = formatted;
-                    marketCap.classList.remove('loading');
-                    console.log('✅ Market Cap updated:', formatted);
+                    const mc = parseFloat(fdv);
+                    if (!isNaN(mc)) {
+                        let formatted;
+                        if (mc >= 1e9) {
+                            formatted = '$' + (mc / 1e9).toFixed(2) + 'B';
+                        } else if (mc >= 1e6) {
+                            formatted = '$' + (mc / 1e6).toFixed(2) + 'M';
+                        } else if (mc >= 1e3) {
+                            formatted = '$' + (mc / 1e3).toFixed(2) + 'K';
+                        } else {
+                            formatted = '$' + mc.toFixed(2);
+                        }
+                        marketCap.textContent = formatted;
+                        marketCap.classList.remove('loading');
+                        console.log('✅ Market Cap updated to:', formatted);
+                    }
                 }
+                
+                console.log('✅ All stats updated from live DexScreener data');
             },
             
-            fetchHolderCount: async function() {
-                try {
-                    console.log('📡 Fetching holder count from BscScan...');
-                    
-                    // BscScan API endpoint for token holder count
-                    // Note: This requires an API key. Using public endpoint which may be rate limited
-                    const bscScanUrl = `https://api.bscscan.com/api?module=token&action=tokenholderlist&contractaddress=${this.tokenAddress}&page=1&offset=1`;
-                    
-                    const response = await fetch(bscScanUrl);
-                    
-                    if (!response.ok) {
-                        throw new Error(`BscScan API error: ${response.status}`);
-                    }
-                    
-                    const data = await response.json();
-                    console.log('✅ BscScan response:', data);
-                    
-                    // BscScan doesn't provide total count in free tier, use alternative approach
-                    // Fetch from DexScreener's info field or show static reliable number
-                    this.updateHolderCount();
-                    
-                } catch (error) {
-                    console.warn('⚠️ BscScan fetch failed, using alternative:', error);
-                    // Use alternative holder count source
-                    this.updateHolderCount();
+            showFallbackNumbers: function() {
+                console.log('⚠️ Using fallback numbers');
+                
+                const currentPrice = document.getElementById('currentPrice');
+                const marketCap = document.getElementById('marketCap');
+                
+                if (currentPrice && currentPrice.textContent === 'Loading...') {
+                    currentPrice.textContent = 'Check DexScreener';
+                    currentPrice.classList.remove('loading');
+                }
+                
+                if (marketCap && marketCap.textContent === 'Loading...') {
+                    marketCap.textContent = 'Check DexScreener';
+                    marketCap.classList.remove('loading');
                 }
             },
             
             updateHolderCount: function() {
                 const holders = document.getElementById('holders');
-                if (holders) {
-                    // Since BscScan free API doesn't provide total holder count,
-                    // we'll fetch from an alternative or use DexScreener data
-                    // For now, showing that data is available on BscScan
-                    holders.innerHTML = '<a href="https://bscscan.com/token/0x4e49685d28012ba446cd4855bf547087ccc9063a#balances" target="_blank" style="color: var(--lime-green); text-decoration: none;">View on BscScan →</a>';
+                if (holders && holders.textContent === 'Loading...') {
+                    // Show link to BscScan for live holder count
+                    holders.innerHTML = '<a href="https://bscscan.com/token/0x4e49685d28012ba446cd4855bf547087ccc9063a#balances" target="_blank" style="color: var(--lime-green); text-decoration: none; font-size: 16px;">View Live →</a>';
                     holders.classList.remove('loading');
                     console.log('✅ Holder link added');
-                }
-            },
-            
-            showPriceError: function() {
-                const currentPrice = document.getElementById('currentPrice');
-                const marketCap = document.getElementById('marketCap');
-                
-                if (currentPrice) {
-                    currentPrice.textContent = 'Unable to load';
-                    currentPrice.classList.remove('loading');
-                }
-                
-                if (marketCap) {
-                    marketCap.textContent = 'Unable to load';
-                    marketCap.classList.remove('loading');
                 }
             }
         };
