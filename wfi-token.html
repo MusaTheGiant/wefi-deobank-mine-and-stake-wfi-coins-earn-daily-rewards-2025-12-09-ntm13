@@ -733,6 +733,42 @@
       line-height: 1.7;
     }
 
+    .benefits-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto 30px;
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 15px;
+      font-size: clamp(15px, 1.8vw, 17px);
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .benefits-list li::before {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      background: transparent;
+      color: var(--white);
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
     .footer {
       background: var(--near-black);
       padding: 60px 40px 30px;
@@ -1218,7 +1254,15 @@
       <div class="cta-section" style="margin-top: 60px;">
         <h3 class="cta-title">The <span class="highlight">Optimal Strategy:</span> Combine All Methods</h3>
         <p class="cta-description">
-          Mining WFI through ITO units, buying on the open market, and staking for extended periods is the most powerful strategy to accumulate WFI over time. This approach leverages immediate mining rewards, passive income from staking, and market exposure for maximum long-term growth.
+          The most powerful strategy to accumulate WFI over time:
+        </p>
+        <ul class="benefits-list">
+          <li>Mining WFI through ITO units</li>
+          <li>Buying on the open market</li>
+          <li>Staking for extended periods</li>
+        </ul>
+        <p class="cta-description" style="margin-top: 20px;">
+          This approach leverages immediate mining rewards, passive income from staking, and market exposure for maximum long-term growth.
         </p>
         <div class="btn-group">
           <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary">Start Your WFI Journey</a>
@@ -1348,7 +1392,15 @@
       <div class="cta-section" style="margin-top: 60px;">
         <h3 class="cta-title"><span class="highlight">First-Mover Advantage:</span> Why Act Now</h3>
         <p class="cta-description">
-          WFI has controlled token emission through ITO mining. Early adopters benefit from: higher mining yields before halving events, compounding staking returns over time, and network effects as the ecosystem scales. Starting now places you ahead of the curve.
+          WFI has controlled token emission through ITO mining. Early adopters benefit from:
+        </p>
+        <ul class="benefits-list">
+          <li>Higher mining yields before halving events</li>
+          <li>Compounding staking returns over time</li>
+          <li>Network effects as the ecosystem scales</li>
+        </ul>
+        <p class="cta-description" style="margin-top: 20px;">
+          Starting now places you ahead of the curve.
         </p>
       </div>
     </div>
