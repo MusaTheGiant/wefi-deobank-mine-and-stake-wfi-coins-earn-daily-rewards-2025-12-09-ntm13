@@ -478,14 +478,12 @@
         .ito-hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: calc(var(--navbar-height) + 40px) 40px 80px;
             background: var(--black);
             position: relative;
             overflow: hidden;
-            gap: clamp(20px, 3vh, 32px);
         }
         
         .ito-hero-container {
@@ -507,39 +505,19 @@
         }
         
         .ito-badge {
-            /* Layout - Centered above columns */
             display: inline-block;
-            align-self: center;
-            
-            /* Styling - matching wfi-token.html hero-badge */
-            background: linear-gradient(135deg, rgba(199, 241, 96, 0.15), rgba(0, 255, 136, 0.15));
-            border: 1px solid rgba(199, 241, 96, 0.4);
-            border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(199, 241, 96, 0.1);
-            
-            /* Fluid padding and spacing */
-            padding: clamp(8px, 1.5vw, 12px) clamp(18px, 3vw, 28px);
-            margin-block-end: 0;
-            
-            /* Fluid typography */
-            font-size: clamp(11px, 1.8vw, 13px);
+            width: fit-content;
+            height: 32px;
+            padding: 0 16px;
+            background: rgba(212, 239, 137, 0.15);
+            border: 1px solid rgba(212, 239, 137, 0.3);
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 600;
-            color: #FFFFFF;
-            letter-spacing: clamp(0.5px, 0.1vw, 0.8px);
-            text-transform: uppercase;
-            
-            /* Text handling */
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 100%;
-            
-            /* Animation */
-            animation: fadeInUp 0.6s ease-out;
-            
-            /* Z-index for layering */
-            position: relative;
-            z-index: 10;
+            color: var(--white);
+            letter-spacing: 0.5px;
+            line-height: 32px;
+            text-align: left;
         }
         
         .ito-hero-title {
@@ -2588,12 +2566,10 @@
 
     <!-- ITO NODES HERO SECTION -->
     <section class="ito-hero">
-        <!-- Badge Above Columns -->
-        <div class="ito-badge">🏆 WORLD'S FIRST DEOBANK</div>
-        
         <div class="ito-hero-container">
             <!-- Left Content -->
             <div class="ito-hero-content">
+                <div class="ito-badge">🏆 WORLD'S FIRST DEOBANK</div>
                 <h1 class="ito-hero-title">
                     <span class="gradient-text">Finally. Banking That <span style="color: white;">Actually Pays You</span></span>
                 </h1>
