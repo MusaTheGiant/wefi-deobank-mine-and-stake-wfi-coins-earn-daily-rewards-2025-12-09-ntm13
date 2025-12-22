@@ -1293,7 +1293,8 @@
         }
         
         /* Highlight effect when scrolling back to card after video */
-        .feature-card.scroll-highlight {
+        .feature-card.scroll-highlight,
+        .founder-card.scroll-highlight {
             animation: cardHighlight 2s ease-out;
         }
         
@@ -3318,6 +3319,9 @@
                     videoElement.autoplay = true;
                     videoElement.playsInline = true;
                     
+                    // Track if video has started playing to distinguish real errors from cleanup errors
+                    let videoHasPlayed = false;
+                    
                     // Set video source
                     videoElement.src = videoUrl;
                     
@@ -3335,6 +3339,7 @@
                     // Hide loading when video starts playing
                     videoElement.addEventListener('playing', function() {
                         console.log('MP4 video playing');
+                        videoHasPlayed = true;
                         if (loadingElement) {
                             loadingElement.classList.add('hidden');
                         }
@@ -3346,14 +3351,22 @@
                         setTimeout(closeVideoModal, 500);
                     });
                     
-                    // Error handling
+                    // Error handling - only show alert if video hasn't played yet (real loading error)
                     videoElement.addEventListener('error', function(e) {
-                        console.error('Error loading MP4 video:', e);
-                        if (loadingElement) {
-                            loadingElement.classList.add('hidden');
+                        console.error('Error event on MP4 video:', e);
+                        
+                        // Only show error alert if video hasn't played (real loading error)
+                        // Ignore errors that occur during cleanup after video has ended
+                        if (!videoHasPlayed) {
+                            console.error('Real loading error detected');
+                            if (loadingElement) {
+                                loadingElement.classList.add('hidden');
+                            }
+                            alert('Unable to load video. Please try again or check your connection.');
+                            closeVideoModal();
+                        } else {
+                            console.log('Ignoring cleanup error - video already played');
                         }
-                        alert('Unable to load video. Please try again or check your connection.');
-                        closeVideoModal();
                     });
                     
                     return true;
@@ -3374,16 +3387,21 @@
                 if (event) {
                     event.preventDefault();
                     
-                    // CRITICAL: Find and store the parent feature card with better fallback
+                    // CRITICAL: Find and store the parent card (feature-card OR founder-card) with better fallback
                     const clickedElement = event.currentTarget || event.target;
                     
-                    // Try multiple methods to find the card
+                    // Try to find feature-card first
                     videoTriggerElement = clickedElement.closest('.feature-card');
+                    
+                    // If not found, try to find founder-card
+                    if (!videoTriggerElement) {
+                        videoTriggerElement = clickedElement.closest('.founder-card');
+                    }
                     
                     // Fallback: if closest doesn't work, try finding by traversing up
                     if (!videoTriggerElement) {
                         let parent = clickedElement.parentElement;
-                        while (parent && !parent.classList.contains('feature-card')) {
+                        while (parent && !parent.classList.contains('feature-card') && !parent.classList.contains('founder-card')) {
                             parent = parent.parentElement;
                         }
                         videoTriggerElement = parent;
@@ -3392,7 +3410,7 @@
                     // Fallback: if still not found, find by section
                     if (!videoTriggerElement) {
                         // Find the section this video is in
-                        const allCards = document.querySelectorAll('.feature-card');
+                        const allCards = document.querySelectorAll('.feature-card, .founder-card');
                         allCards.forEach(card => {
                             if (card.contains(clickedElement)) {
                                 videoTriggerElement = card;
