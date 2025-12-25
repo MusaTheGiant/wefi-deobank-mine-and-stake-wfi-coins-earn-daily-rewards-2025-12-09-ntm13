@@ -3178,10 +3178,24 @@
                         }
                     });
                     
-                    // Auto-close when ended
+                    // Auto-close when ended - with proper cleanup
                     vimeoPlayer.on('ended', function() {
-                        console.log('Vimeo video ended');
-                        setTimeout(closeVideoModal, 500);
+                        console.log('Vimeo video ended - initiating safe cleanup');
+                        
+                        // Remove all event listeners before closing to prevent issues
+                        try {
+                            vimeoPlayer.off('ended');
+                            vimeoPlayer.off('play');
+                            vimeoPlayer.off('loaded');
+                            vimeoPlayer.off('error');
+                        } catch (error) {
+                            console.warn('Error removing Vimeo listeners:', error);
+                        }
+                        
+                        // Close modal after a brief delay
+                        setTimeout(function() {
+                            closeVideoModal();
+                        }, 500);
                     });
                     
                     return true;
@@ -3467,8 +3481,37 @@
                 // Stop videos
                 if (vimeoPlayer) {
                     try {
-                        vimeoPlayer.pause();
-                        vimeoPlayer.destroy();
+                        console.log('Stopping Vimeo player...');
+                        
+                        // Remove all event listeners first to prevent callbacks during destruction
+                        vimeoPlayer.off('ended');
+                        vimeoPlayer.off('play');
+                        vimeoPlayer.off('loaded');
+                        vimeoPlayer.off('error');
+                        vimeoPlayer.off('pause');
+                        
+                        // Pause the video
+                        vimeoPlayer.pause().catch(function(error) {
+                            console.warn('Error pausing Vimeo:', error);
+                        });
+                        
+                        // Unload the video to free resources
+                        vimeoPlayer.unload().catch(function(error) {
+                            console.warn('Error unloading Vimeo:', error);
+                        });
+                        
+                        // Small delay before destroying to ensure operations complete
+                        setTimeout(function() {
+                            try {
+                                if (vimeoPlayer) {
+                                    vimeoPlayer.destroy();
+                                    console.log('✓ Vimeo player destroyed successfully');
+                                }
+                            } catch (destroyError) {
+                                console.warn('Error during Vimeo destroy:', destroyError);
+                            }
+                        }, 100);
+                        
                     } catch (error) {
                         console.error('Error stopping Vimeo:', error);
                     }
@@ -3490,8 +3533,11 @@
                     videoModal.classList.remove('active');
                     videoModal.classList.remove('closing');
                     
-                    // Clean up iframe and any player divs
-                    videoIframe.src = '';
+                    // Clean up iframe and any player divs - with extra thoroughness
+                    videoIframe.src = 'about:blank'; // Clear to blank first
+                    setTimeout(function() {
+                        videoIframe.src = ''; // Then empty
+                    }, 50);
                     videoIframe.style.display = '';
                     
                     // Remove any YouTube player divs
@@ -3516,23 +3562,33 @@
                     }
                     
                     // CRITICAL: Scroll back to the video trigger element
-                    // Wait for body to be scrollable again
+                    // Wait for body to be scrollable again and modal animations to complete
                     setTimeout(function() {
                         if (videoTriggerElement) {
                             console.log('Scrolling back to video section...');
                             console.log('Element to scroll to:', videoTriggerElement);
+                            
+                            // Force a reflow to ensure element positions are calculated correctly
+                            void document.body.offsetHeight;
                             
                             // Add highlight effect
                             videoTriggerElement.classList.add('scroll-highlight');
                             
                             // Remove highlight after animation
                             setTimeout(function() {
-                                videoTriggerElement.classList.remove('scroll-highlight');
+                                if (videoTriggerElement) {
+                                    videoTriggerElement.classList.remove('scroll-highlight');
+                                }
                             }, 2000);
                             
-                            // Get the position of the element
-                            const elementPosition = videoTriggerElement.getBoundingClientRect().top;
-                            const offsetPosition = elementPosition + window.pageYOffset - 100; // 100px above the element
+                            // Get the position of the element with more reliable calculation
+                            const elementRect = videoTriggerElement.getBoundingClientRect();
+                            const absoluteTop = elementRect.top + window.pageYOffset;
+                            const offsetPosition = absoluteTop - 100; // 100px above the element
+                            
+                            console.log('Element rect:', elementRect);
+                            console.log('Absolute top:', absoluteTop);
+                            console.log('Target scroll position:', offsetPosition);
                             
                             // Smooth scroll to position
                             window.scrollTo({
@@ -3550,9 +3606,12 @@
                         setTimeout(function() {
                             currentPlatform = null;
                             currentVideoId = null;
-                            videoTriggerElement = null;
-                        }, 1000);
-                    }, 200); // Wait 200ms for body scrolling to be re-enabled
+                            // Don't nullify videoTriggerElement until scroll is complete
+                            setTimeout(function() {
+                                videoTriggerElement = null;
+                            }, 1000);
+                        }, 500);
+                    }, 300); // Increased from 200ms to 300ms for better reliability
                 }, 400);
             };
             
