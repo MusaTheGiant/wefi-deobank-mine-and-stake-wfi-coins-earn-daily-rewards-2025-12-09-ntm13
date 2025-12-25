@@ -2111,8 +2111,8 @@
                 <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank">
                     <span>Join WeFi Now</span>
                 </a>
-                <a href="#story" class="btn btn-secondary">
-                    <span>Discover Our Story</span>
+                <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'JMPGNho-jX0')">
+                    <span>▶️ Discover Our Story</span>
                 </a>
             </div>
         </div>
@@ -2713,9 +2713,24 @@
                     if (loadingElement) loadingElement.classList.add('hidden');
                 });
                 
+                // Auto-close when ended - with proper cleanup
                 vimeoPlayer.on('ended', function() {
-                    console.log('⏹️ Vimeo video ended');
-                    setTimeout(closeVideoModal, 500);
+                    console.log('Vimeo video ended - initiating safe cleanup');
+                    
+                    // Remove all event listeners before closing to prevent issues
+                    try {
+                        vimeoPlayer.off('ended');
+                        vimeoPlayer.off('play');
+                        vimeoPlayer.off('loaded');
+                        vimeoPlayer.off('error');
+                    } catch (error) {
+                        console.warn('Error removing Vimeo listeners:', error);
+                    }
+                    
+                    // Close modal after a brief delay
+                    setTimeout(function() {
+                        closeVideoModal();
+                    }, 500);
                 });
                 
                 return true;
@@ -2880,8 +2895,37 @@
             
             if (vimeoPlayer) {
                 try {
-                    vimeoPlayer.pause();
-                    vimeoPlayer.destroy();
+                    console.log('Stopping Vimeo player...');
+                    
+                    // Remove all event listeners first to prevent callbacks during destruction
+                    vimeoPlayer.off('ended');
+                    vimeoPlayer.off('play');
+                    vimeoPlayer.off('loaded');
+                    vimeoPlayer.off('error');
+                    vimeoPlayer.off('pause');
+                    
+                    // Pause the video
+                    vimeoPlayer.pause().catch(function(error) {
+                        console.warn('Error pausing Vimeo:', error);
+                    });
+                    
+                    // Unload the video to free resources
+                    vimeoPlayer.unload().catch(function(error) {
+                        console.warn('Error unloading Vimeo:', error);
+                    });
+                    
+                    // Small delay before destroying to ensure operations complete
+                    setTimeout(function() {
+                        try {
+                            if (vimeoPlayer) {
+                                vimeoPlayer.destroy();
+                                console.log('✓ Vimeo player destroyed successfully');
+                            }
+                        } catch (destroyError) {
+                            console.warn('Error during Vimeo destroy:', destroyError);
+                        }
+                    }, 100);
+                    
                 } catch (error) {
                     console.error('Error stopping Vimeo:', error);
                 }
@@ -2903,7 +2947,10 @@
                 videoModal.classList.remove('closing');
                 
                 if (videoIframe) {
-                    videoIframe.src = '';
+                    videoIframe.src = 'about:blank'; // Clear to blank first
+                    setTimeout(function() {
+                        videoIframe.src = ''; // Then empty
+                    }, 50);
                     videoIframe.style.display = '';
                     
                     // Remove any YouTube player divs
