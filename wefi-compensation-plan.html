@@ -774,20 +774,31 @@
         }
         
         .income-stream-icon {
-            /* Removed emoji font-size, creating circular badge instead */
+            /* Perfect circle across all devices */
             display: inline-flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
+            min-width: 40px; /* Prevent shrinking */
+            min-height: 40px; /* Prevent shrinking */
+            max-width: 40px; /* Prevent growing */
+            max-height: 40px; /* Prevent growing */
+            flex-shrink: 0; /* Never shrink */
             background: var(--lime-green);
-            color: var(--black); /* Reverted to black for better visibility */
+            color: var(--black);
             font-size: 1.25rem;
             font-weight: 800;
             border-radius: 50%;
             font-family: var(--font-accent);
             box-shadow: 0 4px 12px rgba(199, 241, 96, 0.3);
             transition: all 0.3s ease;
+            line-height: 1; /* Prevents text from affecting height */
+            padding: 0; /* Remove any padding that could distort */
+            overflow: hidden; /* Ensures content stays inside */
+            position: relative; /* For precise positioning */
+            /* Modern browser support for perfect circles */
+            aspect-ratio: 1 / 1;
         }
         
         /* Hover effect for desktop */
@@ -798,11 +809,15 @@
             }
         }
         
-        /* Larger on bigger screens */
+        /* Larger on bigger screens - maintain perfect circle */
         @media (min-width: 768px) {
             .income-stream-icon {
                 width: 48px;
                 height: 48px;
+                min-width: 48px;
+                min-height: 48px;
+                max-width: 48px;
+                max-height: 48px;
                 font-size: 1.5rem;
             }
         }
