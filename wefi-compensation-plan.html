@@ -1549,7 +1549,7 @@
                 <p style="color: rgba(255, 255, 255, 0.7); font-size: 1rem; margin-bottom: 20px;">
                     <strong style="color: var(--lime-green);">300,000+ active members</strong> are already building income with WeFi
                 </p>
-                <a href="#income-streams" class="btn btn-secondary">Explore All Income Streams</a>
+                <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'wtPhVQE4_oo')">▶️ WeFi Comp Plan EXPOSED (WATCH NOW)</a>
             </div>
         </div>
     </section>
@@ -2793,44 +2793,71 @@
             };
             
             // Initialize YouTube Player
-            function initYouTubePlayer(videoId) {
-                return new Promise((resolve, reject) => {
-                    try {
-                        const loadingElement = document.getElementById('videoLoading');
-                        
-                        const playerDiv = document.createElement('div');
-                        playerDiv.id = 'youtube-player-' + Date.now();
-                        playerDiv.style.cssText = 'width:100%;height:100%;position:absolute;top:0;left:0;';
-                        
-                        videoIframe.style.display = 'none';
-                        videoIframe.parentElement.appendChild(playerDiv);
-                        
-                        youtubePlayer = new YT.Player(playerDiv.id, {
-                            videoId: videoId,
-                            playerVars: {
-                                autoplay: 1,
-                                modestbranding: 1,
-                                rel: 0,
-                                showinfo: 0
-                            },
-                            events: {
-                                onReady: function(event) {
-                                    if (loadingElement) loadingElement.classList.add('hidden');
-                                    event.target.playVideo();
-                                    resolve(true);
+            async function initYouTubePlayer(videoId) {
+                try {
+                    const loadingElement = document.getElementById('videoLoading');
+                    
+                    // Wait for YouTube API to be ready
+                    console.log('Waiting for YouTube API...');
+                    await waitForYouTubeAPI();
+                    console.log('YouTube API loaded, initializing player...');
+                    
+                    // Check if YT is available
+                    if (typeof YT === 'undefined' || !YT.Player) {
+                        console.error('YouTube API still not available');
+                        alert('Unable to load YouTube video. Please refresh the page and try again.');
+                        closeVideoModal();
+                        return false;
+                    }
+                    
+                    const playerDiv = document.createElement('div');
+                    playerDiv.id = 'youtube-player-' + Date.now();
+                    playerDiv.style.cssText = 'width:100%;height:100%;position:absolute;top:0;left:0;';
+                    
+                    videoIframe.style.display = 'none';
+                    videoIframe.parentElement.appendChild(playerDiv);
+                    
+                    return new Promise((resolve, reject) => {
+                        try {
+                            youtubePlayer = new YT.Player(playerDiv.id, {
+                                videoId: videoId,
+                                playerVars: {
+                                    autoplay: 1,
+                                    modestbranding: 1,
+                                    rel: 0,
+                                    showinfo: 0
                                 },
-                                onStateChange: function(event) {
-                                    if (event.data === YT.PlayerState.ENDED) {
-                                        setTimeout(closeVideoModal, 500);
+                                events: {
+                                    onReady: function(event) {
+                                        console.log('✅ YouTube player ready');
+                                        if (loadingElement) loadingElement.classList.add('hidden');
+                                        event.target.playVideo();
+                                        resolve(true);
+                                    },
+                                    onStateChange: function(event) {
+                                        if (event.data === YT.PlayerState.ENDED) {
+                                            setTimeout(closeVideoModal, 500);
+                                        }
+                                    },
+                                    onError: function(event) {
+                                        console.error('YouTube player error:', event.data);
+                                        alert('Error loading video. Please try again.');
+                                        closeVideoModal();
+                                        reject(event);
                                     }
                                 }
-                            }
-                        });
-                    } catch (error) {
-                        console.error('YouTube init error:', error);
-                        reject(error);
-                    }
-                });
+                            });
+                        } catch (error) {
+                            console.error('YouTube player creation error:', error);
+                            reject(error);
+                        }
+                    });
+                } catch (error) {
+                    console.error('YouTube init error:', error);
+                    alert('Unable to load video. Please refresh the page and try again.');
+                    closeVideoModal();
+                    return false;
+                }
             }
             
             // Initialize Vimeo Player
