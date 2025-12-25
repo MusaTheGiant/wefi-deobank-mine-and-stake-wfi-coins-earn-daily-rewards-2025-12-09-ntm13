@@ -1020,16 +1020,16 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="index.html" style="text-decoration: none;">
+      <a href="https://www.deobankdefi.com" style="text-decoration: none;">
         <div class="logo">DeobankDeFi</div>
       </a>
       <ul class="nav-menu" id="navMenu">
-        <li><a href="https://www.deobankdefi.com/" class="nav-link">Home</a></li>
-        <li><a href="about-wefi.html" class="nav-link">About WeFi</a></li>
-        <li><a href="compensation.html" class="nav-link">Comp Plan</a></li>
-        <li><a href="testimonials.html" class="nav-link">Testimonials</a></li>
-        <li><a href="faq.html" class="nav-link">FAQ</a></li>
-        <li><a href="getting-started.html" class="nav-link">Getting Started</a></li>
+        <li><a href="https://www.deobankdefi.com" class="nav-link">Home</a></li>
+        <li><a href="https://www.deobankdefi.com/about-wefi.html" class="nav-link">About WeFi</a></li>
+        <li><a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="nav-link">Comp Plan</a></li>
+        <li><a href="https://www.deobankdefi.com/testimonials.html" class="nav-link">Testimonials</a></li>
+        <li><a href="https://www.deobankdefi.com/faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="https://www.deobankdefi.com/getting-started.html" class="nav-link">Getting Started</a></li>
       </ul>
       <div class="mobile-menu-btn" id="mobileMenuBtn">
         <span></span><span></span><span></span>
@@ -1292,7 +1292,7 @@
           <div class="step-number">1</div>
           <h3 class="step-title">ITO Mining</h3>
           <p class="step-description">
-            Purchase ITO Units to mine WFI tokens every second until 2032. Predictable, long-term token generation with halving rewards every 2 years.
+            Purchase ITO Units to mine WFI tokens every second until 2032. Predictable, long-term token generation with halving rewards every 2 years. <a href="https://www.deobankdefi.com/wefi-compensation-plan.html" style="color: var(--lime-green); text-decoration: underline;">Learn about ITO mining rewards in the compensation plan</a>.
           </p>
         </div>
 
@@ -1539,7 +1539,7 @@
         </p>
 
         <div class="btn-group">
-          <a href="#" class="btn btn-primary" id="compPlanBtn" style="cursor: pointer;">Explore the Rewards Structure</a>
+          <a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="btn btn-primary">Explore the Rewards Structure</a>
         </div>
       </div>
     </div>
@@ -1641,12 +1641,13 @@
         <div class="footer-section">
           <h3>Quick Links</h3>
           <ul class="footer-links">
-            <li><a href="https://www.deobankdefi.com/">Home</a></li>
-            <li><a href="about-wefi.html">About WeFi</a></li>
-            <li><a href="wfi-token.html">WFI Token</a></li>
-            <li><a href="compensation.html">Compensation Plan</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="https://www.deobankdefi.com">Home</a></li>
+            <li><a href="https://www.deobankdefi.com/about-wefi.html">About WeFi</a></li>
+            <li><a href="https://www.deobankdefi.com/wfi-token.html">WFI Token</a></li>
+            <li><a href="https://www.deobankdefi.com/wefi-compensation-plan.html">Compensation Plan</a></li>
+            <li><a href="https://www.deobankdefi.com/testimonials.html">Testimonials</a></li>
+            <li><a href="https://www.deobankdefi.com/faq.html">FAQ</a></li>
+            <li><a href="https://www.deobankdefi.com/getting-started.html">Getting Started</a></li>
           </ul>
         </div>
 
@@ -2019,22 +2020,6 @@
 
       // Initialize data fetcher
       WFIDataFetcher.init();
-
-      // Comp Plan button handler - update href when page is ready
-      const compPlanBtn = document.getElementById('compPlanBtn');
-      if (compPlanBtn) {
-        compPlanBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          // TODO: Update this URL when compensation page is ready
-          // For now, scroll to getting started or show a message
-          const gettingStartedSection = document.querySelector('.faq-container');
-          if (gettingStartedSection) {
-            gettingStartedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-          // When compensation.html is ready, update to:
-          // window.location.href = 'compensation.html';
-        });
-      }
 
       console.log('All scripts initialized successfully.');
     });
