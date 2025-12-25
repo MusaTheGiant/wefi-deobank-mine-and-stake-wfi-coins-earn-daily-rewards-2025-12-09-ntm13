@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#C7F160">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- SEO Meta Tags - Optimized for #1 Ranking -->
     <title>WeFi Compensation Plan: 7 Income Streams That Pay You For Building Community | DeobankDeFi</title>
@@ -156,6 +159,9 @@
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: rgba(199, 241, 96, 0.2);
+            text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
         }
         
         body {
@@ -167,6 +173,9 @@
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
             overflow-x: hidden;
+            font-size: 16px; /* Minimum readable size on mobile */
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
         }
         
         /* Cross-browser text rendering */
@@ -287,7 +296,18 @@
             background: none;
             border: none;
             cursor: pointer;
-            padding: 10px;
+            padding: 12px;
+            min-width: 48px;
+            min-height: 48px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .mobile-menu-btn:active {
+            background: rgba(199, 241, 96, 0.1);
         }
         
         .mobile-menu-btn span {
@@ -296,6 +316,18 @@
             background: var(--lime-green);
             transition: all 0.3s ease;
             border-radius: 2px;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+        
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
         }
         
         /* Mobile Navigation Styles */
@@ -317,16 +349,19 @@
                 position: fixed;
                 top: var(--navbar-height);
                 right: -100%;
-                width: 280px;
+                width: min(320px, 85vw);
                 height: calc(100vh - var(--navbar-height));
                 background: rgba(10, 10, 10, 0.98);
                 backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 40px 20px;
-                gap: 20px;
-                transition: right 0.4s ease;
+                gap: 8px;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 border-left: 1px solid rgba(212, 239, 137, 0.1);
                 align-items: flex-start;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
             
             .nav-menu.active {
@@ -335,14 +370,29 @@
             
             .nav-link {
                 width: 100%;
-                padding: 12px 20px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 16px 20px;
+                min-height: 48px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .nav-link:active {
+                background: rgba(199, 241, 96, 0.1);
+                color: var(--lime-green);
             }
             
             .nav-cta {
                 width: 100%;
                 text-align: center;
                 margin-top: 20px;
+                padding: 16px 24px;
+                min-height: 48px;
+            }
+            
+            .nav-cta:active {
+                transform: scale(0.98);
             }
         }
         
@@ -495,8 +545,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
-            min-height: 44px;
+            padding: clamp(16px, 2.5vh, 18px) clamp(24px, 5vw, 40px);
+            min-height: 52px; /* Enhanced from 44px */
             min-width: fit-content;
             border-radius: 50px;
             text-decoration: none;
@@ -504,19 +554,34 @@
             cursor: pointer;
             font-family: var(--font-primary);
             font-weight: 700;
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
-            letter-spacing: 0.5px;
+            font-size: clamp(0.9375rem, 3.5vw, 1rem);
+            letter-spacing: 0.3px;
             text-align: center;
             white-space: nowrap;
             position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        /* Full width on small mobile for easier tapping */
+        @media (max-width: 480px) {
+            .btn {
+                width: 100%;
+                max-width: 100%;
+            }
         }
         
         .btn-primary {
             background: var(--lime-green);
             color: var(--black);
             box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: scale(0.98);
+            box-shadow: 0 5px 20px rgba(199, 241, 96, 0.5);
         }
         
         .btn-primary:hover {
@@ -530,10 +595,23 @@
             color: var(--lime-green);
         }
         
+        .btn-secondary:active {
+            background: rgba(199, 241, 96, 0.1);
+            transform: scale(0.98);
+        }
+        
         .btn-secondary:hover {
             background: var(--lime-green);
             color: var(--black);
             transform: translateY(-3px);
+        }
+        
+        /* Disable hover effects on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .btn-primary:hover,
+            .btn-secondary:hover {
+                transform: none;
+            }
         }
         
         /* ===== SECTION STYLES ===== */
@@ -1256,7 +1334,53 @@
             box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
         }
         
-        /* ===== RESPONSIVE ADJUSTMENTS ===== */
+        /* ===== RESPONSIVE ADJUSTMENTS (Mobile-First) ===== */
+        
+        /* Extra Small Mobile (320px - 479px) */
+        @media (max-width: 479px) {
+            .hero-title {
+                font-size: clamp(1.5rem, 9vw, 2rem);
+                letter-spacing: -0.01em;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .nav-container {
+                padding: 14px 16px;
+            }
+            
+            .section {
+                padding-left: clamp(16px, 4vw, 20px);
+                padding-right: clamp(16px, 4vw, 20px);
+            }
+        }
+        
+        /* Small Mobile (480px - 639px) */
+        @media (min-width: 480px) and (max-width: 639px) {
+            .overview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Medium Mobile / Tablet Portrait (640px - 767px) */
+        @media (min-width: 640px) and (max-width: 767px) {
+            .income-stream-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .rank-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Tablet & Mobile (max-width: 768px) - Original */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: clamp(1.5rem, 7vw, 2.5rem);
@@ -1275,16 +1399,65 @@
             }
             
             .node-comparison {
-                overflow-x: scroll;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
             }
             
             .node-table {
-                min-width: 600px;
+                min-width: 640px;
             }
             
             .cta-features {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+            
+            /* Enhanced table scroll indicator */
+            .node-comparison::after {
+                content: '👉 Scroll horizontally to see all columns 👈';
+                display: block;
+                text-align: center;
+                padding: 12px;
+                font-size: 0.875rem;
+                color: rgba(255, 255, 255, 0.6);
+                background: rgba(199, 241, 96, 0.05);
+                border-top: 1px solid rgba(199, 241, 96, 0.1);
+                position: sticky;
+                left: 0;
+            }
+        }
+        
+        /* Tablet Landscape (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .overview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .income-stream-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .node-comparison::after {
+                display: none;
+            }
+        }
+        
+        /* Desktop (1025px+) */
+        @media (min-width: 1025px) {
+            .overview-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .income-stream-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .rank-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .node-comparison::after {
+                display: none;
             }
         }
         
