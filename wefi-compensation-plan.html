@@ -156,6 +156,18 @@
             box-sizing: border-box;
         }
         
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        
+        /* Prevent long words from causing overflow */
+        * {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
@@ -172,10 +184,21 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             text-rendering: optimizeLegibility;
-            overflow-x: hidden;
+            overflow-x: hidden; /* CRITICAL: Prevent horizontal scroll */
             font-size: 16px; /* Minimum readable size on mobile */
             min-height: 100vh;
             min-height: -webkit-fill-available;
+            width: 100%;
+            max-width: 100vw; /* CRITICAL: Never exceed viewport */
+        }
+        
+        /* Ensure all major containers respect viewport width */
+        .section,
+        .container,
+        .hero,
+        .footer {
+            max-width: 100vw;
+            overflow-x: hidden;
         }
         
         /* Cross-browser text rendering */
@@ -436,13 +459,14 @@
         }
         
         .hero-content {
-            max-width: min(1400px, 100% - 2rem);
+            max-width: min(1400px, 100%);
             width: 100%;
             margin-inline: auto;
             text-align: center;
             position: relative;
             z-index: 10;
-            padding: 0;
+            padding: 0 clamp(16px, 4vw, 40px);
+            box-sizing: border-box;
         }
         
         /* Hero Badge */
@@ -527,6 +551,10 @@
             flex-wrap: wrap;
             row-gap: clamp(12px, 2vh, 16px);
             animation: fadeInUp 0.8s ease-out 0.6s backwards;
+            width: 100%;
+            max-width: 100%;
+            padding: 0 clamp(8px, 2vw, 16px);
+            box-sizing: border-box;
         }
         
         @keyframes fadeInUp {
@@ -746,7 +774,37 @@
         }
         
         .income-stream-icon {
-            font-size: 2rem;
+            /* Removed emoji font-size, creating circular badge instead */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--lime-green);
+            color: var(--black); /* Reverted to black for better visibility */
+            font-size: 1.25rem;
+            font-weight: 800;
+            border-radius: 50%;
+            font-family: var(--font-accent);
+            box-shadow: 0 4px 12px rgba(199, 241, 96, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hover effect for desktop */
+        @media (hover: hover) {
+            .income-stream-icon:hover {
+                transform: scale(1.1);
+                box-shadow: 0 6px 16px rgba(199, 241, 96, 0.5);
+            }
+        }
+        
+        /* Larger on bigger screens */
+        @media (min-width: 768px) {
+            .income-stream-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 1.5rem;
+            }
         }
         
         .income-stream h3 {
@@ -909,6 +967,10 @@
         .node-comparison {
             overflow-x: auto;
             margin: 40px 0;
+            -webkit-overflow-scrolling: touch;
+            /* Prevent overflow beyond viewport */
+            max-width: 100%;
+            width: 100%;
         }
         
         .node-table {
@@ -917,6 +979,14 @@
             background: rgba(26, 26, 26, 0.5);
             border-radius: 10px;
             overflow: hidden;
+            /* Set min-width only on mobile */
+            min-width: 100%;
+        }
+        
+        @media (max-width: 767px) {
+            .node-table {
+                min-width: 600px; /* Table can scroll internally */
+            }
         }
         
         .node-table thead {
@@ -1346,6 +1416,22 @@
         
         /* Extra Small Mobile (320px - 479px) */
         @media (max-width: 479px) {
+            /* CRITICAL: Prevent ANY horizontal overflow */
+            html, body {
+                overflow-x: hidden !important;
+                max-width: 100vw !important;
+                width: 100% !important;
+            }
+            
+            /* Ensure all containers respect viewport */
+            .hero, .section, .container, .footer,
+            .hero-content, .cta-buttons, .overview-grid,
+            .income-stream-grid, .rank-grid, .scenario-grid {
+                max-width: 100vw !important;
+                overflow-x: hidden !important;
+                box-sizing: border-box !important;
+            }
+            
             .hero-title {
                 font-size: clamp(1.5rem, 9vw, 2rem);
                 letter-spacing: -0.01em;
@@ -1358,6 +1444,8 @@
             
             .btn {
                 width: 100%;
+                max-width: 100%;
+                white-space: normal !important;
             }
             
             .nav-container {
@@ -1367,6 +1455,14 @@
             .section {
                 padding-left: clamp(16px, 4vw, 20px);
                 padding-right: clamp(16px, 4vw, 20px);
+            }
+            
+            /* Ensure table container doesn't cause page overflow */
+            .node-comparison {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100%;
+                max-width: 100%;
             }
         }
         
@@ -1409,10 +1505,6 @@
             .node-comparison {
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
-            }
-            
-            .node-table {
-                min-width: 640px;
             }
             
             .cta-features {
@@ -1747,7 +1839,7 @@
             <div class="income-streams">
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">1️⃣</span>
+                        <span class="income-stream-icon">1</span>
                         <h3>Join Free & Choose Your Node Level</h3>
                     </div>
                     <div class="income-stream-details">
@@ -1766,7 +1858,7 @@
                 
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">2️⃣</span>
+                        <span class="income-stream-icon">2</span>
                         <h3>Share WeFi With Your Network</h3>
                     </div>
                     <div class="income-stream-details">
@@ -1786,7 +1878,7 @@
                 
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">3️⃣</span>
+                        <span class="income-stream-icon">3</span>
                         <h3>Earn Commissions on Every Level</h3>
                     </div>
                     <div class="income-stream-details">
@@ -1823,9 +1915,9 @@
                 <!-- Income Stream 1: Direct ITO Commissions -->
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">💵</span>
+                        <span class="income-stream-icon">1</span>
                         <div>
-                            <h3>1. Direct ITO Purchase Commissions</h3>
+                            <h3>Direct ITO Purchase Commissions</h3>
                             <p style="color: var(--lime-green); font-weight: 600; font-size: 1.1rem; margin: 0;">Up to 25% Instant USDT Payouts</p>
                         </div>
                     </div>
@@ -1851,9 +1943,9 @@
                 <!-- Income Stream 2: Token Mining Rewards -->
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">⛏️</span>
+                        <span class="income-stream-icon">2</span>
                         <div>
-                            <h3>2. ITO Token Mining Rewards (3 Levels)</h3>
+                            <h3>ITO Token Mining Rewards (3 Levels)</h3>
                             <p style="color: var(--lime-green); font-weight: 600; font-size: 1.1rem; margin: 0;">Passive Crypto Rewards - Mines Automatically for 7+ Years</p>
                         </div>
                     </div>
@@ -1888,9 +1980,9 @@
                 <!-- Income Stream 3: Team Building Bonuses -->
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">👥</span>
+                        <span class="income-stream-icon">3</span>
                         <div>
-                            <h3>3. Team Building & Differential Bonuses</h3>
+                            <h3>Team Building & Differential Bonuses</h3>
                             <p style="color: var(--lime-green); font-weight: 600; font-size: 1.1rem; margin: 0;">Uni-Level System - No Binary, No Matrix, No Spillover</p>
                         </div>
                     </div>
@@ -1919,9 +2011,9 @@
                 <!-- Income Stream 4: Visa Card Commissions -->
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">💳</span>
+                        <span class="income-stream-icon">4</span>
                         <div>
-                            <h3>4. WeFi Visa Card Commissions</h3>
+                            <h3>WeFi Visa Card Commissions</h3>
                             <p style="color: var(--lime-green); font-weight: 600; font-size: 1.1rem; margin: 0;">Residual Income From Card Usage + Monthly Fees</p>
                         </div>
                     </div>
@@ -1955,9 +2047,9 @@
                 <!-- Income Stream 5: Banking Transaction Fees -->
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">🏦</span>
+                        <span class="income-stream-icon">5</span>
                         <div>
-                            <h3>5. Banking Transaction Commissions (Phase 4 - Coming Soon)</h3>
+                            <h3>Banking Transaction Commissions (Phase 4 - Coming Soon)</h3>
                             <p style="color: var(--lime-green); font-weight: 600; font-size: 1.1rem; margin: 0;">Earn From EVERY Banking Activity</p>
                         </div>
                     </div>
@@ -1984,9 +2076,9 @@
                 <!-- Income Stream 6: Rank Achievement Bonuses -->
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">🏆</span>
+                        <span class="income-stream-icon">6</span>
                         <div>
-                            <h3>6. Rank Achievement & "Rule of the Favorite" Bonuses</h3>
+                            <h3>Rank Achievement & "Rule of the Favorite" Bonuses</h3>
                             <p style="color: var(--lime-green); font-weight: 600; font-size: 1.1rem; margin: 0;">Extra 3-8% Commission on ALL Volume (Ranks 4-10)</p>
                         </div>
                     </div>
@@ -2015,9 +2107,9 @@
                 <!-- Income Stream 7: Node Revenue Sharing -->
                 <div class="income-stream">
                     <div class="income-stream-header">
-                        <span class="income-stream-icon">🔗</span>
+                        <span class="income-stream-icon">7</span>
                         <div>
-                            <h3>7. Node Tier Revenue Sharing & Pool Distributions</h3>
+                            <h3>Node Tier Revenue Sharing & Pool Distributions</h3>
                             <p style="color: var(--lime-green); font-weight: 600; font-size: 1.1rem; margin: 0;">Additional Income From WeChain Infrastructure</p>
                         </div>
                     </div>
