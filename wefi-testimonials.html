@@ -3147,23 +3147,23 @@
             </div>
         
         <div class="video-grid">
-            <!-- VIDEO TESTIMONIAL PLACEHOLDER 1 -->
-            <!-- INTEGRATION NOTE: Replace videoId with actual YouTube/Vimeo/GitHub video ID -->
-            <!-- For YouTube: platform="youtube", videoId="YOUR_YOUTUBE_ID" -->
-            <!-- For Vimeo: platform="vimeo", videoId="YOUR_VIMEO_ID" -->
-            <!-- For GitHub/MP4: platform="mp4", videoId="FULL_VIDEO_URL" -->
-            <div class="video-card" onclick="openVideoModal(event, 'youtube', 'PLACEHOLDER_VIDEO_ID_1')">
+            <!-- VIDEO TESTIMONIAL #1: Peter's $14,542 Breakthrough -->
+            <div class="video-card" onclick="playLocalVideo(event, 'https://www.deobankdefi.com/videos/peter-made-$14542-in-40-days-with-wefi-heres-how.mp4')">
                 <div class="video-thumbnail">
-                    <div class="video-thumbnail-placeholder">
-                        <div class="video-play-icon"></div>
+                    <img src="https://www.deobankdefi.com/images/wefi-testimonial-by-peter.jpg" 
+                         alt="Peter's $14,542 Success Story" 
+                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+                         loading="lazy">
+                    <div class="video-thumbnail-placeholder" style="background: rgba(0, 0, 0, 0.15); backdrop-filter: blur(0px);">
+                        <div class="video-play-icon" style="opacity: 0.85; background: rgba(199, 241, 96, 0.95);"></div>
                     </div>
                 </div>
                 <div class="video-content">
-                    <h3 class="video-title">Success Story: From $0 to $10K Monthly</h3>
-                    <p class="video-description">Watch how Sarah transformed her financial life in just 8 months with WeFi's proven system and community support.</p>
+                    <h3 class="video-title">Peter's $14,542 in 40 Days: The Blueprint Revealed</h3>
+                    <p class="video-description">From complete skeptic to earning over $14,542 in just 40 days. Peter breaks down exactly what he did, the mistakes he avoided, and why he wishes he'd started sooner.</p>
                     <div class="video-meta">
-                        <span class="video-meta-item">📹 Video Testimonial</span>
-                        <span class="video-meta-item">⏱ 8:42</span>
+                        <span class="video-meta-item">📹 Member Success Story</span>
+                        <span class="video-meta-item">💰 $14,542 Earned</span>
                     </div>
                 </div>
             </div>
@@ -3597,6 +3597,7 @@
         function closeVideoModal() {
             videoModal.classList.add('closing');
             
+            // Stop and clean up Vimeo player
             if (vimeoPlayer) {
                 try {
                     vimeoPlayer.off('ended');
@@ -3608,6 +3609,7 @@
                 vimeoPlayer = null;
             }
             
+            // Stop and clean up YouTube player
             if (youtubePlayer) {
                 try {
                     youtubePlayer.stopVideo();
@@ -3616,8 +3618,19 @@
                 youtubePlayer = null;
             }
             
+            // Stop and clean up local video player
+            const localPlayer = document.getElementById('localVideoPlayer');
+            if (localPlayer) {
+                try {
+                    localPlayer.pause();
+                    localPlayer.src = '';
+                    localPlayer.load();
+                } catch (e) {}
+            }
+            
             setTimeout(() => {
                 videoModal.classList.remove('active', 'closing');
+                videoIframe.innerHTML = '';
                 videoIframe.src = 'about:blank';
                 document.body.classList.remove('modal-open');
                 
@@ -3679,6 +3692,45 @@
         async function initYouTubePlayer(videoId) {
             console.log('YouTube player:', videoId);
             // Add YouTube implementation if needed
+        }
+        
+        // Local MP4 Video Player Function
+        async function playLocalVideo(event, videoUrl) {
+            if (event) {
+                event.preventDefault();
+                videoTriggerElement = event.currentTarget.closest('.video-card');
+            }
+            
+            const loadingElement = document.getElementById('videoLoading');
+            if (loadingElement) loadingElement.classList.remove('hidden');
+            
+            document.body.classList.add('modal-open');
+            videoModal.classList.add('active');
+            
+            await new Promise(resolve => setTimeout(resolve, 100));
+            
+            // Create HTML5 video player
+            videoIframe.innerHTML = `
+                <video 
+                    id="localVideoPlayer" 
+                    controls 
+                    autoplay 
+                    playsinline
+                    style="width: 100%; height: 100%; background: #000;"
+                    onloadeddata="document.getElementById('videoLoading').classList.add('hidden');"
+                >
+                    <source src="${videoUrl}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            `;
+            
+            // Handle video end
+            const localPlayer = document.getElementById('localVideoPlayer');
+            if (localPlayer) {
+                localPlayer.addEventListener('ended', () => {
+                    setTimeout(() => closeVideoModal(), 500);
+                });
+            }
         }
         
         // Close modal on outside click
