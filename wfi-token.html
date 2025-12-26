@@ -43,6 +43,9 @@
   <!-- Vimeo Player API -->
   <script src="https://player.vimeo.com/api/player.js" async></script>
 
+  <!-- YouTube IFrame API - For video modal -->
+  <script src="https://www.youtube.com/iframe_api" async></script>
+
   <style>
     /* ===== CSS VARIABLES - WeFi Branding ===== */
     :root {
@@ -1013,6 +1016,406 @@
       .faq-question { font-size: 15px; }
       .faq-answer.active { max-height: 1200px; }
     }
+
+    /* ===== VIDEO MODAL ===== */
+    .video-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 10000;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .video-modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 1;
+    }
+
+    .video-container {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      max-height: 85vh;
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(30, 30, 30, 0.95));
+      border-radius: 20px;
+      padding: 8px;
+      box-shadow: 
+        0 25px 80px rgba(0, 255, 136, 0.3),
+        0 0 0 1px rgba(199, 241, 96, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .video-modal.active .video-container {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .video-modal.closing .video-container {
+      transform: scale(0.8);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    @supports (aspect-ratio: 16 / 9) {
+      .video-wrapper {
+        aspect-ratio: 16 / 9;
+      }
+    }
+
+    @media (max-height: 900px) and (min-width: 769px) {
+      .video-wrapper {
+        padding-bottom: 0;
+        height: calc(85vh - 100px);
+      }
+      
+      @supports (aspect-ratio: 16 / 9) {
+        .video-wrapper {
+          aspect-ratio: 16 / 9;
+          height: auto;
+          max-height: calc(85vh - 100px);
+        }
+      }
+    }
+
+    @media (max-height: 800px) and (min-width: 769px) {
+      .video-wrapper {
+        height: calc(78vh - 100px);
+      }
+      
+      @supports (aspect-ratio: 16 / 9) {
+        .video-wrapper {
+          max-height: calc(78vh - 100px);
+        }
+      }
+    }
+
+    @media (max-height: 768px) and (min-width: 769px) {
+      .video-wrapper {
+        height: calc(70vh - 100px);
+      }
+      
+      @supports (aspect-ratio: 16 / 9) {
+        .video-wrapper {
+          max-height: calc(70vh - 100px);
+        }
+      }
+    }
+
+    @media (min-width: 769px) {
+      .video-wrapper {
+        max-height: calc(85vh - 120px);
+      }
+    }
+
+    .video-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, 
+        rgba(199, 241, 96, 0.1) 0%, 
+        transparent 50%, 
+        rgba(0, 255, 136, 0.1) 100%);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.3;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 16px;
+      object-fit: contain;
+    }
+
+    @media (min-width: 769px) {
+      .video-wrapper iframe {
+        object-fit: fill;
+      }
+    }
+
+    .video-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      background: rgba(199, 241, 96, 0.1);
+      border: 2px solid var(--lime-green);
+      color: var(--white);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: 300;
+      transition: all 0.3s ease;
+      z-index: 10001;
+    }
+
+    .video-close:hover {
+      background: var(--lime-green);
+      color: var(--black);
+      transform: rotate(90deg) scale(1.1);
+      box-shadow: 0 5px 20px rgba(199, 241, 96, 0.4);
+    }
+
+    .video-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 40px 60px;
+      border-radius: 16px;
+      border: 2px solid var(--lime-green);
+      box-shadow: 0 10px 40px rgba(199, 241, 96, 0.3);
+    }
+
+    .video-loading-spinner {
+      width: 60px;
+      height: 60px;
+      border: 4px solid rgba(199, 241, 96, 0.2);
+      border-top-color: var(--lime-green);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .video-loading-text {
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    .video-loading-subtext {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .video-loading.hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .video-loading {
+        padding: 30px 40px;
+        gap: 15px;
+      }
+      
+      .video-loading-spinner {
+        width: 50px;
+        height: 50px;
+      }
+      
+      .video-loading-text {
+        font-size: 16px;
+      }
+      
+      .video-loading-subtext {
+        font-size: 13px;
+      }
+
+      .video-container {
+        width: 95%;
+        padding: 6px;
+        border-radius: 16px;
+      }
+      
+      .video-wrapper {
+        border-radius: 12px;
+      }
+      
+      .video-close {
+        top: -45px;
+        width: 36px;
+        height: 36px;
+        font-size: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .video-loading {
+        padding: 25px 30px;
+        gap: 12px;
+      }
+      
+      .video-loading-spinner {
+        width: 40px;
+        height: 40px;
+        border-width: 3px;
+      }
+      
+      .video-loading-text {
+        font-size: 15px;
+      }
+      
+      .video-loading-subtext {
+        font-size: 12px;
+      }
+
+      .video-container {
+        width: 98%;
+        padding: 4px;
+        border-radius: 12px;
+      }
+      
+      .video-wrapper {
+        border-radius: 10px;
+      }
+      
+      .video-close {
+        top: -40px;
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .video-modal {
+        -webkit-overflow-scrolling: touch;
+        touch-action: manipulation;
+      }
+      
+      .video-container {
+        width: 92%;
+        max-width: 900px;
+        padding: 8px;
+      }
+      
+      .video-wrapper {
+        padding-bottom: 56.25%;
+      }
+      
+      .video-wrapper iframe,
+      .video-wrapper > div[id^="youtube-player-"] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100% !important;
+        height: 100% !important;
+        border: none;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+      }
+      
+      .video-close {
+        width: 44px;
+        height: 44px;
+        font-size: 26px;
+        top: -55px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 768px) and (orientation: portrait) {
+      .video-container {
+        width: 94%;
+        max-height: 80vh;
+      }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1024px) and (orientation: landscape) {
+      .video-container {
+        width: 90%;
+        max-height: 75vh;
+      }
+    }
+
+    @media (min-width: 1024px) and (max-width: 1024px) and (min-height: 1300px) and (orientation: portrait) {
+      .video-container {
+        width: 92%;
+        max-height: 70vh;
+      }
+    }
+
+    @media (min-width: 1366px) and (max-width: 1366px) and (max-height: 1024px) and (orientation: landscape) {
+      .video-container {
+        width: 88%;
+        max-height: 75vh;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1600px) {
+      .video-container {
+        width: 85%;
+        max-width: min(1000px, calc((85vh - 120px) * 16 / 9));
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .video-container {
+        width: 90%;
+        max-width: min(850px, calc((85vh - 120px) * 16 / 9));
+      }
+    }
+
+    @media (max-width: 1366px) and (max-height: 768px) {
+      .video-container {
+        width: 80%;
+        max-width: min(900px, calc((70vh - 120px) * 16 / 9));
+        max-height: 70vh;
+      }
+    }
+
+    @media (min-width: 1367px) and (max-width: 1440px) and (min-height: 850px) and (max-height: 950px) {
+      .video-container {
+        width: 85%;
+        max-width: min(1000px, calc((75vh - 120px) * 16 / 9));
+        max-height: 75vh;
+      }
+    }
+
+    @media (min-width: 1600px) and (max-height: 1080px) {
+      .video-container {
+        width: 80%;
+        max-width: min(1100px, calc((80vh - 120px) * 16 / 9));
+        max-height: 80vh;
+      }
+    }
   </style>
 </head>
 
@@ -1051,7 +1454,9 @@
 
       <div class="btn-group">
         <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary">Start Earning WFI</a>
-        <a href="#tokenomics" class="btn btn-secondary">View Tokenomics</a>
+        <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'XjHitDKPVPs')">
+          <span>▶️ WeFi Explained by CEO</span>
+        </a>
       </div>
     </div>
   </section>
@@ -1629,6 +2034,27 @@
     </div>
   </section>
 
+  <!-- Video Modal -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-container">
+      <div class="video-close" onclick="closeVideoModal()">×</div>
+      <div class="video-wrapper">
+        <div class="video-loading" id="videoLoading">
+          <div class="video-loading-spinner"></div>
+          <div class="video-loading-text">Loading WeFi Video...</div>
+          <div class="video-loading-subtext">Please wait a moment</div>
+        </div>
+        <iframe 
+          id="vimeoPlayer"
+          src=""
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
@@ -2022,6 +2448,311 @@
       WFIDataFetcher.init();
 
       console.log('All scripts initialized successfully.');
+    });
+
+    // ===== VIDEO MODAL JAVASCRIPT =====
+    let videoModal, videoIframe, vimeoPlayer, youtubePlayer;
+
+    // Initialize Vimeo Player
+    async function initVimeoPlayer(videoId) {
+      try {
+        console.log('Initializing Vimeo player for video:', videoId);
+        
+        const loadingElement = document.getElementById('videoLoading');
+        
+        if (!window.Vimeo || !window.Vimeo.Player) {
+          console.error('Vimeo Player API not loaded');
+          if (loadingElement) loadingElement.classList.add('hidden');
+          alert('Video player not ready. Please refresh the page and try again.');
+          closeVideoModal();
+          return false;
+        }
+        
+        const vimeoUrl = 'https://player.vimeo.com/video/' + videoId + '?autoplay=1&title=0&byline=0&portrait=0';
+        
+        videoIframe.src = vimeoUrl;
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        vimeoPlayer = new Vimeo.Player(videoIframe);
+        
+        vimeoPlayer.on('play', function() {
+          console.log('▶️ Vimeo video playing');
+          if (loadingElement) loadingElement.classList.add('hidden');
+        });
+        
+        vimeoPlayer.on('loaded', function() {
+          console.log('✅ Vimeo video loaded');
+          if (loadingElement) loadingElement.classList.add('hidden');
+        });
+        
+        vimeoPlayer.on('ended', function() {
+          console.log('Vimeo video ended - initiating safe cleanup');
+          
+          try {
+            vimeoPlayer.off('ended');
+            vimeoPlayer.off('play');
+            vimeoPlayer.off('loaded');
+            vimeoPlayer.off('error');
+          } catch (error) {
+            console.warn('Error removing Vimeo listeners:', error);
+          }
+          
+          setTimeout(function() {
+            closeVideoModal();
+          }, 500);
+        });
+        
+        return true;
+      } catch (error) {
+        console.error('❌ Error initializing Vimeo player:', error);
+        const loadingElement = document.getElementById('videoLoading');
+        if (loadingElement) loadingElement.classList.add('hidden');
+        alert('Unable to load video. Please try again or refresh the page.');
+        closeVideoModal();
+        return false;
+      }
+    }
+
+    // Initialize YouTube Player
+    function initYouTubePlayer(videoId) {
+      return new Promise((resolve, reject) => {
+        try {
+          console.log('Initializing YouTube player for video:', videoId);
+          
+          const loadingElement = document.getElementById('videoLoading');
+          
+          const playerDiv = document.createElement('div');
+          playerDiv.id = 'youtube-player-' + Date.now();
+          playerDiv.style.width = '100%';
+          playerDiv.style.height = '100%';
+          playerDiv.style.position = 'absolute';
+          playerDiv.style.top = '0';
+          playerDiv.style.left = '0';
+          
+          videoIframe.style.display = 'none';
+          videoIframe.parentElement.appendChild(playerDiv);
+          
+          const initPlayer = () => {
+            if (!window.YT || !window.YT.Player || !window.youtubeAPIReady) {
+              console.log('Waiting for YouTube API...');
+              setTimeout(initPlayer, 100);
+              return;
+            }
+            
+            console.log('Creating YouTube player...');
+            
+            youtubePlayer = new YT.Player(playerDiv.id, {
+              videoId: videoId,
+              width: '100%',
+              height: '100%',
+              playerVars: {
+                autoplay: 1,
+                rel: 0,
+                modestbranding: 1,
+                controls: 1,
+                showinfo: 0,
+                fs: 1,
+                iv_load_policy: 3,
+                color: 'white'
+              },
+              events: {
+                onReady: function(event) {
+                  console.log('YouTube player ready');
+                  if (loadingElement) {
+                    loadingElement.classList.add('hidden');
+                  }
+                  event.target.playVideo();
+                  resolve(true);
+                },
+                onStateChange: function(event) {
+                  if (event.data === YT.PlayerState.PLAYING) {
+                    console.log('YouTube video playing');
+                    if (loadingElement) {
+                      loadingElement.classList.add('hidden');
+                    }
+                  }
+                  if (event.data === YT.PlayerState.ENDED) {
+                    console.log('YouTube video ended');
+                    setTimeout(closeVideoModal, 500);
+                  }
+                },
+                onError: function(event) {
+                  console.error('YouTube player error:', event);
+                  if (loadingElement) {
+                    loadingElement.classList.add('hidden');
+                  }
+                  alert('Unable to load YouTube video. Please try again.');
+                  closeVideoModal();
+                  reject(event);
+                }
+              }
+            });
+          };
+          
+          initPlayer();
+          
+        } catch (error) {
+          console.error('Error initializing YouTube player:', error);
+          const loadingElement = document.getElementById('videoLoading');
+          if (loadingElement) {
+            loadingElement.classList.add('hidden');
+          }
+          alert('Unable to load YouTube video. Please refresh the page and try again.');
+          closeVideoModal();
+          reject(error);
+        }
+      });
+    }
+
+    // Open Video Modal
+    window.openVideoModal = async function(event, platform = 'vimeo', videoId = '1145731075') {
+      console.log('🎬 openVideoModal called - Platform:', platform, 'VideoID:', videoId);
+      
+      if (event) {
+        event.preventDefault();
+      }
+      
+      videoModal = document.getElementById('videoModal');
+      videoIframe = document.getElementById('vimeoPlayer');
+      
+      if (!videoModal || !videoIframe) {
+        console.error('❌ Modal elements not found!');
+        console.log('videoModal:', videoModal);
+        console.log('videoIframe:', videoIframe);
+        return;
+      }
+      
+      console.log('✅ Modal elements found, opening modal...');
+      
+      const loadingElement = document.getElementById('videoLoading');
+      if (loadingElement) {
+        loadingElement.classList.remove('hidden');
+      }
+      
+      document.body.classList.add('modal-open');
+      videoModal.classList.add('active');
+      
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
+      if (platform === 'vimeo') {
+        vimeoPlayer = null;
+        await initVimeoPlayer(videoId);
+      } else if (platform === 'youtube') {
+        youtubePlayer = null;
+        await initYouTubePlayer(videoId);
+      }
+    };
+
+    // Close Video Modal
+    window.closeVideoModal = function() {
+      console.log('❌ Closing video modal');
+      
+      if (!videoModal) {
+        videoModal = document.getElementById('videoModal');
+      }
+      
+      if (!videoModal) return;
+      
+      videoModal.classList.add('closing');
+      
+      if (vimeoPlayer) {
+        try {
+          console.log('Stopping Vimeo player...');
+          
+          vimeoPlayer.off('ended');
+          vimeoPlayer.off('play');
+          vimeoPlayer.off('loaded');
+          vimeoPlayer.off('error');
+          vimeoPlayer.off('pause');
+          
+          vimeoPlayer.pause().catch(function(error) {
+            console.warn('Error pausing Vimeo:', error);
+          });
+          
+          vimeoPlayer.unload().catch(function(error) {
+            console.warn('Error unloading Vimeo:', error);
+          });
+          
+          setTimeout(function() {
+            try {
+              if (vimeoPlayer) {
+                vimeoPlayer.destroy();
+                console.log('✓ Vimeo player destroyed successfully');
+              }
+            } catch (destroyError) {
+              console.warn('Error during Vimeo destroy:', destroyError);
+            }
+          }, 100);
+          
+        } catch (error) {
+          console.error('Error stopping Vimeo:', error);
+        }
+        vimeoPlayer = null;
+      }
+      
+      if (youtubePlayer) {
+        try {
+          youtubePlayer.stopVideo();
+          youtubePlayer.destroy();
+        } catch (error) {
+          console.error('Error stopping YouTube:', error);
+        }
+        youtubePlayer = null;
+      }
+      
+      setTimeout(function() {
+        videoModal.classList.remove('active');
+        videoModal.classList.remove('closing');
+        
+        if (videoIframe) {
+          videoIframe.src = 'about:blank';
+          setTimeout(function() {
+            videoIframe.src = '';
+          }, 50);
+          videoIframe.style.display = '';
+          
+          const playerDivs = videoIframe.parentElement.querySelectorAll('[id^="youtube-player-"]');
+          playerDivs.forEach(div => div.remove());
+        }
+        
+        document.body.classList.remove('modal-open');
+        
+        const loadingElement = document.getElementById('videoLoading');
+        if (loadingElement) {
+          loadingElement.classList.remove('hidden');
+        }
+      }, 400);
+    };
+
+    // YouTube API ready callback
+    window.onYouTubeIframeAPIReady = function() {
+      console.log('YouTube API Ready');
+      window.youtubeAPIReady = true;
+    };
+
+    // Initialize modal elements and event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      videoModal = document.getElementById('videoModal');
+      videoIframe = document.getElementById('vimeoPlayer');
+      
+      console.log('Video modal element:', videoModal ? '✅ Found' : '❌ Not Found');
+      console.log('Video iframe element:', videoIframe ? '✅ Found' : '❌ Not Found');
+      
+      if (videoModal) {
+        videoModal.addEventListener('click', function(e) {
+          if (e.target === videoModal) {
+            closeVideoModal();
+          }
+        });
+      }
+      
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
+          closeVideoModal();
+        }
+      });
+      
+      console.log('✅ Video modal functions initialized');
     });
   </script>
 </body>
