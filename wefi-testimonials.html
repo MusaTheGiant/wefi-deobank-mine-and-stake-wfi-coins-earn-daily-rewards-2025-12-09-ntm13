@@ -3398,14 +3398,23 @@
 
     
     <!-- VIDEO MODAL -->
-    <div id="videoModal" class="video-modal">
-        <div class="video-modal-content">
-            <button class="video-close" onclick="closeVideoModal()" aria-label="Close video"></button>
-            <div id="videoLoading" class="video-loading">
-                <div class="loading-spinner"></div>
-                Loading video...
+    <div class="video-modal" id="videoModal">
+        <div class="video-container">
+            <div class="video-close" onclick="closeVideoModal()">×</div>
+            <div class="video-wrapper">
+                <div class="video-loading" id="videoLoading">
+                    <div class="video-loading-spinner"></div>
+                    <div class="video-loading-text">Loading Video...</div>
+                    <div class="video-loading-subtext">Please wait a moment</div>
+                </div>
+                <iframe 
+                    id="vimeoPlayer"
+                    src=""
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowfullscreen
+                ></iframe>
             </div>
-            <iframe id="vimeoPlayer" class="video-player" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
     
