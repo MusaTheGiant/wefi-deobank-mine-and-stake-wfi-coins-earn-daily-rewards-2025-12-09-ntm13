@@ -220,126 +220,119 @@
         }
         
         /* ===== NAVIGATION (Exact from existing site, minus Compensation Plan link) ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 239, 137, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .navbar.scrolled {
-            background: rgba(0, 0, 0, 0.98);
-            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
-        }
-        
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: var(--lime-green);
-            font-family: "Space Grotesk", sans-serif;
-            text-decoration: none;
-        }
-        
-        .nav-menu {
-            display: flex;
-            gap: 40px;
-            list-style: none;
-            align-items: center;
-        }
-        
-        .nav-link {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--lime-green);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--lime-green);
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
-        /* Navigation CTA Button */
-        .nav-cta {
-            display: inline-block;
-            padding: 10px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 14px;
-            background: var(--lime-green);
-            color: var(--black);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);
-            white-space: nowrap;
-        }
-        
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
-        }
-        
-        /* Mobile Menu Toggle */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 12px;
-            min-width: 48px;
-            min-height: 48px;
-            justify-content: center;
-            align-items: center;
-            border-radius: 8px;
-            transition: background 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        .mobile-menu-btn:active {
-            background: rgba(199, 241, 96, 0.1);
-        }
-        
-        .mobile-menu-btn span {
-            width: 25px;
-            height: 3px;
-            background: var(--lime-green);
-            transition: all 0.3s ease;
-            border-radius: 2px;
-        }
+            .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(212, 239, 137, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(0, 0, 0, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--lime-green);
+      font-family: "Space Grotesk", sans-serif;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--lime-green);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover { color: var(--lime-green); }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link.active {
+      color: var(--lime-green);
+    }
+
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 10px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      background: var(--lime-green);
+      color: var(--black);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);
+      white-space: nowrap;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-cta:hover {
+      background: var(--bright-green);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
+    }
+
+    .nav-cta:active { transform: translateY(0); }
+
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background: var(--lime-green);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
         
         .mobile-menu-btn.active span:nth-child(1) {
             transform: rotate(45deg) translate(6px, 6px);
@@ -1739,31 +1732,95 @@
                 font-size: 20px;
             }
         }
+    
+    @media (max-width: 768px) {
+        .nav-container { padding: 15px 20px; }
+        .logo { font-size: 20px; letter-spacing: -0.5px; }
+
+        .nav-menu {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.98);
+            width: 100%;
+            padding: 40px;
+            gap: 20px;
+            transition: left 0.3s ease;
+            border-top: 1px solid rgba(199, 241, 96, 0.2);
+        }
+
+        .nav-menu.active { left: 0; }
+
+        .mobile-menu-btn {
+            display: flex;
+        }
+
+        .nav-cta {
+            display: none;
+        }
+    }
+    
+    @media (max-width: 768px) {
+      .logo { font-size: 20px; letter-spacing: -0.5px; }
+
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.98);
+        width: 100%;
+        padding: 40px;
+        gap: 20px;
+        transition: left 0.3s ease;
+        border-top: 1px solid rgba(199, 241, 96, 0.2);
+      }
+
+      .nav-menu.active { left: 0; }
+
+      .mobile-menu-btn {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .mobile-menu-btn span { background: white; }
+
+      .nav-cta {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        padding: 8px 20px;
+        font-size: 13px;
+        min-height: 36px;
+      }
+
+      .nav-container { padding: 20px; }
+    }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+            <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="https://www.deobankdefi.com" style="text-decoration: none;">
                 <div class="logo">DeobankDeFi</div>
             </a>
-            
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="https://www.deobankdefi.com" class="nav-link">Home</a></li>
                 <li><a href="https://www.deobankdefi.com/about-wefi.html" class="nav-link">About WeFi</a></li>
-                <li><a href="https://www.deobankdefi.com/wfi-token.html" class="nav-link">WFI Token</a></li>
+                <li><a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="nav-link active">Comp Plan</a></li>
                 <li><a href="https://www.deobankdefi.com/testimonials.html" class="nav-link">Testimonials</a></li>
                 <li><a href="https://www.deobankdefi.com/faq.html" class="nav-link">FAQ</a></li>
                 <li><a href="https://www.deobankdefi.com/getting-started.html" class="nav-link">Getting Started</a></li>
-                <li><a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="nav-cta">Get Started</a></li>
             </ul>
-            
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
+            </div>
+            <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank" rel="noopener">Sign Up</a>
         </div>
     </nav>
 
@@ -1781,7 +1838,7 @@
                 ITO commissions + ongoing fee-share from real card usage and banking transactions across up to 20 levels. One-time investment. No monthly fees. Build once, earn forever.
             </p>
             <div class="cta-buttons">
-                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Start Earning Now →</a>
+                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sign Up</a>
                 <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'zybzi25Zujg')">▶️ See How It Works</a>
             </div>
         </div>
@@ -2773,23 +2830,21 @@
             // Set dynamic copyright year
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // Mobile Menu Toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    navMenu.classList.toggle('active');
-                    this.classList.toggle('active');
+                    // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
                 });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!event.target.closest('.nav-container')) {
-                        navMenu.classList.remove('active');
-                        mobileMenuBtn.classList.remove('active');
-                    }
-                });
+            });
+        });
                 
                 // Close menu when clicking on a link
                 document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
