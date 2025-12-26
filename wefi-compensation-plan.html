@@ -219,8 +219,8 @@
             overflow-wrap: break-word;
         }
         
-        /* ===== NAVIGATION (Exact from existing site, minus Compensation Plan link) ===== */
-            .navbar {
+        /* ===== NAVIGATION ===== */
+    .navbar {
       position: fixed;
       top: 0;
       left: 0;
@@ -284,13 +284,6 @@
 
     .nav-link:hover { color: var(--lime-green); }
     .nav-link:hover::after { width: 100%; }
-    .nav-link.active {
-      color: var(--lime-green);
-    }
-
-    .nav-link.active::after {
-      width: 100%;
-    }
 
     .nav-cta {
       display: inline-block;
@@ -333,84 +326,46 @@
       transition: all 0.3s ease;
       border-radius: 2px;
     }
-        
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-        
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-        
-        /* Mobile Navigation Styles */
-        @media (max-width: 968px) {
-            .nav-container {
-                padding: 16px 20px;
-            }
-            
-            .logo {
-                font-size: 22px;
-            }
-            
-            .mobile-menu-btn {
-                display: flex;
-                z-index: 1001;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                top: var(--navbar-height);
-                right: -100%;
-                width: min(320px, 85vw);
-                height: calc(100vh - var(--navbar-height));
-                background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 40px 20px;
-                gap: 8px;
-                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                border-left: 1px solid rgba(212, 239, 137, 0.1);
-                align-items: flex-start;
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .nav-link {
-                width: 100%;
-                padding: 16px 20px;
-                min-height: 48px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-            }
-            
-            .nav-link:active {
-                background: rgba(199, 241, 96, 0.1);
-                color: var(--lime-green);
-            }
-            
-            .nav-cta {
-                width: 100%;
-                text-align: center;
-                margin-top: 20px;
-                padding: 16px 24px;
-                min-height: 48px;
-            }
-            
-            .nav-cta:active {
-                transform: scale(0.98);
-            }
-        }
+
+    @media (max-width: 768px) {
+      .logo { font-size: 20px; letter-spacing: -0.5px; }
+
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.98);
+        width: 100%;
+        padding: 40px;
+        gap: 20px;
+        transition: left 0.3s ease;
+        border-top: 1px solid rgba(199, 241, 96, 0.2);
+      }
+
+      .nav-menu.active { left: 0; }
+
+      .mobile-menu-btn {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .mobile-menu-btn span { background: white; }
+
+      .nav-cta {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 20px;
+        padding: 8px 20px;
+        font-size: 13px;
+        min-height: 36px;
+      }
+
+      .nav-container { padding: 20px; }
+    }
         
         /* ===== HERO SECTION (Matching existing layout) ===== */
         .hero {
@@ -1388,36 +1343,32 @@
         }
         
         /* ===== SCROLL TO TOP BUTTON ===== */
-        .scroll-top {
+        .scroll-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 50px;
-            height: 50px;
             background: var(--lime-green);
             color: var(--black);
-            border: none;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);
+            border: none;
+            font-size: 24px;
         }
         
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
+        .scroll-to-top.visible { opacity: 1; visibility: visible; }
         
-        .scroll-top:hover {
+        .scroll-to-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
         }
         
         /* ===== RESPONSIVE ADJUSTMENTS (Mobile-First) ===== */
@@ -1812,7 +1763,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="https://www.deobankdefi.com" class="nav-link">Home</a></li>
                 <li><a href="https://www.deobankdefi.com/about-wefi.html" class="nav-link">About WeFi</a></li>
-                <li><a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="nav-link active">Comp Plan</a></li>
+                <li><a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="nav-link">Comp Plan</a></li>
                 <li><a href="https://www.deobankdefi.com/testimonials.html" class="nav-link">Testimonials</a></li>
                 <li><a href="https://www.deobankdefi.com/faq.html" class="nav-link">FAQ</a></li>
                 <li><a href="https://www.deobankdefi.com/getting-started.html" class="nav-link">Getting Started</a></li>
@@ -2822,7 +2773,7 @@
     </footer>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+    <button class="scroll-to-top" id="scrollToTopBtn" type="button">↑</button>
 
     <!-- JavaScript -->
     <script>
@@ -2830,27 +2781,19 @@
             // Set dynamic copyright year
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-                    // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navMenu = document.getElementById('navMenu');
 
-        if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-            });
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
+            if (mobileMenuBtn && navMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
                 });
-            });
-        });
-                
+
                 // Close menu when clicking on a link
-                document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
+                document.querySelectorAll('.nav-link').forEach(link => {
                     link.addEventListener('click', () => {
                         navMenu.classList.remove('active');
-                        mobileMenuBtn.classList.remove('active');
                     });
                 });
             }
@@ -2885,22 +2828,20 @@
             });
             
             // Scroll to Top Button
-            const scrollToTopBtn = document.getElementById('scrollToTop');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 500) {
-                    scrollToTopBtn.classList.add('visible');
-                } else {
-                    scrollToTopBtn.classList.remove('visible');
-                }
-            });
-            
-            scrollToTopBtn.addEventListener('click', function() {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            if (scrollToTopBtn) {
+                scrollToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
-            });
+                
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 300) {
+                        scrollToTopBtn.classList.add('visible');
+                    } else {
+                        scrollToTopBtn.classList.remove('visible');
+                    }
+                });
+            }
             
             // Smooth scroll for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
