@@ -3631,15 +3631,20 @@
             if (localPlayer) {
                 try {
                     localPlayer.pause();
-                    localPlayer.src = '';
-                    localPlayer.load();
+                    localPlayer.remove(); // Remove the video element completely
                 } catch (e) {}
             }
             
             setTimeout(() => {
                 videoModal.classList.remove('active', 'closing');
-                videoIframe.innerHTML = '';
-                videoIframe.src = 'about:blank';
+                
+                // Clear iframe and restore display
+                const videoIframeElement = document.getElementById('vimeoPlayer');
+                if (videoIframeElement) {
+                    videoIframeElement.src = 'about:blank';
+                    videoIframeElement.style.display = ''; // Restore iframe display
+                }
+                
                 document.body.classList.remove('modal-open');
                 
                 const loadingElement = document.getElementById('videoLoading');
@@ -3717,27 +3722,55 @@
             
             await new Promise(resolve => setTimeout(resolve, 100));
             
-            // Create HTML5 video player
-            videoIframe.innerHTML = `
+            // Hide the iframe (used for Vimeo/YouTube)
+            const videoIframeElement = document.getElementById('vimeoPlayer');
+            if (videoIframeElement) {
+                videoIframeElement.style.display = 'none';
+            }
+            
+            // Get the video wrapper and inject HTML5 video player
+            const videoWrapper = document.querySelector('.video-wrapper');
+            if (!videoWrapper) {
+                console.error('video-wrapper not found');
+                return;
+            }
+            
+            // Create video element directly in the wrapper
+            const videoHTML = `
                 <video 
                     id="localVideoPlayer" 
                     controls 
                     autoplay 
                     playsinline
-                    style="width: 100%; height: 100%; background: #000;"
-                    onloadeddata="document.getElementById('videoLoading').classList.add('hidden');"
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; border-radius: 16px; object-fit: contain;"
                 >
                     <source src="${videoUrl}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             `;
             
-            // Handle video end
+            // Insert video into wrapper (after loading indicator)
+            const existingVideo = document.getElementById('localVideoPlayer');
+            if (existingVideo) {
+                existingVideo.remove();
+            }
+            videoWrapper.insertAdjacentHTML('beforeend', videoHTML);
+            
+            // Handle video events
             const localPlayer = document.getElementById('localVideoPlayer');
             if (localPlayer) {
+                localPlayer.addEventListener('loadeddata', () => {
+                    if (loadingElement) loadingElement.classList.add('hidden');
+                });
+                
                 localPlayer.addEventListener('ended', () => {
                     setTimeout(() => closeVideoModal(), 500);
                 });
+                
+                // Fallback: hide loading after 2 seconds even if loadeddata doesn't fire
+                setTimeout(() => {
+                    if (loadingElement) loadingElement.classList.add('hidden');
+                }, 2000);
             }
         }
         
