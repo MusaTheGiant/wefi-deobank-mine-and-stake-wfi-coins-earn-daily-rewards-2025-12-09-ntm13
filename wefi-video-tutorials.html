@@ -334,7 +334,7 @@
         /* ===== HERO SECTION ===== */
         .hero {
             min-height: auto;
-            padding-block-start: calc(var(--navbar-height) + 30px + var(--safe-area-top));
+            padding-block-start: calc(var(--navbar-height) + 35px + var(--safe-area-top));
             padding-block-end: calc(var(--spacing-hero-bottom) + var(--safe-area-bottom));
             padding-inline: calc(var(--spacing-hero-inline) + max(var(--safe-area-left), var(--safe-area-right)));
             display: flex;
@@ -1029,6 +1029,71 @@
             font-size: 14px;
         }
         
+        /* ===== SCROLL TO TOP BUTTON ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--lime-green);
+            color: var(--black);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
+            transition: all 0.3s ease;
+            z-index: 9999;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        
+        .scroll-to-top.visible {
+            display: flex;
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .scroll-to-top:hover {
+            background: var(--bright-green);
+            transform: scale(1.1) translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6);
+        }
+        
+        .scroll-to-top:active {
+            transform: scale(0.95);
+        }
+        
+        .scroll-arrow {
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .scroll-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+        }
+        
         /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
             .logo {
@@ -1075,14 +1140,14 @@
             }
             
             .hero {
-                padding-block-start: calc(var(--navbar-height) + 25px + var(--safe-area-top));
+                padding-block-start: calc(var(--navbar-height) + 40px + var(--safe-area-top));
                 padding-block-end: calc(15px + var(--safe-area-bottom));
             }
             
             .hero-badge {
-                margin-block-end: 12px;
+                margin-block-end: 14px;
                 font-size: 11px;
-                padding: 8px 16px;
+                padding: 9px 18px;
             }
             
             .tutorials-section {
@@ -1129,14 +1194,14 @@
             }
             
             .hero {
-                padding-block-start: calc(var(--navbar-height) + 20px + var(--safe-area-top));
+                padding-block-start: calc(var(--navbar-height) + 35px + var(--safe-area-top));
                 padding-block-end: calc(12px + var(--safe-area-bottom));
             }
             
             .hero-badge {
-                margin-block-end: 10px;
+                margin-block-end: 12px;
                 font-size: 10px;
-                padding: 7px 14px;
+                padding: 8px 16px;
             }
             
             .tutorials-section {
@@ -1177,8 +1242,33 @@
         
         @media (max-width: 360px) {
             .hero {
-                padding-block-start: calc(var(--navbar-height) + 10px + var(--safe-area-top));
+                padding-block-start: calc(var(--navbar-height) + 30px + var(--safe-area-top));
                 padding-block-end: calc(10px + var(--safe-area-bottom));
+            }
+            
+            .hero-badge {
+                font-size: 9px;
+                padding: 7px 14px;
+                margin-block-end: 10px;
+            }
+        }
+        
+        /* Extra small screens - iPhone SE, Galaxy Fold */
+        @media (max-width: 320px) {
+            .hero {
+                padding-block-start: calc(var(--navbar-height) + 35px + var(--safe-area-top));
+            }
+            
+            .hero-badge {
+                font-size: 8px;
+                padding: 6px 12px;
+            }
+        }
+        
+        /* Short viewport height protection */
+        @media (max-height: 667px) and (max-width: 768px) {
+            .hero {
+                padding-block-start: calc(var(--navbar-height) + 45px + var(--safe-area-top));
             }
         }
         
@@ -1217,6 +1307,11 @@
             </div>
         </div>
     </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()" title="Back to top">
+        <span class="scroll-arrow">↑</span>
+    </button>
 
     <!-- NAVIGATION -->
     <nav class="navbar" id="navbar">
@@ -1559,6 +1654,25 @@
                 navbar.classList.remove('scrolled');
             }
         });
+        
+        // Scroll to Top Button Functionality
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
         
         // Mobile menu toggle
         function toggleMobileMenu() {
