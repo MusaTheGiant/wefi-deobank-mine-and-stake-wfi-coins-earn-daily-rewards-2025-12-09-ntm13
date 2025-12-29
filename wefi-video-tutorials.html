@@ -898,7 +898,7 @@
             }
         }
         
-        .video-wrapper iframe {
+        .video-wrapper video {
             position: absolute;
             top: 0;
             left: 0;
@@ -906,6 +906,7 @@
             height: 100%;
             border: none;
             border-radius: 16px;
+            object-fit: contain;
         }
         
         .video-close {
@@ -1297,13 +1298,15 @@
         <div class="video-container">
             <div class="video-close" onclick="closeVideoModal()">×</div>
             <div class="video-wrapper">
-                <iframe 
+                <video 
                     id="tutorialVideo"
-                    src=""
-                    frameborder="0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowfullscreen
-                ></iframe>
+                    controls
+                    controlsList="nodownload"
+                    playsinline
+                    style="width: 100%; height: 100%; object-fit: contain; border-radius: 16px;"
+                >
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </div>
     </div>
@@ -1693,7 +1696,7 @@
         
         function openVideoModal(videoUrl, cardElement) {
             const modal = document.getElementById('videoModal');
-            const videoFrame = document.getElementById('tutorialVideo');
+            const videoElement = document.getElementById('tutorialVideo');
             
             // Store reference to the card that opened this video
             currentVideoCard = cardElement;
@@ -1702,40 +1705,38 @@
             document.body.classList.add('modal-open');
             
             // Set video source and open modal
-            videoFrame.src = videoUrl + '?autoplay=1';
+            videoElement.src = videoUrl;
             modal.classList.add('active');
             
-            // Listen for video end event (for HTML5 videos)
-            videoFrame.addEventListener('ended', handleVideoEnd);
+            // Auto-play the video
+            videoElement.play().catch(err => {
+                console.log('Autoplay prevented:', err);
+            });
             
-            // For GitHub videos, we'll also set a message listener
-            window.addEventListener('message', handleVideoMessage);
-        }
-        
-        function handleVideoMessage(event) {
-            // Check if message is from video player indicating end
-            if (event.data && (event.data.event === 'ended' || event.data === 'videoEnded')) {
-                handleVideoEnd();
-            }
+            // Listen for video ended event - auto-close immediately
+            videoElement.addEventListener('ended', handleVideoEnd, { once: true });
         }
         
         function handleVideoEnd() {
-            // Auto-close modal when video ends
-            setTimeout(() => {
-                closeVideoModal();
-            }, 1000); // 1 second delay before closing
+            // Auto-close modal immediately when video ends
+            closeVideoModal();
         }
         
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
-            const videoFrame = document.getElementById('tutorialVideo');
+            const videoElement = document.getElementById('tutorialVideo');
             
             // Add closing animation
             modal.classList.add('closing');
             
             setTimeout(() => {
                 modal.classList.remove('active', 'closing');
-                videoFrame.src = '';
+                
+                // Stop and reset video
+                videoElement.pause();
+                videoElement.currentTime = 0;
+                videoElement.src = '';
+                
                 document.body.classList.remove('modal-open');
                 
                 // Scroll back to the video card that opened this modal
@@ -1751,9 +1752,6 @@
                         currentVideoCard.classList.remove('highlight-pulse');
                     }, 2000);
                 }
-                
-                // Clean up event listeners
-                window.removeEventListener('message', handleVideoMessage);
                 
                 // Reset current card reference
                 currentVideoCard = null;
