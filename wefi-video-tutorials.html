@@ -1021,10 +1021,11 @@
         .video-close {
             position: absolute;
             top: -50px;
-            right: 0;
-            background: rgba(199, 241, 96, 0.1);
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--lime-green);
             border: 2px solid var(--lime-green);
-            color: var(--white);
+            color: var(--black);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -1033,16 +1034,22 @@
             justify-content: center;
             cursor: pointer;
             font-size: 24px;
-            font-weight: 300;
+            font-weight: 700;
+            line-height: 1;
             transition: all 0.3s ease;
             z-index: 10001;
+            box-shadow: 0 5px 20px rgba(199, 241, 96, 0.4);
         }
         
         .video-close:hover {
-            background: var(--lime-green);
-            color: var(--black);
-            transform: rotate(90deg) scale(1.1);
-            box-shadow: 0 5px 20px rgba(199, 241, 96, 0.4);
+            background: var(--bright-green);
+            border-color: var(--bright-green);
+            transform: translateX(-50%) rotate(90deg) scale(1.15);
+            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6);
+        }
+        
+        .video-close:active {
+            transform: translateX(-50%) scale(0.95);
         }
         
         /* ===== FOOTER ===== */
