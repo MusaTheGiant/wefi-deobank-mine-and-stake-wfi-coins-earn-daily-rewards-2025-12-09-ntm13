@@ -850,7 +850,6 @@
             background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(30, 30, 30, 0.95));
             border-radius: 20px;
             padding: 8px;
-            padding-top: 62px;
             box-shadow: 
                 0 25px 80px rgba(0, 255, 136, 0.3),
                 0 0 0 1px rgba(199, 241, 96, 0.3),
@@ -1020,38 +1019,9 @@
         }
         
         .video-close {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--lime-green);
-            border: 2px solid var(--lime-green);
-            color: var(--black);
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 28px;
-            font-weight: 700;
-            line-height: 1;
-            transition: all 0.3s ease;
-            z-index: 10002;
-            box-shadow: 0 5px 20px rgba(199, 241, 96, 0.6);
+            display: none;
         }
         
-        .video-close:hover {
-            background: var(--bright-green);
-            border-color: var(--bright-green);
-            transform: translateX(-50%) rotate(90deg) scale(1.15);
-            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6);
-        }
-        
-        .video-close:active {
-            transform: translateX(-50%) scale(0.95);
-        }
         
         /* ===== FOOTER ===== */
         .footer {
@@ -1293,12 +1263,6 @@
                 max-height: calc(85vh - 80px);
             }
             
-            .video-close {
-                top: 6px;
-                width: 36px;
-                height: 36px;
-                font-size: 20px;
-            }
             
             .footer {
                 padding: 40px 20px 20px;
@@ -1356,12 +1320,6 @@
                 max-height: calc(80vh - 60px);
             }
             
-            .video-close {
-                top: 4px;
-                width: 32px;
-                height: 32px;
-                font-size: 18px;
-            }
         }
         
         @media (max-width: 360px) {
@@ -1419,7 +1377,6 @@
     <!-- VIDEO MODAL -->
     <div class="video-modal" id="videoModal">
         <div class="video-container">
-            <div class="video-close" onclick="closeVideoModal()">×</div>
             <div class="video-wrapper">
                 <video 
                     id="tutorialVideo"
@@ -1844,6 +1801,27 @@
             
             // Listen for video metadata load to adjust size
             videoElement.addEventListener('loadedmetadata', adjustVideoSize, { once: true });
+            
+            // Add ESC key listener
+            document.addEventListener('keydown', handleEscapeKey);
+            
+            // Add click outside to close
+            modal.addEventListener('click', handleClickOutside);
+        }
+        
+        // Handle ESC key press
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                closeVideoModal();
+            }
+        }
+        
+        // Handle click outside video container
+        function handleClickOutside(e) {
+            const videoContainer = document.querySelector('.video-container');
+            if (e.target.classList.contains('video-modal')) {
+                closeVideoModal();
+            }
         }
         
         function adjustVideoSize() {
@@ -1906,6 +1884,10 @@
                 videoElement.src = '';
                 
                 document.body.classList.remove('modal-open');
+                
+                // Remove event listeners
+                document.removeEventListener('keydown', handleEscapeKey);
+                modal.removeEventListener('click', handleClickOutside);
                 
                 // Scroll back to the video card that opened this modal
                 if (currentVideoCard) {
