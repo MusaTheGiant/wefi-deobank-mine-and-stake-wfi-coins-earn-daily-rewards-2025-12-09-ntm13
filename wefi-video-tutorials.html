@@ -698,48 +698,263 @@
             transform: scale(1.03);
         }
         
-        /* Video Placeholder/Thumbnail */
-        .video-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, 
-                rgba(199, 241, 96, 0.05) 0%, 
-                transparent 50%, 
-                rgba(0, 255, 136, 0.05) 100%);
-            position: relative;
+        /* ===== TEXT-BASED THUMBNAIL SYSTEM ===== */
+        
+        /* Thumbnail Background Layer */
+        .thumbnail-background {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
         }
         
-        /* Play Button Overlay */
-        .play-button {
-            width: 70px;
-            height: 70px;
-            background: rgba(199, 241, 96, 0.9);
+        /* Content Overlay Layer */
+        .thumbnail-content-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        /* Title Text Styling */
+        .title-text-thumbnail {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+            position: relative;
+            z-index: 3;
+            margin: 0;
+        }
+        
+        /* Transparent Play Button Overlay */
+        .play-button-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            box-shadow: 0 8px 25px rgba(199, 241, 96, 0.4);
+            z-index: 4;
             transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.4);
         }
         
-        .tutorial-video:hover .play-button {
-            background: var(--bright-green);
-            transform: scale(1.15);
-            box-shadow: 0 12px 35px rgba(0, 255, 136, 0.6);
+        .tutorial-video:hover .play-button-overlay {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translate(-50%, -50%) scale(1.1);
         }
         
-        .play-button::after {
-            content: '';
+        /* Play Icon Triangle */
+        .play-icon {
             width: 0;
             height: 0;
-            border-left: 20px solid var(--black);
+            border-left: 20px solid rgba(255, 255, 255, 0.95);
             border-top: 12px solid transparent;
             border-bottom: 12px solid transparent;
             margin-left: 4px;
+        }
+        
+        /* Tutorial Number Badge */
+        .tutorial-number-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--lime-green);
+            z-index: 5;
+            border: 1px solid rgba(199, 241, 96, 0.3);
+        }
+        
+        /* Individual Thumbnail Designs - All Using Black Gradient & White Text */
+        #tutorial-1 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-1 .title-text-thumbnail {
+            font-size: 36px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-2 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-2 .title-text-thumbnail {
+            font-size: 38px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-3 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-3 .title-text-thumbnail {
+            font-size: 34px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-4 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-4 .title-text-thumbnail {
+            font-size: 40px;
+            color: #FFFFFF;
+            font-weight: 900;
+        }
+        
+        #tutorial-5 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-5 .title-text-thumbnail {
+            font-size: 36px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-6 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-6 .title-text-thumbnail {
+            font-size: 32px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-7 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-7 .title-text-thumbnail {
+            font-size: 38px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-8 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-8 .title-text-thumbnail {
+            font-size: 40px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-9 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-9 .title-text-thumbnail {
+            font-size: 36px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-10 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-10 .title-text-thumbnail {
+            font-size: 42px;
+            color: #FFFFFF;
+            font-weight: 900;
+        }
+        
+        #tutorial-11 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-11 .title-text-thumbnail {
+            font-size: 34px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-12 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-12 .title-text-thumbnail {
+            font-size: 36px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-13 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-13 .title-text-thumbnail {
+            font-size: 36px;
+            color: #FFFFFF;
+        }
+        
+        #tutorial-14 .thumbnail-background {
+            background: linear-gradient(135deg, #000000 0%, #1A1A1A 100%);
+        }
+        
+        #tutorial-14 .title-text-thumbnail {
+            font-size: 38px;
+            color: #FFFFFF;
+        }
+        
+        /* Responsive Thumbnail Adjustments */
+        @media (max-width: 768px) {
+            .title-text-thumbnail {
+                font-size: 32px !important;
+            }
+            
+            .play-button-overlay {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .play-icon {
+                border-left-width: 18px;
+                border-top-width: 11px;
+                border-bottom-width: 11px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .thumbnail-content-overlay {
+                padding: 30px 20px;
+            }
+            
+            .title-text-thumbnail {
+                font-size: 26px !important;
+            }
+            
+            .play-button-overlay {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .play-icon {
+                border-left-width: 16px;
+                border-top-width: 10px;
+                border-bottom-width: 10px;
+            }
+            
+            .tutorial-number-badge {
+                top: 15px;
+                left: 15px;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
         }
         
         /* Tutorial Content */
@@ -1452,12 +1667,17 @@
                 </p>
             </div>
             
-            <div class="tutorials-grid">
-                <!-- Tutorial 1: How to Join WeFi App -->
+                        <div class="tutorials-grid">
+                <!-- Tutorial 1: How to Join the WeFi App - Complete Registration Guide -->
                 <div class="tutorial-card" id="tutorial-1">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-1-how-to-join-the-wefi-app.mp4', document.getElementById('tutorial-1'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#1</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">How to Join<br>the WeFi App</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1467,11 +1687,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 2: How to Pass KYC in WeFi -->
+                <!-- Tutorial 2: How to Pass KYC in WeFi - Verification Made Simple -->
                 <div class="tutorial-card" id="tutorial-2">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-2-how-to-pass-kyc-in-wefi.mp4', document.getElementById('tutorial-2'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#2</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">How to Pass<br>KYC in WeFi</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1481,11 +1706,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 3: How to Deposit and Withdraw in WeFi -->
+                <!-- Tutorial 3: How to Deposit and Withdraw in WeFi - Fund Management Guide -->
                 <div class="tutorial-card" id="tutorial-3">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-4-how-to-deposit-and-withdraw-in-wefi.mp4', document.getElementById('tutorial-3'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#3</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Deposit &<br>Withdraw<br>in WeFi</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1495,11 +1725,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 4: How to Buy WeFi ITO Units -->
+                <!-- Tutorial 4: How to Buy WeFi ITO Units - Start Mining Today -->
                 <div class="tutorial-card" id="tutorial-4">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-8-how-to-buy-wefi-ito-units.mp4', document.getElementById('tutorial-4'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#4</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Buy WeFi<br>ITO Units</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1509,11 +1744,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 5: How to Create a New Wallet in WeFi -->
+                <!-- Tutorial 5: How to Create a New Wallet in WeFi - Quick Setup Guide -->
                 <div class="tutorial-card" id="tutorial-5">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-5-how-to-create-a-new-wallet-in-wefi.mp4', document.getElementById('tutorial-5'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#5</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Create a New<br>Wallet in WeFi</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1526,8 +1766,13 @@
                 <!-- Tutorial 6: How to Create, Verify and Share Your WeFi Referral Link -->
                 <div class="tutorial-card" id="tutorial-6">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-14-how-to-create-verify-and-share-your-wefi-referral-link.mp4', document.getElementById('tutorial-6'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#6</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Create & Share<br>Your WeFi<br>Referral Link</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1537,11 +1782,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 7: Buy WeFi ITO Units with Card -->
+                <!-- Tutorial 7: Buy WeFi ITO Units with Card - Fast Purchase Method -->
                 <div class="tutorial-card" id="tutorial-7">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-16-buy-wefi-ito-units-with-card.mp4', document.getElementById('tutorial-7'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#7</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Buy ITO Units<br>with Card</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1551,11 +1801,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 8: How to Order the WeFi Virtual Card -->
+                <!-- Tutorial 8: How to Order the WeFi Virtual Card - Instant Setup -->
                 <div class="tutorial-card" id="tutorial-8">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-3-how-to-order-the-wefi-virtual-card.mp4', document.getElementById('tutorial-8'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#8</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Order the WeFi<br>Virtual Card</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1565,25 +1820,35 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 9: How to Vest and Claim WFI Rewards -->
+                <!-- Tutorial 9: How to Add Your WeFi Card to Curve - Multi-Card Solution -->
                 <div class="tutorial-card" id="tutorial-9">
-                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-7-how-to-vest-and-claim-wfi-rewards.mp4', document.getElementById('tutorial-9'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-11-how-to-add-wefi-card-to-curve.mp4', document.getElementById('tutorial-9'))">
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#9</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Add WeFi Card<br>to Curve</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
-                        <h3 class="tutorial-title">How to Vest and Claim WFI Rewards - Maximize Earnings</h3>
-                        <p class="tutorial-description">Access your earned WFI tokens - complete guide to vesting periods and claiming your rewards.</p>
-                        <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Claim Rewards</a>
+                        <h3 class="tutorial-title">How to Add Your WeFi Card to Curve - Multi-Card Solution</h3>
+                        <p class="tutorial-description">Connect your WeFi card to Curve and manage all your cards in one place - maximize rewards and cashback.</p>
+                        <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Setup Curve</a>
                     </div>
                 </div>
                 
-                <!-- Tutorial 10: How to Claim Energy in WeFi -->
+                <!-- Tutorial 10: How to Claim Energy in WeFi - Daily Mining Power -->
                 <div class="tutorial-card" id="tutorial-10">
-                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-6-how-to-claim-energy-in-wefi.mp4', document.getElementById('tutorial-10'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-7-how-to-claim-energy-in-wefi.mp4', document.getElementById('tutorial-10'))">
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#10</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Claim Energy<br>in WeFi</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1593,11 +1858,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 11: How to Allocate Energy to Your WeFi Card -->
+                <!-- Tutorial 11: How to Allocate Energy to Your WeFi Card - Smart Distribution -->
                 <div class="tutorial-card" id="tutorial-11">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-13-how-to-allocate-energy-to-your-wefi-card.mp4', document.getElementById('tutorial-11'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#11</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Allocate Energy<br>to Your<br>WeFi Card</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1607,11 +1877,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 12: How to Add WeFi Card to Apple Pay -->
+                <!-- Tutorial 12: How to Add WeFi Card to Apple Pay - Contactless Payments -->
                 <div class="tutorial-card" id="tutorial-12">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-9-how-to-add-wefi-card-to-apple-pay.mp4', document.getElementById('tutorial-12'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#12</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Add WeFi Card<br>to Apple Pay</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1621,11 +1896,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 13: How to Add WeFi Card to Google Pay -->
+                <!-- Tutorial 13: How to Add WeFi Card to Google Pay - Android Payments -->
                 <div class="tutorial-card" id="tutorial-13">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-10-how-to-add-wefi-card-to-google-pay.mp4', document.getElementById('tutorial-13'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#13</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Add WeFi Card<br>to Google Pay</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1635,11 +1915,16 @@
                     </div>
                 </div>
                 
-                <!-- Tutorial 14: How to Activate Your WeFi Physical Card -->
+                <!-- Tutorial 14: How to Activate Your WeFi Physical Card - Complete Setup -->
                 <div class="tutorial-card" id="tutorial-14">
                     <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-12-how-to-activate-your-wefi-physical-card.mp4', document.getElementById('tutorial-14'))">
-                        <div class="video-placeholder">
-                            <div class="play-button"></div>
+                        <div class="thumbnail-background"></div>
+                        <div class="tutorial-number-badge">#14</div>
+                        <div class="thumbnail-content-overlay">
+                            <h3 class="title-text-thumbnail">Activate Your<br>Physical Card</h3>
+                        </div>
+                        <div class="play-button-overlay">
+                            <div class="play-icon"></div>
                         </div>
                     </div>
                     <div class="tutorial-content">
@@ -1648,6 +1933,7 @@
                         <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Activate Card</a>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
