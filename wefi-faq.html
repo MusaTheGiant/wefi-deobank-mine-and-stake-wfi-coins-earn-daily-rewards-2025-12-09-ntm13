@@ -64,10 +64,10 @@
         },
         {
           "@type": "Question",
-          "name": "What are the 3x daily payouts?",
+          "name": "What are WeFi Gift Certificates and why are they so valuable?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The 3x daily payouts refer to WeFi's VVA token staking program where qualified members receive rewards distributed three times per day. This creates consistent daily income from your staked tokens, separate from ITO mining rewards."
+            "text": "WeFi Gift Certificates are shares in the WeFi company itself. When you purchase ITO Units, you automatically receive free Gift Certificates proportional to your participation. These certificates represent your stake in WeFi's growth and future profits. ITO Units are limited in supply and Gift Certificates end at Block #38. Once ITO Units sell out or Block #38 is reached, there will be NO other way to receive free Gift Certificates. To maximize certificates, secure ITO Units sooner and choose 2+ year durations."
           }
         },
         {
@@ -205,7 +205,6 @@
             letter-spacing: -1px;
             color: var(--lime-green);
             font-family: "Space Grotesk", sans-serif;
-            text-decoration: none;
         }
         
         .nav-menu {
@@ -267,6 +266,10 @@
             box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
         }
         
+        .nav-cta:active {
+            transform: translateY(0);
+        }
+        
         /* Mobile Menu */
         .mobile-menu-btn {
             display: none;
@@ -279,7 +282,7 @@
         .mobile-menu-btn span {
             width: 25px;
             height: 3px;
-            background: var(--lime-green);
+            background: var(--white);
             transition: all 0.3s ease;
             border-radius: 2px;
         }
@@ -358,32 +361,110 @@
         
         .cta-buttons {
             display: flex;
-            gap: 16px;
+            gap: clamp(12px, 2vw, 20px);
             justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
+            
+            /* Vertical gap when wrapped */
+            row-gap: clamp(12px, 2vh, 16px);
+            
+            /* Animation */
+            animation: fadeInUp 0.8s ease-out 0.6s backwards;
         }
         
-        /* ===== BUTTONS ===== */
+        /* === Animation Keyframes === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* === Button Base Styles === */
         .btn {
-            position: relative;
+            /* Layout */
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 36px;
+            
+            /* Fluid padding */
+            padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
+            
+            /* Sizing */
+            min-height: 44px;
+            min-width: fit-content;
+            
+            /* Styling */
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
             border: none;
+            cursor: pointer;
+            
+            /* Typography */
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            letter-spacing: 0.5px;
+            text-align: center;
+            white-space: nowrap;
+            
+            /* Effects */
+            position: relative;
             overflow: hidden;
-            min-height: 54px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* Ensure text is clickable */
+            user-select: none;
+        }
+        
+        /* Ripple effect on click */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            pointer-events: none;
+        }
+        
+        .btn:active::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        /* Shimmer effect */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            transform: skewX(-25deg);
+            transition: left 0.8s ease;
+        }
+        
+        .btn:hover::after {
+            left: 200%;
         }
         
         .btn span {
             position: relative;
-            z-index: 2;
+            z-index: 1;
         }
         
         .btn-primary {
@@ -393,7 +474,6 @@
         }
         
         .btn-primary:hover {
-            background: var(--bright-green);
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
         }
@@ -406,14 +486,25 @@
             background: transparent;
             color: var(--white);
             border: 2px solid var(--lime-green);
-            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.15);
         }
         
         .btn-secondary:hover {
-            background: var(--lime-green);
-            color: var(--black);
+            background: rgba(199, 241, 96, 0.1);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(199, 241, 96, 0.4);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
+        }
+        
+        .btn-secondary:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+        
+        /* === Responsive Button Adjustments === */
+        @media (max-width: 380px) {
+            .btn {
+                white-space: normal;
+                word-break: break-word;
+                hyphens: auto;
+            }
         }
         
         /* ===== FAQ SECTION ===== */
@@ -706,50 +797,51 @@
         
         /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
+            .logo {
+                font-size: 20px;
+                letter-spacing: -0.5px;
+            }
+            
             .nav-menu {
                 position: fixed;
-                top: 68px;
+                top: 70px;
                 left: -100%;
-                width: 100%;
-                height: calc(100vh - 68px);
-                background: rgba(0, 0, 0, 0.98);
                 flex-direction: column;
-                gap: 0;
-                padding: 40px 20px;
+                background: rgba(0, 0, 0, 0.98);
+                width: 100%;
+                padding: 40px;
+                gap: 20px;
                 transition: left 0.3s ease;
-                backdrop-filter: blur(10px);
+                border-top: 1px solid rgba(199, 241, 96, 0.2);
             }
             
             .nav-menu.active {
                 left: 0;
             }
             
-            .nav-menu li {
-                width: 100%;
-                text-align: center;
-                padding: 16px 0;
-                border-bottom: 1px solid rgba(199, 241, 96, 0.1);
+            .mobile-menu-btn {
+                display: flex;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .mobile-menu-btn span {
+                background: white;
             }
             
             .nav-cta {
-                width: 100%;
-                margin-top: 20px;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                right: 20px;
+                padding: 8px 20px;
+                font-size: 13px;
+                min-height: 36px;
             }
             
-            .mobile-menu-btn {
-                display: flex;
-            }
-            
-            .mobile-menu-btn.active span:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            
-            .mobile-menu-btn.active span:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .mobile-menu-btn.active span:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
+            .nav-container {
+                padding: 20px;
             }
             
             .cta-buttons {
@@ -811,7 +903,9 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="https://www.deobankdefi.com" class="logo">DeobankDeFi</a>
+            <a href="https://www.deobankdefi.com" style="text-decoration: none;">
+                <div class="logo">DeobankDeFi</div>
+            </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="https://www.deobankdefi.com" class="nav-link">Home</a></li>
                 <li><a href="https://www.deobankdefi.com/about-wefi.html" class="nav-link">About WeFi</a></li>
@@ -821,12 +915,10 @@
                 <li><a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="nav-link">Getting Started</a></li>
                 <li><a href="https://www.deobankdefi.com/wefi-video-tutorials" class="nav-link">Video Tutorials</a></li>
             </ul>
-            <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank" rel="noopener noreferrer">Join WeFi</a>
             <div class="mobile-menu-btn" id="mobileMenuBtn">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
+            <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank" rel="noopener">Sign Up</a>
         </div>
     </nav>
 
@@ -943,7 +1035,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>You need a valid email address, smartphone for KYC verification, and cryptocurrency (USDT, USDC, or other supported tokens) to fund your account. Minimum investment starts at $50 to test, though $250+ is recommended for full earning potential and affiliate qualification. <a href="https://www.deobankdefi.com/wefi-video-tutorials">Watch setup video tutorials</a>.</p>
+                            <p>You need a valid email address, smartphone for KYC verification, and cryptocurrency (USDT, USDC, or other supported tokens) to fund your account. Minimum participation starts at $50 to test, though $250+ is recommended for full earning potential and affiliate qualification. <a href="https://www.deobankdefi.com/wefi-video-tutorials">Watch setup video tutorials</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -1002,11 +1094,11 @@
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        What are the "3x daily payouts" everyone talks about?
+                        What are WeFi Gift Certificates and why are they so valuable?
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>The 3x daily payouts refer to WeFi's VVA token staking program where qualified members receive rewards distributed three times per day (8 AM, 4 PM, 12 AM UTC). This creates consistent daily income from your staked tokens, separate from ITO mining rewards. Minimum $250 investment qualifies you for VVA staking.</p>
+                            <p><strong>WeFi Gift Certificates are shares in the WeFi company itself</strong> - not tokens, not rewards, but actual equity ownership. When you purchase ITO Units, you automatically receive free Gift Certificates proportional to your participation. These certificates represent your stake in WeFi's explosive growth and future profits. Here's why they're a complete game-changer: <strong>ITO Units are limited in supply and will sell out by Block #38</strong>. Once they're gone or once we reach Block #38, there will be NO other way to receive free Gift Certificates. To maximize your Gift Certificates, secure ITO Units sooner and choose mining or staking durations of 2 years or longer. This is a once-in-a-lifetime opportunity to own a piece of the world's first decentralized bank while it's still in the early growth phase. Don't miss out - when ITO Units are sold out or Block #38 is reached, this door closes forever.</p>
                         </div>
                     </div>
                 </div>
@@ -1058,7 +1150,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>WeFi's compensation plan offers 7 income streams including direct referral bonuses, network mining commissions (3-8% on 3 levels), rank advancement bonuses, and equity share in WeFi Global LTD. Minimum $250 investment qualifies you. The plan rewards both user growth and personal ITO purchases. <a href="https://www.deobankdefi.com/wefi-compensation-plan.html">See the complete compensation breakdown</a>.</p>
+                            <p>WeFi's compensation plan offers 7 income streams including direct referral bonuses, network mining commissions (3-8% on 3 levels), rank advancement bonuses, and equity share in WeFi Global LTD. Minimum $250 participation qualifies you. The plan rewards both user growth and personal ITO purchases. <a href="https://www.deobankdefi.com/wefi-compensation-plan.html">See the complete compensation breakdown</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -1083,7 +1175,7 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>VVA (Veritas Vault Alliance) tokens provide exclusive bonus rewards through WeFi's partnership ecosystem. Qualified members receive VVA tokens based on their ITO investment level, which then generate the 3x daily payouts. VVA tokens have their own staking pool separate from WFI, creating an additional income layer.</p>
+                            <p>VVA (Veritas Vault Alliance) tokens provide exclusive bonus rewards through WeFi's partnership ecosystem. Qualified members receive VVA tokens based on their ITO purchase level, which then generate the 3x daily payouts. VVA tokens have their own staking pool separate from WFI, creating an additional income layer.</p>
                         </div>
                     </div>
                 </div>
@@ -1204,7 +1296,7 @@
             </div>
             
             <div class="disclaimer">
-                <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency investments carry risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any investment decisions rests solely with you. WeFi ITO units represent technology purchases, not securities. Past performance does not guarantee future results. All projections and potential earnings are estimates and not guarantees.
+                <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency participation carries risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any decisions rests solely with you. WeFi ITO units represent technology purchases, not securities. Past performance does not guarantee future results. All projections and potential earnings are estimates and not guarantees.
             </div>
 
             <div class="footer-bottom">
@@ -1219,22 +1311,21 @@
     </button>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navMenu = document.getElementById('navMenu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenuBtn.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking nav links
-        document.querySelectorAll('.nav-link, .nav-cta').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenuBtn.classList.remove('active');
-                navMenu.classList.remove('active');
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
             });
-        });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
         
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
