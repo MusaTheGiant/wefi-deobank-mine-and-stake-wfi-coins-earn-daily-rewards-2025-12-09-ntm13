@@ -1553,6 +1553,105 @@
             }
         }
         
+        /* ===== VIDEO MODAL ===== */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        .video-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(30, 30, 30, 0.95));
+            border-radius: 20px;
+            padding: 8px;
+            box-shadow: 
+                0 25px 80px rgba(0, 255, 136, 0.3),
+                0 0 0 1px rgba(199, 241, 96, 0.3),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: flex;
+            flex-direction: column;
+            overflow: visible;
+        }
+        
+        @media (min-width: 768px) {
+            .video-container {
+                max-width: 450px;
+                max-height: 85vh;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .video-container {
+                max-width: 480px;
+                max-height: 85vh;
+            }
+        }
+        
+        .video-modal.active .video-container {
+            transform: scale(1);
+            opacity: 1;
+        }
+        
+        .video-modal.closing .video-container {
+            transform: scale(0.8);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 9 / 16;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            border: none;
+            border-radius: 16px;
+            object-fit: contain;
+            display: block;
+        }
+        
+        /* Prevent modal scroll issues */
+        body.modal-open {
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
+        }
+        
         /* ===== FOOTER ===== */
         .footer {
             background: var(--near-black);
@@ -1761,6 +1860,23 @@
     </style>
 </head>
 <body>
+    <!-- VIDEO MODAL -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video 
+                    id="tutorialVideo"
+                    controls
+                    controlsList="nodownload"
+                    playsinline
+                    preload="metadata"
+                >
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
@@ -1997,7 +2113,7 @@
                 
                 <!-- Video 1: How to Join -->
                 <div class="tutorial-card" id="tutorial-1">
-                    <div class="tutorial-video">
+                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-1-how-to-join-the-wefi-app.mp4', document.getElementById('tutorial-1'))">
                         <div class="thumbnail-background"></div>
                         <div class="tutorial-number-badge">#1</div>
                         <div class="thumbnail-content-overlay">
@@ -2016,7 +2132,7 @@
 
                 <!-- Video 2: How to Pass KYC -->
                 <div class="tutorial-card" id="tutorial-2">
-                    <div class="tutorial-video">
+                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-2-how-to-pass-kyc-in-wefi.mp4', document.getElementById('tutorial-2'))">
                         <div class="thumbnail-background"></div>
                         <div class="tutorial-number-badge">#2</div>
                         <div class="thumbnail-content-overlay">
@@ -2038,7 +2154,7 @@
 
                 <!-- Video 3: Deposit & Withdraw -->
                 <div class="tutorial-card" id="tutorial-3">
-                    <div class="tutorial-video">
+                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-4-how-to-deposit-and-withdraw-in-wefi.mp4', document.getElementById('tutorial-3'))">
                         <div class="thumbnail-background"></div>
                         <div class="tutorial-number-badge">#3</div>
                         <div class="thumbnail-content-overlay">
@@ -2057,7 +2173,7 @@
 
                 <!-- Video 4: Buy ITO Units -->
                 <div class="tutorial-card" id="tutorial-4">
-                    <div class="tutorial-video">
+                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-8-how-to-buy-wefi-ito-units.mp4', document.getElementById('tutorial-4'))">
                         <div class="thumbnail-background"></div>
                         <div class="tutorial-number-badge">#4</div>
                         <div class="thumbnail-content-overlay">
@@ -2076,7 +2192,7 @@
 
                 <!-- Video 5: Buy with Card -->
                 <div class="tutorial-card" id="tutorial-5">
-                    <div class="tutorial-video">
+                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-16-buy-wefi-ito-units-with-card.mp4', document.getElementById('tutorial-5'))">
                         <div class="thumbnail-background"></div>
                         <div class="tutorial-number-badge">#5</div>
                         <div class="thumbnail-content-overlay">
@@ -2098,7 +2214,7 @@
 
                 <!-- Video 6: Referral Link -->
                 <div class="tutorial-card" id="tutorial-6">
-                    <div class="tutorial-video">
+                    <div class="tutorial-video" onclick="openVideoModal('https://www.deobankdefi.com/videos/tutorials/tutorial-14-how-to-create-verify-and-share-your-wefi-referral-link.mp4', document.getElementById('tutorial-6'))">
                         <div class="thumbnail-background"></div>
                         <div class="tutorial-number-badge">#6</div>
                         <div class="thumbnail-content-overlay">
@@ -2361,6 +2477,89 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+        
+        // Video Modal Functions
+        let currentVideoCard = null;
+        
+        function openVideoModal(videoUrl, cardElement) {
+            const modal = document.getElementById('videoModal');
+            const videoElement = document.getElementById('tutorialVideo');
+            
+            // Store reference to the card that opened this video
+            currentVideoCard = cardElement;
+            
+            // Add body class to prevent scrolling
+            document.body.classList.add('modal-open');
+            
+            // Set video source and open modal
+            videoElement.src = videoUrl;
+            modal.classList.add('active');
+            
+            // Auto-play the video
+            videoElement.play().catch(err => {
+                console.log('Autoplay prevented:', err);
+            });
+            
+            // Listen for video ended event - auto-close
+            videoElement.addEventListener('ended', handleVideoEnd, { once: true });
+            
+            // Add ESC key listener
+            document.addEventListener('keydown', handleEscapeKey);
+            
+            // Add click outside to close
+            modal.addEventListener('click', handleClickOutside);
+        }
+        
+        // Handle ESC key press
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape' || e.keyCode === 27) {
+                closeVideoModal();
+            }
+        }
+        
+        // Handle click outside video container
+        function handleClickOutside(e) {
+            if (e.target.classList.contains('video-modal')) {
+                closeVideoModal();
+            }
+        }
+        
+        // Handle video end
+        function handleVideoEnd() {
+            closeVideoModal();
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const videoElement = document.getElementById('tutorialVideo');
+            
+            // Add closing animation
+            modal.classList.add('closing');
+            
+            setTimeout(() => {
+                modal.classList.remove('active', 'closing');
+                
+                // Stop and reset video
+                videoElement.pause();
+                videoElement.currentTime = 0;
+                videoElement.src = '';
+                
+                document.body.classList.remove('modal-open');
+                
+                // Remove event listeners
+                document.removeEventListener('keydown', handleEscapeKey);
+                modal.removeEventListener('click', handleClickOutside);
+                
+                // Scroll back to the video card that opened this modal
+                if (currentVideoCard) {
+                    currentVideoCard.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center'
+                    });
+                    currentVideoCard = null;
+                }
+            }, 400);
+        }
     </script>
 </body>
 </html>
