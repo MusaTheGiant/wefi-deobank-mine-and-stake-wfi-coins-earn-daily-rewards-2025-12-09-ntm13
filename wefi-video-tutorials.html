@@ -326,8 +326,8 @@
         .mobile-menu-btn span {
             width: 25px;
             height: 3px;
-            background: var(--lime-green);
-            border-radius: 3px;
+            background: var(--white);
+            border-radius: 2px;
             transition: all 0.3s ease;
         }
         
@@ -467,27 +467,64 @@
             }
         }
         
-        /* Button Styles */
+        /* === Button Base Styles === */
         .btn {
+            /* Layout */
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            
+            /* Fluid padding */
             padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
+            
+            /* Sizing */
             min-height: 44px;
             min-width: fit-content;
+            
+            /* Styling */
             border-radius: 50px;
             text-decoration: none;
             border: none;
             cursor: pointer;
+            
+            /* Typography */
             font-family: var(--font-primary);
             font-weight: 700;
             font-size: clamp(0.875rem, 1.5vw, 1rem);
             letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+            
+            /* Effects */
             position: relative;
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* Ensure text is clickable */
+            user-select: none;
         }
         
+        /* Ripple effect on click */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            pointer-events: none;
+        }
+        
+        .btn:active::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        /* Shimmer effect */
         .btn::after {
             content: '';
             position: absolute;
@@ -519,7 +556,6 @@
         }
         
         .btn-primary:hover {
-            background: var(--bright-green);
             transform: translateY(-3px) scale(1.02);
             box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
         }
@@ -530,20 +566,27 @@
         
         .btn-secondary {
             background: transparent;
-            color: var(--lime-green);
+            color: var(--white);
             border: 2px solid var(--lime-green);
-            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
         }
         
         .btn-secondary:hover {
-            background: var(--lime-green);
-            color: var(--black);
+            background: rgba(199, 241, 96, 0.1);
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(199, 241, 96, 0.4);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
         }
         
         .btn-secondary:active {
             transform: translateY(-1px) scale(0.98);
+        }
+        
+        /* === Responsive Button Adjustments === */
+        @media (max-width: 380px) {
+            .btn {
+                white-space: normal;
+                word-break: break-word;
+                hyphens: auto;
+            }
         }
         
         /* ===== TUTORIALS SECTION ===== */
@@ -1625,16 +1668,11 @@
     </button>
 
     <!-- NAVIGATION -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="https://www.deobankdefi.com" class="logo">DeobankDeFi</a>
-            
-            <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            
+            <a href="https://www.deobankdefi.com" style="text-decoration: none;">
+                <div class="logo">DeobankDeFi</div>
+            </a>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="https://www.deobankdefi.com" class="nav-link">Home</a></li>
                 <li><a href="https://www.deobankdefi.com/about-wefi.html" class="nav-link">About WeFi</a></li>
@@ -1644,8 +1682,10 @@
                 <li><a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="nav-link">Getting Started</a></li>
                 <li><a href="https://www.deobankdefi.com/wefi-faq.html" class="nav-link">FAQ</a></li>
             </ul>
-            
-            <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank" rel="noopener">Join WeFi</a>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span><span></span><span></span>
+            </div>
+            <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank" rel="noopener">Sign Up</a>
         </div>
     </nav>
 
@@ -2017,7 +2057,7 @@
             
             <!-- Disclaimer -->
             <div class="disclaimer">
-                <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency investments carry risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any investment decisions rests solely with you. WeFi ITO units represent technology purchases, not securities. Past performance does not guarantee future results. All projections and potential earnings are estimates and not guarantees.
+                <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency participation carries risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any decisions rests solely with you. WeFi ITO units represent technology purchases, not securities. Past performance does not guarantee future results. All projections and potential earnings are estimates and not guarantees.
             </div>
 
             <!-- Footer Bottom -->
@@ -2063,17 +2103,30 @@
         }
         
         // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navMenu = document.getElementById('navMenu');
-            navMenu.classList.toggle('active');
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileMenuBtn && navMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
         }
         
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                const navMenu = document.getElementById('navMenu');
-                navMenu.classList.remove('active');
-            });
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
         
         // Video Modal Functions
