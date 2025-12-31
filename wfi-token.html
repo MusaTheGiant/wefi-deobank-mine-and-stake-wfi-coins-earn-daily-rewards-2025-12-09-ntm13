@@ -7,7 +7,7 @@
   <!-- Primary Meta Tags -->
   <title>WFI Token Price & Review: How to Buy WeFi Token | Complete Guide</title>
   <meta name="description" content="WFI Token complete guide: Live price, how to buy, tokenomics, staking rewards, ITO mining until 2032. Learn why experts predict $400-500. 1B fixed supply.">
-  <meta name="keywords" content="WFI token, WFI token price, how to buy WFI token, WeFi token, WFI token review, WFI tokenomics, WFI token prediction, WFI staking rewards, WFI ITO mining, WFI token utility, WeFi cryptocurrency, WeChain token, WFI token price prediction, where to buy WFI, is WFI token a good investment, wefi crypto bank token, wefi bank cryptocurrency, wefi deobank token, wefi mining rewards, wefi digital bank token">
+  <meta name="keywords" content="WFI token, WFI token price, how to buy WFI token, WeFi token, WFI token review, WFI tokenomics, WFI token prediction, WFI staking rewards, WFI ITO mining, WFI token utility, WeFi cryptocurrency, WeChain token, WFI token price prediction, where to buy WFI, WFI token opportunity, wefi crypto bank token, wefi bank cryptocurrency, wefi deobank token, wefi mining rewards, wefi digital bank token">
   <meta name="author" content="DeobankDeFi">
 
   <!-- Cache Control -->
@@ -465,36 +465,139 @@
       color: rgba(255, 255, 255, 0.6);
       margin-top: 5px;
     }
+    
+    /* === Animation Keyframes === */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
+    /* === Button Base Styles === */
     .btn {
-      display: inline-block;
-      padding: 16px 40px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      border: 2px solid transparent;
-      text-align: center;
+        /* Layout */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        
+        /* Fluid padding */
+        padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
+        
+        /* Sizing */
+        min-height: 44px;
+        min-width: fit-content;
+        
+        /* Styling */
+        border-radius: 50px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        
+        /* Typography */
+        font-family: var(--font-primary);
+        font-weight: 700;
+        font-size: clamp(0.875rem, 1.5vw, 1rem);
+        letter-spacing: 0.5px;
+        text-align: center;
+        white-space: nowrap;
+        
+        /* Effects */
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        
+        /* Ensure text is clickable */
+        user-select: none;
     }
-
-    .btn-primary { background: var(--lime-green); color: var(--black); border-color: var(--lime-green); }
-
+    
+    /* Ripple effect on click */
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transform: translate(-50%, -50%);
+        transition: width 0.6s ease, height 0.6s ease;
+        pointer-events: none;
+    }
+    
+    .btn:active::before {
+        width: 400px;
+        height: 400px;
+    }
+    
+    /* Shimmer effect */
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -100%;
+        width: 50%;
+        height: 200%;
+        background: linear-gradient(90deg, 
+            transparent 0%, 
+            rgba(255, 255, 255, 0.1) 50%, 
+            transparent 100%);
+        transform: skewX(-25deg);
+        transition: left 0.8s ease;
+    }
+    
+    .btn:hover::after {
+        left: 200%;
+    }
+    
+    .btn span {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .btn-primary {
+        background: var(--lime-green);
+        color: var(--black);
+        box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
+    }
+    
     .btn-primary:hover {
-      background: transparent;
-      color: var(--lime-green);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
     }
-
-    .btn-secondary { background: transparent; color: var(--lime-green); border-color: var(--lime-green); }
-
+    
+    .btn-primary:active {
+        transform: translateY(-1px) scale(0.98);
+    }
+    
+    .btn-secondary {
+        background: transparent;
+        color: var(--white);
+        border: 2px solid var(--lime-green);
+    }
+    
     .btn-secondary:hover {
-      background: var(--lime-green);
-      color: var(--black);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
+        background: rgba(199, 241, 96, 0.1);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
+    }
+    
+    .btn-secondary:active {
+        transform: translateY(-1px) scale(0.98);
+    }
+    
+    /* === Responsive Button Adjustments === */
+    @media (max-width: 380px) {
+        .btn {
+            white-space: normal;
+            word-break: break-word;
+            hyphens: auto;
+        }
     }
 
     .btn-group { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
@@ -1457,7 +1560,7 @@
       </p>
 
       <div class="btn-group">
-        <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary">Start Earning WFI</a>
+        <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary"><span>Start Earning WFI</span></a>
         <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'XjHitDKPVPs')">
           <span>▶️ WeFi Explained by CEO</span>
         </a>
@@ -1744,7 +1847,7 @@
           This approach leverages immediate mining rewards, passive income from staking, and market exposure for maximum long-term growth.
         </p>
         <div class="btn-group">
-          <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary">Start Your WFI Journey</a>
+          <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary"><span>Start Your WFI Journey</span></a>
         </div>
       </div>
     </div>
@@ -1882,7 +1985,7 @@
           Starting now places you ahead of the curve.
         </p>
         <div class="btn-group" style="margin-top: 30px;">
-          <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary">Claim Your Early Adopter Position Now</a>
+          <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary"><span>Claim Your Early Adopter Position Now</span></a>
         </div>
       </div>
     </div>
@@ -1948,7 +2051,7 @@
         </p>
 
         <div class="btn-group">
-          <a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="btn btn-primary">Explore the Rewards Structure</a>
+          <a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="btn btn-primary"><span>Explore the Rewards Structure</span></a>
         </div>
       </div>
     </div>
@@ -2031,10 +2134,10 @@
           Join thousands of early adopters earning passive income through ITO mining, staking, and the world's first Deobank ecosystem. The best time to start was yesterday. The second best time is right now.
         </p>
         <div class="btn-group">
-          <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary">Get Started with WFI</a>
-          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-secondary">Complete Getting Started Guide</a>
-          <a href="https://www.deobankdefi.com/wefi-video-tutorials" class="btn btn-secondary">Watch Video Tutorials</a>
-          <a href="https://www.deobankdefi.com/about-wefi.html" class="btn btn-secondary">Learn More About WeFi</a>
+          <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary"><span>Get Started with WFI</span></a>
+          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-secondary"><span>Complete Getting Started Guide</span></a>
+          <a href="https://www.deobankdefi.com/wefi-video-tutorials" class="btn btn-secondary"><span>Watch Video Tutorials</span></a>
+          <a href="https://www.deobankdefi.com/about-wefi.html" class="btn btn-secondary"><span>Learn More About WeFi</span></a>
         </div>
       </div>
     </div>
@@ -2120,7 +2223,7 @@
       </div>
 
       <div class="disclaimer">
-        <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency investments carry risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any investment decisions rests solely with you. WeFi ITO units represent technology purchases, not securities. Past performance does not guarantee future results. All projections and potential earnings are estimates and not guarantees.
+        <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency participation carries risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any decisions rests solely with you. WeFi ITO units represent technology purchases, not securities. Past performance does not guarantee future results. All projections and potential earnings are estimates and not guarantees.
       </div>
 
       <div class="footer-bottom">
