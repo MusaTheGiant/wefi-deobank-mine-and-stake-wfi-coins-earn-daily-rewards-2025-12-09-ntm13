@@ -26,7 +26,7 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="WeFi Compensation Plan - 7 Income Streams">
-    <meta name="twitter:description" content="Earn from ITO commissions, token mining, Visa card residuals, and banking fees. One-time investment starting at $250.">
+    <meta name="twitter:description" content="Earn from ITO commissions, token mining, Visa card residuals, and banking fees. One-time participation starting at $250.">
     
     <!-- Favicon -->
     <link rel="icon" href="https://www.deobankdefi.com/images/favicon.png">
@@ -77,7 +77,7 @@
           "name": "How much do I need to invest to start earning with WeFi?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can start earning with a minimum $250 one-time investment, which qualifies you for commissions and Level 1 mining rewards (3%). For full qualification and access to all 3 mining levels (3%, 5%, and 8%), a $1,000 investment is recommended. There are no monthly fees or re-qualification requirements."
+            "text": "You can start earning with a minimum $250 one-time participation, which qualifies you for commissions and Level 1 mining rewards (3%). For full qualification and access to all 3 mining levels (3%, 5%, and 8%), a $1,000 participation is recommended. There are no monthly fees or re-qualification requirements."
           }
         },
         {
@@ -519,85 +519,125 @@
             }
         }
         
-        /* Button Base Styles */
+        /* === Button Base Styles === */
         .btn {
+            /* Layout */
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: clamp(16px, 2.5vh, 18px) clamp(24px, 5vw, 40px);
-            min-height: 52px; /* Enhanced from 44px */
+            
+            /* Fluid padding */
+            padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
+            
+            /* Sizing */
+            min-height: 44px;
             min-width: fit-content;
+            
+            /* Styling */
             border-radius: 50px;
             text-decoration: none;
             border: none;
             cursor: pointer;
+            
+            /* Typography */
             font-family: var(--font-primary);
             font-weight: 700;
-            font-size: clamp(0.9375rem, 3.5vw, 1rem);
-            letter-spacing: 0.3px;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
+            letter-spacing: 0.5px;
             text-align: center;
-            white-space: normal; /* Allow wrapping on mobile */
+            white-space: nowrap;
+            
+            /* Effects */
             position: relative;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            -webkit-tap-highlight-color: transparent;
-            touch-action: manipulation;
-            line-height: 1.3; /* Tighter line height for multi-line buttons */
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            
+            /* Ensure text is clickable */
+            user-select: none;
         }
         
-        /* Prevent wrapping on larger screens */
-        @media (min-width: 640px) {
-            .btn {
-                white-space: nowrap;
-            }
+        /* Ripple effect on click */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+            pointer-events: none;
         }
         
-        /* Full width on small mobile for easier tapping */
-        @media (max-width: 480px) {
-            .btn {
-                width: 100%;
-                max-width: 100%;
-            }
+        .btn:active::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        /* Shimmer effect */
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%);
+            transform: skewX(-25deg);
+            transition: left 0.8s ease;
+        }
+        
+        .btn:hover::after {
+            left: 200%;
+        }
+        
+        .btn span {
+            position: relative;
+            z-index: 1;
         }
         
         .btn-primary {
             background: var(--lime-green);
             color: var(--black);
-            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
-        }
-        
-        .btn-primary:active {
-            transform: scale(0.98);
-            box-shadow: 0 5px 20px rgba(199, 241, 96, 0.5);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
         }
         
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(199, 241, 96, 0.6);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px) scale(0.98);
         }
         
         .btn-secondary {
             background: transparent;
+            color: var(--white);
             border: 2px solid var(--lime-green);
-            color: var(--lime-green);
-        }
-        
-        .btn-secondary:active {
-            background: rgba(199, 241, 96, 0.1);
-            transform: scale(0.98);
         }
         
         .btn-secondary:hover {
-            background: var(--lime-green);
-            color: var(--black);
-            transform: translateY(-3px);
+            background: rgba(199, 241, 96, 0.1);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
         }
         
-        /* Disable hover effects on touch devices */
-        @media (hover: none) and (pointer: coarse) {
-            .btn-primary:hover,
-            .btn-secondary:hover {
-                transform: none;
+        .btn-secondary:active {
+            transform: translateY(-1px) scale(0.98);
+        }
+        
+        /* === Responsive Button Adjustments === */
+        @media (max-width: 380px) {
+            .btn {
+                white-space: normal;
+                word-break: break-word;
+                hyphens: auto;
             }
         }
         
@@ -1762,11 +1802,11 @@
                 7 Income Streams Working 24/7 - From Day One
             </p>
             <p class="hero-description">
-                ITO commissions + ongoing fee-share from real card usage and banking transactions across up to 20 levels. One-time investment. No monthly fees. Build once, earn forever.
+                ITO commissions + ongoing fee-share from real card usage and banking transactions across up to 20 levels. One-time participation. No monthly fees. Build once, earn forever.
             </p>
             <div class="cta-buttons">
-                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Sign Up</a>
-                <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'zybzi25Zujg')">▶️ See How It Works</a>
+                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span>Sign Up</span></a>
+                <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'zybzi25Zujg')"><span>▶️ See How It Works</span></a>
             </div>
         </div>
     </section>
@@ -1807,7 +1847,7 @@
                 <div class="overview-card">
                     <div class="icon">⚡</div>
                     <h3>No Monthly Fees</h3>
-                    <p>One-time investment. No reorders. No monthly quotas. Volume never flashes-accumulative forever.</p>
+                    <p>One-time participation. No reorders. No monthly quotas. Volume never flashes-accumulative forever.</p>
                 </div>
                 
                 <div class="overview-card">
@@ -1821,7 +1861,7 @@
                 <p style="color: rgba(255, 255, 255, 0.7); font-size: 1rem; margin-bottom: 20px;">
                     <strong style="color: var(--lime-green);">300,000+ active members</strong> are already building income with WeFi
                 </p>
-                <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'wtPhVQE4_oo')">▶️ WeFi Comp Plan EXPOSED (WATCH NOW)</a>
+                <a href="#" class="btn btn-secondary" onclick="openVideoModal(event, 'youtube', 'wtPhVQE4_oo')"><span>▶️ WeFi Comp Plan EXPOSED (WATCH NOW)</span></a>
             </div>
         </div>
     </section>
@@ -1897,7 +1937,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 50px;">
-                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Activate Your WeFi Account Now →</a>
+                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span>Activate Your WeFi Account Now →</span></a>
             </div>
         </div>
     </section>
@@ -2138,7 +2178,7 @@
                 <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.1rem; margin-bottom: 25px;">
                     <strong style="color: var(--white);">Remember:</strong> These 7 income streams work <span style="color: var(--lime-green);">simultaneously</span>. You're not choosing one-you're activating ALL of them with a single ITO purchase.
                 </p>
-                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Activate All 7 Income Streams Now →</a>
+                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span>Activate All 7 Income Streams Now →</span></a>
             </div>
         </div>
     </section>
@@ -2330,7 +2370,7 @@
                     <strong style="color: var(--lime-green);">💡 Investment Strategy:</strong> Start with what's comfortable ($250-$500), prove the system to yourself, then scale up to $1,000+ once you see results. Many successful affiliates started small and upgraded within 30-60 days.
                 </p>
                 <p style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem; line-height: 1.6;">
-                    <strong>Remember:</strong> Your node mines tokens 24/7 for 7+ years. At $1,000 investment, you're accumulating ~22,000 tokens. If WFI reaches $10 (conservative estimate for a top-100 crypto), that's $220,000 from passive mining alone-not including commissions, card income, or banking fees.
+                    <strong>Remember:</strong> Your node mines tokens 24/7 for 7+ years. At $1,000 purchase, you're accumulating ~22,000 tokens. If WFI reaches $10 (conservative estimate for a top-100 crypto), that's $220,000 from passive mining alone-not including commissions, card income, or banking fees.
                 </p>
             </div>
         </div>
@@ -2496,8 +2536,8 @@
                     <li>Team duplication and leadership development</li>
                 </ul>
                 <p><strong>Most affiliates earn less than the amounts shown here.</strong> The examples represent top performers with consistent effort over 6-12+ months.</p>
-                <p style="margin-top: 15px;"><strong>WeFi makes no guarantee that you will earn any income at all.</strong> All business ventures involve risk of loss. Cryptocurrency investments are volatile and speculative. You may lose your initial investment.</p>
-                <p style="margin-top: 15px;"><strong>This is not financial advice.</strong> Consult with qualified financial advisors before making investment decisions.</p>
+                <p style="margin-top: 15px;"><strong>WeFi makes no guarantee that you will earn any income at all.</strong> All business ventures involve risk of loss. Cryptocurrency participation is volatile and speculative. You may lose your initial purchase amount.</p>
+                <p style="margin-top: 15px;"><strong>This is not financial advice.</strong> Consult with qualified financial advisors before making decisions.</p>
             </div>
         </div>
     </section>
@@ -2581,7 +2621,7 @@
                         <p>Most crypto MLMs pay commissions in their own token (which crashes when hype fades). WeFi pays commissions in USDT (stable, liquid, spendable).</p>
                         <p>Most crypto programs are pure speculation with no utility. WeFi has actual banking infrastructure: licensed, regulated, functional. Visa cards that work at gas stations today. Banking services (wire transfers, loans, savings accounts) launching Q1-Q2 2026.</p>
                         <p><strong>WeFi vs. traditional affiliate programs:</strong> Most pay once per referral. WeFi pays 7 ways for the same referral (direct commissions, mining rewards, team bonuses, card residuals, banking fees, rank bonuses, pool distributions).</p>
-                        <p><strong>WeFi vs. crypto trading:</strong> Trading requires constant attention and skill. One bad trade wipes your account. WeFi nodes mine automatically. Your team earns while you sleep. Risk is capped at your initial investment (no leverage, no liquidations).</p>
+                        <p><strong>WeFi vs. crypto trading:</strong> Trading requires constant attention and skill. One bad trade wipes your account. WeFi nodes mine automatically. Your team earns while you sleep. Risk is capped at your initial purchase amount (no leverage, no liquidations).</p>
                         <p><strong>Unique advantages:</strong> Reeve Collins (Tether co-founder) as chairman. Forbes recognition. Banking licenses in progress. 7 income streams. Blockchain transparency. No monthly fees ever.</p>
                         <p>If you want quick trades and high risk, go trade. If you want sustainable income with team leverage, WeFi has no peer.</p>
                     </div>
@@ -2600,7 +2640,7 @@
                         <p><strong>Team building difficulty:</strong> You might struggle to recruit. <strong style="color: var(--lime-green);">Reality:</strong> This is any team business. WeFi provides training and materials, but can't do the work for you. Your success depends on your effort.</p>
                         <p><strong>Platform longevity:</strong> WeFi could fail as a business. <strong style="color: var(--lime-green);">Reality:</strong> 300,000+ members, Forbes recognition, experienced leadership, regulatory licensing, functioning infrastructure. These aren't startup metrics.</p>
                         <p><strong>What you control:</strong> Start with an amount you can afford to lose ($250-$1,000). Don't quit your job until WeFi income is 3-6x your expenses. Track metrics like a business. Withdraw profits regularly.</p>
-                        <p>Every investment has risk. WeFi's risks are transparent (unlike scams), manageable (unlike trading), and proportional (capped downside, unlimited upside). You could lose your initial investment. But if you work the system, probability of returns far exceeds probability of total loss.</p>
+                        <p>Every participation has risk. WeFi's risks are transparent (unlike scams), manageable (unlike trading), and proportional (capped downside, unlimited upside). You could lose your initial purchase amount. But if you work the system, probability of returns far exceeds probability of total loss.</p>
                     </div>
                 </div>
                 
@@ -2642,6 +2682,14 @@
                 
                 <p style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px;">
                     Think of it as WeFi saying: "You're committing long-term? Then you're not a customer. You're an owner."
+                </p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; color: #ff4444; font-weight: 700; background: rgba(255, 68, 68, 0.1); padding: 15px; border-left: 4px solid #ff4444; border-radius: 4px;">
+                    ⚠️ URGENT: Gift Certificates END at Block #38. Even if ITO Units remain available, once Block #38 is reached, Gift Certificates are NO LONGER offered. Secure your ITO Units NOW and choose 2+ year durations to maximize your Gift Certificates before this window closes forever.
+                </p>
+                
+                <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 20px; color: var(--lime-green); font-weight: 700;">
+                    ⚠️ CRITICAL: ITO Unit prices increase with each new block. Earlier participation = lower prices + more Gift Certificates. Speed matters.
                 </p>
                 
                 <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px; color: var(--lime-green); font-weight: 600;">
@@ -2830,8 +2878,8 @@
 
                 <!-- CTA Button -->
                 <div style="text-align: center; margin-top: 50px;">
-                    <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=compensation-plan&utm_medium=gift-cert-section&utm_campaign=shareholder-advantage" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 50px; display: inline-block;">
-                        Lock In Block #21 Pricing Now ←
+                    <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=compensation-plan&utm_medium=gift-cert-section&utm_campaign=shareholder-advantage" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <span>Lock In Block #21 Pricing Now ←</span>
                     </a>
                     <p style="margin-top: 15px; color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;">
                         Secure maximum certificates before prices rise to Block #22
@@ -2884,7 +2932,7 @@
                         <p><strong>Conservative estimate:</strong> If WeFi achieves even moderate success and values itself at a $1B+ market cap during an IPO, early projections suggest each Gift Certificate could be worth $80 to $150. For someone with 1,666 certificates, that's $133,280 to $249,900 in equity value.</p>
                         <p><strong>Optimistic scenario:</strong> If WeFi becomes a true "unicorn" (valued at $5B+), certificates could reach $300-$500 each. That same 1,666-certificate holder would have $499,800 to $833,000 in shares.</p>
                         <p><strong>When can you claim?</strong> Gift Certificates convert to real shares when WeFi conducts an IPO (Initial Public Offering) or STO (Security Token Offering). This hasn't happened yet. WeFi is currently in growth phase, building the user base, expanding banking services, and scaling infrastructure. When the company is ready (likely 2026-2028 based on industry timelines), it will announce the public listing. At that point, your Gift Certificates automatically convert to equity based on the conversion ratio WeFi establishes.</p>
-                        <p><strong>What if WeFi never goes public?</strong> That's the risk. These certificates only have value if WeFi succeeds long-term and conducts a liquidity event. If WeFi fails, your certificates could be worthless. But here's the key: you didn't PAY for the certificates. They're a FREE bonus on top of your ITO investment, which is already generating daily token mining rewards. The certificates are pure upside with no additional cost.</p>
+                        <p><strong>What if WeFi never goes public?</strong> That's the risk. These certificates only have value if WeFi succeeds long-term and conducts a liquidity event. If WeFi fails, your certificates could be worthless. But here's the key: you didn't PAY for the certificates. They're a FREE bonus on top of your ITO purchase, which is already generating daily token mining rewards. The certificates are pure upside with no additional cost.</p>
                         <p>Think of it this way: You're getting paid (in WFI tokens) to hold an asset (ITO node), and as a thank-you bonus, WeFi is also giving you equity (Gift Certificates). Even if the equity never materializes, you're still profiting from the mining. But if it DOES materialize, you could be looking at life-changing money.</p>
                         <p>Bottom line: Gift Certificates are a calculated bet on WeFi's future. Not a guarantee, but a genuine opportunity that costs you nothing beyond your existing commitment.</p>
                     </div>
@@ -2907,17 +2955,17 @@
             </div>
             
             <div class="cta-buttons-final">
-                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 50px;">
-                    Create Free WeFi Account & Start Earning →
+                <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    <span>Create Free WeFi Account & Start Earning →</span>
                 </a>
                 <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-secondary">
-                    View Complete Getting Started Guide
+                    <span>View Complete Getting Started Guide</span>
                 </a>
                 <a href="https://www.deobankdefi.com/about-wefi.html" class="btn btn-secondary">
-                    Learn More About WeFi's Mission
+                    <span>Learn More About WeFi's Mission</span>
                 </a>
                 <a href="https://www.deobankdefi.com/wfi-token.html" class="btn btn-secondary">
-                    Explore WFI Token Economics
+                    <span>Explore WFI Token Economics</span>
                 </a>
             </div>
             
@@ -3011,7 +3059,7 @@
             
             <!-- Disclaimer -->
             <div class="disclaimer">
-                <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency investments carry risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any investment decisions rests solely with you. WeFi ITO units represent technology purchases, not securities. Past performance does not guarantee future results. All projections and potential earnings are estimates and not guarantees. Most affiliates earn less than the examples shown. Building a profitable WeFi business requires consistent effort, time, and dedication. Results vary based on individual effort, market conditions, and many other factors beyond anyone's control.
+                <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency participation carries risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any decisions rests solely with you. WeFi ITO units represent technology purchases, not securities. Past performance does not guarantee future results. All projections and potential earnings are estimates and not guarantees. Most affiliates earn less than the examples shown. Building a profitable WeFi business requires consistent effort, time, and dedication. Results vary based on individual effort, market conditions, and many other factors beyond anyone's control.
             </div>
 
             <!-- Footer Bottom -->
