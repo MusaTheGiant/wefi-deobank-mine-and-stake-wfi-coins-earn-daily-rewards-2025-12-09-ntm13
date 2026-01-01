@@ -2745,7 +2745,7 @@
                     <div class="video-wrapper-modern">
                         <iframe 
                             class="youtube-embed" 
-                            src="https://www.youtube.com/embed/k4cJ4WXh9dM?autoplay=1&loop=1&playlist=k4cJ4WXh9dM&controls=1&modestbranding=1&playsinline=1&rel=0"
+                            src="https://www.youtube.com/embed/k4cJ4WXh9dM?autoplay=0&loop=1&playlist=k4cJ4WXh9dM&controls=1&modestbranding=1&playsinline=1&rel=0"
                             title="WeFi DeoBank - 3x Daily Payouts" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -4175,18 +4175,15 @@
             if (videoThumbnail && playButton && youtubeEmbed) {
                 // Function to start video playback
                 function playVideo() {
-                    // Hide thumbnail and play button
+                    // Hide thumbnail and play button with animation
                     videoThumbnail.classList.add('hidden');
                     
-                    // Get current src and add autoplay parameter if not already there
-                    let currentSrc = youtubeEmbed.src;
-                    if (!currentSrc.includes('autoplay=1')) {
-                        currentSrc = currentSrc.replace('autoplay=0', 'autoplay=1');
-                        if (!currentSrc.includes('autoplay')) {
-                            currentSrc += '&autoplay=1';
-                        }
-                        youtubeEmbed.src = currentSrc;
-                    }
+                    // Replace the iframe src to force autoplay
+                    const videoId = 'k4cJ4WXh9dM';
+                    const newSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=1&modestbranding=1&playsinline=1&rel=0`;
+                    
+                    // Force reload with autoplay
+                    youtubeEmbed.src = newSrc;
                 }
                 
                 // Add click listeners
