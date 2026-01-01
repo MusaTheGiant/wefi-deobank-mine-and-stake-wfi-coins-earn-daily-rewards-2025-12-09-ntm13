@@ -1688,6 +1688,60 @@
             display: block;
         }
         
+        /* ===== NEW: VIDEO LOADING INDICATOR STYLES ===== */
+        .video-loading-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            border-radius: 16px;
+        }
+        
+        .video-loading-overlay.hidden {
+            opacity: 0;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(199, 241, 96, 0.2);
+            border-top: 4px solid var(--lime-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: clamp(16px, 3vw, 18px);
+            font-weight: 600;
+            color: var(--lime-green);
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .loading-subtext {
+            font-size: clamp(13px, 2vw, 15px);
+            color: rgba(199, 241, 96, 0.7);
+            margin-top: 8px;
+            text-align: center;
+        }
+        /* ===== END: VIDEO LOADING INDICATOR STYLES ===== */
+        
         /* Prevent modal scroll issues */
         body.modal-open {
             position: fixed;
@@ -1907,6 +1961,13 @@
     <div class="video-modal" id="videoModal">
         <div class="video-container">
             <div class="video-wrapper">
+                <!-- ===== NEW: VIDEO LOADING INDICATOR OVERLAY ===== -->
+                <div class="video-loading-overlay" id="videoLoadingOverlay">
+                    <div class="loading-spinner"></div>
+                    <div class="loading-text">WeFi Video Tutorial Loading...</div>
+                    <div class="loading-subtext">Please wait...</div>
+                </div>
+                <!-- ===== END: VIDEO LOADING INDICATOR OVERLAY ===== -->
                 <video 
                     id="tutorialVideo"
                     controls
@@ -2538,6 +2599,7 @@
         function openVideoModal(videoUrl, cardElement) {
             const modal = document.getElementById('videoModal');
             const videoElement = document.getElementById('tutorialVideo');
+            const loadingOverlay = document.getElementById('videoLoadingOverlay');
             
             // Store reference to the card that opened this video
             currentVideoCard = cardElement;
@@ -2545,9 +2607,33 @@
             // Add body class to prevent scrolling
             document.body.classList.add('modal-open');
             
+            // ===== NEW: SHOW LOADING INDICATOR ===== 
+            // Reset and show loading overlay
+            loadingOverlay.classList.remove('hidden');
+            // ===== END: SHOW LOADING INDICATOR =====
+            
             // Set video source and open modal
             videoElement.src = videoUrl;
             modal.classList.add('active');
+            
+            // ===== NEW: HIDE LOADING INDICATOR WHEN VIDEO CAN PLAY =====
+            // Hide loading overlay when video has enough data to play
+            videoElement.addEventListener('canplay', function hideLoading() {
+                loadingOverlay.classList.add('hidden');
+                videoElement.removeEventListener('canplay', hideLoading);
+            });
+            
+            // Additional fallback: hide loading when video starts playing
+            videoElement.addEventListener('playing', function hideLoadingOnPlay() {
+                loadingOverlay.classList.add('hidden');
+                videoElement.removeEventListener('playing', hideLoadingOnPlay);
+            });
+            
+            // Fallback: Hide loading after 3 seconds if events don't fire
+            setTimeout(() => {
+                loadingOverlay.classList.add('hidden');
+            }, 3000);
+            // ===== END: HIDE LOADING INDICATOR LOGIC =====
             
             // Auto-play the video
             videoElement.play().catch(err => {
@@ -2586,6 +2672,7 @@
         function closeVideoModal() {
             const modal = document.getElementById('videoModal');
             const videoElement = document.getElementById('tutorialVideo');
+            const loadingOverlay = document.getElementById('videoLoadingOverlay');
             
             // Add closing animation
             modal.classList.add('closing');
@@ -2597,6 +2684,10 @@
                 videoElement.pause();
                 videoElement.currentTime = 0;
                 videoElement.src = '';
+                
+                // ===== NEW: RESET LOADING OVERLAY =====
+                loadingOverlay.classList.remove('hidden');
+                // ===== END: RESET LOADING OVERLAY =====
                 
                 document.body.classList.remove('modal-open');
                 
