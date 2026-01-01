@@ -802,12 +802,13 @@
             .ito-hero-container {
                 display: flex;
                 flex-direction: column;
-                gap: 60px;
+                gap: 40px;
                 text-align: center;
             }
             
             .ito-hero-content {
                 align-items: center;
+                order: 1;
             }
             
             .ito-hero-visual {
@@ -817,10 +818,6 @@
             .ito-cta-button {
                 margin-left: auto;
                 margin-right: auto;
-            }
-            
-            .ito-hero-visual {
-                height: auto;
             }
             
             .youtube-video-container {
@@ -834,12 +831,23 @@
             }
             
             .ito-hero-container {
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            /* Reorder elements: Badge, Title, Video, then rest of content */
+            /* Content section comes first */
+            .ito-hero-content {
+                order: 1;
+                display: contents;
+            }
+            
+            /* Video section comes between title and description */
+            .ito-hero-visual {
+                order: 3;
+            }
+            
+            /* Manual ordering of content elements */
             .ito-badge {
                 order: 1;
             }
@@ -847,15 +855,11 @@
             .ito-hero-title {
                 order: 2;
                 font-size: 36px;
-                margin-bottom: 20px;
             }
             
-            .ito-hero-visual {
-                order: 3;
-                margin-bottom: 20px;
-            }
+            /* Video appears at order 3 */
             
-            .ito-hero-description:first-of-type {
+            .ito-hero-description:nth-of-type(1) {
                 order: 4;
             }
             
@@ -863,17 +867,12 @@
                 order: 5;
             }
             
-            .ito-hero-description:last-of-type {
+            .ito-hero-description:nth-of-type(2) {
                 order: 6;
             }
             
             .ito-cta-button {
                 order: 7;
-            }
-            
-            .ito-hero-content {
-                display: flex;
-                flex-direction: column;
             }
             
             .ito-hero-subtitle {
@@ -896,7 +895,7 @@
             }
             
             .ito-hero-container {
-                gap: 15px;
+                gap: 20px;
             }
             
             .youtube-video-container {
