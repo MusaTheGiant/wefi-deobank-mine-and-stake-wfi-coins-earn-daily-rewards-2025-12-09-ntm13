@@ -2601,6 +2601,8 @@
             const videoElement = document.getElementById('tutorialVideo');
             const loadingOverlay = document.getElementById('videoLoadingOverlay');
             
+            if (!modal || !videoElement) return;
+            
             // Store reference to the card that opened this video
             currentVideoCard = cardElement;
             
@@ -2609,7 +2611,9 @@
             
             // ===== NEW: SHOW LOADING INDICATOR ===== 
             // Reset and show loading overlay
-            loadingOverlay.classList.remove('hidden');
+            if (loadingOverlay) {
+                loadingOverlay.classList.remove('hidden');
+            }
             // ===== END: SHOW LOADING INDICATOR =====
             
             // Set video source and open modal
@@ -2619,19 +2623,25 @@
             // ===== NEW: HIDE LOADING INDICATOR WHEN VIDEO CAN PLAY =====
             // Hide loading overlay when video has enough data to play
             videoElement.addEventListener('canplay', function hideLoading() {
-                loadingOverlay.classList.add('hidden');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
                 videoElement.removeEventListener('canplay', hideLoading);
             });
             
             // Additional fallback: hide loading when video starts playing
             videoElement.addEventListener('playing', function hideLoadingOnPlay() {
-                loadingOverlay.classList.add('hidden');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
                 videoElement.removeEventListener('playing', hideLoadingOnPlay);
             });
             
             // Fallback: Hide loading after 3 seconds if events don't fire
             setTimeout(() => {
-                loadingOverlay.classList.add('hidden');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                }
             }, 3000);
             // ===== END: HIDE LOADING INDICATOR LOGIC =====
             
@@ -2674,6 +2684,8 @@
             const videoElement = document.getElementById('tutorialVideo');
             const loadingOverlay = document.getElementById('videoLoadingOverlay');
             
+            if (!modal || !videoElement) return;
+            
             // Add closing animation
             modal.classList.add('closing');
             
@@ -2686,7 +2698,9 @@
                 videoElement.src = '';
                 
                 // ===== NEW: RESET LOADING OVERLAY =====
-                loadingOverlay.classList.remove('hidden');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.remove('hidden');
+                }
                 // ===== END: RESET LOADING OVERLAY =====
                 
                 document.body.classList.remove('modal-open');
