@@ -813,6 +813,7 @@
             
             .ito-hero-visual {
                 order: 2;
+                height: auto;
             }
             
             .ito-cta-button {
@@ -845,8 +846,11 @@
             /* Video section comes between title and description */
             .ito-hero-visual {
                 order: 3;
+                height: auto;
+                min-height: auto;
                 margin-top: 5px;
                 margin-bottom: 5px;
+                padding: 0;
             }
             
             /* Manual ordering of content elements */
@@ -892,6 +896,12 @@
                 max-width: 500px;
                 border-radius: 16px;
             }
+            
+            /* Hide background elements on mobile to reduce visual clutter */
+            .ito-bg-grid,
+            .ito-glow-orb {
+                display: none;
+            }
         }
         
         @media (max-width: 480px) {
@@ -907,6 +917,7 @@
             .ito-hero-visual {
                 margin-top: 4px;
                 margin-bottom: 4px;
+                height: auto;
             }
             
             .ito-badge {
