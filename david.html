@@ -681,45 +681,58 @@
             height: 600px;
         }
         
-        /* Phone Mockup */
-        .phone-mockup {
+        /* YouTube Video Container - Modern Design */
+        .youtube-video-container {
             position: relative;
-            z-index: 3;
-            filter: drop-shadow(0 30px 60px rgba(0, 255, 136, 0.3));
-        }
-        
-        .phone-frame {
-            width: 300px;
-            height: 600px;
-            background: #1A1A1A;
-            border-radius: 40px;
-            border: 8px solid #2A2A2A;
-            padding: 12px;
-            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: 24px;
             overflow: hidden;
             box-shadow: 
-                0 0 0 1px rgba(255, 255, 255, 0.1),
-                inset 0 0 30px rgba(0, 0, 0, 0.5);
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(199, 241, 96, 0.2);
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(10, 10, 10, 0.9));
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 3;
         }
         
-        .phone-notch {
+        .youtube-video-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.5),
+                0 0 0 1px var(--lime-green),
+                0 0 40px rgba(199, 241, 96, 0.2);
+        }
+        
+        .video-wrapper-modern {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+        }
+        
+        .youtube-embed {
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 28px;
-            background: #1A1A1A;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            z-index: 10;
-        }
-        
-        .phone-video {
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            border-radius: 32px;
+            border: none;
+            z-index: 2;
+        }
+        
+        .video-thumbnail-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 1;
+            pointer-events: none;
         }
         
         /* Background Elements */
@@ -775,12 +788,11 @@
             }
             
             .ito-hero-visual {
-                height: 500px;
+                height: auto;
             }
             
-            .phone-frame {
-                width: 260px;
-                height: 520px;
+            .youtube-video-container {
+                max-width: 600px;
             }
         }
         
@@ -802,12 +814,12 @@
             }
             
             .ito-hero-visual {
-                height: 450px;
+                height: auto;
             }
             
-            .phone-frame {
-                width: 240px;
-                height: 480px;
+            .youtube-video-container {
+                max-width: 500px;
+                border-radius: 16px;
             }
         }
         
@@ -817,12 +829,12 @@
             }
             
             .ito-hero-visual {
-                height: 400px;
+                height: auto;
             }
             
-            .phone-frame {
-                width: 220px;
-                height: 440px;
+            .youtube-video-container {
+                max-width: 100%;
+                border-radius: 12px;
             }
         }
         
@@ -2643,7 +2655,7 @@
                 <ul class="ito-benefits-list">
                     <li><span class="check-circle">✓</span> Earn while you sleep</li>
                     <li><span class="check-circle">✓</span> Build generational wealth</li>
-                    <li><span class="check-circle">🎁</span> FREE WeFi Shares with every ITO Unit - ENDS at Block #38</li>
+                    <li><span class="check-circle">🎁</span> FREE WeFi Shares with every ITO - ENDS Block #38</li>
                 </ul>
                 
                 <p class="ito-hero-description">
@@ -2658,22 +2670,22 @@
                 </a>
             </div>
             
-            <!-- Right Video/Phone Mockup -->
+            <!-- YouTube Video Container -->
             <div class="ito-hero-visual">
-                <div class="phone-mockup">
-                    <div class="phone-frame">
-                        <div class="phone-notch"></div>
-                        <video 
-                            class="phone-video" 
-                            autoplay 
-                            muted 
-                            loop 
-                            playsinline
-                            poster="https://www.deobankdefi.com/images/wefi-app-poster.jpg">
-                            <source src="https://www.deobankdefi.com/videos/wefi-app.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                <div class="youtube-video-container">
+                    <div class="video-wrapper-modern">
+                        <iframe 
+                            class="youtube-embed" 
+                            src="https://www.youtube.com/embed/k4cJ4WXh9dM?autoplay=1&mute=1&loop=1&playlist=k4cJ4WXh9dM&controls=1&modestbranding=1&playsinline=1&rel=0"
+                            title="WeFi DeoBank - 3x Daily Payouts" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
                     </div>
+                    <!-- Ferrari Thumbnail Overlay (shows before video loads) -->
+                    <div class="video-thumbnail-overlay" style="background-image: url('https://deobankdefi.com/images/wefi-ferrari.png');"></div>
                 </div>
                 
                 <!-- Animated Background Elements -->
