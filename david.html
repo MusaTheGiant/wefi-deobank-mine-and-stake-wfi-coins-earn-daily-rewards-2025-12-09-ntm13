@@ -833,7 +833,7 @@
             .ito-hero-container {
                 display: grid;
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 8px;
             }
             
             /* Content section comes first */
@@ -845,22 +845,27 @@
             /* Video section comes between title and description */
             .ito-hero-visual {
                 order: 3;
+                margin-top: 5px;
+                margin-bottom: 5px;
             }
             
             /* Manual ordering of content elements */
             .ito-badge {
                 order: 1;
+                margin-bottom: 5px;
             }
             
             .ito-hero-title {
                 order: 2;
                 font-size: 36px;
+                margin-bottom: 5px;
             }
             
             /* Video appears at order 3 */
             
             .ito-hero-description:nth-of-type(1) {
                 order: 4;
+                margin-top: 5px;
             }
             
             .ito-benefits-list {
@@ -892,10 +897,24 @@
         @media (max-width: 480px) {
             .ito-hero-title {
                 font-size: 28px;
+                margin-bottom: 4px;
             }
             
             .ito-hero-container {
-                gap: 20px;
+                gap: 6px;
+            }
+            
+            .ito-hero-visual {
+                margin-top: 4px;
+                margin-bottom: 4px;
+            }
+            
+            .ito-badge {
+                margin-bottom: 4px;
+            }
+            
+            .ito-hero-description:nth-of-type(1) {
+                margin-top: 4px;
             }
             
             .youtube-video-container {
