@@ -2745,7 +2745,7 @@
                     <div class="video-wrapper-modern">
                         <iframe 
                             class="youtube-embed" 
-                            src="https://www.youtube.com/embed/k4cJ4WXh9dM?autoplay=0&loop=1&playlist=k4cJ4WXh9dM&controls=1&modestbranding=1&playsinline=1&rel=0"
+                            src="https://www.youtube.com/embed/k4cJ4WXh9dM?autoplay=0&controls=1&modestbranding=1&playsinline=1&rel=0"
                             title="WeFi DeoBank - 3x Daily Payouts" 
                             frameborder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -4172,18 +4172,44 @@
             const playButton = document.getElementById('playButton');
             const youtubeEmbed = document.querySelector('.youtube-embed');
             
+            let player;
+            
             if (videoThumbnail && playButton && youtubeEmbed) {
                 // Function to start video playback
                 function playVideo() {
                     // Hide thumbnail and play button with animation
                     videoThumbnail.classList.add('hidden');
                     
-                    // Replace the iframe src to force autoplay
+                    // Replace the iframe src to force autoplay (NO LOOP)
                     const videoId = 'k4cJ4WXh9dM';
-                    const newSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&loop=1&playlist=${videoId}&controls=1&modestbranding=1&playsinline=1&rel=0`;
+                    const newSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&controls=1&modestbranding=1&playsinline=1&rel=0&enablejsapi=1`;
                     
                     // Force reload with autoplay
                     youtubeEmbed.src = newSrc;
+                    
+                    // Initialize YouTube API player after iframe loads
+                    setTimeout(function() {
+                        if (typeof YT !== 'undefined' && YT.Player) {
+                            player = new YT.Player(youtubeEmbed, {
+                                events: {
+                                    'onStateChange': onPlayerStateChange
+                                }
+                            });
+                        }
+                    }, 1000);
+                }
+                
+                // Function to handle video state changes
+                function onPlayerStateChange(event) {
+                    // YT.PlayerState.ENDED = 0
+                    if (event.data === 0) {
+                        // Video ended, show thumbnail again
+                        videoThumbnail.classList.remove('hidden');
+                        
+                        // Reset iframe to initial state
+                        const videoId = 'k4cJ4WXh9dM';
+                        youtubeEmbed.src = `https://www.youtube.com/embed/${videoId}?autoplay=0&controls=1&modestbranding=1&playsinline=1&rel=0`;
+                    }
                 }
                 
                 // Add click listeners
