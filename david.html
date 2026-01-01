@@ -800,13 +800,18 @@
         /* Responsive Design */
         @media (max-width: 1024px) {
             .ito-hero-container {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
                 gap: 60px;
                 text-align: center;
             }
             
             .ito-hero-content {
                 align-items: center;
+            }
+            
+            .ito-hero-visual {
+                order: 2;
             }
             
             .ito-cta-button {
@@ -828,8 +833,47 @@
                 padding: calc(var(--navbar-height) + 30px) 20px 60px;
             }
             
+            .ito-hero-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            /* Reorder elements: Badge, Title, Video, then rest of content */
+            .ito-badge {
+                order: 1;
+            }
+            
             .ito-hero-title {
+                order: 2;
                 font-size: 36px;
+                margin-bottom: 20px;
+            }
+            
+            .ito-hero-visual {
+                order: 3;
+                margin-bottom: 20px;
+            }
+            
+            .ito-hero-description:first-of-type {
+                order: 4;
+            }
+            
+            .ito-benefits-list {
+                order: 5;
+            }
+            
+            .ito-hero-description:last-of-type {
+                order: 6;
+            }
+            
+            .ito-cta-button {
+                order: 7;
+            }
+            
+            .ito-hero-content {
+                display: flex;
+                flex-direction: column;
             }
             
             .ito-hero-subtitle {
@@ -840,10 +884,6 @@
                 font-size: 15px;
             }
             
-            .ito-hero-visual {
-                height: auto;
-            }
-            
             .youtube-video-container {
                 max-width: 500px;
                 border-radius: 16px;
@@ -852,11 +892,11 @@
         
         @media (max-width: 480px) {
             .ito-hero-title {
-                font-size: 32px;
+                font-size: 28px;
             }
             
-            .ito-hero-visual {
-                height: auto;
+            .ito-hero-container {
+                gap: 15px;
             }
             
             .youtube-video-container {
@@ -2674,6 +2714,8 @@
                 <h1 class="ito-hero-title">
                     <span class="gradient-text">Finally. Banking That <span style="color: white;">Actually Pays You</span></span>
                 </h1>
+                
+                <!-- Video appears here on mobile (moved via CSS order) -->
                 
                 <p class="ito-hero-description">
                     Stop dreaming. Start earning with WeFi:
