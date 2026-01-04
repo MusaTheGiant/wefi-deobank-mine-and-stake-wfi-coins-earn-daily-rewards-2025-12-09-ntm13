@@ -79,12 +79,7 @@
           "description": "Co-founder of Tether"
         }
       },
-      "feesAndCommissionsSpecification": "18% APR on stablecoin staking",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "reviewCount": "100000"
-      }
+      "feesAndCommissionsSpecification": "18% APR on stablecoin staking"
     }
     </script>
     
@@ -1846,6 +1841,290 @@
             margin-top: 40px;
         }
         
+        /* ===== DOWNLOADS & RESOURCES SECTION ===== */
+        .downloads-section {
+            background: linear-gradient(180deg, var(--black) 0%, var(--near-black) 100%);
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .downloads-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--lime-green), transparent);
+            opacity: 0.3;
+        }
+        
+        .downloads-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .downloads-header .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .downloads-header .section-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .download-card {
+            background: var(--dark-charcoal);
+            border: 1px solid rgba(199, 241, 96, 0.15);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--lime-green), var(--bright-green));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .download-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--lime-green);
+            box-shadow: 0 20px 40px rgba(199, 241, 96, 0.15);
+        }
+        
+        .download-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .download-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-icon svg {
+            color: var(--black);
+            transition: transform 0.3s ease;
+        }
+        
+        .download-card:hover .download-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .download-card:hover .download-icon svg {
+            transform: scale(1.1);
+        }
+        
+        .download-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .download-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            min-height: 75px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+            color: var(--black);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .download-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .download-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .download-btn svg {
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
+        }
+        
+        .download-btn:hover svg {
+            transform: translateY(3px);
+        }
+        
+        .download-btn:active {
+            transform: scale(0.98);
+        }
+        
+        .downloads-footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(199, 241, 96, 0.1);
+        }
+        
+        .downloads-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            padding: 12px 24px;
+            background: rgba(199, 241, 96, 0.05);
+            border-radius: 50px;
+            border: 1px solid rgba(199, 241, 96, 0.1);
+        }
+        
+        .downloads-note svg {
+            color: var(--lime-green);
+            flex-shrink: 0;
+        }
+        
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .downloads-section {
+                padding: 60px 20px;
+            }
+            
+            .downloads-header {
+                margin-bottom: 40px;
+            }
+            
+            .downloads-header .section-title {
+                font-size: 1.875rem;
+            }
+            
+            .downloads-header .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .downloads-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .download-card {
+                padding: 30px 20px;
+            }
+            
+            .download-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .download-icon svg {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .download-title {
+                font-size: 1.25rem;
+            }
+            
+            .download-description {
+                font-size: 0.95rem;
+                min-height: auto;
+                margin-bottom: 25px;
+            }
+            
+            .download-btn {
+                width: 100%;
+                padding: 14px 24px;
+                font-size: 0.95rem;
+            }
+            
+            .downloads-footer {
+                margin-top: 40px;
+                padding-top: 30px;
+            }
+            
+            .downloads-note {
+                font-size: 0.875rem;
+                padding: 10px 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .downloads-header .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .download-btn span {
+                font-size: 0.875rem;
+            }
+        }
+        
         /* ===== FOOTER ===== */
         .footer {
             background: var(--near-black);
@@ -2985,7 +3264,7 @@
                     </p>
                     <ul class="feature-bullets">
                         <li>Minimum $250 one-time participation qualifies you</li>
-                        <li>Earn 3-8% on network mining (3 levels deep)</li>
+
                         <li><strong>FREE Gift Certificates (WeFi company shares)</strong></li>
                         <li>5% equity share in WeFi Global LTD</li>
                     </ul>
@@ -3150,7 +3429,7 @@
                         What can I realistically earn with WeFi?
                     </button>
                     <div class="faq-answer">
-                        Earnings depend on your ITO purchase amount and network building. A $1,000 ITO position mines approximately 15,000 WFI tokens over 7 years, plus 5% equity worth up to $160,000 at projected valuations. Add referral commissions (3-15% on direct sales, 3-8% on network volume), staking rewards, and liquidity pool earnings. Top affiliates earn $10,000-$50,000+ monthly. <a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="inline-link">View the complete compensation plan ←</a>
+                        Earnings depend on your ITO purchase amount and network building. A $1,000 ITO position mines approximately 15,000 WFI tokens over 7 years, plus 5% equity worth up to $160,000 at projected valuations. Add referral commissions (3-15% on direct sales), staking rewards, and liquidity pool earnings. Top affiliates earn $10,000-$50,000+ monthly. <a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="inline-link">View the complete compensation plan ←</a>
                     </div>
                 </div>
 
@@ -3177,6 +3456,93 @@
                         <span>View Complete FAQ Page ←</span>
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOWNLOADS & RESOURCES SECTION ===== -->
+    <section id="downloads" class="downloads-section">
+        <div class="container">
+            <div class="downloads-header">
+                <h2 class="section-title">Essential Resources & Downloads</h2>
+                <p class="section-subtitle">Get instant access to comprehensive WeFi materials. Everything you need to understand the opportunity and share with your network.</p>
+            </div>
+            
+            <div class="downloads-grid">
+                <!-- Download Card 1: Official Presentation -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="12" y1="18" x2="12" y2="12"></line>
+                            <line x1="9" y1="15" x2="15" y2="15"></line>
+                        </svg>
+                    </div>
+                    <h3 class="download-title">Official Presentation</h3>
+                    <p class="download-description">Complete WeFi overview deck with business model, tokenomics, and income opportunities. Perfect for sharing.</p>
+                    <a href="https://drive.google.com/file/d/1ahrGioMgeEITy3ASVsGG-phExMtXdeqz/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="download-btn">
+                        <span>View Full Presentation</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Download Card 2: PDF Version -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="download-title">Presentation PDF</h3>
+                    <p class="download-description">Downloadable PDF format. Print, save, or share offline. Ideal for in-person presentations and meetings.</p>
+                    <a href="https://drive.google.com/file/d/1wJCsN6uMi_AIrqcDNtzBpvLL6RfDvEbw/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="download-btn">
+                        <span>Download PDF Version</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+                
+                <!-- Download Card 3: Competitive Advantages -->
+                <div class="download-card">
+                    <div class="download-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="download-title">Competitive Edge Report</h3>
+                    <p class="download-description">Discover what sets WeFi apart from traditional crypto platforms. Key differentiators and unique advantages explained.</p>
+                    <a href="https://drive.google.com/file/d/1aZH6rwRYU9LnD4yH_OVLlFT_2pSvREpQ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="download-btn">
+                        <span>See What Makes WeFi Different</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Downloads Footer Note -->
+            <div class="downloads-footer">
+                <p class="downloads-note">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    All resources open in Google Drive for instant access. No email required.
+                </p>
             </div>
         </div>
     </section>
