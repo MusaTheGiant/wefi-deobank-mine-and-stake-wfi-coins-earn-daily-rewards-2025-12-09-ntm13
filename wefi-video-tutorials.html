@@ -45,6 +45,9 @@
     <!-- Google Fonts - Inter & Space Grotesk -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome 6 - For Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
     <!-- JSON-LD Schema Markup - WebPage -->
     <script type="application/ld+json">
     {
@@ -1394,6 +1397,83 @@
             color: var(--lime-green);
         }
         
+        /* ===== SOCIAL MEDIA ICONS - CONVERSION OPTIMIZED ===== */
+        .footer-links a .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            vertical-align: middle;
+        }
+        
+        /* Font Awesome 6 Font Family Declarations - CRITICAL FOR ICON DISPLAY */
+        .fa-brands {
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+        }
+        
+        .fa-solid {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        
+        /* Platform-Specific Brand Colors */
+        .footer-links a .fa-whatsapp {
+            color: #25D366;
+        }
+        
+        .footer-links a .fa-users {
+            color: #00E676;
+        }
+        
+        .footer-links a .fa-facebook {
+            color: #1877F2;
+        }
+        
+        .footer-links a .fa-youtube {
+            color: #FF0000;
+        }
+        
+        /* Hover Effects - Scale & Glow */
+        .footer-links a:hover .social-icon {
+            transform: scale(1.2) translateY(-2px);
+        }
+        
+        .footer-links a:hover .fa-whatsapp {
+            filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.6));
+        }
+        
+        .footer-links a:hover .fa-users {
+            filter: drop-shadow(0 0 8px rgba(0, 230, 118, 0.6));
+        }
+        
+        .footer-links a:hover .fa-facebook {
+            filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.6));
+        }
+        
+        .footer-links a:hover .fa-youtube {
+            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+        }
+        
+        /* Mobile Optimization - Larger Touch Targets */
+        @media (max-width: 768px) {
+            .footer-links a .social-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 18px;
+                margin-right: 14px;
+            }
+            
+            .footer-links a {
+                font-size: 15px;
+                font-weight: 500;
+            }
+        }
+        
         .website-clone-offer {
             background: linear-gradient(135deg, rgba(199, 241, 96, 0.1), rgba(0, 255, 136, 0.1));
             border: 1px solid rgba(199, 241, 96, 0.3);
@@ -2108,10 +2188,10 @@
                 <div class="footer-section">
                     <h3>Connect With Sponsor</h3>
                     <ul class="footer-links">
-                        <li><a href="https://wa.me/27721714626" target="_blank">WhatsApp</a></li>
-                        <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank">WhatsApp Group</a></li>
-                        <li><a href="https://www.facebook.com/Musa.TheMTG" target="_blank">Facebook</a></li>
-                        <li><a href="https://www.youtube.com/@deobankdefi" target="_blank">YouTube Videos</a></li>
+                        <li><a href="https://wa.me/27721714626" target="_blank"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
+                        <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
+                        <li><a href="https://web.facebook.com/deobankdefi" target="_blank"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
+                        <li><a href="https://www.youtube.com/@deobankdefi" target="_blank"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
                     </ul>
                 </div>
             </div>
@@ -2136,24 +2216,28 @@
         
         // Navigation scroll effect
         window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            const navbar = document.querySelector('.navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             }
         });
         
         // Scroll to Top Button Functionality
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
         
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        });
+        if (scrollToTopBtn) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollToTopBtn.classList.add('visible');
+                } else {
+                    scrollToTopBtn.classList.remove('visible');
+                }
+            });
+        }
         
         // Scroll to Top Function
         function scrollToTop() {
@@ -2273,7 +2357,7 @@
         // Handle click outside video container
         function handleClickOutside(e) {
             const videoContainer = document.querySelector('.video-container');
-            if (e.target.classList.contains('video-modal')) {
+            if (e && e.target && e.target.classList.contains('video-modal')) {
                 closeVideoModal();
             }
         }
@@ -2314,7 +2398,7 @@
         // Recalculate on window resize
         window.addEventListener('resize', function() {
             const modal = document.getElementById('videoModal');
-            if (modal.classList.contains('active')) {
+            if (modal && modal.classList.contains('active')) {
                 adjustVideoSize();
             }
         });
