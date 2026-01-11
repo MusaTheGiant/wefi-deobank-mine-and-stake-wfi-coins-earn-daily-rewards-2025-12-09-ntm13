@@ -1795,6 +1795,72 @@
             color: var(--lime-green);
         }
         
+        /* ===== SOCIAL MEDIA ICONS - CONVERSION OPTIMIZED ===== */
+        .footer-links a .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            vertical-align: middle;
+        }
+        
+        /* Platform-Specific Brand Colors */
+        .footer-links a .fa-whatsapp {
+            color: #25D366;
+        }
+        
+        .footer-links a .fa-users {
+            color: #00E676;
+        }
+        
+        .footer-links a .fa-facebook {
+            color: #1877F2;
+        }
+        
+        .footer-links a .fa-youtube {
+            color: #FF0000;
+        }
+        
+        /* Hover Effects - Scale & Glow */
+        .footer-links a:hover .social-icon {
+            transform: scale(1.2) translateY(-2px);
+        }
+        
+        .footer-links a:hover .fa-whatsapp {
+            filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.6));
+        }
+        
+        .footer-links a:hover .fa-users {
+            filter: drop-shadow(0 0 8px rgba(0, 230, 118, 0.6));
+        }
+        
+        .footer-links a:hover .fa-facebook {
+            filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.6));
+        }
+        
+        .footer-links a:hover .fa-youtube {
+            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+        }
+        
+        /* Mobile Optimization - Larger Touch Targets */
+        @media (max-width: 768px) {
+            .footer-links a .social-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 18px;
+                margin-right: 14px;
+            }
+            
+            .footer-links a {
+                font-size: 15px;
+                font-weight: 500;
+            }
+        }
+        
         .disclaimer {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
@@ -2464,10 +2530,10 @@
                 <div class="footer-column">
                     <h3>Connect With Sponsor</h3>
                     <ul class="footer-links">
-                        <li><a href="https://wa.me/27721714626" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-                        <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank" rel="noopener noreferrer">WhatsApp Group</a></li>
-                        <li><a href="https://www.facebook.com/Musa.TheMTG" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                        <li><a href="https://www.youtube.com/@deobankdefi" target="_blank" rel="noopener noreferrer">YouTube Videos</a></li>
+                        <li><a href="https://wa.me/27721714626" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
+                        <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
+                        <li><a href="https://web.facebook.com/deobankdefi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
+                        <li><a href="https://www.youtube.com/@deobankdefi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
                     </ul>
                 </div>
             </div>
