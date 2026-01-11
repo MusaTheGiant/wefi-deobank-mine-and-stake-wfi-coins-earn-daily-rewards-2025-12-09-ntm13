@@ -27,6 +27,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Font Awesome 6 - For Social Media Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
     <script src="https://player.vimeo.com/api/player.js" async></script>
     <script src="https://www.youtube.com/iframe_api" async></script>
     
@@ -1794,6 +1797,83 @@
         
         .footer-links a:hover {
             color: var(--lime-green);
+        }
+        
+        /* ===== SOCIAL MEDIA ICONS - CONVERSION OPTIMIZED ===== */
+        .footer-links a .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            vertical-align: middle;
+        }
+        
+        /* Font Awesome 6 Font Family Declarations - CRITICAL FOR ICON DISPLAY */
+        .fa-brands {
+            font-family: "Font Awesome 6 Brands";
+            font-weight: 400;
+        }
+        
+        .fa-solid {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        
+        /* Platform-Specific Brand Colors */
+        .footer-links a .fa-whatsapp {
+            color: #25D366;
+        }
+        
+        .footer-links a .fa-users {
+            color: #00E676;
+        }
+        
+        .footer-links a .fa-facebook {
+            color: #1877F2;
+        }
+        
+        .footer-links a .fa-youtube {
+            color: #FF0000;
+        }
+        
+        /* Hover Effects - Scale & Glow */
+        .footer-links a:hover .social-icon {
+            transform: scale(1.2) translateY(-2px);
+        }
+        
+        .footer-links a:hover .fa-whatsapp {
+            filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.6));
+        }
+        
+        .footer-links a:hover .fa-users {
+            filter: drop-shadow(0 0 8px rgba(0, 230, 118, 0.6));
+        }
+        
+        .footer-links a:hover .fa-facebook {
+            filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.6));
+        }
+        
+        .footer-links a:hover .fa-youtube {
+            filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+        }
+        
+        /* Mobile Optimization - Larger Touch Targets */
+        @media (max-width: 768px) {
+            .footer-links a .social-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 18px;
+                margin-right: 14px;
+            }
+            
+            .footer-links a {
+                font-size: 15px;
+                font-weight: 500;
+            }
         }
         
         .website-clone-offer {
@@ -3589,10 +3669,10 @@
                 <div class="footer-section">
                     <h3>Connect With Sponsor</h3>
                     <ul class="footer-links">
-                        <li><a href="https://wa.me/27721714626" target="_blank">WhatsApp</a></li>
-                        <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank">WhatsApp Group</a></li>
-                        <li><a href="https://www.facebook.com/Musa.TheMTG" target="_blank">Facebook</a></li>
-                        <li><a href="https://www.youtube.com/@deobankdefi" target="_blank">YouTube Videos</a></li>
+                        <li><a href="https://wa.me/27721714626" target="_blank"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
+                        <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
+                        <li><a href="https://web.facebook.com/deobankdefi" target="_blank"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
+                        <li><a href="https://www.youtube.com/@deobankdefi" target="_blank"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
                     </ul>
                 </div>
             </div>
