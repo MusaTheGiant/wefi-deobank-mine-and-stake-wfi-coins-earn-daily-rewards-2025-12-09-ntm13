@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
  <meta name="description" content="Learn about WeFi Deobanking Platform. Educational resource from an Independent KOL. Explore decentralized banking technology and blockchain innovation.">
  <meta name="keywords" content="WeFi testimonials, WeFi reviews, WeFi success stories, is WeFi legit, WeFi member earnings, WeFi proof, real WeFi results, WeFi scam or real, WeFi user reviews, WeFi income proof, WeFi video testimonials, WeFi member experiences, does WeFi really work, WeFi before and after, wefi Deobanking Platform testimonials, wefi crypto Deobanking Platform reviews, wefi Deobanking Platform success, wefi digital Deobanking Platform earnings, wefi crypto card reviews">
  
@@ -290,6 +290,27 @@
  margin-bottom: 40px;
  }
  }
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+ nav {
+ padding: 12px 15px;
+ }
+ 
+ .nav-logo {
+ font-size: 18px;
+ }
+ 
+ .nav-cta {
+ padding: 8px 16px;
+ font-size: 13px;
+ }
+ 
+ body {
+ font-size: 15px;
+ line-height: 1.6;
+ }
+}
  
  /* ========================================
  TRUST SIGNALS SECTION
@@ -783,7 +804,7 @@
  
  @media (max-width: 768px) {
  .ito-hero {
- padding: calc(var(--navbar-height) + 30px) 20px 60px;
+ padding: calc(var(--navbar-height) + 72px) 20px 60px; /* navbar + disclaimer(42px) + spacing(30px) */
  }
  
  .ito-hero-title {
@@ -1262,7 +1283,7 @@
  /* === MOBILE-SPECIFIC HERO OPTIMIZATIONS === */
  @media (max-width: 768px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 15px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(15px + var(--safe-area-bottom));
  }
  
@@ -1281,7 +1302,7 @@
  
  @media (max-width: 480px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 12px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(12px + var(--safe-area-bottom));
  }
  
@@ -1300,7 +1321,7 @@
  
  @media (max-width: 360px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 10px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(10px + var(--safe-area-bottom));
  }
  }
@@ -1999,7 +2020,7 @@
  /* Adjust hero padding for mobile to prevent content overlap */
  .hero {
  min-height: 100vh;
- padding-block-start: calc(var(--navbar-height) + 40px);
+ padding-block-start: calc(var(--navbar-height) + 72px);
  padding-block-end: 40px;
  padding-inline: 20px;
  }
@@ -2102,7 +2123,7 @@
  
  .hero {
  min-height: 100vh;
- padding-block-start: calc(var(--navbar-height) + 30px);
+ padding-block-start: calc(var(--navbar-height) + 72px);
  padding-block-end: 30px;
  padding-inline: 15px;
  }
@@ -3797,7 +3818,7 @@
  document.body.classList.add('modal-open');
  videoModal.classList.add('active');
  
- await new offers(resolve => setTimeout(resolve, 100));
+ await new Promise(resolve => setTimeout(resolve, 100));
  
  if (platform === 'vimeo') {
  await initVimeoPlayer(videoId);
@@ -3876,7 +3897,7 @@
  await waitForVimeo();
  const url = `https://player.vimeo.com/video/${videoId}?autoplay=1&controls=1&title=0&byline=0&portrait=0&color=C7F160`;
  videoIframe.src = url;
- await new offers(resolve => setTimeout(resolve, 500));
+ await new Promise(resolve => setTimeout(resolve, 500));
  
  vimeoPlayer = new Vimeo.Player(videoIframe);
  
@@ -4020,7 +4041,7 @@
  document.body.classList.add('modal-open');
  videoModal.classList.add('active');
  
- await new offers(resolve => setTimeout(resolve, 100));
+ await new Promise(resolve => setTimeout(resolve, 100));
  
  // Hide the iframe (used for Vimeo/YouTube)
  const videoIframeElement = document.getElementById('vimeoPlayer');
