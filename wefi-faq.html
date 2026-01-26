@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
  <meta name="description" content="Learn about WeFi Deobanking Platform. Educational resource from an Independent KOL. Explore decentralized banking technology and blockchain innovation.">
  <meta name="keywords" content="wefi faq, wefi questions, is wefi legit, how does wefi work, wefi staking, wfi token, wefi Deobanking Platform, defi platform, crypto earning, wefi frequently asked questions, wefi questions and answers, wefi defi platform, wefi staking guide, wefi token explained, wefi earning potential, wefi Deobanking Platform review, cryptocurrency staking platform, defi passive income, wfi token utility, crypto mining units, blockchain earning opportunities, decentralized finance FAQ, wefi registration help, wefi compensation structure, how to make money with wefi, is wefi Deobanking Platform safe and legitimate, wefi Cloud Mining Platform explained">
  
@@ -164,6 +164,9 @@
  }
  
  body {
+ /* Touch optimization for mobile browsers */
+ -webkit-tap-highlight-color: rgba(199, 241, 96, 0.2);
+ -webkit-touch-callout: none;
  font-family: var(--font-primary);
  background-color: var(--black);
  color: var(--white);
@@ -804,6 +807,8 @@
  
  /* Mobile Optimization - Larger Touch Targets */
  @media (max-width: 768px) {
+ .hero { padding-top: calc(var(--navbar-height) + 72px); }
+
  .footer-links a .social-icon {
  width: 28px;
  height: 28px;
@@ -816,6 +821,27 @@
  font-weight: 500;
  }
  }
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+ nav {
+ padding: 12px 15px;
+ }
+ 
+ .nav-logo {
+ font-size: 18px;
+ }
+ 
+ .nav-cta {
+ padding: 8px 16px;
+ font-size: 13px;
+ }
+ 
+ body {
+ font-size: 15px;
+ line-height: 1.6;
+ }
+}
  
  .disclaimer {
  background: rgba(255, 255, 255, 0.05);
@@ -968,7 +994,12 @@
  }
  }
  
- @media (max-width: 480px) {
+ 
+@media (max-width: 480px) {
+ .hero { padding-top: calc(var(--navbar-height) + 72px); }
+}
+
+@media (max-width: 480px) {
  .nav-container {
  padding: 16px 20px;
  }
