@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
  <title>About WeFi: World's First Deobanking Platforming Platform Founded by experienced WeFi leadership (Tether)</title>
  
  <!-- SEO Meta Tags -->
@@ -121,6 +121,9 @@
  }
  
  body {
+ /* Touch optimization for mobile browsers */
+ -webkit-tap-highlight-color: rgba(199, 241, 96, 0.2);
+ -webkit-touch-callout: none;
  font-family: var(--font-primary);
  background-color: var(--black);
  color: var(--white);
@@ -672,7 +675,7 @@
  /* === MOBILE-SPECIFIC HERO OPTIMIZATIONS === */
  @media (max-width: 768px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 15px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(15px + var(--safe-area-bottom));
  }
  
@@ -688,10 +691,31 @@
  margin-block-end: 18px;
  }
  }
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+ nav {
+ padding: 12px 15px;
+ }
+ 
+ .nav-logo {
+ font-size: 18px;
+ }
+ 
+ .nav-cta {
+ padding: 8px 16px;
+ font-size: 13px;
+ }
+ 
+ body {
+ font-size: 15px;
+ line-height: 1.6;
+ }
+}
  
  @media (max-width: 480px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 12px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(12px + var(--safe-area-bottom));
  }
  
@@ -710,7 +734,7 @@
  
  @media (max-width: 360px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 10px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(10px + var(--safe-area-bottom));
  }
  }
@@ -2745,7 +2769,7 @@
  const vimeoUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&autopause=0&muted=0&controls=1&title=0&byline=0&portrait=0&color=C7F160&playsinline=1&dnt=1`;
  
  videoIframe.src = vimeoUrl;
- await new offers(resolve => setTimeout(resolve, 500));
+ await new Promise(resolve => setTimeout(resolve, 500));
  
  vimeoPlayer = new Vimeo.Player(videoIframe);
  
@@ -2916,7 +2940,7 @@
  document.body.classList.add('modal-open');
  videoModal.classList.add('active');
  
- await new offers(resolve => setTimeout(resolve, 100));
+ await new Promise(resolve => setTimeout(resolve, 100));
  
  if (platform === 'vimeo') {
  vimeoPlayer = null;
