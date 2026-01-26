@@ -3762,7 +3762,7 @@
  videoIframe.src = vimeoUrl;
  
  // Wait for iframe to load
- await new offers(resolve => setTimeout(resolve, 500));
+ await new Promise(resolve => setTimeout(resolve, 500));
  
  // Initialize Vimeo Player API
  vimeoPlayer = new Vimeo.Player(videoIframe);
@@ -4061,7 +4061,7 @@
  currentVideoId = videoId;
  
  // Small delay for modal animation
- await new offers(resolve => setTimeout(resolve, 100));
+ await new Promise(resolve => setTimeout(resolve, 100));
  
  // Initialize appropriate player
  if (platform === 'vimeo') {
