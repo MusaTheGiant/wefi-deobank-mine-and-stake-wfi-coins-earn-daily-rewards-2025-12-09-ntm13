@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
  
  <!-- SEO-Optimized Title Tag -->
  <title>WeFi Tutorials - Complete Step-by-Step Video Guide | Master WeFi App</title>
@@ -344,7 +344,7 @@
  /* ===== HERO SECTION ===== */
  .hero {
  min-height: auto;
- padding-block-start: calc(var(--navbar-height) + 35px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(var(--spacing-hero-bottom) + var(--safe-area-bottom));
  padding-inline: calc(var(--spacing-hero-inline) + max(var(--safe-area-left), var(--safe-area-right)));
  display: flex;
@@ -988,6 +988,8 @@
  
  /* Responsive Thumbnail Adjustments */
  @media (max-width: 768px) {
+ .hero { padding-top: calc(var(--navbar-height) + 72px); }
+
  .title-text-thumbnail {
  font-size: 32px !important;
  }
@@ -1003,6 +1005,27 @@
  border-bottom-width: 11px;
  }
  }
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+ nav {
+ padding: 12px 15px;
+ }
+ 
+ .nav-logo {
+ font-size: 18px;
+ }
+ 
+ .nav-cta {
+ padding: 8px 16px;
+ font-size: 13px;
+ }
+ 
+ body {
+ font-size: 15px;
+ line-height: 1.6;
+ }
+}
  
  @media (max-width: 480px) {
  .thumbnail-content-overlay {
@@ -1649,7 +1672,7 @@
  }
  
  .hero {
- padding-block-start: calc(var(--navbar-height) + 40px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(15px + var(--safe-area-bottom));
  }
  
@@ -1700,7 +1723,7 @@
  }
  
  .hero {
- padding-block-start: calc(var(--navbar-height) + 35px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(12px + var(--safe-area-bottom));
  }
  
@@ -1745,7 +1768,7 @@
  
  @media (max-width: 360px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 30px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  padding-block-end: calc(10px + var(--safe-area-bottom));
  }
  
@@ -1759,7 +1782,7 @@
  /* Extra small screens - iPhone SE, Galaxy Fold */
  @media (max-width: 320px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 35px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  }
  
  .hero-badge {
@@ -1769,11 +1792,22 @@
  }
  
  /* Short viewport height protection */
- @media (max-height: 667px) and (max-width: 768px) {
+ 
+@media (max-width: 480px) {
+ .hero { padding-top: calc(var(--navbar-height) + 72px); }
+}
+
+@media (max-height: 667px) and (max-width: 768px) {
  .hero {
- padding-block-start: calc(var(--navbar-height) + 45px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
  }
  }
+
+/* Ensure buttons meet minimum touch target size (44x44px) */
+.btn, button, a.feature-cta {
+ min-height: 44px;
+ min-width: 44px;
+}
  
  /* iOS-specific fixes */
  @supports (-webkit-touch-callout: none) {
