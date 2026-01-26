@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
  
  <!-- SEO-Optimized Title Tag -->
  <title>WeFi Getting Started Guide - Complete Setup in 3 Simple Steps | Start Earning Today</title>
@@ -178,6 +178,9 @@
  }
  
  body {
+ /* Touch optimization for mobile browsers */
+ -webkit-tap-highlight-color: rgba(199, 241, 96, 0.2);
+ -webkit-touch-callout: none;
  font-family: var(--font-primary);
  background-color: var(--black);
  color: var(--white);
@@ -1333,6 +1336,8 @@
  
  /* Responsive Thumbnail Adjustments */
  @media (max-width: 768px) {
+ .hero { padding-top: calc(var(--navbar-height) + 72px); }
+
  .title-text-thumbnail {
  font-size: 32px !important;
  }
@@ -1348,6 +1353,27 @@
  border-bottom-width: 11px;
  }
  }
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+ nav {
+ padding: 12px 15px;
+ }
+ 
+ .nav-logo {
+ font-size: 18px;
+ }
+ 
+ .nav-cta {
+ padding: 8px 16px;
+ font-size: 13px;
+ }
+ 
+ body {
+ font-size: 15px;
+ line-height: 1.6;
+ }
+}
  
  @media (max-width: 480px) {
  .thumbnail-content-overlay {
@@ -2017,7 +2043,12 @@
  }
  }
  
- @media (max-width: 480px) {
+ 
+@media (max-width: 480px) {
+ .hero { padding-top: calc(var(--navbar-height) + 72px); }
+}
+
+@media (max-width: 480px) {
  .step-header {
  flex-direction: column;
  text-align: center;
@@ -2034,6 +2065,12 @@
  width: 100%;
  }
  }
+
+/* Ensure buttons meet minimum touch target size (44x44px) */
+.btn, button, a.feature-cta {
+ min-height: 44px;
+ min-width: 44px;
+}
  </style>
 </head>
 <body>
