@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
  <meta name="description" content="Learn about WeFi Deobanking Platform. Educational resource from an Independent KOL. Explore decentralized banking technology and blockchain innovation.">
  <meta name="keywords" content="WeFi, WeFi Deobanking Platform, Deobanking Platform DeFi, WeFi review, how to join WeFi, WeFi registration, WeFi affiliate program, WeFi passive income, WeFi staking, crypto Deobanking Platform, decentralized banking, WFI token, experienced WeFi leadership, is WeFi legit, best crypto passive income, WeFi compensation plan, WeFi testimonials, wefi Deobanking Platform, wefi crypto Deobanking Platform, wefi crypto card, wefi Deobanking Platform, wefi digital Deobanking Platform, wefi blockchain banking, wefi defi platform, wefi virtual card, wefi physical card, wefi cryptocurrency card, wefi decentralized banking, wefi mining platform, wefi energy allocation, wefi ITO units, wefi referral program">
  
@@ -110,6 +110,27 @@
  top: 40px; /* Slightly less on mobile for compact disclaimer */
  }
  }
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+ nav {
+ padding: 12px 15px;
+ }
+ 
+ .nav-logo {
+ font-size: 18px;
+ }
+ 
+ .nav-cta {
+ padding: 8px 16px;
+ font-size: 13px;
+ }
+ 
+ body {
+ font-size: 15px;
+ line-height: 1.6;
+ }
+}
  
  /* ===== GLOBAL RESET & BASE STYLES ===== */
  * {
@@ -791,7 +812,7 @@
  
  @media (max-width: 768px) {
  .ito-hero {
- padding: calc(var(--navbar-height) + 30px) 20px 60px;
+ padding: calc(var(--navbar-height) + 72px) 20px 60px; /* navbar + disclaimer(42px) + spacing(30px) */
  }
  
  .ito-hero-container {
@@ -1204,6 +1225,28 @@
  
  .btn-primary:active {
  transform: translateY(-1px) scale(0.98);
+ }
+ 
+ /* Claim Your Spot Button - Responsive Sizing */
+ .btn-claim-spot {
+ font-size: 14px !important;
+ padding: 12px 28px !important;
+ }
+ 
+ @media (max-width: 768px) {
+ .btn-claim-spot {
+ font-size: 13px !important;
+ padding: 11px 24px !important;
+ max-width: 100%;
+ width: 100%;
+ }
+ }
+ 
+ @media (max-width: 480px) {
+ .btn-claim-spot {
+ font-size: 12px !important;
+ padding: 10px 18px !important;
+ }
  }
  
  .btn-secondary {
@@ -3171,7 +3214,7 @@
  <li>Self-custody wallets: your keys, your crypto</li>
  <li>AI-powered compliance for maximum security</li>
  </ul>
- <a href="#" class="feature-cta" onclick="openVideoModal(event, 'youtube', 'JMPGNho-jX0')">▶️ WATCH WEFI EXPLAINED IN 1 MINUTE ←</a>
+ 
  </div>
 
  <div class="feature-card fade-in-on-scroll">
@@ -3185,7 +3228,7 @@
  <li>Automated WFI token mining until the end of 2032</li>
  <li>Multiple income streams: mining, staking, referrals</li>
  </ul>
- <a href="#" class="feature-cta" onclick="openVideoModal(event, 'vimeo', '1152702164')">▶️ WATCH WEFI INTRO VIDEO (10 min) ←</a>
+ 
  </div>
 
  <div class="feature-card fade-in-on-scroll">
@@ -3199,7 +3242,7 @@
  <li>Guinness World Record for blockchain livestream</li>
  <li>Digital Deobanking Platform of the Year 2025</li>
  </ul>
- <a href="#" class="feature-cta" onclick="openVideoModal(event, 'youtube', 'WGkCV94z9Ao')">▶️ MEET THE WEFI TEAM (WATCH NOW) ←</a>
+ 
  </div>
  </div>
 
@@ -3286,7 +3329,7 @@
  <li><strong>FREE Gift Certificates (WeFi company shares)</strong></li>
  <li>5% equity share in WeFi Global LTD</li>
  </ul>
- <a href="#" class="feature-cta" onclick="openVideoModal(event, 'mp4', 'https://www.deobankdefi.com/videos/wefi-token-mining.mp4')">▶️ WeFi ITO Strategy (WATCH NOW) ←</a>
+ 
  </div>
 
  <div class="feature-card fade-in-on-scroll">
@@ -3392,7 +3435,7 @@
  <strong>Bitcoin early adopters who acted in 2011 turned $1,000 into $100+ million by 2025.</strong> WeFi offers you that same "missed it" moment. Except this time, you're EARLY.
  </p>
  <div class="mt-40">
- <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank" style="font-size: 18px; padding: 20px 50px;">
+ <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary btn-claim-spot" target="_blank">
  <span>Claim Your Spot Now ←</span>
  </a>
  </div>
