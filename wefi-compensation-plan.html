@@ -2867,7 +2867,12 @@
  .desktop-table { display: none; }
  
  /* On screens 768px and wider, show table and hide cards */
- @media (min-width: 768px) {
+ 
+@media (max-width: 480px) {
+ .hero { padding-top: calc(var(--navbar-height) + 72px); }
+}
+
+@media (min-width: 768px) {
  .mobile-cards { display: none; }
  .desktop-table { display: block; }
  }
