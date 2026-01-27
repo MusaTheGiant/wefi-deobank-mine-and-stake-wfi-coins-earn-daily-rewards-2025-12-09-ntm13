@@ -2428,16 +2428,13 @@ To participate in WeFi's ecosystem:
  }
  
  // Prevent body scrolling
- if (body) {
  document.body.classList.add('modal-open');
- }
  
  // Show modal
  if (videoModal) {
      videoModal.classList.add('active');
  }
 
- }
  
  // Store current video info
  currentPlatform = platform;
@@ -2468,7 +2465,6 @@ To participate in WeFi's ecosystem:
      videoModal.classList.add('closing');
  }
 
- }
  
  // Stop videos
  if (vimeoPlayer) {
@@ -2526,12 +2522,10 @@ To participate in WeFi's ecosystem:
      videoModal.classList.remove('active');
  }
 
- }
  if (videoModal) {
      videoModal.classList.remove('closing');
  }
 
- }
  
  // Clean up iframe and any player divs - with extra thoroughness
  videoIframe.src = 'about:blank'; // Clear to blank first
@@ -2553,9 +2547,7 @@ To participate in WeFi's ecosystem:
  });
  
  // Re-enable body scrolling FIRST (critical for scroll to work)
- if (body) {
  document.body.classList.remove('modal-open');
- }
  
  // Reset loading indicator
  const loadingElement = document.getElementById('videoLoading');
