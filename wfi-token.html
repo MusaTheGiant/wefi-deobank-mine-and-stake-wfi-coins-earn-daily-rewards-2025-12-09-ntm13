@@ -2409,8 +2409,12 @@
  markUpdated(el) {
  if (!el) return;
  el.classList.remove('loading');
+ if (el) {
  el.classList.add('updated');
+ }
+ if (el) {
  setTimeout(() => el.classList.remove('updated'), 600);
+ }
  },
 
  formatUsd(value, opts) {
@@ -2446,7 +2450,9 @@
 
  if (!isFinite(num)) {
  el.textContent = 'Unavailable';
+ if (el) {
  el.classList.remove('loading');
+ }
  return;
  }
 
@@ -2473,7 +2479,9 @@
  const formatted = this.formatCompactUsd(value);
  if (!formatted) {
  el.textContent = 'Unavailable';
+ if (el) {
  el.classList.remove('loading');
+ }
  return;
  }
 
@@ -2487,12 +2495,16 @@
 
  if (priceEl) {
  priceEl.innerHTML = '<a href="https://dexscreener.com/bsc/' + this.pairAddress + '" target="_blank" rel="noopener" style="color: var(--lime-green); text-decoration: none;">View Live →</a>';
+ if (priceEl) {
  priceEl.classList.remove('loading');
+ }
  }
 
  if (mcEl) {
  mcEl.innerHTML = '<a href="https://dexscreener.com/bsc/' + this.pairAddress + '" target="_blank" rel="noopener" style="color: var(--lime-green); text-decoration: none;">View Live →</a>';
+ if (mcEl) {
  mcEl.classList.remove('loading');
+ }
  }
  },
 
@@ -2504,7 +2516,9 @@
  const url = tokenAddr ? ('https://bscscan.com/token/' + tokenAddr) : 'https://dexscreener.com/bsc/' + this.pairAddress;
 
  holdersEl.innerHTML = '<a href="' + url + '" target="_blank" rel="noopener" style="color: var(--lime-green); text-decoration: none;">View Live →</a>';
+ if (holdersEl) {
  holdersEl.classList.remove('loading');
+ }
  },
 
  async updateHoldersCount() {
@@ -2575,12 +2589,16 @@
 
  if (mobileMenuBtn && navMenu) {
  mobileMenuBtn.addEventListener('click', () => {
+ if (navMenu) {
  navMenu.classList.toggle('active');
+ }
  });
 
  document.querySelectorAll('.nav-link').forEach(link => {
  link.addEventListener('click', () => {
+ if (navMenu) {
  navMenu.classList.remove('active');
+ }
  });
  });
  }
@@ -2602,10 +2620,14 @@
  document.querySelectorAll('.faq-question').forEach(question => {
  question.addEventListener('click', function () {
  const answer = this.nextElementSibling;
+ if (this) {
  const isActive = this.classList.contains('active');
+ }
 
  document.querySelectorAll('.faq-question').forEach(q => {
+ if (q) {
  q.classList.remove('active');
+ }
  if (q.nextElementSibling) q.nextElementSibling.classList.remove('active');
  });
 
@@ -2816,7 +2838,10 @@
  }
  
  document.body.classList.add('modal-open');
- videoModal.classList.add('active');
+ if (videoModal) {
+     videoModal.classList.add('active');
+ }
+
  
  await new Promise(resolve => setTimeout(resolve, 100));
  
@@ -2839,7 +2864,11 @@
  
  if (!videoModal) return;
  
- videoModal.classList.add('closing');
+ if (videoModal) {
+     videoModal.classList.add('closing');
+ }
+
+ 
  
  if (vimeoPlayer) {
  try {
@@ -2887,9 +2916,14 @@
  }
  
  setTimeout(function() {
- videoModal.classList.remove('active');
- videoModal.classList.remove('closing');
- 
+ if (videoModal) {
+     videoModal.classList.remove('active');
+ }
+
+ if (videoModal) {
+     videoModal.classList.remove('closing');
+ }
+
  if (videoIframe) {
  videoIframe.src = 'about:blank';
  setTimeout(function() {
