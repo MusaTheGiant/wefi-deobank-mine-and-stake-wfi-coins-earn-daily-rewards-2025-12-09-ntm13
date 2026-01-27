@@ -2612,12 +2612,16 @@
  
  if (mobileMenuBtn && navMenu) {
  mobileMenuBtn.addEventListener('click', () => {
+ if (navMenu) {
  navMenu.classList.toggle('active');
+ }
  });
  
  document.querySelectorAll('.nav-link').forEach(link => {
  link.addEventListener('click', () => {
+ if (navMenu) {
  navMenu.classList.remove('active');
+ }
  });
  });
  }
@@ -2628,7 +2632,9 @@
  if (window.scrollY > 50) {
  navbar.classList.add('scrolled');
  } else {
+ if (navbar) {
  navbar.classList.remove('scrolled');
+ }
  }
  });
  
@@ -2639,7 +2645,9 @@
  if (window.pageYOffset > 300) {
  scrollToTopBtn.classList.add('visible');
  } else {
+ if (scrollToTopBtn) {
  scrollToTopBtn.classList.remove('visible');
+ }
  }
  });
  
@@ -2671,19 +2679,27 @@
  document.querySelectorAll('.faq-question').forEach(question => {
  question.addEventListener('click', () => {
  const answer = question.nextElementSibling;
+ if (question) {
  const isActive = question.classList.contains('active');
+ }
  
  // Close all other FAQs
  document.querySelectorAll('.faq-question').forEach(q => {
  if (q !== question) {
  q.classList.remove('active');
+ if (nextElementSibling) {
  q.nextElementSibling.classList.remove('active');
+ }
  }
  });
  
  // Toggle current FAQ
+ if (question) {
  question.classList.toggle('active');
+ }
+ if (answer) {
  answer.classList.toggle('active');
+ }
  });
  });
  
@@ -2735,7 +2751,9 @@
  
  // Set video source and open modal
  videoElement.src = videoUrl;
+ if (modal) {
  modal.classList.add('active');
+ }
  
  // ===== NEW: HIDE LOADING INDICATOR WHEN VIDEO CAN PLAY =====
  // Hide loading overlay when video has enough data to play
@@ -2804,10 +2822,14 @@
  if (!modal || !videoElement) return;
  
  // Add closing animation
+ if (modal) {
  modal.classList.add('closing');
+ }
  
  setTimeout(() => {
+ if (modal) {
  modal.classList.remove('active', 'closing');
+ }
  
  // Stop and reset video
  videoElement.pause();
