@@ -2679,24 +2679,20 @@
  document.querySelectorAll('.faq-question').forEach(question => {
  question.addEventListener('click', () => {
  const answer = question.nextElementSibling;
- if (question) {
  const isActive = question.classList.contains('active');
- }
  
  // Close all other FAQs
  document.querySelectorAll('.faq-question').forEach(q => {
  if (q !== question) {
  q.classList.remove('active');
- if (nextElementSibling) {
+ if (q.nextElementSibling) {
  q.nextElementSibling.classList.remove('active');
  }
  }
  });
  
  // Toggle current FAQ
- if (question) {
  question.classList.toggle('active');
- }
  if (answer) {
  answer.classList.toggle('active');
  }
