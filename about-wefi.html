@@ -3122,21 +3122,17 @@
  document.querySelectorAll('.faq-question').forEach(question => {
  question.addEventListener('click', function() {
  const answer = this.nextElementSibling;
- if (this) {
  const isActive = this.classList.contains('active');
- }
  
  // Close all other FAQs
  document.querySelectorAll('.faq-question').forEach(q => {
- if (q) {
  q.classList.remove('active');
- }
- if (nextElementSibling) {
+ if (q.nextElementSibling) {
  q.nextElementSibling.classList.remove('active');
  }
  });
  
- // Toggle current FAQ
+ // Toggle current FAQ (open it if it wasn't active)
  if (!isActive) {
  this.classList.add('active');
  if (answer) {
