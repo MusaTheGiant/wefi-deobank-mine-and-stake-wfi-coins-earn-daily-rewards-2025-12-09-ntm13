@@ -2620,14 +2620,10 @@
  document.querySelectorAll('.faq-question').forEach(question => {
  question.addEventListener('click', function () {
  const answer = this.nextElementSibling;
- if (this) {
  const isActive = this.classList.contains('active');
- }
 
  document.querySelectorAll('.faq-question').forEach(q => {
- if (q) {
  q.classList.remove('active');
- }
  if (q.nextElementSibling) q.nextElementSibling.classList.remove('active');
  });
 
