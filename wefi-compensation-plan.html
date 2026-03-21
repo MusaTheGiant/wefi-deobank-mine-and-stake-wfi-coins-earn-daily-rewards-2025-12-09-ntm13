@@ -381,7 +381,16 @@
  border-radius: 2px;
  }
 
- @media (max-width: 768px) {
+ 
+    /* ===== HERO DESKTOP BASELINE CLEARANCE =====
+       disclaimer(42px) + navbar(56-68px) + breathing(30px) = ~130-140px
+    ===== */
+    .hero,
+    .page-hero {
+      padding-top: calc(var(--navbar-height) + 86px);
+    }
+
+    @media (max-width: 768px) {
  .logo { font-size: 20px; letter-spacing: -0.5px; }
 
  .nav-menu {
@@ -1919,7 +1928,7 @@
     
     
     /* ===== VPN BUTTON COMPONENT ===== */
-    .vpn-cta-wrap{margin-top:14px;display:flex;flex-direction:column;align-items:flex-start;gap:0;width:fit-content}
+    .vpn-cta-wrap{margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:0;width:fit-content;margin-left:auto;margin-right:auto;text-align:center}
     .vpn-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:transparent;border:2px solid #00D9FF;color:#00D9FF;font-size:14px;font-weight:700;border-radius:50px;text-decoration:none;letter-spacing:0.5px;transition:all 0.25s ease;cursor:pointer;font-family:var(--font-primary);white-space:nowrap}
     .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
     .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
@@ -1975,7 +1984,35 @@
       }
     }
 
-    </style>
+    
+    /* ===== HERO SECTION - UNIVERSAL MOBILE CLEARANCE FIX =====
+       Stack height: disclaimer(~28px) + navbar(56-68px) = ~84-96px
+       Hero padding = stack + breathing room
+       Using calc() with --navbar-height ensures pages with different
+       navbar heights all get correct clearance automatically.
+    ===== */
+    @media (max-width: 768px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 58px) !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 54px) !important;
+      }
+    }
+    @media (max-width: 360px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 60px) !important;
+      }
+    }
+</style>
 
  <script type="application/ld+json">
  {
