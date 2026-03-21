@@ -52,7 +52,7 @@
  
  <!-- SEO Meta Tags -->
  <meta name="description" content="WeFi is the world's first Deobanking Platform - a technology company building decentralized onchain banking infrastructure via WeChain. Learn about the Deobank Model, WFI token economy, and Cloud-Based Mining. Independent KOL resource.">
- <meta name="keywords" content="About WeFi, WeFi Deobanking Platform, experienced WeFi leadership, Tether co-founder, is WeFi legit, WeFi security, WeFi technology, WeFi blockchain, WeFi licenses, WeFi Guinness World Record, decentralized banking, crypto Deobanking Platform, WeFi vs traditional banks, how WeFi works, wefi Deobanking Platform, wefi crypto Deobanking Platform, wefi Deobanking Platform platform, wefi digital Deobanking Platform, wefi blockchain banking, wefi decentralized banking system">
+ <meta name="keywords" content="About WeFi, WeFi Deobanking Platform, WeFi leadership, Tether co-founder, is WeFi legit, WeFi security, WeFi technology, WeFi blockchain, WeFi licenses, WeFi Guinness World Record, decentralized banking, crypto Deobanking Platform, WeFi vs traditional banks, how WeFi works, wefi Deobanking Platform, wefi crypto Deobanking Platform, wefi Deobanking Platform platform, wefi digital Deobanking Platform, wefi blockchain banking, wefi decentralized banking system">
  <meta name="author" content="DeobankDeFi">
  
  <!-- Cache Control - Force Fresh Load -->
@@ -1699,35 +1699,6 @@
  }
  
  /* ===== SCROLL TO TOP BUTTON ===== */
- .scroll-to-top {
- position: fixed;
- bottom: 30px;
- right: 30px;
- width: 50px;
- height: 50px;
- background: var(--lime-green);
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- cursor: pointer;
- opacity: 0;
- visibility: hidden;
- transition: all 0.3s ease;
- z-index: 999;
- box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
- border: none;
- }
- 
- .scroll-to-top.visible {
- opacity: 1;
- visibility: visible;
- }
- 
- .scroll-to-top:hover {
- transform: translateY(-3px) scale(1.1);
- box-shadow: 0 8px 25px rgba(0, 255, 136, 0.5);
- }
  
  .scroll-arrow {
  position: relative;
@@ -1738,21 +1709,9 @@
  }
  
  @media (max-width: 768px) {
- .scroll-to-top {
- width: 45px;
- height: 45px;
- bottom: 20px;
- right: 20px;
- }
  }
  
  @media (max-width: 480px) {
- .scroll-to-top {
- width: 40px;
- height: 40px;
- bottom: 15px;
- right: 15px;
- }
  }
  
  /* ===== VIDEO MODAL ===== */
@@ -2308,7 +2267,34 @@
       transform: translateY(-150%) !important;
     }
     /* ================================================================ */
-</style>
+
+    .scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--lime-green);
+  color: var(--black);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  border: none;
+  font-size: 24px;
+}
+    .scroll-to-top.visible { opacity: 1; visibility: visible; }
+    .scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
+}
+
+    </style>
 
  <script type="application/ld+json">
  {
@@ -2366,6 +2352,15 @@
  </script>
 </head>
 <body>
+<!-- COMPLIANCE DISCLAIMER -->
+ <div id="disclaimer-bar" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(10, 10, 10, 0.98)); border-bottom: 2px solid #C7F160; padding: 12px 20px; text-align: center; position: fixed; top: 0; left: 0; right: 0; z-index: 1001; backdrop-filter: blur(10px);">
+ <div style="max-width: 1200px; margin: 0 auto;">
+ <p style="margin: 0; font-size: 15px; font-weight: 600; color: #C7F160; line-height: 1.3;">
+ ⚠️ <strong>NOT an official WeFi website</strong> • Independent KOL (Key Opinion Leader) educational resource
+ </p>
+ </div>
+ </div>
+
  </style>
 </head>
 <body>
@@ -2389,7 +2384,7 @@
  <span></span>
  <span></span>
  </div>
- <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank">Sign Up</a>
+ <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="nav-cta" target="_blank" rel="noopener noreferrer">Sign Up</a>
  </div>
  </nav>
 
@@ -2399,10 +2394,10 @@
  <div class="hero-badge">Founded by Crypto Legends</div>
  <h1 class="hero-title">The Future of <span class="highlight">Finance</span> Is Here</h1>
  <p class="hero-description">
- WeFi is revolutionizing global finance by combining the best of traditional banking with blockchain technology. Founded by experienced WeFi leadership, Blockchain Industry Leader, we're creating a financial system that puts you in control.
+ WeFi is revolutionizing global finance by combining the best of traditional banking with blockchain technology. Founded by WeFi leadership, Blockchain Industry Leader, we're creating a financial system that puts you in control.
  </p>
  <div class="cta-buttons">
- <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank">
+ <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
  <span>Join WeFi Now</span>
  </a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
@@ -2586,7 +2581,7 @@
  <div class="team-image">
  <div style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid rgba(199, 241, 96, 0.3);"><span style="font-size: 48px; font-weight: 700; color: #C7F160;">W</span></div>
  </div>
- <h3 class="team-name">experienced WeFi leadership</h3>
+ <h3 class="team-name">WeFi leadership</h3>
  <p class="team-role">Chairman & Board Member</p>
  <p class="team-bio">
  Experienced blockchain and financial technology leadership with proven track record.. Pioneer in bridging crypto and traditional finance.
@@ -2757,7 +2752,7 @@
  <div class="comparison-icon">💰</div>
  <h3 class="comparison-title">Staking & Yields</h3>
  <p class="comparison-description">
- Participate in mining through staking. Typical competitive rates to 1participate in opportunities stablecoins.
+ Participate in mining through staking. Typical competitive rates on stablecoins.
  </p>
  </div>
  
@@ -2792,7 +2787,7 @@
  Who created WeFi and are they credible?
  </button>
  <div class="faq-answer">
- WeFi was founded by experienced WeFi leadership, co-Experienced blockchain and financial technology leadership with proven track record.. The leadership team includes Maksym Sakharov (Group CEO), Roman Rossov (former Product Director at Wise), Khaled Suleiman (former CEO at National Deobanking Platform of Abu Dhabi), and 40+ specialists from Tether, Binance, WeFi Card, and Bitpanda. This is not an experiment. It is a platform built by proven crypto and finance veterans with decades of combined expertise. <a href="#team" style="color: var(--lime-green); text-decoration: underline;">Meet the full team</a>.
+ WeFi was founded by WeFi leadership, co-Experienced blockchain and financial technology leadership with proven track record.. The leadership team includes Maksym Sakharov (Group CEO), Roman Rossov (former Product Director at Wise), Khaled Suleiman (former CEO at National Deobanking Platform of Abu Dhabi), and 40+ specialists from Tether, Binance, WeFi Card, and Bitpanda. This is not an experiment. It is a platform built by proven crypto and finance veterans with decades of combined expertise. <a href="#team" style="color: var(--lime-green); text-decoration: underline;">Meet the full team</a>.
  </div>
  </div>
 
@@ -2859,7 +2854,7 @@
  Join thousands of people who've already discovered the power of decentralized banking. Your financial revolution starts today.
  </p>
  <div class="cta-buttons">
- <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank">
+ <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
  <span>Start Earning with WeFi</span>
  </a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
@@ -2917,10 +2912,10 @@
  <div class="footer-section">
  <h3>Connect With KOL</h3>
  <ul class="footer-links">
- <li><a href="https://wa.me/27721714626" target="_blank"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
- <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
- <li><a href="https://web.facebook.com/deobankdefi" target="_blank"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
- <li><a href="https://www.youtube.com/@deobankdefiaffiliate" target="_blank"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
+ <li><a href="https://wa.me/27721714626" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
+ <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
+ <li><a href="https://web.facebook.com/deobankdefi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
+ <li><a href="https://www.youtube.com/@deobankdefiaffiliate" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
  </ul>
  </div>
  <div class="footer-section">
@@ -2941,13 +2936,13 @@
                  <div class="footer-section">
  <h3>Independent KOL (Key Opinion Leader) Resource</h3>
  <ul class="footer-links">
- <li><a href="https://www.wefi.co" target="_blank">WeFi Official Website</a></li>
- <li><a href="https://app.wechain.ai" target="_blank">WeChain Dashboard</a></li>
- <li><a href="https://new.salepoint.io/login" target="_blank">Affiliates Dashboard</a></li>
- <li><a href="https://wechain.ai" target="_blank">WeChain Blockchain</a></li>
- <li><a href="https://t.me/wefi_announcements" target="_blank">WeFi Announcements</a></li>
- <li><a href="https://t.me/+MwwbZbsjFEVjNmVi" target="_blank">Affiliate Announcements</a></li>
- <li><a href="https://www.youtube.com/@wefi.official" target="_blank">YouTube Channel</a></li>
+ <li><a href="https://www.wefi.co" target="_blank" rel="noopener noreferrer">WeFi Official Website</a></li>
+ <li><a href="https://app.wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Dashboard</a></li>
+ <li><a href="https://new.salepoint.io/login" target="_blank" rel="noopener noreferrer">Affiliates Dashboard</a></li>
+ <li><a href="https://wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Blockchain</a></li>
+ <li><a href="https://t.me/wefi_announcements" target="_blank" rel="noopener noreferrer">WeFi Announcements</a></li>
+ <li><a href="https://t.me/+MwwbZbsjFEVjNmVi" target="_blank" rel="noopener noreferrer">Affiliate Announcements</a></li>
+ <li><a href="https://www.youtube.com/@wefi.official" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
  </ul>
  </div>
 
@@ -2977,9 +2972,7 @@
  </footer>
 
  <!-- SCROLL TO TOP BUTTON -->
- <button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()" title="Back to top">
- <span class="scroll-arrow">↑</span>
- </button>
+ <button class="scroll-to-top" id="scrollToTopBtn" type="button">↑</button>
 
  <!-- JAVASCRIPT -->
  <script>
@@ -2998,7 +2991,7 @@
  
  // Wait for Vimeo API
  function waitForVimeo(maxAttempts = 20, attemptDelay = 100) {
- return new offers((resolve, reject) => {
+ return new Promise((resolve, reject) => {
  let attempts = 0;
  const checkVimeo = () => {
  attempts++;
@@ -3077,7 +3070,7 @@
  
  // Initialize YouTube Player 
  function initYouTubePlayer(videoId) {
- return new offers((resolve, reject) => {
+ return new Promise((resolve, reject) => {
  try {
  console.log('Initializing YouTube player for video:', videoId);
  
@@ -3321,135 +3314,73 @@
  console.log('✅ typeof openVideoModal:', typeof window.openVideoModal);
  
  // ===== DOM CONTENT LOADED =====
- document.addEventListener('DOMContentLoaded', function() {
- console.log('✅ DOMContentLoaded fired');
  
- // YouTube API ready callback (called automatically by YouTube)
- window.onYouTubeIframeAPIReady = function() {
- console.log('YouTube API Ready');
- window.youtubeAPIReady = true;
- };
- 
- // Set dynamic copyright year
- document.getElementById('currentYear').textContent = new Date().getFullYear();
- 
- // Initialize modal elements
- videoModal = document.getElementById('videoModal');
- videoIframe = document.getElementById('vimeoPlayer');
- 
- console.log('Video modal element:', videoModal ? '✅ Found' : '❌ Not Found');
- console.log('Video iframe element:', videoIframe ? '✅ Found' : '❌ Not Found');
- 
- // Initialize scroll-to-top button
- const scrollToTopBtn = document.getElementById('scrollToTopBtn');
- 
- // Scroll to Top Button Functionality
- window.addEventListener('scroll', function() {
- if (window.scrollY > 300) {
- scrollToTopBtn.classList.add('visible');
- } else {
- if (scrollToTopBtn) {
- scrollToTopBtn.classList.remove('visible');
- }
- }
- });
- 
- // Navbar scroll effect
-    const navbar = document.querySelector('.navbar');
+  // ===== CORE NAVIGATION & UI =====
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var cy = document.getElementById('currentYear');
+    if (cy) cy.textContent = new Date().getFullYear();
+
+    var navbar = document.querySelector('.navbar');
     if (navbar) {
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-          navbar.classList.add('scrolled');
-        } else {
-          navbar.classList.remove('scrolled');
-        }
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
       });
     }
- });
- }
- 
- // Mobile menu toggle
- const mobileMenuBtn = document.getElementById('mobileMenuBtn');
- const navMenu = document.getElementById('navMenu');
- 
- if (mobileMenuBtn && navMenu) {
- mobileMenuBtn.addEventListener('click', () => {
- if (navMenu) {
- navMenu.classList.toggle('active');
- }
- });
 
- // Close mobile menu when clicking a link
- document.querySelectorAll('.nav-link').forEach(link => {
- link.addEventListener('click', () => {
- if (navMenu) {
- navMenu.classList.remove('active');
- }
- });
- });
- }
+    var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    var navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('active');
+        });
+      });
+    }
 
- // FAQ accordion
- document.querySelectorAll('.faq-question').forEach(question => {
- question.addEventListener('click', function() {
- const answer = this.nextElementSibling;
- const isActive = this.classList.contains('active');
- 
- // Close all other FAQs
- document.querySelectorAll('.faq-question').forEach(q => {
- q.classList.remove('active');
- if (q.nextElementSibling) {
- q.nextElementSibling.classList.remove('active');
- }
- });
- 
- // Toggle current FAQ (open it if it wasn't active)
- if (!isActive) {
- this.classList.add('active');
- if (answer) {
- answer.classList.add('active');
- }
- }
- });
- });
+    var scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+      scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) scrollToTopBtn.classList.add('visible');
+        else scrollToTopBtn.classList.remove('visible');
+      });
+    }
 
- // Smooth scroll for anchor links
- document.querySelectorAll('a[href^="#"]').forEach(anchor => {
- anchor.addEventListener('click', function (e) {
- const href = this.getAttribute('href');
- if (href === '#' || href === 'javascript:void(0)') return;
- 
- e.preventDefault();
- const target = document.querySelector(href);
- if (target) {
- target.scrollIntoView({
- behavior: 'smooth',
- block: 'start'
- });
- }
- });
- });
- 
- // Video modal event listeners
- if (videoModal) {
- // Close on background click
- videoModal.addEventListener('click', function(e) {
- if (e.target === videoModal) {
- closeVideoModal();
- }
- });
- }
- 
- // Close on Escape key
- document.addEventListener('keydown', function(e) {
- if (e.key === 'Escape' && videoModal && videoModal.classList.contains('active')) {
- closeVideoModal();
- }
- });
- 
- console.log('✅ All event listeners attached');
- 
- }); // End of DOMContentLoaded
+    document.querySelectorAll('.faq-question').forEach(function(question) {
+      question.addEventListener('click', function() {
+        var answer = this.nextElementSibling;
+        var isActive = this.classList.contains('active');
+        document.querySelectorAll('.faq-question').forEach(function(q) {
+          q.classList.remove('active');
+          if (q.nextElementSibling) q.nextElementSibling.classList.remove('active');
+        });
+        if (!isActive) {
+          this.classList.add('active');
+          if (answer) answer.classList.add('active');
+        }
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+  }); // end DOMContentLoaded
+  // ===== END CORE NAVIGATION & UI =====
+
  
  console.log('✅ Script fully loaded');
 </script>
