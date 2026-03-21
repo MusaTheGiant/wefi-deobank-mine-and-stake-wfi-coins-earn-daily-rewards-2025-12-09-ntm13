@@ -110,7 +110,7 @@
  --section-padding-mobile: 60px;
  
  /* NEW: Fluid spacing system using clamp - OPTIMIZED FOR MOBILE */
- --spacing-hero-top: clamp(20px, 4vh, 40px);
+ --spacing-hero-top: clamp(36px, 5vh, 48px);
  --spacing-hero-bottom: clamp(20px, 3vh, 30px);
  --spacing-hero-inline: clamp(20px, 5vw, 60px);
  
@@ -285,10 +285,7 @@
  
  
  /* ===== SECTION & CONTAINER (Standard Layout) ===== */
- .section {
- padding: 80px 40px;
- background: var(--black);
- }
+ 
  
  .container {
  max-width: 1400px;
@@ -326,15 +323,11 @@
     }
 
     @media (max-width: 1024px) {
- .section {
- padding: 60px 30px;
- }
+ 
  }
  
  @media (max-width: 768px) {
- .section {
- padding: 50px 20px;
- }
+ 
  
  .section-header {
  margin-bottom: 40px;
@@ -1820,7 +1813,11 @@
  .faq-cta {
  text-align: center;
  margin-top: 40px;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
  
  /* ===== FOOTER ===== */
  .footer {
@@ -2978,7 +2975,11 @@
  .faq-cta {
  text-align: center;
  margin-top: 60px;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
  
  /* Video Modal */
  .video-modal {
@@ -3229,8 +3230,7 @@
     .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
     .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
     @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}.vpn-cta-wrap{width:100%;align-items:center}}
-    
-    /* ===== DISCLAIMER BAR - MOBILE RESPONSIVE ===== */
+
     /* On mobile the long text wraps to 2 lines and pushes everything down.
        Shrink font + padding so it stays one compact line at all widths. */
     #disclaimer-bar { height: auto; }
@@ -3321,7 +3321,25 @@
       transform: translateY(-150%) !important;
     }
     /* ================================================================ */
-</style>
+
+    
+    /* ===== CTA BUTTONS: STACKED COLUMN ON ALL SCREENS ===== */
+    .cta-buttons,
+    .btn-group,
+    .step-cta-buttons,
+    .faq-cta,
+    .final-cta-buttons,
+    .hero-cta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      gap: 14px !important;
+    }
+    /* ======================================================= */
+
+    </style>
 
  <script type="application/ld+json">
  {
@@ -3356,6 +3374,8 @@
  </script>
 </head>
 <body>
+</div>
+
  <!-- Navigation -->
  <nav class="navbar">
  <div class="nav-container">
@@ -3520,7 +3540,7 @@
  </div>
  
  <div class="testimonials-cta">
- <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=video-section&utm_campaign=video-testimonials-cta" target="_blank" class="btn btn-primary"><span>Start Your WeFi Journey Now ←</span></a>
+ <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=video-section&utm_campaign=video-testimonials-cta" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span>Start Your WeFi Journey Now ←</span></a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
      
  </div>
@@ -3640,7 +3660,7 @@
  </div>
  
  <div class="testimonials-cta">
- <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=events-section&utm_campaign=events-cta" target="_blank" class="btn btn-primary"><span>Join The WeFi Thriving Community ←</span></a>
+ <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=events-section&utm_campaign=events-cta" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span>Join The WeFi Thriving Community ←</span></a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
      
  </div>
@@ -3696,7 +3716,7 @@
  <div class="faq-answer-content">
  <p><strong>No crypto experience required.</strong> WeFi is designed for everyday people, not just tech geeks. The platform interface is intuitive, the onboarding process is guided, and comprehensive training is provided to every member.</p>
  <p>You don't need to understand blockchain architecture, smart contract coding, or complex DeFi (Decentralized Finance) mechanics to succeed. The platform handles the technical complexity while you focus on simple actions: stake your capital, share the opportunity, and collect your earnings.</p>
- <p>Many of our most successful members started with zero crypto knowledge. The testimonials above include complete beginners who are now earning substantial income. We provide video tutorials, written guides, live training sessions, and dedicated community support. If you can use a smartphone, you can succeed with WeFi. Start your journey with our <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq&utm_campaign=beginner-friendly">beginner-friendly onboarding</a>.</p>
+ <p>Many of our most successful members started with zero crypto knowledge. The testimonials above include complete beginners who are now earning substantial income. We provide video tutorials, written guides, live training sessions, and dedicated community support. If you can use a smartphone, you can succeed with WeFi. Start your journey with our <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq&utm_campaign=beginner-friendly" target="_blank" rel="noopener noreferrer">beginner-friendly onboarding</a>.</p>
  </div>
  </div>
  </div>
@@ -3755,19 +3775,19 @@
  <div class="faq-answer">
  <div class="faq-answer-content">
  <p><strong>Getting started is straightforward:</strong></p>
- <p><strong>Step 1:</strong> <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq&utm_campaign=getting-started">Create your free WeFi account</a> using our referral link. This takes 2-3 minutes and requires only basic information.</p>
+ <p><strong>Step 1:</strong> <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq&utm_campaign=getting-started" target="_blank" rel="noopener noreferrer">Create your free WeFi account</a> using our referral link. This takes 2-3 minutes and requires only basic information.</p>
  <p><strong>Step 2:</strong> Complete the KYC (Know Your Customer) verification to provides platform security and compliance. This protects you and the entire community.</p>
  <p><strong>Step 3:</strong> Fund your account with USDT, USDC, or other supported cryptocurrencies. Start with whatever amount you're comfortable with. Many successful members began with just $100-$500.</p>
  <p><strong>Step 4:</strong> Choose your strategy: passive staking for hands-off income, or active building for maximum earnings. Our dashboard guides you through each option with clear explanations.</p>
  <p><strong>Step 5:</strong> Engage with the training materials and community. Join Telegram groups, <a href="https://www.deobankdefi.com/wefi-video-tutorials">watch step-by-step tutorial videos</a>, attend live sessions. The more you learn, the more you earn.</p>
- <p>You're never alone in this process. Your sponsor (that's us!) and the entire WeFi community are here to support your success. Questions are encouraged, assistance is abundant. <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html">Read the complete getting started guide</a>. <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq&utm_campaign=final-step">Take the first step now</a>.</p>
+ <p>You're never alone in this process. Your sponsor (that's us!) and the entire WeFi community are here to support your success. Questions are encouraged, assistance is abundant. <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html">Read the complete getting started guide</a>. <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq&utm_campaign=final-step" target="_blank" rel="noopener noreferrer">Take the first step now</a>.</p>
  </div>
  </div>
  </div>
  </div>
  
  <div class="faq-cta">
- <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq-section&utm_campaign=post-faq-cta" target="_blank" class="btn btn-primary"><span>Your Questions Answered - Ready to Begin?</span></a>
+ <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq-section&utm_campaign=post-faq-cta" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span>Your Questions Answered - Ready to Begin?</span></a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
      
  </div>
@@ -3791,7 +3811,7 @@
           <div style="background:rgba(199,241,96,0.05);border:1px solid rgba(199,241,96,0.15);border-radius:12px;padding:16px 20px;margin-top:24px;">
             <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;margin:0;">Individual experiences shown above reflect personal participation levels and are not representative of typical outcomes. WeFi ITO Mining Units are software infrastructure products. Results depend on ecosystem participation, network activity, and individual commitment levels. This is educational content - not financial advice.</p>
           </div>
-          <div style="margin-top:30px;">
+          <div style="text-align:center; margin-top:30px;">
             <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary">
               <span>Read the Getting Started Guide ←</span>
             </a>
@@ -3894,10 +3914,10 @@
  <div class="footer-section">
  <h3>Connect With KOL</h3>
  <ul class="footer-links">
- <li><a href="https://wa.me/27721714626" target="_blank"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
- <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
- <li><a href="https://web.facebook.com/deobankdefi" target="_blank"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
- <li><a href="https://www.youtube.com/@deobankdefiaffiliate" target="_blank"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
+ <li><a href="https://wa.me/27721714626" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
+ <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
+ <li><a href="https://web.facebook.com/deobankdefi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
+ <li><a href="https://www.youtube.com/@deobankdefiaffiliate" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
  </ul>
  </div>
  <div class="footer-section">
@@ -3918,13 +3938,13 @@
                  <div class="footer-section">
  <h3>Independent KOL (Key Opinion Leader) Resource</h3>
  <ul class="footer-links">
- <li><a href="https://www.wefi.co" target="_blank">WeFi Official Website</a></li>
- <li><a href="https://app.wechain.ai" target="_blank">WeChain Dashboard</a></li>
- <li><a href="https://new.salepoint.io/login" target="_blank">Affiliates Dashboard</a></li>
- <li><a href="https://wechain.ai" target="_blank">WeChain Blockchain</a></li>
- <li><a href="https://t.me/wefi_announcements" target="_blank">WeFi Announcements</a></li>
- <li><a href="https://t.me/+MwwbZbsjFEVjNmVi" target="_blank">Affiliate Announcements</a></li>
- <li><a href="https://www.youtube.com/@wefi.official" target="_blank">YouTube Channel</a></li>
+ <li><a href="https://www.wefi.co" target="_blank" rel="noopener noreferrer">WeFi Official Website</a></li>
+ <li><a href="https://app.wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Dashboard</a></li>
+ <li><a href="https://new.salepoint.io/login" target="_blank" rel="noopener noreferrer">Affiliates Dashboard</a></li>
+ <li><a href="https://wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Blockchain</a></li>
+ <li><a href="https://t.me/wefi_announcements" target="_blank" rel="noopener noreferrer">WeFi Announcements</a></li>
+ <li><a href="https://t.me/+MwwbZbsjFEVjNmVi" target="_blank" rel="noopener noreferrer">Affiliate Announcements</a></li>
+ <li><a href="https://www.youtube.com/@wefi.official" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
  </ul>
  </div>
 
@@ -4160,7 +4180,7 @@
  }
  
  function waitForVimeo(maxAttempts = 20, delay = 100) {
- return new offers((resolve, reject) => {
+ return new Promise((resolve, reject) => {
  let attempts = 0;
  const check = () => {
  attempts++;
@@ -4178,7 +4198,7 @@
  
  // Initialize YouTube Player 
  function initYouTubePlayer(videoId) {
- return new offers((resolve, reject) => {
+ return new Promise((resolve, reject) => {
  try {
  console.log('Initializing YouTube player for video:', videoId);
  
@@ -4382,7 +4402,61 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
-  </script>
+  
+
+  // ===== CORE NAVIGATION & UI =====
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var cy = document.getElementById('currentYear');
+    if (cy) cy.textContent = new Date().getFullYear();
+
+    var navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+    }
+
+    var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    var navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+
+    var scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+      scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) scrollToTopBtn.classList.add('visible');
+        else scrollToTopBtn.classList.remove('visible');
+      });
+    }
+
+    // FAQ accordion handled by native script block above
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+  }); // end DOMContentLoaded
+
+</script>
 
 </body>
 </html>
