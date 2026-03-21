@@ -3217,7 +3217,16 @@
         padding-top: calc(var(--navbar-height) + 60px) !important;
       }
     }
-</style>
+
+    /* ===== NAVBAR HIDE-ON-SCROLL / SHOW-ON-SCROLL-UP ===== */
+    .navbar {
+      transition: transform 0.35s ease, background 0.3s ease, box-shadow 0.3s ease !important;
+    }
+    .navbar--hidden {
+      transform: translateY(-110%);
+    }
+
+    </style>
 </head>
 <body>
  <!-- COMPLIANCE DISCLAIMER -->
@@ -4454,170 +4463,16 @@
  }
 
  // Navbar scroll effect
- const navbar = document.querySelector('.navbar');
- if (navbar) {
- window.addEventListener('scroll', () => {
- if (window.scrollY > 50) {
- navbar.classList.add('scrolled');
- } else {
- navbar.classList.remove('scrolled');
- }
- });
- }
-
- // FAQ Accordion
- document.querySelectorAll('.faq-question').forEach(question => {
- question.addEventListener('click', () => {
- const answer = question.nextElementSibling;
- const isActive = question.classList.contains('active');
- 
- // Close all other FAQs
- document.querySelectorAll('.faq-question').forEach(q => {
- q.classList.remove('active');
- q.nextElementSibling.classList.remove('active');
- });
- 
- // Toggle current FAQ
- if (!isActive) {
- question.classList.add('active');
- answer.classList.add('active');
- }
- });
- });
-
- // Scroll Animation Observer
- const observerOptions = {
- threshold: 0.1,
- rootMargin: '0px 0px -100px 0px'
- };
-
- const observer = new IntersectionObserver((entries) => {
- entries.forEach(entry => {
- if (entry.isIntersecting) {
- entry.target.classList.add('visible');
- }
- });
- }, observerOptions);
-
- document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
- observer.observe(el);
- });
-
- // Smooth scroll for anchor links
- document.querySelectorAll('a[href^="#"]').forEach(anchor => {
- anchor.addEventListener('click', function (e) {
- const href = this.getAttribute('href');
- 
- // Skip if href is just '#' or if it has onclick handler
- if (!href || href === '#' || this.hasAttribute('onclick')) {
- return;
- }
- 
- e.preventDefault();
- const target = document.querySelector(href);
- if (target) {
- target.scrollIntoView({
- behavior: 'smooth',
- block: 'start'
- });
- }
- });
- });
- 
- // ===== DYNAMIC WFI PRICE SYSTEM =====
- // Fetches live WFI token prices and updates ATH automatically
- 
- const WFIPriceManager = {
- // Configuration
- config: {
- updateInterval: 5 * 60 * 1000, // Update every 5 minutes
- cacheExpiry: 3 * 60 * 1000, // Cache for 3 minutes
- retryAttempts: 3,
- retryDelay: 2000
- },
- 
- // Storage keys
- storageKeys: {
- currentPrice: 'wfi_current_price',
- athPrice: 'wfi_ath_price',
- athDate: 'wfi_ath_date',
- lastUpdate: 'wfi_last_update'
- },
- 
- // DOM elements
- elements: {
- currentPrice: document.getElementById('wfi-current-price'),
- athPrice: document.getElementById('wfi-ath-price')
- },
- 
- // Initialize the price manager
- init: function() {
- console.log('🚀 Initializing WFI Price Manager...');
- 
- // Load cached data first for instant display
- this.loadCachedPrices();
- 
- // Fetch fresh data
- this.fetchPrices();
- 
- // Set up automatic updates
- setInterval(() => {
- this.fetchPrices();
- }, this.config.updateInterval);
- 
- console.log('✅ WFI Price Manager initialized - updates every 5 minutes');
- },
- 
- // Fetch prices from APIs
- fetchPrices: async function(attempt = 1) {
- try {
- console.log(`📊 Fetching WFI prices (attempt ${attempt})...`);
- 
- // Try primary source: CoinGecko
- let priceData = await this.fetchFromCoinGecko();
- 
- // Fallback: Try CoinMarketCap if CoinGecko fails
- if (!priceData) {
- console.log('⚠️ CoinGecko failed, trying CoinMarketCap...');
- priceData = await this.fetchFromCoinMarketCap();
- }
- 
- // Fallback: Try custom API if both fail
- if (!priceData) {
- console.log('⚠️ CoinMarketCap failed, trying custom API...');
- priceData = await this.fetchFromCustomAPI();
- }
- 
- // If all sources failed and we haven't exceeded retry attempts
- if (!priceData && attempt < this.config.retryAttempts) {
- console.log(`🔄 Retrying in ${this.config.retryDelay/1000}s...`);
- setTimeout(() => {
- this.fetchPrices(attempt + 1);
- }, this.config.retryDelay);
- return;
- }
- 
- // If we got data, update everything
- if (priceData) {
- this.updatePrices(priceData);
- this.cachePrices(priceData);
- console.log('✅ Prices updated:', priceData);
- } else {
- console.error('❌ All price sources failed');
- this.showError();
- }
- 
- } catch (error) {
- console.error('❌ Error fetching prices:', error);
- 
- if (attempt < this.config.retryAttempts) {
- setTimeout(() => {
- this.fetchPrices(attempt + 1);
- }, this.config.retryDelay);
- } else {
- this.showError();
- }
- }
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+    }
  },
  
  // Fetch from CoinGecko API
@@ -4874,6 +4729,41 @@
  }
  
  }); // End of DOMContentLoaded
- </script>
+ 
+    // ===== NAVBAR HIDE ON SCROLL DOWN / SHOW ON SCROLL UP =====
+    (function() {
+      var navbar  = document.querySelector('.navbar');
+      var lastY   = window.scrollY;
+      var ticking = false;
+
+      function updateNavbar() {
+        var currentY = window.scrollY;
+        var disclaimer = document.getElementById('disclaimer-bar');
+        var disclaimerH = disclaimer ? disclaimer.offsetHeight : 28;
+
+        if (currentY <= disclaimerH + 10) {
+          // At very top - always show, never hide
+          navbar.classList.remove('navbar--hidden');
+        } else if (currentY > lastY + 4) {
+          // Scrolling DOWN - hide
+          navbar.classList.add('navbar--hidden');
+        } else if (currentY < lastY - 4) {
+          // Scrolling UP - show
+          navbar.classList.remove('navbar--hidden');
+        }
+
+        lastY   = currentY;
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(updateNavbar);
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+  </script>
 </body>
 </html>
