@@ -1146,11 +1146,12 @@
  justify-content: center;
  
  /* Fluid padding */
- padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
+ padding: 12px 28px;
  
  /* Sizing */
  min-height: 44px;
  min-width: fit-content;
+  width: fit-content;
  
  /* Styling */
  border-radius: 50px;
@@ -2090,12 +2091,10 @@
  }
  
  .btn {
- width: auto;
- flex: 1 1 auto;
- min-width: 140px;
- padding: 16px 20px;
+ padding: 12px 22px;
  font-size: 14px;
  letter-spacing: 0.3px;
+ width: fit-content;
  }
  
  .section {
@@ -3834,7 +3833,46 @@
         </div>
       </div>
     </section>
-    <footer class="footer">
+    <!-- COMMUNITY STATS SECTION -->
+    <section class="section" style="background:var(--near-black);">
+      <div class="section-container">
+        <div class="section-header fade-in-on-scroll">
+          <h2 class="section-title">A <span class="highlight">Community-First</span> Ecosystem</h2>
+          <p class="section-subtitle">WeFi was built with one principle at its core: the community comes first. 100% of WFI token emission belongs to the community through fair Cloud-Based Mining.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:900px;margin:0 auto 50px;">
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">100%</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">WFI tokens distributed to the community. Zero team pre-sale allocation.</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">1B</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Fixed WFI token supply. Hard cap. No inflation, no additional minting ever.</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">Global</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Growing ecosystem of End-Users, Deobanks, and community members worldwide.</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">24/7</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Per-second WFI token mining distribution. Cloud-Based Mining never sleeps.</div>
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:20px;padding:40px;max-width:800px;margin:0 auto;text-align:center;">
+          <h3 style="color:var(--lime-light);font-size:22px;font-weight:700;margin-bottom:16px;font-family:'Space Grotesk',sans-serif;">WeFi Puts Its Community First</h3>
+          <p style="color:rgba(255,255,255,0.75);font-size:16px;line-height:1.7;margin-bottom:20px;">Unlike traditional banks that extract value from users at every step, WeFi flips the model. Transaction fees are redistributed to active participants. Token emission belongs entirely to miners. The Reward Model replaces the Extraction Model.</p>
+          <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6;">Participation in the WeFi ecosystem involves risk. This is a software mining product, not an investment. Always conduct your own research.</p>
+        </div>
+
+        <div style="text-align:center;margin-top:40px;">
+          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Join the WeFi Community ←</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+        </div>
+      </div>
+    </section>
+
+<footer class="footer">
  <div class="footer-container">
  <div class="vpn-footer-block">
           <div class="vpn-footer-block__top">
@@ -4318,45 +4356,6 @@
  }
  });
  </script>
-
-    <!-- COMMUNITY STATS SECTION -->
-    <section class="section" style="background:var(--near-black);">
-      <div class="section-container">
-        <div class="section-header fade-in-on-scroll">
-          <h2 class="section-title">A <span class="highlight">Community-First</span> Ecosystem</h2>
-          <p class="section-subtitle">WeFi was built with one principle at its core: the community comes first. 100% of WFI token emission belongs to the community through fair Cloud-Based Mining.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:900px;margin:0 auto 50px;">
-          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
-            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">100%</div>
-            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">WFI tokens distributed to the community. Zero team pre-sale allocation.</div>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
-            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">1B</div>
-            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Fixed WFI token supply. Hard cap. No inflation, no additional minting ever.</div>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
-            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">Global</div>
-            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Growing ecosystem of End-Users, Deobanks, and community members worldwide.</div>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
-            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">24/7</div>
-            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Per-second WFI token mining distribution. Cloud-Based Mining never sleeps.</div>
-          </div>
-        </div>
-
-        <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:20px;padding:40px;max-width:800px;margin:0 auto;text-align:center;">
-          <h3 style="color:var(--lime-light);font-size:22px;font-weight:700;margin-bottom:16px;font-family:'Space Grotesk',sans-serif;">WeFi Puts Its Community First</h3>
-          <p style="color:rgba(255,255,255,0.75);font-size:16px;line-height:1.7;margin-bottom:20px;">Unlike traditional banks that extract value from users at every step, WeFi flips the model. Transaction fees are redistributed to active participants. Token emission belongs entirely to miners. The Reward Model replaces the Extraction Model.</p>
-          <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6;">Participation in the WeFi ecosystem involves risk. This is a software mining product, not an investment. Always conduct your own research.</p>
-        </div>
-
-        <div style="text-align:center;margin-top:40px;">
-          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Join the WeFi Community ←</span></a>
-<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-        </div>
-      </div>
-    </section>
 
 </body>
 </html>
