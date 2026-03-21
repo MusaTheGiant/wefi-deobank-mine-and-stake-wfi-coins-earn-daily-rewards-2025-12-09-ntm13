@@ -46,7 +46,7 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
  <meta name="description" content="Answers to the most common WeFi questions: What is Cloud-Based Mining? What is Energy? How does the WeFi Card Spending-as-Mining work? What is WeChain? How does vesting work? Independent KOL resource.">
- <meta name="keywords" content="wefi faq, wefi questions, is wefi legit, how does wefi work, wefi staking, wfi token, wefi Deobanking Platform, defi platform, crypto earning, wefi frequently asked questions, wefi questions and answers, wefi defi platform, wefi staking guide, wefi token explained, wefi earning potential, wefi Deobanking Platform review, cryptocurrency staking platform, defi participation opportunities, wfi token utility, crypto mining units, blockchain earning opportunities, decentralized finance FAQ, wefi registration help, wefi compensation structure, how to make money with wefi, is wefi Deobanking Platform safe and legitimate, wefi Cloud Mining Platform explained">
+ <meta name="keywords" content="wefi faq, wefi questions, is wefi legit, how does wefi work, wefi staking, wfi token, wefi Deobanking Platform, defi platform, crypto earning, wefi frequently asked questions, wefi questions and answers, wefi defi platform, wefi staking guide, wefi token explained, wefi earning potential, wefi Deobanking Platform review, cryptocurrency staking platform, defi ecosystem participation, wfi token utility, crypto mining units, blockchain earning opportunities, decentralized finance FAQ, wefi registration help, wefi compensation structure, how to make money with wefi, is wefi Deobanking Platform safe and legitimate, wefi Cloud Mining Platform explained">
  
  <!-- Open Graph / Social Media -->
  <meta property="og:title" content="WeFi FAQ: Cloud-Based Mining, WFI Token, Energy Ecosystem & Deobanks Explained">
@@ -162,7 +162,7 @@
  "name": "Is WeFi legitimate and safe?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "Yes. WeFi is co-founded by experienced WeFi leadership (Tether co-founder), holds regulatory licenses across 5 jurisdictions, and won Digital Deobanking Platform of the Year 2025. Your funds remain in self-custody wallets - you control your keys and assets at all times."
+ "text": "Yes. WeFi is co-founded by WeFi leadership (Tether co-founder), holds regulatory licenses across 5 jurisdictions, and won Digital Deobanking Platform of the Year 2025. Your funds remain in self-custody wallets - you control your keys and assets at all times."
  }
  },
  {
@@ -245,7 +245,7 @@
  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
  
  /* Spacing */
- --spacing-hero-top: clamp(20px, 4vh, 40px);
+ --spacing-hero-top: clamp(36px, 5vh, 48px);
  --spacing-hero-bottom: clamp(20px, 3vh, 30px);
  --spacing-hero-inline: clamp(20px, 5vw, 60px);
  
@@ -793,7 +793,11 @@
  margin-top: 20px;
  padding-top: 20px;
  border-top: 1px solid rgba(199, 241, 96, 0.1);
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
  
  /* ===== FINAL CTA SECTION ===== */
  .final-cta {
@@ -1009,40 +1013,11 @@
  }
  
  /* ===== SCROLL TO TOP BUTTON ===== */
- .scroll-to-top {
- position: fixed;
- bottom: 30px;
- right: 30px;
- width: 50px;
- height: 50px;
- background: var(--lime-green);
- color: var(--black);
- border: none;
- border-radius: 50%;
- cursor: pointer;
- display: none;
- align-items: center;
- justify-content: center;
- font-size: 24px;
- font-weight: 700;
- box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
- transition: all 0.3s ease;
- z-index: 9999;
- opacity: 0;
- transform: scale(0.8);
- }
  
- .scroll-to-top.visible {
- display: flex;
- opacity: 1;
- transform: scale(1);
- }
  
- .scroll-to-top:hover {
- background: var(--bright-green);
- transform: scale(1.1) translateY(-3px);
- box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6);
- }
+ 
+ 
+ 
  
  /* ===== RESPONSIVE ===== */
  @media (max-width: 768px) {
@@ -1113,12 +1088,7 @@
  padding: 0 20px 20px 20px;
  }
  
- .scroll-to-top {
- bottom: 20px;
- right: 20px;
- width: 45px;
- height: 45px;
- }
+ 
  }
  
  
@@ -1141,11 +1111,7 @@
  font-size: 24px;
  }
  
- .scroll-to-top {
- width: 40px;
- height: 40px;
- font-size: 20px;
- }
+ 
  }
  
     
@@ -1157,8 +1123,7 @@
     .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
     .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
     @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}.vpn-cta-wrap{width:100%;align-items:center}}
-    
-    /* ===== DISCLAIMER BAR - MOBILE RESPONSIVE ===== */
+
     /* On mobile the long text wraps to 2 lines and pushes everything down.
        Shrink font + padding so it stays one compact line at all widths. */
     #disclaimer-bar { height: auto; }
@@ -1249,7 +1214,51 @@
       transform: translateY(-150%) !important;
     }
     /* ================================================================ */
-</style>
+
+    .scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--lime-green);
+  color: var(--black);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  border: none;
+  font-size: 24px;
+}
+.scroll-to-top.visible { opacity: 1; visibility: visible; }
+.scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
+}
+
+    
+    /* ===== CTA BUTTONS: STACKED COLUMN ON ALL SCREENS ===== */
+    .cta-buttons,
+    .btn-group,
+    .step-cta-buttons,
+    .faq-cta,
+    .final-cta-buttons,
+    .hero-cta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      gap: 14px !important;
+    }
+    /* ======================================================= */
+
+    </style>
 
  <script type="application/ld+json">
  {
@@ -1389,6 +1398,8 @@
 </script>
 </head>
 <body>
+</div>
+
  <!-- Navigation Bar -->
  <nav class="navbar">
  <div class="nav-container">
@@ -1417,7 +1428,7 @@
  <div class="hero-badge">💬 Your Questions Answered</div>
  <h1 class="hero-title">WeFi <span class="highlight">FAQ</span></h1>
  <p class="hero-description">
- Everything you need to know about WeFi Deobanking Platform, from registration to earning participation opportunities. Get clear, honest answers to all your questions.
+ Everything you need to know about WeFi Deobanking Platform, from registration to earning ecosystem participation. Get clear, honest answers to all your questions.
  </p>
  <div class="cta-buttons">
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -1483,7 +1494,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p>Yes. WeFi is co-founded by experienced WeFi leadership (Tether co-founder), holds regulatory licenses across 5 jurisdictions, and won Digital Deobanking Platform of the Year 2025. Your funds remain in self-custody wallets - you control your keys and assets at all times. Every transaction is on-chain, transparent, and verifiable. <a href="https://www.deobankdefi.com/wefi-testimonials.html">Read verified member testimonials</a>.</p>
+ <p>Yes. WeFi is co-founded by WeFi leadership (Tether co-founder), holds regulatory licenses across 5 jurisdictions, and won Digital Deobanking Platform of the Year 2025. Your funds remain in self-custody wallets - you control your keys and assets at all times. Every transaction is on-chain, transparent, and verifiable. <a href="https://www.deobankdefi.com/wefi-testimonials.html">Read verified member testimonials</a>.</p>
  </div>
  </div>
  </div>
@@ -1549,7 +1560,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p>ITO (Initial Token Offering) Mining Units are your entry into WeFi's participation opportunities system. Each unit you purchase generates WFI tokens automatically every second until 2032. Think of them as self-mining digital assets that require zero maintenance - you own them, they mine for you 24/7/365.</p>
+ <p>ITO (Initial Token Offering) Mining Units are your entry into WeFi's ecosystem participation system. Each unit you purchase generates WFI tokens automatically every second until 2032. Think of them as self-mining digital assets that require zero maintenance - you own them, they mine for you 24/7/365.</p>
  </div>
  </div>
  </div>
@@ -1745,7 +1756,7 @@
  My country is geo-blocked. How do I access WeFi?
  </button>
  <div class="faq-answer">
- <div class="faq-answer-content"><p>If you see "Service not available in your region" when accessing the WeFi platform, you need a VPN to bypass the geo-restriction. We recommend Proton VPN: it is 100% free, has no ads, and works on all devices including iOS, Android, Windows, Mac, and as a browser extension. Download it at <a href="https://protonvpn.com/free-vpn" target="_blank" class="inline-link">protonvpn.com/free-vpn</a>, connect to an available server, then access the WeFi registration page. <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="inline-link">See the full Getting Started guide ←</a></p></div>
+ <div class="faq-answer-content"><p>If you see "Service not available in your region" when accessing the WeFi platform, you need a VPN to bypass the geo-restriction. We recommend Proton VPN: it is 100% free, has no ads, and works on all devices including iOS, Android, Windows, Mac, and as a browser extension. Download it at <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="inline-link">protonvpn.com/free-vpn</a>, connect to an available server, then access the WeFi registration page. <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="inline-link">See the full Getting Started guide ←</a></p></div>
  </div>
  </div>
 
@@ -1974,7 +1985,63 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
-  </script>
+  
+  (function(){ var el = document.getElementById('currentYear'); if(el) el.textContent = new Date().getFullYear(); })();
+
+
+  // ===== CORE NAVIGATION & UI =====
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var cy = document.getElementById('currentYear');
+    if (cy) cy.textContent = new Date().getFullYear();
+
+    var navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+    }
+
+    var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    var navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+
+    var scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+      scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) scrollToTopBtn.classList.add('visible');
+        else scrollToTopBtn.classList.remove('visible');
+      });
+    }
+
+    // FAQ accordion handled by native script block above
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+  }); // end DOMContentLoaded
+
+</script>
 
 </body>
 </html>
