@@ -531,11 +531,12 @@
  justify-content: center;
  
  /* Fluid padding */
- padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
+ padding: 12px 28px;
  
  /* Sizing */
  min-height: 44px;
  min-width: fit-content;
+  width: fit-content;
  
  /* Styling */
  border-radius: 50px;
@@ -2381,7 +2382,66 @@
  </section>
 
  <!-- FOOTER -->
- <footer class="footer">
+ <!-- WHAT THESE TUTORIALS COVER -->
+<section style="padding:30px 40px 0;background:var(--black);">
+      <div style="max-width:1400px;margin:0 auto;">
+        <div style="background:linear-gradient(135deg,rgba(0,217,255,0.07),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.25);border-radius:16px;padding:24px 30px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+          <span style="font-size:36px;flex-shrink:0;">🛡️</span>
+          <div style="flex:1;min-width:250px;">
+            <h4 style="color:#00D9FF;font-size:16px;font-weight:700;margin-bottom:8px;">Before You Follow Along in These Tutorials</h4>
+            <p style="color:rgba(255,255,255,0.8);font-size:14px;line-height:1.7;margin:0;">
+              If your region is geo-blocked and you see "Service not available in your region", you need a VPN before accessing the WeFi platform. Use <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="color:#00D9FF;font-weight:600;text-decoration:none;">Proton VPN (100% Free)</a> - no ads, available on all devices and browsers including as a Chrome/Firefox extension.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="section" style="background:var(--near-black);">
+      <div class="section-container">
+        <div class="section-header fade-in-on-scroll">
+          <h2 class="section-title">What You Will <span class="highlight">Learn</span></h2>
+          <p class="section-subtitle">These tutorials cover every step of the WeFi journey - from first account creation to advanced Energy farming.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1000px;margin:0 auto 40px;">
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
+            <div style="font-size:28px;margin-bottom:10px;">🏦</div>
+            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">Account Creation</h4>
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How to register, complete KYC, and set up your Distributed Custody wallet on WeChain.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
+            <div style="font-size:28px;margin-bottom:10px;">⛏️</div>
+            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">ITO Mining Units</h4>
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How to purchase and activate ITO Units. Understanding Pool Coefficient tiers and per-second emission.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
+            <div style="font-size:28px;margin-bottom:10px;">⚡</div>
+            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">Energy Farming</h4>
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">Daily vs Advanced Farming. How the Time Factor works. How to maximize Energy generation.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
+            <div style="font-size:28px;margin-bottom:10px;">🔓</div>
+            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">Vesting and Claiming</h4>
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How to initiate vesting. The 180-day linear release cycle. How to claim WFI to your wallet.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
+            <div style="font-size:28px;margin-bottom:10px;">💳</div>
+            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">WeFi Card Setup</h4>
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How to activate Spending-as-Mining. Every card transaction increases your Mining Power.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
+            <div style="font-size:28px;margin-bottom:10px;">🌐</div>
+            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">Referral System</h4>
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How referral tiers unlock, how Referral Energy works, and how to share your unique link.</p>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Ready to Start? Full Guide Here ←</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+        </div>
+      </div>
+    </section>
+
+<footer class="footer">
  <div class="footer-container">
  <div class="vpn-footer-block">
           <div class="vpn-footer-block__top">
@@ -2760,65 +2820,6 @@
  });
  }
  </script>
-
-    <!-- WHAT THESE TUTORIALS COVER -->
-<section style="padding:30px 40px 0;background:var(--black);">
-      <div style="max-width:1400px;margin:0 auto;">
-        <div style="background:linear-gradient(135deg,rgba(0,217,255,0.07),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.25);border-radius:16px;padding:24px 30px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-          <span style="font-size:36px;flex-shrink:0;">🛡️</span>
-          <div style="flex:1;min-width:250px;">
-            <h4 style="color:#00D9FF;font-size:16px;font-weight:700;margin-bottom:8px;">Before You Follow Along in These Tutorials</h4>
-            <p style="color:rgba(255,255,255,0.8);font-size:14px;line-height:1.7;margin:0;">
-              If your region is geo-blocked and you see "Service not available in your region", you need a VPN before accessing the WeFi platform. Use <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="color:#00D9FF;font-weight:600;text-decoration:none;">Proton VPN (100% Free)</a> - no ads, available on all devices and browsers including as a Chrome/Firefox extension.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-<section class="section" style="background:var(--near-black);">
-      <div class="section-container">
-        <div class="section-header fade-in-on-scroll">
-          <h2 class="section-title">What You Will <span class="highlight">Learn</span></h2>
-          <p class="section-subtitle">These tutorials cover every step of the WeFi journey - from first account creation to advanced Energy farming.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1000px;margin:0 auto 40px;">
-          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:10px;">🏦</div>
-            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">Account Creation</h4>
-            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How to register, complete KYC, and set up your Distributed Custody wallet on WeChain.</p>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:10px;">⛏️</div>
-            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">ITO Mining Units</h4>
-            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How to purchase and activate ITO Units. Understanding Pool Coefficient tiers and per-second emission.</p>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:10px;">⚡</div>
-            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">Energy Farming</h4>
-            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">Daily vs Advanced Farming. How the Time Factor works. How to maximize Energy generation.</p>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:10px;">🔓</div>
-            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">Vesting and Claiming</h4>
-            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How to initiate vesting. The 180-day linear release cycle. How to claim WFI to your wallet.</p>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:10px;">💳</div>
-            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">WeFi Card Setup</h4>
-            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How to activate Spending-as-Mining. Every card transaction increases your Mining Power.</p>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:14px;padding:24px;">
-            <div style="font-size:28px;margin-bottom:10px;">🌐</div>
-            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:8px;">Referral System</h4>
-            <p style="color:rgba(255,255,255,0.65);font-size:13px;line-height:1.6;">How referral tiers unlock, how Referral Energy works, and how to share your unique link.</p>
-          </div>
-        </div>
-        <div style="text-align:center;">
-          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Ready to Start? Full Guide Here ←</span></a>
-<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-        </div>
-      </div>
-    </section>
 
 </body>
 </html>
