@@ -2012,7 +2012,20 @@
         padding-top: calc(var(--navbar-height) + 60px) !important;
       }
     }
-</style>
+
+    /* ===== COMPARISON CARD SYSTEM ===== */
+    .comparison-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;margin-top:40px}
+    .comparison-card{background:linear-gradient(135deg,rgba(26,26,26,0.5),rgba(30,30,30,0.5));border-radius:20px;padding:36px 30px;border:1px solid rgba(199,241,96,0.2);transition:all 0.3s ease;position:relative;overflow:hidden}
+    .comparison-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--lime-green),var(--bright-green));transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease}
+    .comparison-card:hover{transform:translateY(-5px);border-color:var(--lime-green);box-shadow:0 20px 60px rgba(199,241,96,0.2)}
+    .comparison-card:hover::before{transform:scaleX(1)}
+    .comparison-icon{font-size:44px;margin-bottom:18px}
+    .comparison-title{font-size:22px;font-weight:700;margin-bottom:12px;color:var(--lime-light);font-family:"Space Grotesk",sans-serif}
+    .comparison-description{color:rgba(255,255,255,0.72);line-height:1.7;font-size:15px}
+    @media(max-width:768px){.comparison-grid{grid-template-columns:1fr;gap:20px}.comparison-card{padding:28px 22px}}
+    @media(max-width:480px){.comparison-icon{font-size:36px}.comparison-title{font-size:20px}}
+
+    </style>
 
  <script type="application/ld+json">
  {
@@ -2092,19 +2105,6 @@
  </section>
 
 <!-- COMPLIANT INFORMATION SECTION -->
-<section style="padding:30px 40px 0;background:var(--black);">
-      <div style="max-width:1400px;margin:0 auto;">
-        <div style="background:linear-gradient(135deg,rgba(0,217,255,0.07),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.25);border-radius:16px;padding:24px 30px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-          <span style="font-size:36px;flex-shrink:0;">🛡️</span>
-          <div style="flex:1;min-width:250px;">
-            <p style="color:rgba(255,255,255,0.9);font-size:14px;line-height:1.7;margin:0;">
-              <strong style="color:#00D9FF;">Geo-blocked in your region?</strong> If you see "Service not available in your region" when trying to access WeFi, use <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="color:#00D9FF;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(0,217,255,0.4);">Proton VPN (100% Free)</a> - available on all devices and browsers. No ads, no limits. Do not let a geo-restriction stop you from participating in WeFi.
-            </p>
-          </div>
-          <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="background:#00D9FF;color:#000;font-weight:700;font-size:14px;padding:12px 24px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Get Proton VPN Free</a>
-        </div>
-      </div>
-    </section>
 <section class="section">
 <div class="container">
 <div class="section-header">
@@ -2169,14 +2169,7 @@ To participate in WeFi's ecosystem:
 
 </div>
 </div>
-</section>
-<div style="background:linear-gradient(135deg,rgba(0,217,255,0.07),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.25);border-radius:14px;padding:20px 28px;margin:0 40px 0;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
-      <span style="font-size:28px;">🛡️</span>
-      <div style="flex:1;min-width:200px;">
-        <strong style="color:#00D9FF;font-size:15px;">Geo-blocked in your region?</strong>
-        <p style="color:rgba(255,255,255,0.7);font-size:13px;margin:4px 0 0;">Use <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener" style="color:#00D9FF;font-weight:700;text-decoration:none;">Proton VPN (100% Free)</a> to access WeFi from any country. Available on iOS, Android, Windows, Mac, and all browsers.</p>
-      </div>
-    </div>
+</section>    </div>
 
 
 
@@ -2244,53 +2237,33 @@ To participate in WeFi's ecosystem:
       <div class="section-container">
         <div class="section-header fade-in-on-scroll">
           <h2 class="section-title">How WeFi <span class="highlight">Rewards</span> Are Generated</h2>
-          <p class="section-subtitle">WeFi redistributes the majority of transaction fees back to active ecosystem participants. This is how the reward cycle works.</p>
+          <p class="section-subtitle">WeFi redistributes the majority of transaction fees back to active participants. Four streams, running 24/7.</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1100px;margin:0 auto;">
-          <div class="feature-card fade-in-on-scroll">
-            <div class="feature-icon">⛏️</div>
-            <h3 class="feature-title">Cloud-Based Mining</h3>
-            <p class="feature-description">Activate ITO Units to participate in per-second WFI token distribution. Tokens are distributed proportionally across all active units every second. Governed by Systematic Halving and Mathematical Supply Control.</p>
-            <ul class="feature-bullets">
-              <li>Proportional per-second WFI emission</li>
-              <li>Systematic Halving every 2 years reduces rate</li>
-              <li>Larger single activations carry higher Pool Coefficient</li>
-            </ul>
+        <div class="comparison-grid">
+          <div class="comparison-card fade-in-on-scroll">
+            <div class="comparison-icon">⛏️</div>
+            <h3 class="comparison-title">Cloud-Based Mining</h3>
+            <p class="comparison-description">Activate ITO Units to receive a proportional share of per-second WFI token emission. The emission rate halves every two years through Systematic Halving.</p>
           </div>
-          <div class="feature-card fade-in-on-scroll">
-            <div class="feature-icon">💳</div>
-            <h3 class="feature-title">Spending-as-Mining</h3>
-            <p class="feature-description">Every WeFi Card payment increases your Mining Power within the ecosystem. Spending becomes a productive event - each transaction contributes to your long-term onchain position rather than being a terminal value exit.</p>
-            <ul class="feature-bullets">
-              <li>Every card payment boosts Mining Power</li>
-              <li>Physical card required for Spending-as-Mining</li>
-              <li>Compounds with ITO Unit rewards</li>
-            </ul>
+          <div class="comparison-card fade-in-on-scroll">
+            <div class="comparison-icon">💳</div>
+            <h3 class="comparison-title">Spending-as-Mining</h3>
+            <p class="comparison-description">Every WeFi Card payment increases your Mining Power. Spending is no longer a terminal event - it compounds your long-term onchain position.</p>
           </div>
-          <div class="feature-card fade-in-on-scroll">
-            <div class="feature-icon">⚡</div>
-            <h3 class="feature-title">Energy Farming</h3>
-            <p class="feature-description">Commit WFI tokens to generate Energy. Energy eliminates platform fees, boosts mining power, and unlocks referral tiers. Advanced Farming (1-5 year commitment) issues full Energy upfront at maximum Time Factor - significantly more than gradual daily farming.</p>
-            <ul class="feature-bullets">
-              <li>Daily Farming: gradual Energy accrual</li>
-              <li>Advanced Farming: 100% Energy issued upfront</li>
-              <li>Energy price grows +$0.10 per $1M burned globally</li>
-            </ul>
+          <div class="comparison-card fade-in-on-scroll">
+            <div class="comparison-icon">⚡</div>
+            <h3 class="comparison-title">Energy Farming</h3>
+            <p class="comparison-description">Commit WFI tokens to generate Energy. Energy eliminates platform fees, boosts mining power, and unlocks referral tiers. Advanced Farming issues 100% Energy upfront.</p>
           </div>
-          <div class="feature-card fade-in-on-scroll">
-            <div class="feature-icon">🌐</div>
-            <h3 class="feature-title">Referral Rewards</h3>
-            <p class="feature-description">Referrals drive the Community Reading metric. Unlock additional referral tiers based on cumulative lifetime ecosystem participation. Higher tiers open more referral lines and better reward percentages from your network's mining, Energy, and card spending activity.</p>
-            <ul class="feature-bullets">
-              <li>Multi-tier structure based on engagement level</li>
-              <li>Earn from referrals' mining and Energy activity</li>
-              <li>Referral Energy accelerates tier advancement</li>
-            </ul>
+          <div class="comparison-card fade-in-on-scroll">
+            <div class="comparison-icon">🌐</div>
+            <h3 class="comparison-title">Referral Rewards</h3>
+            <p class="comparison-description">Build a network and earn from your referrals' mining and Energy activity. Higher tiers unlock more referral lines and better reward percentages.</p>
           </div>
         </div>
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(199,241,96,0.1);border-radius:12px;padding:20px 24px;max-width:800px;margin:40px auto 0;text-align:center;">
-          <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.7;margin:0;">
-            <strong style="color:rgba(255,255,255,0.8);">Important:</strong> WeFi ITO Units are software infrastructure products, not investment instruments. Reward amounts depend on ecosystem participation levels, network activity, and market conditions. Past activity levels do not guarantee future results. This is independent educational content - not financial advice.
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(199,241,96,0.1);border-radius:12px;padding:18px 24px;max-width:760px;margin:36px auto 0;text-align:center;">
+          <p style="color:rgba(255,255,255,0.55);font-size:13px;line-height:1.7;margin:0;">
+            ITO Units are software infrastructure products, not investment instruments. Reward amounts depend on ecosystem participation and market conditions. Not financial advice.
           </p>
         </div>
       </div>
@@ -3432,93 +3405,6 @@ To participate in WeFi's ecosystem:
  
  }); // End of DOMContentLoaded
  </script>
-<section style="padding:30px 40px;background:var(--black);">
-      <div style="max-width:1400px;margin:0 auto;">
-        <div style="background:linear-gradient(135deg,rgba(0,217,255,0.06),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.25);border-radius:16px;padding:28px 36px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-          <span style="font-size:36px;flex-shrink:0;">🛡️</span>
-          <div style="flex:1;min-width:240px;">
-            <strong style="color:#00D9FF;font-size:16px;display:block;margin-bottom:6px;">Geo-Blocked in Your Region?</strong>
-            <p style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.6;margin:0;">If you see "Service not available in your region" when accessing the WeFi platform, use Proton VPN - completely free, no ads, available on all devices.</p>
-          </div>
-          <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#00D9FF;color:#000;font-weight:700;font-size:14px;padding:12px 24px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">🔒 Get Proton VPN Free</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- POOL COEFFICIENT TIERS -->
-    <section class="section" style="background:var(--near-black);">
-      <div class="section-container">
-        <div class="section-header fade-in-on-scroll">
-          <h2 class="section-title">ITO Unit <span class="highlight">Pool Coefficient</span> Tiers</h2>
-          <p class="section-subtitle">Larger single activations carry a higher Pool Coefficient, giving them a greater proportional share of per-second WFI emission. This is a one-time activation advantage.</p>
-        </div>
-        <div style="overflow-x:auto;border-radius:16px;border:1px solid rgba(199,241,96,0.2);">
-          <table style="width:100%;border-collapse:collapse;background:linear-gradient(135deg,rgba(26,26,26,0.9),rgba(30,30,30,0.9));">
-            <thead>
-              <tr style="border-bottom:1px solid rgba(199,241,96,0.2);">
-                <th style="padding:18px 24px;text-align:left;color:var(--lime-green);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Tier</th>
-                <th style="padding:18px 24px;text-align:left;color:var(--lime-green);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Activation Amount</th>
-                <th style="padding:18px 24px;text-align:left;color:var(--lime-green);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;">Pool Coefficient (PC (Pool Coefficient))</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.9);font-weight:600;">Tier 1</td>
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.7);">$250 - $999</td>
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.7);">0.940 - 0.965</td>
-              </tr>
-              <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.9);font-weight:600;">Tier 2</td>
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.7);">$1,000 - $2,499</td>
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.7);">0.965 - 1.000</td>
-              </tr>
-              <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.9);font-weight:600;">Tier 3</td>
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.7);">$2,500 - $9,999</td>
-                <td style="padding:16px 24px;color:rgba(199,241,96,0.9);font-weight:600;">1.020 - 1.025</td>
-              </tr>
-              <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.9);font-weight:600;">Tier 4</td>
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.7);">$10,000 - $49,999</td>
-                <td style="padding:16px 24px;color:var(--lime-green);font-weight:700;">1.050 - 1.070</td>
-              </tr>
-              <tr>
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.9);font-weight:600;">Tier 5</td>
-                <td style="padding:16px 24px;color:rgba(255,255,255,0.7);">$50,000 - $100,000</td>
-                <td style="padding:16px 24px;color:var(--bright-green);font-weight:700;">1.090 - 1.110</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p style="color:rgba(255,255,255,0.5);font-size:13px;margin-top:16px;text-align:center;">Note: A single larger activation is programmatically more efficient than multiple smaller activations totaling the same amount.</p>
-      </div>
-    </section>
-
-    <!-- SPENDING AS MINING -->
-    <section class="section">
-      <div class="section-container">
-        <div class="section-header fade-in-on-scroll">
-          <h2 class="section-title">Spending-as-<span class="highlight">Mining</span></h2>
-          <p class="section-subtitle">Every transaction with the WeFi Card increases your Mining Power in the ecosystem. Spending is no longer a terminal event.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:800px;margin:0 auto;">
-          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(255,100,100,0.15);border-radius:16px;padding:30px;text-align:center;">
-            <div style="font-size:32px;margin-bottom:12px;">💳</div>
-            <h4 style="color:rgba(255,255,255,0.6);font-size:16px;font-weight:700;margin-bottom:10px;">Traditional Cards</h4>
-            <p style="color:rgba(255,255,255,0.5);font-size:14px;line-height:1.6;">Value leaves permanently. No onchain record. No mining benefit. Spending is a final, terminal event.</p>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.3);border-radius:16px;padding:30px;text-align:center;">
-            <div style="font-size:32px;margin-bottom:12px;">⛏️</div>
-            <h4 style="color:var(--lime-green);font-size:16px;font-weight:700;margin-bottom:10px;">WeFi Card</h4>
-            <p style="color:rgba(255,255,255,0.8);font-size:14px;line-height:1.6;">Every payment triggers an onchain event that increases Mining Power. Spending builds your long-term position.</p>
-          </div>
-        </div>
-        <div style="text-align:center;margin-top:40px;">
-          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Get Started with WeFi ←</span></a>
-<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-        </div>
-      </div>
-    </section>
 
 </body>
 </html>
