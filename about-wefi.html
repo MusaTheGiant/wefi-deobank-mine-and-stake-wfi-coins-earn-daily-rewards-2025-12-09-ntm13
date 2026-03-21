@@ -129,7 +129,7 @@
  --section-padding-mobile: 60px;
  
  /* NEW: Fluid spacing system using clamp - OPTIMIZED FOR MOBILE */
- --spacing-hero-top: calc(42px + clamp(36px, 5vh, 48px));
+ --spacing-hero-top: clamp(36px, 5vh, 48px);
  --spacing-hero-bottom: clamp(20px, 3vh, 30px);
  --spacing-hero-inline: clamp(20px, 5vw, 60px);
  
@@ -200,7 +200,7 @@
  /* ===== NAVIGATION ===== */
  .navbar {
  position: fixed;
- top: 42px; /* Below disclaimer bar */
+ top: 0;
  left: 0;
  right: 0;
  z-index: 1000;
@@ -1177,7 +1177,11 @@
  .faq-cta {
  text-align: center;
  margin-top: 45px;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
  
  /* ===== FOOTER ===== */
  .footer {
@@ -2175,8 +2179,7 @@
     .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
     .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
     @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}.vpn-cta-wrap{width:100%;align-items:center}}
-    
-    /* ===== DISCLAIMER BAR - MOBILE RESPONSIVE ===== */
+
     /* On mobile the long text wraps to 2 lines and pushes everything down.
        Shrink font + padding so it stays one compact line at all widths. */
     #disclaimer-bar { height: auto; }
@@ -2294,6 +2297,23 @@
   box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
 }
 
+    
+    /* ===== CTA BUTTONS: STACKED COLUMN ON ALL SCREENS ===== */
+    .cta-buttons,
+    .btn-group,
+    .step-cta-buttons,
+    .faq-cta,
+    .final-cta-buttons,
+    .hero-cta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      gap: 14px !important;
+    }
+    /* ======================================================= */
+
     </style>
 
  <script type="application/ld+json">
@@ -2352,14 +2372,7 @@
  </script>
 </head>
 <body>
-<!-- COMPLIANCE DISCLAIMER -->
- <div id="disclaimer-bar" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(10, 10, 10, 0.98)); border-bottom: 2px solid #C7F160; padding: 12px 20px; text-align: center; position: fixed; top: 0; left: 0; right: 0; z-index: 1001; backdrop-filter: blur(10px);">
- <div style="max-width: 1200px; margin: 0 auto;">
- <p style="margin: 0; font-size: 15px; font-weight: 600; color: #C7F160; line-height: 1.3;">
- ⚠️ <strong>NOT an official WeFi website</strong> • Independent KOL (Key Opinion Leader) educational resource
- </p>
- </div>
- </div>
+</div>
 
  </style>
 </head>
