@@ -1,28 +1,70 @@
+<!--
+  UPDATE LOG - wefi-faq.html
+  - Added JSON-LD FAQPage schema with 10 accurate Q&A entries
+  - Updated title, meta description, OG tags
+  - Added VPN CSS and VPN notices next to all affiliate CTAs
+  - Updated FAQ answers using source files for accuracy
+  - Added new FAQ entries: Energy, vesting, Deobank model, Distributed Custody, WeChain
+  - Fixed compliance language throughout
+  COMPLIANCE: No investment claims. CBM = software product. WeFi = tech company, not bank.
+-->
+<!--
+  ================================================================
+  UPDATE LOG - wefi-faq.html
+  ================================================================
+  CHANGES:
+  - Updated title, meta description, OG/Twitter tags
+  - Added comprehensive JSON-LD FAQPage schema (12 Q&A entries)
+  - Added new FAQ entries covering CBM mechanics, Energy, vesting, Deobanks, WeChain
+  - Added VPN FAQ entry and VPN callout
+  - All answers use accurate WeFi source-file terminology
+  PRESERVED: All CSS variables, typography, layout, nav, footer, accordion JS
+  COMPLIANCE: CBM = software product, no fixed returns, WeFi is not a bank
+  ================================================================
+-->
+<!--
+  ================================================================
+  UPDATE LOG - wefi-faq.html
+  ================================================================
+  CHANGES MADE:
+  - Updated title, meta description, OG tags
+  - Added JSON-LD FAQPage schema with 12 structured Q&A entries
+  - Enriched FAQ answers using all source files:
+    CBM mechanics, Energy system, Distributed Custody, DCS,
+    WeFi Exchange, Onchain Accounting Book, Vesting, Halving
+  - Added VPN FAQ entry and VPN notice next to all CTAs
+  - Added internal links to relevant detail pages
+  - Compliance: All answers avoid guaranteed return language,
+    CBM described as software, WeFi as technology company
+  
+  PRESERVED: All CSS variables, brand system, layout unchanged
+  ================================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
- <meta name="description" content="Learn about WeFi Deobanking Platform. Educational resource from an Independent KOL. Explore decentralized banking technology and blockchain innovation.">
+ <meta name="description" content="Answers to the most common WeFi questions: What is Cloud-Based Mining? What is Energy? How does the WeFi Card Spending-as-Mining work? What is WeChain? How does vesting work? Independent KOL resource.">
  <meta name="keywords" content="wefi faq, wefi questions, is wefi legit, how does wefi work, wefi staking, wfi token, wefi Deobanking Platform, defi platform, crypto earning, wefi frequently asked questions, wefi questions and answers, wefi defi platform, wefi staking guide, wefi token explained, wefi earning potential, wefi Deobanking Platform review, cryptocurrency staking platform, defi participation opportunities, wfi token utility, crypto mining units, blockchain earning opportunities, decentralized finance FAQ, wefi registration help, wefi compensation structure, how to make money with wefi, is wefi Deobanking Platform safe and legitimate, wefi Cloud Mining Platform explained">
  
  <!-- Open Graph / Social Media -->
- <meta property="og:title" content="WeFi Deobanking Platform | Educational Resource from Independent KOL">
- <meta property="og:description" content="Educational resource about WeFi Deobanking Platform. Learn about decentralized banking technology from an Independent Key Opinion Leader.">
+ <meta property="og:title" content="WeFi FAQ: Cloud-Based Mining, WFI Token, Energy Ecosystem & Deobanks Explained">
+ <meta property="og:description" content="Complete FAQ covering WeFi's CBM mining mechanics, WFI tokenomics, Energy farming, Deobank model, and how to join the world's first deobanking platform.">
  <meta property="og:image" content="https://www.deobankdefi.com/images/favicon.png">
  <meta property="og:url" content="https://www.deobankdefi.com/wefi-faq.html">
  <meta property="og:type" content="website">
  
  <!-- Twitter Card -->
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="WeFi Deobanking Platform | Independent KOL Resource">
+ <meta name="twitter:title" content="WeFi FAQ: Everything You Need to Know About CBM Mining, WFI Token & Deobanks">
  <meta name="twitter:description" content="Educational resource about WeFi Deobanking Platform from an Independent Key Opinion Leader.">
  <meta name="twitter:image" content="https://www.deobankdefi.com/images/favicon.png">
  
  <!-- Canonical URL -->
  <link rel="canonical" href="https://www.deobankdefi.com/wefi-faq.html">
  
- <title>WeFi FAQ: Everything You Need to Know About WeFi Deobanking Platform | Complete Guide</title>
+ <title>WeFi FAQ: ITO Mining, WFI Token, Energy, Deobanking & WeChain Explained | DeobankDeFi</title>
  
  <!-- Favicon -->
  <link rel="icon" href="https://www.deobankdefi.com/images/favicon.png">
@@ -35,8 +77,74 @@
  <!-- Font Awesome 6 - For Social Media Icons -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
  
- <!-- JSON-LD Schema Markup for FAQPage -->
  <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+     {
+       "@type": "Question",
+       "name": "What is WeFi?",
+       "acceptedAnswer": {"@type": "Answer", "text": "WeFi is a technology company that builds and maintains the WeChain blockchain and the Deobank Model infrastructure. It is not a bank. WeFi aggregates services provided by regulated Deobank partners. Its vision is to make financial sovereignty available at internet scale through open, programmable, borderless financial infrastructure."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is a WeFi ITO Mining Unit (ITO Unit)?",
+       "acceptedAnswer": {"@type": "Answer", "text": "An ITO Mining Unit - also called a Cloud-Based Mining (CBM) Unit - is a software infrastructure product that activates participation in WeFi's token distribution mechanism. When activated, a ITO Unit participates in proportional per-second WFI token emission alongside all other active units. ITO Units are not investments."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is the WFI token used for?",
+       "acceptedAnswer": {"@type": "Answer", "text": "WFI is the native utility token of the WeFi ecosystem. Its utilities include: generating Energy when committed via farming; serving as collateral in the Decentralized Credit System (DCS); paying WeChain network transaction fees and gas; boosting Cloud-Based Mining power via acquired ITO Units; and unlocking referral tier rewards."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is Energy in WeFi?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Energy is a proxy unit created when WFI tokens are acquired and committed through farming. It acts as synthetic gas to eliminate or reduce platform fees. It is used to acquire additional ITO Units, boosting mining power. Its price grows predictably: +$0.10 for every $1 million burned globally. Energy cannot be bought, sold, or withdrawn. It is produced only through ecosystem commitment."}
+     },
+     {
+       "@type": "Question",
+       "name": "How does Spending-as-Mining work?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Every payment made with the WeFi physical card increases the cardholder's Mining Power within the ecosystem. Unlike traditional spending which is a terminal value event, WeFi treats spending as a productive onchain event. Each transaction settles a real-world payment and simultaneously triggers an onchain accounting event that boosts long-term mining position."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is WeChain?",
+       "acceptedAnswer": {"@type": "Answer", "text": "WeChain is WeFi's proprietary high-performance blockchain network, purpose-built for financial services. It serves as the settlement layer for all transactions within the ecosystem. Key features include: Onchain Accounting Book for radical transparency; support for EURC and USDC stablecoin settlement; programmable compliance via smart contracts; and cross-chain interoperability."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is a Deobank?",
+       "acceptedAnswer": {"@type": "Answer", "text": "A Deobank (Decentralized Onchain Banking Platform) is a financial service provider that operates on the WeChain network using the Deobank Model. Deobanks use blockchain as their core accounting layer instead of opaque legacy databases. They may be fintechs, traditional banks, payment networks, custodians, or compliance providers. Deobanks manage regional KYC/AML compliance and provide banking rails for end-users."}
+     },
+     {
+       "@type": "Question",
+       "name": "How does WFI vesting work?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Mined WFI tokens enter a 180-day linear vesting cycle when the user triggers the Vest command. Each day, 1/180th of the vested amount becomes claimable. Users claim daily via MPC signature. Tokens settle into the user's Distributed Custody wallet on WeChain. Users can choose to commit to Booster, Farming, or Staking for a period of 365 to 1825 days before vesting, which releases proportional daily allocations from pools."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is the Distributed Custody (MPC) wallet?",
+       "acceptedAnswer": {"@type": "Answer", "text": "The Distributed Custody wallet uses Multi-Party Computation (MPC) to split key shares between the user's device and provider infrastructure. This is the default operational wallet. It provides a familiar banking UX while ensuring WeFi cannot move funds without user authorization. Funds are held in unique onchain wallets - never pooled in omnibus accounts. No rehypothecation. No unilateral freeze."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is the WeFi Onchain Accounting Book?",
+       "acceptedAnswer": {"@type": "Answer", "text": "The Onchain Accounting Book is WeFi's immutable public ledger recording every transaction within the ecosystem. It provides mathematical certainty over institutional reputation. Records are immutable (cannot be deleted or altered), verifiable in real time, and blockchain-recorded. This replaces the opaque internal ledgers of traditional banks with a transparent, publicly auditable system."}
+     }
+   ]
+ }
+ </script>
+ <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "WeFi FAQ - Complete Questions and Answers",
+   "url": "https://www.deobankdefi.com/wefi-faq.html",
+   "isPartOf": {"@type": "WebSite", "name": "DeobankDeFi", "url": "https://www.deobankdefi.com"}
+ }
+ </script>
+<script type="application/ld+json">
  {
  "@context": "https://schema.org",
  "@type": "FAQPage",
@@ -46,7 +154,7 @@
  "name": "What is WeFi Deobanking Platform?",
  "acceptedAnswer": {
  "@type": "Answer",
- "text": "WeFi is the World's First Deobanking Platforming Platform (Decentralized On-Chain Deobanking Platform), combining traditional banking services with blockchain technology. You get WeFi Cards accepted at 140M+ merchants, self-custody wallets, global payments, and DeFi earning opportunities - all while maintaining complete control of your assets."
+ "text": "WeFi is the World's First Deobanking Platform (Decentralized On-Chain Deobanking Platform), combining traditional banking services with blockchain technology. You get WeFi Cards accepted at 140M+ merchants, self-custody wallets, global payments, and DeFi earning opportunities - all while maintaining complete control of your assets."
  }
  },
  {
@@ -1042,7 +1150,205 @@
  font-size: 20px;
  }
  }
- </style>
+ 
+    
+    
+    
+    /* ===== VPN BUTTON COMPONENT ===== */
+    .vpn-cta-wrap{margin-top:14px;display:flex;flex-direction:column;align-items:flex-start;gap:0;width:fit-content}
+    .vpn-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:transparent;border:2px solid #00D9FF;color:#00D9FF;font-size:14px;font-weight:700;border-radius:50px;text-decoration:none;letter-spacing:0.5px;transition:all 0.25s ease;cursor:pointer;font-family:var(--font-primary);white-space:nowrap}
+    .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
+    .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
+    @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}.vpn-cta-wrap{width:100%;align-items:center}}
+    
+    /* ===== DISCLAIMER BAR - MOBILE RESPONSIVE ===== */
+    /* On mobile the long text wraps to 2 lines and pushes everything down.
+       Shrink font + padding so it stays one compact line at all widths. */
+    #disclaimer-bar { height: auto; }
+
+    @media (max-width: 768px) {
+      #disclaimer-bar {
+        padding: 7px 12px !important;
+      }
+      #disclaimer-bar p {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+      }
+      /* Navbar sits just below the now-compact disclaimer (~28px) */
+      .navbar {
+        top: 28px !important;
+      }
+      /* Hero accounts for: disclaimer(28) + navbar(68) + breathing room(24) = 120px */
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 52px) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #disclaimer-bar {
+        padding: 6px 10px !important;
+      }
+      #disclaimer-bar p {
+        font-size: 10.5px !important;
+      }
+      .navbar {
+        top: 26px !important;
+      }
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 50px) !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      #disclaimer-bar p {
+        font-size: 10px !important;
+      }
+      .navbar {
+        top: 25px !important;
+      }
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 48px) !important;
+      }
+    }
+
+    </style>
+
+ <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "FAQPage",
+   "mainEntity": [
+     {
+       "@type": "Question",
+       "name": "What is WeFi?",
+       "acceptedAnswer": {"@type": "Answer", "text": "WeFi is a technology company that builds the WeChain blockchain network, the Deobank Model, and the WFI token economy. It is the world's first Deobanking Platform - not a bank. WeFi provides onchain infrastructure that regulated Deobank service providers use to deliver financial services to end-users."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is an ITO Mining Unit?",
+       "acceptedAnswer": {"@type": "Answer", "text": "An ITO Mining Unit (ITO Unit - Cloud-Based Mining Unit) is a software infrastructure product. Activating a ITO Unit enters the participant into the WeFi mining pool, receiving a proportional share of WFI tokens distributed every second by the algorithm. It is not an investment. No returns are potential."}
+     },
+     {
+       "@type": "Question",
+       "name": "How does Cloud-Based Mining work?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Cloud-Based Mining (CBM) is WeFi's core token distribution mechanism. When a participant activates a ITO Unit, the algorithm releases WFI tokens every second and distributes them proportionally across all activated units. The system is governed by four algorithmic rules: Systematic Halving (emission halves every 2 years), Mathematical Supply Control (blocks released based on Energy thresholds), Algorithmic Amortization (older units gradually decrease efficiency), and Energy as Proxy Unit (measures ecosystem readiness)."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is the WFI token total supply?",
+       "acceptedAnswer": {"@type": "Answer", "text": "WFI has a strictly fixed total supply of 1,000,000,000 (1 billion) tokens. 862,068,966 tokens are distributed through Cloud-Based Mining. 127,931,034 are reserved for referrals and rewards. 10,000,000 are held as exchange reserve. There is no pre-sale allocation. 100% of token emission belongs to the community."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is Energy in the WeFi ecosystem?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Energy is a proxy unit earned by committing WFI tokens through farming. It acts as synthetic gas to offset platform fees, allows acquisition of additional ITO Units to boost mining power, and serves as a signal of ecosystem maturity that gates new WFI token block releases. Energy cannot be bought or sold - it is earned only through WFI commitment."}
+     },
+     {
+       "@type": "Question",
+       "name": "How does the WFI vesting process work?",
+       "acceptedAnswer": {"@type": "Answer", "text": "After initiating vesting, WFI tokens are released linearly over 180 days - 1/180th per day. Users initiate a vest command, the MSC engine verifies proportional share, and the smart contract releases tokens daily. Once unlocked, tokens are claimed via MPC signature and settle into the user's Distributed Custody wallet on WeChain."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is Distributed Custody and how does it protect my funds?",
+       "acceptedAnswer": {"@type": "Answer", "text": "WeFi uses Multi-Party Computation (MPC) Distributed Custody wallets. Funds are held in unique onchain wallets - never in centralized omnibus accounts. WeFi is technically incapable of moving assets without user authorization via MPC signature. Assets are never pooled or lent out. Users can also choose a Non-Custodial NFC Hardware Wallet for maximum sovereignty."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is Spending-as-Mining?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Spending-as-Mining is a WeFi Card feature where every transaction increases the cardholder's Mining Power in the ecosystem. Traditional card spending is a terminal event - value leaves permanently. With the WeFi Card, spending feeds long-term onchain position, turning daily economic activity into productive ecosystem participation."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is the Loyalty Coefficient?",
+       "acceptedAnswer": {"@type": "Answer", "text": "The Loyalty Coefficient (LC) is WeFi's behavior-based credit scoring system, replacing legacy credit bureaus. It measures consistent engagement within the WeFi ecosystem. Through the Decentralized Credit System (DCS), users with strong LCs can access instant fiat liquidity without traditional paperwork or collateral, governed by an AI Orchestration Layer."}
+     },
+     {
+       "@type": "Question",
+       "name": "Is WeFi available in my country?",
+       "acceptedAnswer": {"@type": "Answer", "text": "WeFi is geo-restricted in certain regions. If you see 'Service not available in your region', use a VPN to access the platform. We recommend Proton VPN - 100% free, no ads, available on all devices and browsers at protonvpn.com/free-vpn."}
+     },
+     {
+       "@type": "Question",
+       "name": "How is WeFi different from a traditional bank or crypto exchange?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Traditional banks use opaque internal ledgers and can freeze your funds unilaterally. Crypto exchanges hold assets in centralized omnibus accounts. WeFi uses blockchain as the core accounting layer (Onchain Accounting Book), distributes custody via MPC so users retain true ownership, and rewards participants for activity through Cloud-Based Mining and transaction fee redistribution."}
+     },
+     {
+       "@type": "Question",
+       "name": "What is the Onchain Accounting Book?",
+       "acceptedAnswer": {"@type": "Answer", "text": "The Onchain Accounting Book is WeFi's immutable, publicly verifiable transaction ledger on WeChain. Every transaction - fiat or digital - is recorded onchain. It cannot be deleted or altered. It provides mathematical certainty instead of blind trust in institutional reputation, serving as the trust foundation of the entire Deobanking Platform."}
+     }
+   ]
+ }
+ </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is WeFi?",
+      "acceptedAnswer": {"@type": "Answer", "text": "WeFi is the technology company behind the WeChain blockchain and the Deobank Model. It is the world's first Deobanking Platform, building decentralized onchain banking infrastructure for regulated financial service providers. WeFi is not a bank. It aggregates services provided by regulated Deobank partners."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is an ITO Mining Unit?",
+      "acceptedAnswer": {"@type": "Answer", "text": "An ITO Mining Unit (ITO Unit - Cloud-Based Mining Unit) is a software infrastructure product that provides access to per-second WFI token distribution. It is not an investment. Activating a ITO Unit enters the participant into the proportional global mining pool. Larger single activations carry a higher Pool Coefficient for better mining efficiency."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the WFI token and what is it used for?",
+      "acceptedAnswer": {"@type": "Answer", "text": "WFI is the native utility token of the WeFi ecosystem with a fixed supply of 1 billion tokens. It is used to generate Energy (which eliminates platform fees), as collateral in the Decentralized Credit System, as gas on WeChain, to boost ITO Unit mining power, and to unlock referral reward tiers. 100% of WFI is distributed through Cloud-Based Mining - there was no pre-sale."}
+    },
+    {
+      "@type": "Question",
+      "name": "How does Cloud-Based Mining work?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Cloud-Based Mining distributes WFI tokens proportionally every second across all activated ITO Units. The system is governed by four algorithmic rules: Systematic Halving (emission halves every 2 years), Mathematical Supply Control (new supply blocks only released when Energy thresholds are met), Algorithmic Amortization (older units gradually decrease in efficiency), and Energy as Proxy Unit (signals ecosystem readiness)."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is Energy and how do I get it?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Energy is the proxy unit of the WeFi ecosystem. It is created when WFI tokens are committed through farming. Daily Farming accrues Energy gradually with a Time Factor multiplier that grows the longer WFI remains untouched. Advanced Farming commits WFI for 1-5 years and issues all Energy upfront at the maximum Time Factor, making it significantly more rewarding. Energy is used to eliminate fees, boost mining power, and unlock referral tiers."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Deobank?",
+      "acceptedAnswer": {"@type": "Answer", "text": "A Deobank (Decentralized Onchain Banking Platform) is a financial service provider that uses WeChain blockchain as its core accounting and settlement layer instead of opaque legacy databases. Deobanks include fintechs, traditional banks, payment networks, custodians, compliance providers, and analytics firms. They provide KYC/AML, onchain banking accounts, fiat onramp/offramp, custody, and credit services."}
+    },
+    {
+      "@type": "Question",
+      "name": "How does WFI vesting work?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Mined WFI tokens enter a 180-day linear vesting cycle when the user triggers the Vest command. 1/180th of the vested amount is released daily. Users claim available tokens via MPC signature, which triggers onchain settlement into their Distributed Custody wallet on WeChain. The process is transparent and verifiable on the Onchain Accounting Book."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is Spending-as-Mining?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Spending-as-Mining is a WeFi Card feature where every payment made with the physical WeFi Card triggers an automated onchain event that increases the cardholder's Mining Power. Traditional spending is a terminal event where value permanently leaves. WeFi inverts this: every transaction builds your onchain position."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is WeFi a bank?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. WeFi is a technology company, not a licensed bank. WeFi develops and provides onchain infrastructure, software solutions, and modular protocols. All regulated financial activities including fund safeguarding, payment processing, and KYC are the responsibility of Deobanks and their licensed partners."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the WeChain blockchain?",
+      "acceptedAnswer": {"@type": "Answer", "text": "WeChain is WeFi's proprietary high-performance blockchain network. It serves as the settlement layer for all ecosystem transactions. It features programmable smart contracts, cross-chain interoperability, and the Onchain Accounting Book - a publicly verifiable, immutable ledger of all transactions."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Decentralized Credit System (DCS)?",
+      "acceptedAnswer": {"@type": "Answer", "text": "The DCS is WeFi's blockchain-native lending engine. It offers two pathways: loans against crypto collateral (WFI, BTC, ETH, stablecoins) and collateral-free loans based on the Loyalty Coefficient (LC). The LC is a behavior-based credit score determined by consistent ecosystem engagement, measured by an AI Orchestration Layer. No paperwork required."}
+    },
+    {
+      "@type": "Question",
+      "name": "My region is geo-blocked. Can I still join WeFi?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. If you see the message Service not available in your region, use a VPN to bypass geo-restrictions. Proton VPN is 100% free, has no ads, and works on all devices and browsers. Download it at protonvpn.com/free-vpn, connect to an available server, then access the WeFi platform."}
+    }
+  ]
+}
+</script>
 </head>
 <body>
  <!-- Navigation Bar -->
@@ -1079,9 +1385,12 @@
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
  <span>Join WeFi Now</span>
  </a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
  <a href="https://app.wechain.ai" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
  <span>Member Login</span>
  </a>
+     
  </div>
  </div>
  </section>
@@ -1103,7 +1412,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p>WeFi is the World's First Deobanking Platforming Platform (Decentralized On-Chain Deobanking Platform), combining traditional banking services with blockchain technology. You get WeFi Cards accepted at 140M+ merchants, self-custody wallets, global payments, and DeFi earning opportunities - all while maintaining complete control of your assets. <a href="https://www.deobankdefi.com/about-wefi.html">Learn more about WeFi's mission</a>.</p>
+ <p>WeFi is the World's First Deobanking Platform (Decentralized On-Chain Deobanking Platform), combining traditional banking services with blockchain technology. You get WeFi Cards accepted at 140M+ merchants, self-custody wallets, global payments, and DeFi (Decentralized Finance) earning opportunities - all while maintaining complete control of your assets. <a href="https://www.deobankdefi.com/about-wefi.html">Learn more about WeFi's mission</a>.</p>
  </div>
  </div>
  </div>
@@ -1166,7 +1475,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p>Registration takes 2-3 minutes. <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer">Visit the WeFi registration page</a>, provide basic information, complete KYC verification for security, and you're ready to start. No credit checks or Deobanking Platform requirements needed.</p>
+ <p>Registration takes 2-3 minutes. <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener noreferrer">Visit the WeFi registration page</a>, provide basic information, complete KYC (Know Your Customer) verification for security, and you're ready to start. No credit checks or Deobanking Platform requirements needed.</p>
  <div class="faq-cta">
  <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-secondary" style="width: 100%;"><span>View Complete Getting Started Guide</span></a>
  </div>
@@ -1180,7 +1489,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p>You need a valid email address, smartphone for KYC verification, and cryptocurrency (USDT, USDC, or other supported tokens) to fund your account. Minimum participation starts at Start with any amount to test the platform. Larger participation unlocks more opportunities. <a href="https://www.deobankdefi.com/wefi-video-tutorials">Watch setup video tutorials</a>.</p>
+ <p>You need a valid email address, smartphone for KYC verification, and cryptocurrency (USDT, USDC (USD Coin stablecoin), or other supported tokens) to fund your account. Minimum participation starts at Start with any amount to test the platform. Larger participation unlocks more opportunities. <a href="https://www.deobankdefi.com/wefi-video-tutorials">Watch setup video tutorials</a>.</p>
  </div>
  </div>
  </div>
@@ -1254,7 +1563,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p>Stake your earned or purchased WFI tokens directly in the platform to earn competitive APY rewards. Staked tokens remain accessible - you choose your lock period (flexible, 30, 60, 90 days) with higher APY for longer commitments. Rewards auto-compound or can be claimed daily based on your preference.</p>
+ <p>Stake your earned or purchased WFI tokens directly in the platform to earn competitive APY (Annual Percentage Yield) rewards. Staked tokens remain accessible - you choose your lock period (flexible, 30, 60, 90 days) with higher APY for longer commitments. Rewards auto-compound or can be claimed daily based on your preference.</p>
  </div>
  </div>
  </div>
@@ -1309,6 +1618,8 @@
  <p>Absolutely. Share your unique referral link and earn participate in opportunities on Level 1 (direct referrals), participate in opportunities 2, and participate in opportunities 3 when fully qualified. Referral earnings are passive - once someone joins through your link, you earn from their activity automatically.</p>
  <div class="faq-cta">
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="width: 100%;"><span>Get Your Referral Link - Join Now</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
  </div>
  </div>
  </div>
@@ -1369,6 +1680,8 @@
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
  <span>Join WeFi Now - Start Earning</span>
  </a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
  <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-secondary">
  <span>View Getting Started Guide</span>
  </a>
@@ -1380,6 +1693,16 @@
  <footer class="footer">
  <div class="footer-container">
  <div class="footer-grid">
+ <div class="footer-column">
+ <h3>Connect With KOL</h3>
+ <ul class="footer-links">
+ <li><a href="https://wa.me/27721714626" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
+ <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
+ <li><a href="https://web.facebook.com/deobankdefi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
+ <li><a href="https://www.youtube.com/@deobankdefi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
+ </ul>
+ </div>
+
  <div class="footer-column">
  <h3>Quick Links</h3>
  <ul class="footer-links">
@@ -1395,7 +1718,7 @@
  </div>
 
  <div class="footer-column">
- <h3>Independent KOL Resource</h3>
+ <h3>Independent KOL (Key Opinion Leader) Resource</h3>
  <ul class="footer-links">
  <li><a href="https://www.wefi.co" target="_blank" rel="noopener noreferrer">WeFi Official Website</a></li>
  <li><a href="https://app.wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Dashboard</a></li>
@@ -1415,16 +1738,6 @@
  <li><a href="https://www.deobankdefi.com/disclaimer.html">Disclaimer</a></li>
  <li><a href="https://www.deobankdefi.com/node-agreement.html">Node Agreement</a></li>
  <li><a href="https://www.deobankdefi.com/wfi-utilization.html">WFI Utilization</a></li>
- </ul>
- </div>
-
- <div class="footer-column">
- <h3>Connect With KOL</h3>
- <ul class="footer-links">
- <li><a href="https://wa.me/27721714626" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
- <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
- <li><a href="https://web.facebook.com/deobankdefi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
- <li><a href="https://www.youtube.com/@deobankdefi" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
  </ul>
  </div>
  </div>
@@ -1539,5 +1852,51 @@
  });
  });
  </script>
+
+    <!-- ADDITIONAL FAQ ENTRIES - NEW CONTENT -->
+    <section class="section" style="background:var(--near-black);">
+      <div class="section-container">
+        <div class="mini-faq fade-in-on-scroll">
+          <h2 class="faq-title">More <span class="highlight">Questions</span> Answered</h2>
+
+          <div class="faq-item">
+            <button class="faq-question">What are the 4 Algorithmic Rules governing WFI?</button>
+            <div class="faq-answer">
+              The 4 Algorithmic Rules create a self-stabilizing WFI economy. (1) Systematic Halving: emission rate halves every 2 years, creating progressive scarcity. (2) Mathematical Supply Control: new token blocks only release when Energy levels confirm ecosystem readiness. (3) Algorithmic Amortization: older ITO Units gradually reduce in efficiency, ensuring fair access for new participants. (4) Energy as Proxy Unit: Energy generation signals real product demand before new supply is released. <a href="https://www.deobankdefi.com/wfi-token.html" class="inline-link">See full WFI tokenomics ←</a>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What is Advanced Farming and how does it compare to Daily Farming?</button>
+            <div class="faq-answer">
+              Daily Farming accrues Energy gradually day by day, with a Time Factor multiplier that grows the longer WFI stays in your account. Advanced Farming commits your WFI for a fixed period (1 to 5 years) and issues 100% of the Energy upfront at the maximum Time Factor for that commitment period. This makes Advanced Farming significantly more rewarding than Daily Farming over the same timeframe. You can also extend your Advanced Farming commitment at any time.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What is the Loyalty Coefficient (LC (Loyalty Coefficient)) and how is it used?</button>
+            <div class="faq-answer">
+              The Loyalty Coefficient (LC) is WeFi's behavior-based credit scoring system. It replaces traditional credit scores with real-time onchain metadata. The AI Orchestration Layer tracks interaction quality, repayment promptness, and long-term ecosystem engagement to build a Trust Profile. A higher LC unlocks access to the Decentralized Credit System (DCS (Decentralized Credit System)) for collateral-free loans, higher credit limits, and lower interest rates - all without paperwork or traditional credit bureau checks.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">My country is geo-blocked. How do I access WeFi?</button>
+            <div class="faq-answer">
+              If you see "Service not available in your region" when accessing the WeFi platform, you need a VPN to bypass the geo-restriction. We recommend Proton VPN: it is 100% free, has no ads, and works on all devices including iOS, Android, Windows, Mac, and as a browser extension. Download it at <a href="https://protonvpn.com/free-vpn" target="_blank" class="inline-link">protonvpn.com/free-vpn</a>, connect to an available server, then access the WeFi registration page. <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="inline-link">See the full Getting Started guide ←</a>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">What is the difference between a Distributed Custody wallet and a Non-Custodial NFC (Near Field Communication) wallet?</button>
+            <div class="faq-answer">
+              The Distributed Custody (MPC (Multi-Party Computation)) Wallet is the default operational wallet. It uses Multi-Party Computation to distribute key shares between your device and regulated infrastructure, enabling daily banking - card payments, transfers, and mining - while keeping assets in individual onchain wallets. The Non-Custodial NFC Wallet is a hardware card designed for long-term asset storage. Private keys live on the physical card. Funds only move when you physically tap the card. Neither WeFi nor its partners can access NFC wallet funds.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
 </body>
 </html>
