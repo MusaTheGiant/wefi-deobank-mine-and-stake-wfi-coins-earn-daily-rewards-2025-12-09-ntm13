@@ -3218,15 +3218,19 @@
       }
     }
 
-    /* ===== NAVBAR HIDE-ON-SCROLL / SHOW-ON-SCROLL-UP ===== */
+    
+    /* ===== SMART NAVBAR: hide on scroll-down, show on scroll-up ===== */
     .navbar {
-      transition: transform 0.35s ease, background 0.3s ease, box-shadow 0.3s ease !important;
+      will-change: transform;
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1),
+                  background 0.3s ease,
+                  box-shadow 0.3s ease !important;
     }
-    .navbar--hidden {
-      transform: translateY(-110%);
+    .navbar-hidden {
+      transform: translateY(-150%) !important;
     }
-
-    </style>
+    /* ================================================================ */
+</style>
 </head>
 <body>
  <!-- COMPLIANCE DISCLAIMER -->
@@ -4729,41 +4733,35 @@
  }
  
  }); // End of DOMContentLoaded
- 
-    // ===== NAVBAR HIDE ON SCROLL DOWN / SHOW ON SCROLL UP =====
-    (function() {
-      var navbar  = document.querySelector('.navbar');
-      var lastY   = window.scrollY;
-      var ticking = false;
+</script>
 
-      function updateNavbar() {
-        var currentY = window.scrollY;
-        var disclaimer = document.getElementById('disclaimer-bar');
-        var disclaimerH = disclaimer ? disclaimer.offsetHeight : 28;
+  <script>
+  /* Smart navbar: hide on scroll-down, reveal on scroll-up */
+  (function(){
+    var nav     = document.querySelector('.navbar');
+    var lastY   = 0;
+    var threshold = 6; /* px of scroll intent before reacting */
 
-        if (currentY <= disclaimerH + 10) {
-          // At very top - always show, never hide
-          navbar.classList.remove('navbar--hidden');
-        } else if (currentY > lastY + 4) {
-          // Scrolling DOWN - hide
-          navbar.classList.add('navbar--hidden');
-        } else if (currentY < lastY - 4) {
-          // Scrolling UP - show
-          navbar.classList.remove('navbar--hidden');
-        }
+    if (!nav) return;
 
-        lastY   = currentY;
-        ticking = false;
+    function onScroll(){
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      if (y <= 80) {
+        /* Near top – always visible */
+        nav.classList.remove('navbar-hidden');
+      } else if (y > lastY + threshold) {
+        /* Scrolling DOWN */
+        nav.classList.add('navbar-hidden');
+      } else if (y < lastY - threshold) {
+        /* Scrolling UP */
+        nav.classList.remove('navbar-hidden');
       }
+      lastY = y;
+    }
 
-      window.addEventListener('scroll', function() {
-        if (!ticking) {
-          requestAnimationFrame(updateNavbar);
-          ticking = true;
-        }
-      }, { passive: true });
-    })();
-
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
   </script>
+
 </body>
 </html>
