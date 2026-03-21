@@ -1375,7 +1375,7 @@
  }
  /* ===== SECTIONS ===== */
  .section {
- padding: var(--section-padding) 40px;
+ padding: 80px 40px;
  position: relative;
  overflow: hidden;
  }
@@ -2005,10 +2005,7 @@
  }
  
  /* CRITICAL FIX: Reduce logo size on mobile to prevent overlap with badge */
- .logo {
- font-size: 20px;
- letter-spacing: -0.5px;
- }
+ .logo { font-size: 20px; letter-spacing: -0.5px; }
  
  .nav-menu {
  position: fixed;
@@ -2149,10 +2146,7 @@
  
  @media (max-width: 480px) {
  /* Further reduce logo size on very small screens */
- .logo {
- font-size: 18px;
- letter-spacing: -0.3px;
- }
+ 
  
  .hero {
  min-height: 100vh;
@@ -2207,9 +2201,7 @@
  font-size: 20px;
  }
  
- .logo {
- font-size: 24px;
- }
+ 
  
  .nav-cta {
  right: 16px;
@@ -2236,9 +2228,7 @@
  min-height: 30px;
  }
  
- .logo {
- font-size: 22px;
- }
+ 
  
  .btn {
  padding: 12px 14px;
@@ -2952,10 +2942,7 @@
  transition: max-height 0.5s ease, padding 0.5s ease;
  }
  
- .faq-item.active .faq-answer {
- max-height: 1000px;
- padding: 0 30px 30px;
- }
+ .faq-item.active 
  
  .faq-answer-content {
  font-size: 16px;
@@ -3194,7 +3181,7 @@
  
 
  @media (max-width: 768px) {
- .logo { font-size: 20px; letter-spacing: -0.5px; }
+ 
 
  .nav-menu {
  position: fixed;
@@ -3510,7 +3497,7 @@
  </div>
  <div class="video-content">
  <h3 class="video-title">Industry Veteran: I Touched the ATM in Dubai - This Is Actually Real</h3>
- <p class="video-description">After 5+ years seeing rug-pulls and hype with no substance, Kojo flew to Dubai, met experienced WeFi leadership and Dr. John face-to-face, walked through the physical office, and touched the actual ATMs and POS (Point of Sale) systems. This changes everything.</p>
+ <p class="video-description">After 5+ years seeing rug-pulls and hype with no substance, Kojo flew to Dubai, met WeFi leadership and Dr. John face-to-face, walked through the physical office, and touched the actual ATMs and POS (Point of Sale) systems. This changes everything.</p>
  <div class="video-meta">
  <span class="video-meta-item">📹 Credibility & Proof Report</span>
  <span class="video-meta-item">🏢 Dubai Office Visit</span>
@@ -3578,7 +3565,7 @@
  </div>
  </div>
  
- <!-- EVENT VIDEO #3: experienced WeFi leadership - Co-Founder Vision -->
+ <!-- EVENT VIDEO #3: WeFi Co-Founder Vision -->
  <div class="video-card" onclick="playLocalVideo(event, 'https://www.deobankdefi.com/videos/reeve-collins-wefi-co-founder.MP4')">
  <div class="video-thumbnail">
  <div style="font-size: 80px; text-align: center; padding: 20px;">👔</div>
@@ -3587,8 +3574,8 @@
  </div>
  </div>
  <div class="video-content">
- <h3 class="video-title">experienced WeFi leadership: The Vision Behind the World's First Deobanking Platform</h3>
- <p class="video-description">Hear directly from WeFi's co-founder and crypto pioneer experienced WeFi leadership as he reveals the revolutionary vision transforming traditional banking and why this changes everything.</p>
+ <h3 class="video-title">WeFi Co-Founder: The Vision Behind the World's First Deobanking Platform</h3>
+ <p class="video-description">Hear directly from WeFi's co-founder as he reveals the revolutionary vision transforming traditional banking and why this changes everything.</p>
  <div class="video-meta">
  <span class="video-meta-item">🎤 Founder Vision</span>
  <span class="video-meta-item">👔 Co-Founder</span>
@@ -3709,7 +3696,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p><strong>It depends on your goals.</strong> For pure participation opportunities through staking, you need virtually zero ongoing time. Stake your capital once, and the staking rewards generates income automatically, 24/7, with payouts 3 times daily. Many members spend less than 30 minutes per month managing their participation opportunities.</p>
+ <p><strong>It depends on your goals.</strong> For pure ecosystem participation through staking, you need virtually zero ongoing time. Stake your capital once, and the staking rewards generates income automatically, 24/7, with payouts 3 times daily. Many members spend less than 30 minutes per month managing their ecosystem participation.</p>
  <p>If you want to build an active affiliate business and maximize earning potential, expect to commit 5-15 hours per week initially. This includes learning the platform, engaging with training, building your network, and creating content. The time commitment scales with your ambition.</p>
  <p>The beauty of WeFi is flexibility. You can start passive and evolve to active, or remain purely passive forever. Both paths are profitable. The testimonials above showcase members across the entire spectrum of engagement levels. Review the <a href="https://www.deobankdefi.com/wefi-compensation-plan.html">different earning pathways</a> to match your lifestyle and goals.</p>
  </div>
@@ -3773,39 +3760,7 @@
  </div>
  </section>
 
- 
- <!-- VIDEO MODAL -->
- <div class="video-modal" id="videoModal">
- <div class="video-container">
- <div class="video-close" onclick="closeVideoModal()">×</div>
- <div class="video-wrapper">
- <div class="video-loading" id="videoLoading">
- <div class="video-loading-spinner"></div>
- <div class="video-loading-text">Loading WeFi Video...</div>
- <div class="video-loading-subtext">Please wait a moment</div>
- </div>
- <iframe 
- id="vimeoPlayer"
- src=""
- frameborder="0"
- allow="autoplay; fullscreen; picture-in-picture"
- allowfullscreen
- ></iframe>
- </div>
- </div>
- </div>
- 
- <!-- SCROLL TO TOP BUTTON -->
- <button class="scroll-to-top" id="scrollToTopBtn" type="button">↑</button>
- 
-<!-- FOOTER -->
- 
-    <!-- Testimonials Compliance Notice -->
-    <div style="max-width:900px;margin:0 auto 40px;padding:20px 28px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-align:center;">
-      <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.7;margin:0;">
-        <strong style="color:rgba(255,255,255,0.6);">Disclaimer:</strong> The experiences shared above represent individual community members. Results vary based on participation level, ecosystem activity, and market conditions. Cloud-Based Mining Units are software products - not investments. This content is for educational purposes only and does not constitute financial advice.
-      </p>
-    </div>
+
 
     
     <!-- ===== URGENCY CLOSE SECTION ===== -->
@@ -3875,7 +3830,37 @@
 <footer class="footer">
  <div class="footer-container">
  <div class="vpn-footer-block">
-          <div class="vpn-footer-block__top">
+
+
+
+ 
+ <!-- VIDEO MODAL -->
+ <div class="video-modal" id="videoModal">
+ <div class="video-container">
+ <div class="video-close" onclick="closeVideoModal()">×</div>
+ <div class="video-wrapper">
+ <div class="video-loading" id="videoLoading">
+ <div class="video-loading-spinner"></div>
+ <div class="video-loading-text">Loading WeFi Video...</div>
+ <div class="video-loading-subtext">Please wait a moment</div>
+ </div>
+ <iframe 
+ id="vimeoPlayer"
+ src=""
+ frameborder="0"
+ allow="autoplay; fullscreen; picture-in-picture"
+ allowfullscreen
+ ></iframe>
+ </div>
+ </div>
+ </div>
+ 
+ <!-- SCROLL TO TOP BUTTON -->
+ <button class="scroll-to-top" id="scrollToTopBtn" type="button">↑</button>
+ 
+
+
+      <div class="vpn-footer-block__top">
             <div class="vpn-footer-block__icon">🛡️</div>
             <div class="vpn-footer-block__copy">
               <h3 class="vpn-footer-block__headline">Seeing <span>"Service not available in your region"?</span><br>Don't let a border cost you a fortune.</h3>
@@ -3899,7 +3884,7 @@
  <li><a href="https://wa.me/27721714626" target="_blank"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
  <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
  <li><a href="https://web.facebook.com/deobankdefi" target="_blank"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
- <li><a href="https://www.youtube.com/@deobankdefi" target="_blank"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
+ <li><a href="https://www.youtube.com/@deobankdefiaffiliate" target="_blank"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
  </ul>
  </div>
  <div class="footer-section">
