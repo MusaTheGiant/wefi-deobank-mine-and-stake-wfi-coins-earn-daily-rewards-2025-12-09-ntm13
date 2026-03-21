@@ -1875,7 +1875,7 @@
     
     
     /* ===== VPN BUTTON COMPONENT ===== */
-    .vpn-cta-wrap{margin-top:14px;display:flex;flex-direction:column;align-items:flex-start;gap:0;width:fit-content}
+    .vpn-cta-wrap{margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:0;width:fit-content;margin-left:auto;margin-right:auto;text-align:center}
     .vpn-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:transparent;border:2px solid #00D9FF;color:#00D9FF;font-size:14px;font-weight:700;border-radius:50px;text-decoration:none;letter-spacing:0.5px;transition:all 0.25s ease;cursor:pointer;font-family:var(--font-primary);white-space:nowrap}
     .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
     .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
@@ -1931,7 +1931,35 @@
       }
     }
 
-    </style>
+    
+    /* ===== HERO SECTION - UNIVERSAL MOBILE CLEARANCE FIX =====
+       Stack height: disclaimer(~28px) + navbar(56-68px) = ~84-96px
+       Hero padding = stack + breathing room
+       Using calc() with --navbar-height ensures pages with different
+       navbar heights all get correct clearance automatically.
+    ===== */
+    @media (max-width: 768px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 58px) !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 54px) !important;
+      }
+    }
+    @media (max-width: 360px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 60px) !important;
+      }
+    }
+</style>
 
  <script type="application/ld+json">
  {
@@ -2008,24 +2036,6 @@
 
  <!-- HERO SECTION -->
  
-    <!-- ===== VPN NOTICE - VIDEO TUTORIALS PAGE ===== -->
-    <section style="padding: 30px 40px 0;">
-      <div style="max-width:1400px;margin:0 auto;">
-        <div style="background:linear-gradient(135deg,rgba(0,217,255,0.08),rgba(0,217,255,0.04));border:1px solid rgba(0,217,255,0.3);border-radius:16px;padding:28px 36px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-          <span style="font-size:40px;">🛡️</span>
-          <div style="flex:1;min-width:240px;">
-            <h3 style="color:#00D9FF;font-size:18px;font-weight:700;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">Important: Using WeFi in a Restricted Region?</h3>
-            <p style="color:rgba(255,255,255,0.75);font-size:14px;line-height:1.7;margin:0;">
-              If you see <strong style="color:#fff;">"Service not available in your region"</strong> when accessing the WeFi platform after watching these tutorials, you need a VPN. Use <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener" style="color:#00D9FF;font-weight:700;text-decoration:none;">Proton VPN - 100% Free</a> - available on iOS, Android, Windows, Mac, and as a browser extension.
-            </p>
-          </div>
-          <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#00D9FF;color:#000;font-weight:700;font-size:14px;padding:12px 22px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">
-            🔒 Get Free VPN
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- ===== END VPN NOTICE ===== -->
 
 <section class="hero">
  <div class="hero-content">
@@ -2083,7 +2093,6 @@
  <p class="tutorial-description">Step-by-step walkthrough to join WeFi and create your account in minutes - start your journey today.</p>
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="tutorial-cta" target="_blank" rel="noopener">Join WeFi Now</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2104,7 +2113,6 @@
  <p class="tutorial-description">Complete your identity verification quickly and securely - essential steps to unlock full WeFi features.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Start KYC Process</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2125,7 +2133,6 @@
  <p class="tutorial-description">Master deposits and withdrawals - safe, simple methods to move your funds in and out of WeFi.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Manage Funds</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2146,7 +2153,6 @@
  <p class="tutorial-description">Purchase ITO mining units and start earning participation opportunities - complete step-by-step buying guide.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Buy ITO Units</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2167,7 +2173,6 @@
  <p class="tutorial-description">Purchase ITO units instantly with your debit or credit card - the easiest way to start mining.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Buy with Card</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2188,7 +2193,6 @@
  <p class="tutorial-description">Set up your WeFi wallet in minutes - secure storage for your crypto assets made simple.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Create Wallet</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2209,7 +2213,6 @@
  <p class="tutorial-description">Generate your unique referral link and start earning commissions - complete guide to WeFi affiliate success.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Get Referral Link</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2230,7 +2233,6 @@
  <p class="tutorial-description">Get your WeFi virtual card in minutes - start spending your crypto anywhere instantly.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Order Virtual Card</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2251,7 +2253,6 @@
  <p class="tutorial-description">Activate your WeFi physical card in minutes and start using it worldwide - step-by-step activation guide.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Activate Card</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2272,7 +2273,6 @@
  <p class="tutorial-description">Connect your WeFi card to Apple Pay for seamless, contactless mobile payments everywhere.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Setup Apple Pay</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2293,7 +2293,6 @@
  <p class="tutorial-description">Set up your WeFi card with Google Pay for instant, secure mobile payments on any Android device.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Setup Google Pay</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2314,7 +2313,6 @@
  <p class="tutorial-description">Access your earned WFI tokens - complete guide to vesting periods and claiming your rewards.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Claim Rewards</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2335,7 +2333,6 @@
  <p class="tutorial-description">Claim your daily mining energy and keep earning - never miss a day of participation opportunities.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Claim Energy</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2356,7 +2353,6 @@
  <p class="tutorial-description">Optimize your mining energy allocation to your WeFi card - maximize rewards and spending power.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Allocate Energy</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2377,7 +2373,6 @@
  <p class="tutorial-description">Learn the step-by-step process to purchase WFI tokens directly in the WeFi app - your complete buying guide.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Buy WFI Tokens</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-     <span style="display:block;font-size:11px;color:rgba(0,217,255,0.7);margin-top:6px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a></span>
  </div>
  </div>
  
@@ -2777,7 +2772,6 @@
               If your region is geo-blocked and you see "Service not available in your region", you need a VPN before accessing the WeFi platform. Use <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="color:#00D9FF;font-weight:600;text-decoration:none;">Proton VPN (100% Free)</a> - no ads, available on all devices and browsers including as a Chrome/Firefox extension.
             </p>
           </div>
-          <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="background:#00D9FF;color:#000;font-weight:700;font-size:14px;padding:12px 24px;border-radius:50px;text-decoration:none;white-space:nowrap;flex-shrink:0;">Get Proton VPN Free</a>
         </div>
       </div>
     </section>
@@ -2822,7 +2816,6 @@
         <div style="text-align:center;">
           <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Ready to Start? Full Guide Here ←</span></a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-          <div style="display:block;font-size:12px;color:rgba(0,217,255,0.8);margin-top:10px;">🛡️ Geo-blocked? <a href="https://protonvpn.com/free-vpn" target="_blank" style="color:#00D9FF;text-decoration:none;font-weight:600;">Get Proton VPN Free</a> first.</div>
         </div>
       </div>
     </section>
