@@ -537,11 +537,12 @@
  justify-content: center;
  
  /* Fluid padding */
- padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
+ padding: 12px 28px;
  
  /* Sizing */
  min-height: 44px;
  min-width: fit-content;
+  width: fit-content;
  
  /* Styling */
  border-radius: 50px;
@@ -1215,7 +1216,7 @@
  .table-row { grid-template-columns: 1fr; }
  .table-cell { padding: 15px; }
  .btn-group { flex-direction: column; }
- .btn { width: 100%; }
+ .btn { width: fit-content; max-width: 100%; }
  .process-steps { grid-template-columns: 1fr; }
 
  .faq-item { margin-bottom: 18px; padding-bottom: 18px; }
@@ -2598,7 +2599,106 @@
         </div>
       </div>
     </section>
-    <footer class="footer">
+    <!-- TOKENOMICS BREAKDOWN -->
+    <section class="section" style="background:var(--near-black);">
+      <div class="section-container">
+        <div class="section-header fade-in-on-scroll">
+          <h2 class="section-title"><span class="highlight">WFI Token</span> Supply Breakdown</h2>
+          <p class="section-subtitle">Fixed total supply of 1,000,000,000 WFI. 100% distributed to the community through Cloud-Based Mining. Zero pre-sale allocation.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:900px;margin:0 auto 50px;">
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.25);border-radius:16px;padding:30px;text-align:center;">
+            <div style="font-size:32px;margin-bottom:10px;">⛏️</div>
+            <div style="color:var(--lime-green);font-size:26px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;">862M</div>
+            <div style="color:rgba(255,255,255,0.9);font-size:15px;font-weight:600;margin-bottom:8px;">Mineable Tokens (CBM (Cloud-Based Mining))</div>
+            <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;">Distributed via activated ITO Units over the multi-year emission cycle. Every token is earned, not sold.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(0,217,255,0.06),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="font-size:32px;margin-bottom:10px;">🎁</div>
+            <div style="color:#00D9FF;font-size:26px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;">128M</div>
+            <div style="color:rgba(255,255,255,0.9);font-size:15px;font-weight:600;margin-bottom:8px;">Referrals and Rewards</div>
+            <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;">Reserved for ecosystem growth incentives, referral bonuses, and community rewards.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(65,105,225,0.08),rgba(65,105,225,0.04));border:1px solid rgba(65,105,225,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="font-size:32px;margin-bottom:10px;">📊</div>
+            <div style="color:#4169E1;font-size:26px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;">10M</div>
+            <div style="color:rgba(255,255,255,0.9);font-size:15px;font-weight:600;margin-bottom:8px;">Exchange Reserve</div>
+            <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;">Liquidity reserve for CEX and DEX listings. BitMart, BingX, PancakeSwap.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 ALGORITHMIC RULES -->
+    <section class="section">
+      <div class="section-container">
+        <div class="section-header fade-in-on-scroll">
+          <h2 class="section-title">The <span class="highlight">4 Algorithmic Rules</span> Governing WFI</h2>
+          <p class="section-subtitle">No subjective human intervention. Price dynamics are driven by adoption and usage, not speculation.</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card fade-in-on-scroll">
+            <div class="feature-icon">📉</div>
+            <h3 class="feature-title">1. Systematic Halving (SH (Systematic Halving))</h3>
+            <p class="feature-description">The primary deflationary mechanism. Every two years, the WFI emission rate reduces by 50%, creating progressive scarcity similar to Bitcoin's model.</p>
+            <ul class="feature-bullets">
+              <li>Years 1-2: 8 tokens per second</li>
+              <li>Years 3-4: 4 tokens per second (first halving)</li>
+              <li>Years 5-6: 2 tokens per second (second halving)</li>
+              <li>Years 7-8: 1 token per second (final phase)</li>
+            </ul>
+          </div>
+          <div class="feature-card fade-in-on-scroll">
+            <div class="feature-icon">🔢</div>
+            <h3 class="feature-title">2. Mathematical Supply Control (MSC (Mathematical Supply Control))</h3>
+            <p class="feature-description">Regulates the volume of WFI entering the market. Total supply is divided into 10 blocks of 100M tokens. A new block is only released when Energy levels confirm the ecosystem is ready to absorb it.</p>
+            <ul class="feature-bullets">
+              <li>10 blocks of 100 million tokens each</li>
+              <li>Unlock threshold: 30 million Energy generated</li>
+              <li>Energy signals proven product demand before release</li>
+            </ul>
+          </div>
+          <div class="feature-card fade-in-on-scroll">
+            <div class="feature-icon">⚖️</div>
+            <h3 class="feature-title">3. Algorithmic Amortization (AA (Algorithmic Amortization))</h3>
+            <p class="feature-description">Ensures long-term fairness by gradually reducing the efficiency of older ITO Units. This prevents early participants from holding excessive mining power indefinitely and keeps the ecosystem competitive for new entrants.</p>
+            <ul class="feature-bullets">
+              <li>Anti-whale mechanism built into the code</li>
+              <li>Equal opportunity for participants at any stage</li>
+              <li>Predictable, transparent decay schedule</li>
+            </ul>
+          </div>
+          <div class="feature-card fade-in-on-scroll">
+            <div class="feature-icon">⚡</div>
+            <h3 class="feature-title">4. Energy: The Proxy Unit</h3>
+            <p class="feature-description">Energy acts as the objective indicator of ecosystem readiness. Created only when WFI is committed through farming, it signals real product demand. High Energy generation proves users find value in WeFi products before new supply is released.</p>
+            <ul class="feature-bullets">
+              <li>Eliminates fees on transactions and swaps</li>
+              <li>Boosts ITO Unit mining power</li>
+              <li>Price grows +$0.10 per $1M burned globally</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- VESTING INFO -->
+        <div style="margin-top:50px;background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.2);border-radius:20px;padding:40px;">
+          <h3 style="color:var(--lime-light);font-size:24px;font-weight:700;margin-bottom:20px;text-align:center;font-family:'Space Grotesk',sans-serif;">WFI Vesting: Controlled, Fair, Transparent</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;text-align:center;">
+            <div><div style="color:var(--lime-green);font-size:28px;font-weight:800;margin-bottom:6px;">180</div><div style="color:rgba(255,255,255,0.7);font-size:14px;">Day vesting duration</div></div>
+            <div><div style="color:var(--lime-green);font-size:28px;font-weight:800;margin-bottom:6px;">1/180th</div><div style="color:rgba(255,255,255,0.7);font-size:14px;">Released daily (linear)</div></div>
+            <div><div style="color:var(--lime-green);font-size:28px;font-weight:800;margin-bottom:6px;">Daily</div><div style="color:rgba(255,255,255,0.7);font-size:14px;">Claim via MPC signature</div></div>
+            <div><div style="color:var(--lime-green);font-size:28px;font-weight:800;margin-bottom:6px;">OnChain</div><div style="color:rgba(255,255,255,0.7);font-size:14px;">All moves recorded on WeChain</div></div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:40px;">
+          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Start Mining WFI Tokens ←</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+        </div>
+      </div>
+    </section>
+
+<footer class="footer">
  <div class="footer-container">
  <div class="vpn-footer-block">
           <div class="vpn-footer-block__top">
@@ -3340,105 +3440,6 @@
  console.log('✅ Video modal functions initialized');
  });
  </script>
-
-    <!-- TOKENOMICS BREAKDOWN -->
-    <section class="section" style="background:var(--near-black);">
-      <div class="section-container">
-        <div class="section-header fade-in-on-scroll">
-          <h2 class="section-title"><span class="highlight">WFI Token</span> Supply Breakdown</h2>
-          <p class="section-subtitle">Fixed total supply of 1,000,000,000 WFI. 100% distributed to the community through Cloud-Based Mining. Zero pre-sale allocation.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:900px;margin:0 auto 50px;">
-          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.25);border-radius:16px;padding:30px;text-align:center;">
-            <div style="font-size:32px;margin-bottom:10px;">⛏️</div>
-            <div style="color:var(--lime-green);font-size:26px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;">862M</div>
-            <div style="color:rgba(255,255,255,0.9);font-size:15px;font-weight:600;margin-bottom:8px;">Mineable Tokens (CBM (Cloud-Based Mining))</div>
-            <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;">Distributed via activated ITO Units over the multi-year emission cycle. Every token is earned, not sold.</p>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(0,217,255,0.06),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.2);border-radius:16px;padding:30px;text-align:center;">
-            <div style="font-size:32px;margin-bottom:10px;">🎁</div>
-            <div style="color:#00D9FF;font-size:26px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;">128M</div>
-            <div style="color:rgba(255,255,255,0.9);font-size:15px;font-weight:600;margin-bottom:8px;">Referrals and Rewards</div>
-            <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;">Reserved for ecosystem growth incentives, referral bonuses, and community rewards.</p>
-          </div>
-          <div style="background:linear-gradient(135deg,rgba(65,105,225,0.08),rgba(65,105,225,0.04));border:1px solid rgba(65,105,225,0.2);border-radius:16px;padding:30px;text-align:center;">
-            <div style="font-size:32px;margin-bottom:10px;">📊</div>
-            <div style="color:#4169E1;font-size:26px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;">10M</div>
-            <div style="color:rgba(255,255,255,0.9);font-size:15px;font-weight:600;margin-bottom:8px;">Exchange Reserve</div>
-            <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;">Liquidity reserve for CEX and DEX listings. BitMart, BingX, PancakeSwap.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4 ALGORITHMIC RULES -->
-    <section class="section">
-      <div class="section-container">
-        <div class="section-header fade-in-on-scroll">
-          <h2 class="section-title">The <span class="highlight">4 Algorithmic Rules</span> Governing WFI</h2>
-          <p class="section-subtitle">No subjective human intervention. Price dynamics are driven by adoption and usage, not speculation.</p>
-        </div>
-        <div class="feature-grid">
-          <div class="feature-card fade-in-on-scroll">
-            <div class="feature-icon">📉</div>
-            <h3 class="feature-title">1. Systematic Halving (SH (Systematic Halving))</h3>
-            <p class="feature-description">The primary deflationary mechanism. Every two years, the WFI emission rate reduces by 50%, creating progressive scarcity similar to Bitcoin's model.</p>
-            <ul class="feature-bullets">
-              <li>Years 1-2: 8 tokens per second</li>
-              <li>Years 3-4: 4 tokens per second (first halving)</li>
-              <li>Years 5-6: 2 tokens per second (second halving)</li>
-              <li>Years 7-8: 1 token per second (final phase)</li>
-            </ul>
-          </div>
-          <div class="feature-card fade-in-on-scroll">
-            <div class="feature-icon">🔢</div>
-            <h3 class="feature-title">2. Mathematical Supply Control (MSC (Mathematical Supply Control))</h3>
-            <p class="feature-description">Regulates the volume of WFI entering the market. Total supply is divided into 10 blocks of 100M tokens. A new block is only released when Energy levels confirm the ecosystem is ready to absorb it.</p>
-            <ul class="feature-bullets">
-              <li>10 blocks of 100 million tokens each</li>
-              <li>Unlock threshold: 30 million Energy generated</li>
-              <li>Energy signals proven product demand before release</li>
-            </ul>
-          </div>
-          <div class="feature-card fade-in-on-scroll">
-            <div class="feature-icon">⚖️</div>
-            <h3 class="feature-title">3. Algorithmic Amortization (AA (Algorithmic Amortization))</h3>
-            <p class="feature-description">Ensures long-term fairness by gradually reducing the efficiency of older ITO Units. This prevents early participants from holding excessive mining power indefinitely and keeps the ecosystem competitive for new entrants.</p>
-            <ul class="feature-bullets">
-              <li>Anti-whale mechanism built into the code</li>
-              <li>Equal opportunity for participants at any stage</li>
-              <li>Predictable, transparent decay schedule</li>
-            </ul>
-          </div>
-          <div class="feature-card fade-in-on-scroll">
-            <div class="feature-icon">⚡</div>
-            <h3 class="feature-title">4. Energy: The Proxy Unit</h3>
-            <p class="feature-description">Energy acts as the objective indicator of ecosystem readiness. Created only when WFI is committed through farming, it signals real product demand. High Energy generation proves users find value in WeFi products before new supply is released.</p>
-            <ul class="feature-bullets">
-              <li>Eliminates fees on transactions and swaps</li>
-              <li>Boosts ITO Unit mining power</li>
-              <li>Price grows +$0.10 per $1M burned globally</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- VESTING INFO -->
-        <div style="margin-top:50px;background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.2);border-radius:20px;padding:40px;">
-          <h3 style="color:var(--lime-light);font-size:24px;font-weight:700;margin-bottom:20px;text-align:center;font-family:'Space Grotesk',sans-serif;">WFI Vesting: Controlled, Fair, Transparent</h3>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;text-align:center;">
-            <div><div style="color:var(--lime-green);font-size:28px;font-weight:800;margin-bottom:6px;">180</div><div style="color:rgba(255,255,255,0.7);font-size:14px;">Day vesting duration</div></div>
-            <div><div style="color:var(--lime-green);font-size:28px;font-weight:800;margin-bottom:6px;">1/180th</div><div style="color:rgba(255,255,255,0.7);font-size:14px;">Released daily (linear)</div></div>
-            <div><div style="color:var(--lime-green);font-size:28px;font-weight:800;margin-bottom:6px;">Daily</div><div style="color:rgba(255,255,255,0.7);font-size:14px;">Claim via MPC signature</div></div>
-            <div><div style="color:var(--lime-green);font-size:28px;font-weight:800;margin-bottom:6px;">OnChain</div><div style="color:rgba(255,255,255,0.7);font-size:14px;">All moves recorded on WeChain</div></div>
-          </div>
-        </div>
-
-        <div style="text-align:center;margin-top:40px;">
-          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Start Mining WFI Tokens ←</span></a>
-<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
-        </div>
-      </div>
-    </section>
 
 </body>
 </html>
