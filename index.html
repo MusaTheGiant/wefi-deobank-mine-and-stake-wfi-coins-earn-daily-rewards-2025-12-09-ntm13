@@ -204,7 +204,16 @@
  }
  
  /* Mobile adjustment for navbar with disclaimer */
- @media (max-width: 768px) {
+ 
+    /* ===== HERO DESKTOP BASELINE CLEARANCE =====
+       disclaimer(42px) + navbar(56-68px) + breathing(30px) = ~130-140px
+    ===== */
+    .hero,
+    .page-hero {
+      padding-top: calc(var(--navbar-height) + 86px);
+    }
+
+    @media (max-width: 768px) {
  .navbar {
  top: 40px; /* Slightly less on mobile for compact disclaimer */
  }
@@ -970,7 +979,10 @@
     /* VPN button always sits directly below the CTA button */
     .ito-hero-container .vpn-cta-wrap {
         order: 8;
-        align-items: flex-start;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
  
  .ito-hero-subtitle {
@@ -3186,7 +3198,35 @@
       }
     }
 
-    </style>
+    
+    /* ===== HERO SECTION - UNIVERSAL MOBILE CLEARANCE FIX =====
+       Stack height: disclaimer(~28px) + navbar(56-68px) = ~84-96px
+       Hero padding = stack + breathing room
+       Using calc() with --navbar-height ensures pages with different
+       navbar heights all get correct clearance automatically.
+    ===== */
+    @media (max-width: 768px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 58px) !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 54px) !important;
+      }
+    }
+    @media (max-width: 360px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 60px) !important;
+      }
+    }
+</style>
 </head>
 <body>
  <!-- COMPLIANCE DISCLAIMER -->
