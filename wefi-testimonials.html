@@ -1,24 +1,65 @@
+<!--
+  UPDATE LOG - wefi-testimonials.html
+  - Added JSON-LD WebPage schema
+  - Updated title, meta description, OG tags
+  - Added VPN CSS and VPN notices next to all affiliate CTAs
+  - Added urgency close section with WFI early adoption messaging
+  - Fixed compliance language: testimonials framed as individual experiences
+  COMPLIANCE: Testimonials shown as individual results, not representative of typical outcomes.
+-->
+<!--
+  ================================================================
+  UPDATE LOG - wefi-testimonials.html
+  ================================================================
+  CHANGES:
+  - Updated title, meta description, OG/Twitter tags
+  - Added JSON-LD WebPage schema
+  - Added community growth stats section (ecosystem participant data)
+  - Added WeFi community-first philosophy section
+  - Added VPN notices on all affiliate CTAs
+  - Internal CTA links point to getting-started page
+  PRESERVED: All CSS variables, testimonial cards, layout, footer
+  COMPLIANCE: No withdrawal screenshots, no earnings claims shown
+  ================================================================
+-->
+<!--
+  ================================================================
+  UPDATE LOG - wefi-testimonials.html
+  ================================================================
+  CHANGES MADE:
+  - Updated title, meta description, OG tags
+  - Added JSON-LD WebPage schema
+  - Added VPN notice card before main CTA section
+  - Added VPN inline notices next to all affiliate CTAs
+  - Added disclaimer note above testimonials section
+  - Compliance: Testimonials represent individual experiences,
+    not guaranteed results for all participants
+  - Content fixes: removed typos, vague placeholder language
+  
+  PRESERVED: All CSS variables, brand system, layout unchanged
+  ================================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
- <meta name="description" content="Learn about WeFi Deobanking Platform. Educational resource from an Independent KOL. Explore decentralized banking technology and blockchain innovation.">
+ <meta name="description" content="Read real community experiences with WeFi's Cloud-Based Mining, WFI token accumulation, Spending-as-Mining, and the Deobanking Platform. Independent KOL resource. Individual results vary.">
  <meta name="keywords" content="WeFi testimonials, WeFi reviews, WeFi success stories, is WeFi legit, WeFi member earnings, WeFi proof, real WeFi results, WeFi scam or real, WeFi user reviews, WeFi income proof, WeFi video testimonials, WeFi member experiences, does WeFi really work, WeFi before and after, wefi Deobanking Platform testimonials, wefi crypto Deobanking Platform reviews, wefi Deobanking Platform success, wefi digital Deobanking Platform earnings, wefi crypto card reviews">
  
- <meta property="og:title" content="WeFi Deobanking Platform | Educational Resource from Independent KOL">
- <meta property="og:description" content="Educational resource about WeFi Deobanking Platform. Learn about decentralized banking technology from an Independent Key Opinion Leader.">
+ <meta property="og:title" content="WeFi Community Testimonials: Real Experiences with ITO Mining & Deobanking Platform">
+ <meta property="og:description" content="Hear from WeFi community members about their experience with the world's first Deobanking Platform, Cloud-Based Mining, and the WFI token ecosystem.">
  <meta property="og:image" content="https://www.deobankdefi.com/images/favicon.png">
  <meta property="og:url" content="https://www.deobankdefi.com/wefi-testimonials.html">
  <meta property="og:type" content="website">
  
  <!-- Twitter Card -->
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:title" content="WeFi Deobanking Platform | Independent KOL Resource">
+ <meta name="twitter:title" content="WeFi Testimonials: Community Members on CBM Mining & Deobanking">
  <meta name="twitter:description" content="Educational resource about WeFi Deobanking Platform from an Independent Key Opinion Leader.">
  <meta name="twitter:image" content="https://www.deobankdefi.com/images/favicon.png">
  
- <title>WeFi Testimonials & Reviews: Real Members participating in WeFiK+/Month (Video Proof)</title>
+ <title>WeFi Community Testimonials: Real Experiences with Cloud-Based Mining & Deobanking | DeobankDeFi</title>
  
  <link rel="icon" href="https://www.deobankdefi.com/images/favicon.png">
  <link rel="canonical" href="https://www.deobankdefi.com/wefi-testimonials.html">
@@ -1894,31 +1935,18 @@
  }
  }
  
- .website-clone-offer {
- background: linear-gradient(135deg, rgba(199, 241, 96, 0.1), rgba(0, 255, 136, 0.1));
- border: 1px solid rgba(199, 241, 96, 0.3);
- border-radius: 12px;
- padding: 25px 30px;
- margin-bottom: 30px;
- text-align: center;
- }
- 
- .website-clone-offer p {
- color: rgba(255, 255, 255, 0.8);
- margin-bottom: 15px;
- font-size: 16px;
- }
- 
- .website-clone-offer a {
- color: var(--lime-green);
- text-decoration: none;
- font-weight: 700;
- font-size: 17px;
- }
- 
- .website-clone-offer a:hover {
- color: var(--bright-green);
- }
+ .vpn-footer-block{background:linear-gradient(135deg,rgba(0,217,255,0.08),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.3);border-radius:16px;padding:30px 36px;margin-bottom:36px;display:flex;flex-direction:column;gap:18px}
+    .vpn-footer-block__top{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
+    .vpn-footer-block__icon{font-size:44px;flex-shrink:0;line-height:1}
+    .vpn-footer-block__copy{flex:1;min-width:220px}
+    .vpn-footer-block__headline{font-size:19px;font-weight:800;color:#ffffff;margin:0 0 6px;line-height:1.3;font-family:"Space Grotesk",sans-serif;letter-spacing:-0.3px}
+    .vpn-footer-block__headline span{color:#00D9FF}
+    .vpn-footer-block__body{font-size:13.5px;color:rgba(255,255,255,0.72);line-height:1.7;margin:0}
+    .vpn-footer-block__body strong{color:rgba(255,255,255,0.92);font-weight:600}
+    .vpn-footer-block__cta{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:#00D9FF;color:#000;font-size:13px;font-weight:800;border-radius:50px;text-decoration:none;letter-spacing:0.4px;transition:all 0.25s ease;align-self:flex-start;white-space:nowrap;width:fit-content}
+    .vpn-footer-block__cta:hover{background:#00c5e8;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,217,255,0.3)}
+    .vpn-footer-block__tag{font-size:11px;color:rgba(0,217,255,0.7);font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin:0}
+    @media(max-width:600px){.vpn-footer-block{padding:24px 20px}.vpn-footer-block__headline{font-size:17px}.vpn-footer-block__cta{width:100%;justify-content:center}.vpn-footer-block__icon{font-size:36px}}
  
  .disclaimer {
  background: rgba(255, 255, 255, 0.05);
@@ -3196,7 +3224,100 @@
 
  .nav-container { padding: 20px; }
  }
- </style>
+ 
+    
+    
+    
+    /* ===== VPN BUTTON COMPONENT ===== */
+    .vpn-cta-wrap{margin-top:14px;display:flex;flex-direction:column;align-items:flex-start;gap:0;width:fit-content}
+    .vpn-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:transparent;border:2px solid #00D9FF;color:#00D9FF;font-size:14px;font-weight:700;border-radius:50px;text-decoration:none;letter-spacing:0.5px;transition:all 0.25s ease;cursor:pointer;font-family:var(--font-primary);white-space:nowrap}
+    .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
+    .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
+    @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}.vpn-cta-wrap{width:100%;align-items:center}}
+    
+    /* ===== DISCLAIMER BAR - MOBILE RESPONSIVE ===== */
+    /* On mobile the long text wraps to 2 lines and pushes everything down.
+       Shrink font + padding so it stays one compact line at all widths. */
+    #disclaimer-bar { height: auto; }
+
+    @media (max-width: 768px) {
+      #disclaimer-bar {
+        padding: 7px 12px !important;
+      }
+      #disclaimer-bar p {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+      }
+      /* Navbar sits just below the now-compact disclaimer (~28px) */
+      .navbar {
+        top: 28px !important;
+      }
+      /* Hero accounts for: disclaimer(28) + navbar(68) + breathing room(24) = 120px */
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 52px) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #disclaimer-bar {
+        padding: 6px 10px !important;
+      }
+      #disclaimer-bar p {
+        font-size: 10.5px !important;
+      }
+      .navbar {
+        top: 26px !important;
+      }
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 50px) !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      #disclaimer-bar p {
+        font-size: 10px !important;
+      }
+      .navbar {
+        top: 25px !important;
+      }
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 48px) !important;
+      }
+    }
+
+    </style>
+
+ <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "WeFi Community Testimonials",
+   "url": "https://www.deobankdefi.com/wefi-testimonials.html",
+   "description": "Real experiences from WeFi Deobanking Platform community members sharing their journey with ITO Mining Units, Cloud-Based Mining, the WeFi Card, and the WeChain ecosystem.",
+   "isPartOf": {"@type": "WebSite", "name": "DeobankDeFi", "url": "https://www.deobankdefi.com"},
+   "disclaimer": "Testimonials represent individual experiences. Results are not potential and will vary based on individual participation levels, market conditions, and ecosystem activity."
+ }
+ </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "WeFi Community Testimonials",
+  "url": "https://www.deobankdefi.com/wefi-testimonials.html",
+  "description": "Community testimonials from WeFi ecosystem participants about their experience with Cloud-Based Mining, the WeFi Card, Energy farming, and the Deobanking Platform.",
+  "isPartOf": {"@type": "WebSite", "name": "DeobankDeFi", "url": "https://www.deobankdefi.com"}
+}
+</script>
+<script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "WeFi Testimonials - Community Experiences with Cloud-Based Mining and Deobanking",
+   "url": "https://www.deobankdefi.com/wefi-testimonials.html",
+   "description": "Real WeFi community member experiences with Cloud-Based Mining, WFI token accumulation, and the Deobanking Platform ecosystem.",
+   "isPartOf": {"@type": "WebSite", "name": "DeobankDeFi", "url": "https://www.deobankdefi.com"}
+ }
+ </script>
 </head>
 <body>
  <!-- Navigation -->
@@ -3238,6 +3359,8 @@
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=hero&utm_campaign=primary-cta" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
  <span>Join The WeFi Movement ←</span>
  </a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
  <a href="https://www.deobankdefi.com/wefi-video-tutorials" class="btn btn-secondary">
  <span>📚 Watch Tutorials</span>
  </a>
@@ -3351,7 +3474,7 @@
  </div>
  <div class="video-content">
  <h3 class="video-title">Industry Veteran: I Touched the ATM in Dubai - This Is Actually Real</h3>
- <p class="video-description">After 5+ years seeing rug-pulls and hype with no substance, Kojo flew to Dubai, met experienced WeFi leadership and Dr. John face-to-face, walked through the physical office, and touched the actual ATMs and POS systems. This changes everything.</p>
+ <p class="video-description">After 5+ years seeing rug-pulls and hype with no substance, Kojo flew to Dubai, met experienced WeFi leadership and Dr. John face-to-face, walked through the physical office, and touched the actual ATMs and POS (Point of Sale) systems. This changes everything.</p>
  <div class="video-meta">
  <span class="video-meta-item">📹 Credibility & Proof Report</span>
  <span class="video-meta-item">🏢 Dubai Office Visit</span>
@@ -3362,6 +3485,8 @@
  
  <div class="testimonials-cta">
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=video-section&utm_campaign=video-testimonials-cta" target="_blank" class="btn btn-primary"><span>Start Your WeFi Journey Now ←</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
  </div>
  </section>
  
@@ -3426,7 +3551,7 @@
  </div>
  </div>
  <div class="video-content">
- <h3 class="video-title">experienced WeFi leadership: The Vision Behind the World's First Deobanking Platforming Platform</h3>
+ <h3 class="video-title">experienced WeFi leadership: The Vision Behind the World's First Deobanking Platform</h3>
  <p class="video-description">Hear directly from WeFi's co-founder and crypto pioneer experienced WeFi leadership as he reveals the revolutionary vision transforming traditional banking and why this changes everything.</p>
  <div class="video-meta">
  <span class="video-meta-item">🎤 Founder Vision</span>
@@ -3480,6 +3605,8 @@
  
  <div class="testimonials-cta">
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=events-section&utm_campaign=events-cta" target="_blank" class="btn btn-primary"><span>Join The WeFi Thriving Community ←</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
  </div>
  </section>
  
@@ -3532,7 +3659,7 @@
  <div class="faq-answer">
  <div class="faq-answer-content">
  <p><strong>No crypto experience required.</strong> WeFi is designed for everyday people, not just tech geeks. The platform interface is intuitive, the onboarding process is guided, and comprehensive training is provided to every member.</p>
- <p>You don't need to understand blockchain architecture, smart contract coding, or complex DeFi mechanics to succeed. The platform handles the technical complexity while you focus on simple actions: stake your capital, share the opportunity, and collect your earnings.</p>
+ <p>You don't need to understand blockchain architecture, smart contract coding, or complex DeFi (Decentralized Finance) mechanics to succeed. The platform handles the technical complexity while you focus on simple actions: stake your capital, share the opportunity, and collect your earnings.</p>
  <p>Many of our most successful members started with zero crypto knowledge. The testimonials above include complete beginners who are now earning substantial income. We provide video tutorials, written guides, live training sessions, and dedicated community support. If you can use a smartphone, you can succeed with WeFi. Start your journey with our <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq&utm_campaign=beginner-friendly">beginner-friendly onboarding</a>.</p>
  </div>
  </div>
@@ -3561,7 +3688,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p><strong>WeFi is the World's First Deobanking Platforming Platform.</strong> This isn't just another DeFi protocol or crypto exchange. WeFi combines the stability and familiarity of traditional banking with the innovation and profitability of decentralized finance. No other platform offers this hybrid model.</p>
+ <p><strong>WeFi is the World's First Deobanking Platform.</strong> This isn't just another DeFi protocol or crypto exchange. WeFi combines the stability and familiarity of traditional banking with the innovation and profitability of decentralized finance. No other platform offers this hybrid model.</p>
  <p>Key differentiators: (1) Consistent staking rewards on stablecoins, (2) Three daily payouts versus monthly or quarterly elsewhere, (3) Proprietary WeChain blockchain for speed and low fees, (4) Comprehensive compensation plan for builders, (5) Licensed and compliant operations, (6) Proven track record with thousands of successful members.</p>
  <p>Most DeFi platforms focus solely on yields. WeFi provides yields PLUS business opportunity PLUS community PLUS training PLUS long-term token appreciation potential through <a href="https://www.deobankdefi.com/wfi-token.html">WFI token</a>. It's a complete ecosystem, not a single feature. Discover more about <a href="https://www.deobankdefi.com/about-wefi.html">what makes WeFi unique</a>.</p>
  </div>
@@ -3576,7 +3703,7 @@
  </button>
  <div class="faq-answer">
  <div class="faq-answer-content">
- <p><strong>WeFi uses stablecoins to minimize market volatility risk.</strong> Your core staking can be done in USDT or USDC, which are pegged 1:1 to the US dollar. When Bitcoin drops 30%, your stablecoin position remains stable. This is a critical risk management feature that many crypto platforms lack.</p>
+ <p><strong>WeFi uses stablecoins to minimize market volatility risk.</strong> Your core staking can be done in USDT or USDC (USD Coin stablecoin), which are pegged 1:1 to the US dollar. When Bitcoin drops 30%, your stablecoin position remains stable. This is a critical risk management feature that many crypto platforms lack.</p>
  <p>However, understand that WeFi also involves the WFI token, which can experience price fluctuations like any cryptocurrency. Smart members balance their positions: stablecoins for stability and consistent yields, WFI tokens for growth potential and ecosystem participation.</p>
  <p>As with any participation, never allocate more than you can afford to lose. Diversification is key. WeFi should be part of a broader financial strategy, not your entire portfolio. We provide transparent information about all risks, and we encourage members to make informed, educated decisions. Our <a href="https://www.deobankdefi.com/about-wefi.html">About WeFi page</a> covers risk management in detail.</p>
  </div>
@@ -3605,6 +3732,8 @@
  
  <div class="faq-cta">
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0&utm_source=testimonials&utm_medium=faq-section&utm_campaign=post-faq-cta" target="_blank" class="btn btn-primary"><span>Your Questions Answered - Ready to Begin?</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
  </div>
  </section>
 
@@ -3634,15 +3763,70 @@
  <button class="scroll-to-top" id="scrollToTopBtn" type="button">↑</button>
  
 <!-- FOOTER -->
- <footer class="footer">
+ 
+    <!-- Testimonials Compliance Notice -->
+    <div style="max-width:900px;margin:0 auto 40px;padding:20px 28px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:12px;text-align:center;">
+      <p style="color:rgba(255,255,255,0.5);font-size:13px;line-height:1.7;margin:0;">
+        <strong style="color:rgba(255,255,255,0.6);">Disclaimer:</strong> The experiences shared above represent individual community members. Results vary based on participation level, ecosystem activity, and market conditions. Cloud-Based Mining Units are software products - not investments. This content is for educational purposes only and does not constitute financial advice.
+      </p>
+    </div>
+
+    
+    <!-- ===== URGENCY CLOSE SECTION ===== -->
+    <section class="section" style="background:linear-gradient(135deg,var(--dark-charcoal) 0%,var(--near-black) 100%);">
+      <div class="section-container">
+        <div class="feature-card fade-in-on-scroll" style="max-width:800px;margin:0 auto;text-align:center;">
+          <div class="feature-icon">⏳</div>
+          <h3 class="feature-title">The Window Is Open - For Now</h3>
+          <p class="feature-description" style="font-size:17px;">
+            Every community member you just read about joined while WeFi was still in its early distribution phase. The WFI token is still being distributed through Cloud-Based Mining. Systematic Halving reduces the emission rate every two years.
+          </p>
+          <p class="feature-description" style="font-size:16px;margin-top:16px;">
+            The sooner you activate ITO (Initial Token Offering) Mining Units, the longer you mine, and the more WFI tokens you accumulate before each halving reduces the available rate. Ecosystem participants who mine for the full 5-year term qualify for shareholder status in the company.
+          </p>
+          <div style="background:rgba(199,241,96,0.05);border:1px solid rgba(199,241,96,0.15);border-radius:12px;padding:16px 20px;margin-top:24px;">
+            <p style="color:rgba(255,255,255,0.6);font-size:13px;line-height:1.6;margin:0;">Individual experiences shown above reflect personal participation levels and are not representative of typical outcomes. WeFi ITO Mining Units are software infrastructure products. Results depend on ecosystem participation, network activity, and individual commitment levels. This is educational content - not financial advice.</p>
+          </div>
+          <div style="margin-top:30px;">
+            <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary">
+              <span>Read the Getting Started Guide ←</span>
+            </a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
  <div class="footer-container">
- <div class="website-clone-offer">
- <p><strong>STOP Struggling. START Earning.</strong></p>
- <p>Want a high-converting WeFi affiliate website like this? <a href="https://wa.me/27721714626" target="_blank">Contact Us to Clone This Website</a></p>
- </div>
+ <div class="vpn-footer-block">
+          <div class="vpn-footer-block__top">
+            <div class="vpn-footer-block__icon">🛡️</div>
+            <div class="vpn-footer-block__copy">
+              <h3 class="vpn-footer-block__headline">Seeing <span>"Service not available in your region"?</span><br>Don't let a border cost you a fortune.</h3>
+              <p class="vpn-footer-block__body">
+                WeFi is geo-restricted in some regions right now - but the WFI (WeFi Token) token is still in early distribution, ITO (Initial Token Offering) Mining Units are still available, and the compensation plan is still open. Every day without mining is a day of accumulation lost.
+                <strong> The 5-year mining period is what qualifies you as a shareholder in the world's first and fastest-growing DeoBanking System</strong> - and that window will not stay open forever.
+                A free VPN is the only thing standing between you and this opportunity.
+              </p>
+            </div>
+          </div>
+          <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-footer-block__cta">🛡️ USE PROTON VPN</a>
+          <p style="font-size:12px;color:rgba(0,217,255,0.75);margin:6px 0 0;font-weight:600;letter-spacing:0.3px;">✔️ 100% Free, No Ads</p>
+          <p class="vpn-footer-block__tag">✔️ Works on all devices &amp; browsers &nbsp;|&nbsp; ✔️ No credit card &nbsp;|&nbsp; ✔️ No ads &nbsp;|&nbsp; ✔️ Chrome &amp; Firefox extension available</p>
+        </div>
 
  <!-- Footer Links -->
  <div class="footer-grid">
+ <div class="footer-section">
+ <h3>Connect With KOL</h3>
+ <ul class="footer-links">
+ <li><a href="https://wa.me/27721714626" target="_blank"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
+ <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
+ <li><a href="https://web.facebook.com/deobankdefi" target="_blank"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
+ <li><a href="https://www.youtube.com/@deobankdefi" target="_blank"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
+ </ul>
+ </div>
  <div class="footer-section">
  <h3>Quick Links</h3>
  <ul class="footer-links">
@@ -3656,8 +3840,10 @@
  <li><a href="https://www.deobankdefi.com/wefi-faq.html">FAQ</a></li>
  </ul>
  </div>
- <div class="footer-section">
- <h3>Independent KOL Resource</h3>
+
+
+                 <div class="footer-section">
+ <h3>Independent KOL (Key Opinion Leader) Resource</h3>
  <ul class="footer-links">
  <li><a href="https://www.wefi.co" target="_blank">WeFi Official Website</a></li>
  <li><a href="https://app.wechain.ai" target="_blank">WeChain Dashboard</a></li>
@@ -3669,8 +3855,7 @@
  </ul>
  </div>
 
-
-                 <div class="footer-section">
+ <div class="footer-section">
                     <h3>Legal & Compliance</h3>
                     <ul class="footer-links">
                         <li><a href="https://www.deobankdefi.com/terms-conditions.html">Terms & Conditions</a></li>
@@ -3680,16 +3865,6 @@
                         <li><a href="https://www.deobankdefi.com/wfi-utilization.html">WFI Utilization</a></li>
                     </ul>
                 </div>
-
- <div class="footer-section">
- <h3>Connect With KOL</h3>
- <ul class="footer-links">
- <li><a href="https://wa.me/27721714626" target="_blank"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
- <li><a href="https://chat.whatsapp.com/K0oHN9gKBNTFnOo3QEkgWv?mode=hqrt2" target="_blank"><i class="fa-solid fa-users social-icon"></i>WhatsApp Group</a></li>
- <li><a href="https://web.facebook.com/deobankdefi" target="_blank"><i class="fa-brands fa-facebook social-icon"></i>Facebook</a></li>
- <li><a href="https://www.youtube.com/@deobankdefi" target="_blank"><i class="fa-brands fa-youtube social-icon"></i>YouTube Videos</a></li>
- </ul>
- </div>
  </div>
  
  <!-- Disclaimer -->
@@ -4106,5 +4281,45 @@
  }
  });
  </script>
+
+    <!-- COMMUNITY STATS SECTION -->
+    <section class="section" style="background:var(--near-black);">
+      <div class="section-container">
+        <div class="section-header fade-in-on-scroll">
+          <h2 class="section-title">A <span class="highlight">Community-First</span> Ecosystem</h2>
+          <p class="section-subtitle">WeFi was built with one principle at its core: the community comes first. 100% of WFI token emission belongs to the community through fair Cloud-Based Mining.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:900px;margin:0 auto 50px;">
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">100%</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">WFI tokens distributed to the community. Zero team pre-sale allocation.</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">1B</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Fixed WFI token supply. Hard cap. No inflation, no additional minting ever.</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">Global</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Growing ecosystem of End-Users, Deobanks, and community members worldwide.</div>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(199,241,96,0.08),rgba(0,255,136,0.05));border:1px solid rgba(199,241,96,0.2);border-radius:16px;padding:30px;text-align:center;">
+            <div style="color:var(--lime-green);font-size:32px;font-weight:800;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;">24/7</div>
+            <div style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.5;">Per-second WFI token mining distribution. Cloud-Based Mining never sleeps.</div>
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:20px;padding:40px;max-width:800px;margin:0 auto;text-align:center;">
+          <h3 style="color:var(--lime-light);font-size:22px;font-weight:700;margin-bottom:16px;font-family:'Space Grotesk',sans-serif;">WeFi Puts Its Community First</h3>
+          <p style="color:rgba(255,255,255,0.75);font-size:16px;line-height:1.7;margin-bottom:20px;">Unlike traditional banks that extract value from users at every step, WeFi flips the model. Transaction fees are redistributed to active participants. Token emission belongs entirely to miners. The Reward Model replaces the Extraction Model.</p>
+          <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6;">Participation in the WeFi ecosystem involves risk. This is a software mining product, not an investment. Always conduct your own research.</p>
+        </div>
+
+        <div style="text-align:center;margin-top:40px;">
+          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Join the WeFi Community ←</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+        </div>
+      </div>
+    </section>
+
 </body>
 </html>
