@@ -1560,6 +1560,11 @@
  }
  
  .faq-item {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.faq-item {
  margin-bottom: 20px;
  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
  padding-bottom: 20px;
@@ -2939,7 +2944,7 @@
  }, observerOptions);
  
  // Observe step cards and tutorial cards
- document.querySelectorAll('.step-card, .tutorial-card, .confidence-card, .faq-item').forEach(el => {
+ document.querySelectorAll('.step-card, .tutorial-card, .confidence-card').forEach(el => {
  el.style.opacity = '0';
  el.style.transform = 'translateY(30px)';
  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -3150,20 +3155,7 @@
       });
     }
 
-    document.querySelectorAll('.faq-question').forEach(function(question) {
-      question.addEventListener('click', function() {
-        var answer = this.nextElementSibling;
-        var isActive = this.classList.contains('active');
-        document.querySelectorAll('.faq-question').forEach(function(q) {
-          q.classList.remove('active');
-          if (q.nextElementSibling) q.nextElementSibling.classList.remove('active');
-        });
-        if (!isActive) {
-          this.classList.add('active');
-          if (answer) answer.classList.add('active');
-        }
-      });
-    });
+    // FAQ accordion handled by native script block above
 
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
