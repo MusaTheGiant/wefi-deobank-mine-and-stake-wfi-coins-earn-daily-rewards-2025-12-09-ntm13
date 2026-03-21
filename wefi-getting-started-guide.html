@@ -37,7 +37,7 @@
  <meta name="description" content="Complete step-by-step guide to activating WeFi ITO Mining Units, understanding Cloud-Based Mining, earning WFI tokens, and becoming part of the world's first Deobanking Platform. Independent KOL resource.">
  
  <!-- Comprehensive Keywords - Search Domination -->
- <meta name="keywords" content="WeFi getting started, how to join WeFi, WeFi registration guide, WeFi setup tutorial, buy WeFi ITO units, WeFi Deobanking Platform getting started, start mining WeFi, WeFi affiliate program, WeFi step by step guide, crypto Deobanking Platform getting started, DeFi Deobanking Platform registration, WeFi beginner guide, how to register on WeFi, WeFi account setup, WeFi quick start, WeFi onboarding, how to start earning with WeFi, WeFi mining guide, complete WeFi setup, WeFi first steps, WeFi tutorial, wefi Deobanking Platform registration, wefi crypto Deobanking Platform setup, wefi digital Deobanking Platform guide, wefi blockchain banking, how to buy wefi ito units, wefi participation opportunities setup, wefi referral program setup">
+ <meta name="keywords" content="WeFi getting started, how to join WeFi, WeFi registration guide, WeFi setup tutorial, buy WeFi ITO units, WeFi Deobanking Platform getting started, start mining WeFi, WeFi affiliate program, WeFi step by step guide, crypto Deobanking Platform getting started, DeFi Deobanking Platform registration, WeFi beginner guide, how to register on WeFi, WeFi account setup, WeFi quick start, WeFi onboarding, how to start earning with WeFi, WeFi mining guide, complete WeFi setup, WeFi first steps, WeFi tutorial, wefi Deobanking Platform registration, wefi crypto Deobanking Platform setup, wefi digital Deobanking Platform guide, wefi blockchain banking, how to buy wefi ito units, wefi ecosystem participation setup, wefi referral program setup">
  
  <!-- Cache Control -->
  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -98,7 +98,7 @@
  {
  "@type": "HowToStep",
  "name": "Fund Account and Buy ITO Units",
- "text": "Deposit USDT or use your Deobanking Platform card to purchase ITO mining units and start earning participation opportunities",
+ "text": "Deposit USDT or use your Deobanking Platform card to purchase ITO mining units and start earning ecosystem participation",
  "position": 2
  },
  {
@@ -167,7 +167,7 @@
  --section-padding-mobile: 60px;
  
  /* Fluid spacing system */
- --spacing-hero-top: clamp(20px, 4vh, 40px);
+ --spacing-hero-top: clamp(36px, 5vh, 48px);
  --spacing-hero-bottom: clamp(20px, 3vh, 30px);
  --spacing-hero-inline: clamp(20px, 5vw, 60px);
  
@@ -348,7 +348,7 @@
  /* ===== HERO SECTION ===== */
  .hero {
  min-height: auto;
- padding-block-start: calc(var(--navbar-height) + 35px + var(--safe-area-top));
+ padding-block-start: calc(var(--navbar-height) + 77px + var(--safe-area-top));
  padding-block-end: calc(var(--spacing-hero-bottom) + var(--safe-area-bottom));
  padding-inline: calc(var(--spacing-hero-inline) + max(var(--safe-area-left), var(--safe-area-right)));
  display: flex;
@@ -985,7 +985,9 @@
  display: flex;
  gap: clamp(12px, 2vw, 16px);
  flex-wrap: wrap;
- }
+  justify-content: center;
+  align-items: center;
+}
  
  /* ===== CELEBRATION SECTION ===== */
  .celebration-section {
@@ -1091,7 +1093,8 @@
  gap: clamp(12px, 2vw, 20px);
  justify-content: center;
  flex-wrap: wrap;
- }
+  align-items: center;
+}
  
  /* ===== VIDEO TUTORIALS SECTION ===== */
  .video-tutorials-section {
@@ -1965,44 +1968,6 @@
  }
  
  /* ===== SCROLL TO TOP BUTTON ===== */
- .scroll-to-top {
- position: fixed;
- bottom: max(30px, env(safe-area-inset-bottom, 20px));
- right: max(30px, env(safe-area-inset-right, 20px));
- width: 50px;
- height: 50px;
- background: var(--lime-green);
- color: var(--black);
- border: none;
- border-radius: 50%;
- cursor: pointer;
- display: none;
- align-items: center;
- justify-content: center;
- font-size: 24px;
- font-weight: 700;
- box-shadow: 0 5px 20px rgba(0, 255, 136, 0.4);
- transition: all 0.3s ease;
- z-index: 9999;
- opacity: 0;
- transform: scale(0.8);
- }
- 
- .scroll-to-top.visible {
- display: flex;
- opacity: 1;
- transform: scale(1);
- }
- 
- .scroll-to-top:hover {
- background: var(--bright-green);
- transform: scale(1.1) translateY(-3px);
- box-shadow: 0 8px 30px rgba(0, 255, 136, 0.6);
- }
- 
- .scroll-to-top:active {
- transform: scale(0.95);
- }
  
  .scroll-arrow {
  position: relative;
@@ -2010,23 +1975,9 @@
  }
  
  @media (max-width: 768px) {
- .scroll-to-top {
- bottom: 20px;
- right: 20px;
- width: 45px;
- height: 45px;
- font-size: 22px;
- }
  }
  
  @media (max-width: 480px) {
- .scroll-to-top {
- bottom: 15px;
- right: 15px;
- width: 40px;
- height: 40px;
- font-size: 20px;
- }
  }
  
  /* ===== RESPONSIVE MOBILE ===== */
@@ -2087,7 +2038,7 @@
  .final-cta-buttons {
  flex-direction: column;
  width: 100%;
- }
+  align-items: center;}
  
  .btn {
  width: fit-content;
@@ -2111,8 +2062,7 @@
     .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
     .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
     @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}.vpn-cta-wrap{width:100%;align-items:center}}
-    
-    /* ===== DISCLAIMER BAR - MOBILE RESPONSIVE ===== */
+
     /* On mobile the long text wraps to 2 lines and pushes everything down.
        Shrink font + padding so it stays one compact line at all widths. */
     #disclaimer-bar { height: auto; }
@@ -2203,9 +2153,55 @@
       transform: translateY(-150%) !important;
     }
     /* ================================================================ */
-</style>
+
+    .scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--lime-green);
+  color: var(--black);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  border: none;
+  font-size: 24px;
+}
+    .scroll-to-top.visible { opacity: 1; visibility: visible; }
+    .scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
+}
+
+    
+    /* ===== CTA BUTTONS: STACKED COLUMN ON ALL SCREENS ===== */
+    .cta-buttons,
+    .btn-group,
+    .step-cta-buttons,
+    .faq-cta,
+    .final-cta-buttons,
+    .hero-cta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      gap: 14px !important;
+    }
+    /* ======================================================= */
+
+    </style>
 </head>
 <body>
+</div>
+
  <!-- VIDEO MODAL -->
  <div class="video-modal" id="videoModal">
  <div class="video-container">
@@ -2373,7 +2369,7 @@
  
  <div class="why-box">
  <strong>Why ITO Units?</strong>
- <em>ITO Units are your mining power. Each unit you own mines WFI tokens 24/7. The more units you own, the more you earn. It is participation opportunities on autopilot.</em>
+ <em>ITO Units are your mining power. Each unit you own mines WFI tokens 24/7. The more units you own, the more you earn. It is ecosystem participation on autopilot.</em>
  </div>
  
  <div class="recommended-box">
@@ -2546,7 +2542,7 @@
  </div>
  <div class="tutorial-content">
  <h3 class="tutorial-title">How to Buy WeFi ITO Units - Start Mining Today</h3>
- <p class="tutorial-description">Purchase ITO mining units and start earning participation opportunities. Complete step-by-step buying guide.</p>
+ <p class="tutorial-description">Purchase ITO mining units and start earning ecosystem participation. Complete step-by-step buying guide.</p>
  <a href="https://app.wechain.ai" class="tutorial-cta" target="_blank" rel="noopener">Buy ITO Units</a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div> 
  </div>
@@ -2627,7 +2623,7 @@
  How much money do I need to start?
  </button>
  <div class="faq-answer">
- You can start with any amount, but we recommend at least $100 to $300 for your first ITO Units to see meaningful mining rewards. The more you allocate to ITO Units, the more mining power and participation opportunities you generate.
+ You can start with any amount, but we recommend at least $100 to $300 for your first ITO Units to see meaningful mining rewards. The more you allocate to ITO Units, the more mining power and ecosystem participation you generate.
  </div>
  </div>
  
@@ -2663,7 +2659,7 @@
  Is WeFi safe and legitimate?
  </button>
  <div class="faq-answer">
- Yes. WeFi is co-founded by experienced WeFi leadership, Blockchain Industry Leader (USDT), the world's largest stablecoin. WeFi is committed to compliance and operates in accordance with regulations across multiple countries.
+ Yes. WeFi is co-founded by WeFi leadership, Blockchain Industry Leader (USDT), the world's largest stablecoin. WeFi is committed to compliance and operates in accordance with regulations across multiple countries.
  </div>
  </div>
  
@@ -2824,16 +2820,14 @@
  </div>
  
  <div class="footer-bottom">
- <p>&copy; DeobankDeFi.com | Empowering Financial Freedom Through WeFi | All Rights Reserved</p>
+ <p>&copy; <span id="currentYear"></span> DeobankDeFi.com | Empowering Financial Freedom Through WeFi | All Rights Reserved</p>
  <p class="referral-code">Referral Code: <strong>xn1nq150v0</strong> | Independent KOL</p>
  </div>
  </div>
  </footer>
 
  <!-- Scroll to Top Button -->
- <button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()" title="Back to top">
- <span class="scroll-arrow">↑</span>
- </button>
+ <button class="scroll-to-top" id="scrollToTopBtn" type="button">↑</button>
 
  <script>
  // Mobile menu toggle
@@ -3113,7 +3107,77 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
-  </script>
+  
+  // Dynamic copyright year
+  (function(){ var el = document.getElementById('currentYear'); if(el) el.textContent = new Date().getFullYear(); })();
+
+
+  // ===== CORE NAVIGATION & UI =====
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var cy = document.getElementById('currentYear');
+    if (cy) cy.textContent = new Date().getFullYear();
+
+    var navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+    }
+
+    var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    var navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+
+    var scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+      scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) scrollToTopBtn.classList.add('visible');
+        else scrollToTopBtn.classList.remove('visible');
+      });
+    }
+
+    document.querySelectorAll('.faq-question').forEach(function(question) {
+      question.addEventListener('click', function() {
+        var answer = this.nextElementSibling;
+        var isActive = this.classList.contains('active');
+        document.querySelectorAll('.faq-question').forEach(function(q) {
+          q.classList.remove('active');
+          if (q.nextElementSibling) q.nextElementSibling.classList.remove('active');
+        });
+        if (!isActive) {
+          this.classList.add('active');
+          if (answer) answer.classList.add('active');
+        }
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+  }); // end DOMContentLoaded
+
+</script>
 
 </body>
 </html>
