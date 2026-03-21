@@ -3274,7 +3274,20 @@
         padding-top: calc(var(--navbar-height) + 60px) !important;
       }
     }
-    </style>
+
+    
+    /* ===== SMART NAVBAR: hide on scroll-down, show on scroll-up ===== */
+    .navbar {
+      will-change: transform;
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1),
+                  background 0.3s ease,
+                  box-shadow 0.3s ease !important;
+    }
+    .navbar-hidden {
+      transform: translateY(-150%) !important;
+    }
+    /* ================================================================ */
+</style>
 
  <script type="application/ld+json">
  {
@@ -4285,16 +4298,16 @@ To participate in WeFi's ecosystem:
  }
 
  // Navbar scroll effect
- const navbar = document.querySelector('.navbar');
- if (navbar) {
- window.addEventListener('scroll', () => {
- if (window.scrollY > 50) {
- navbar.classList.add('scrolled');
- } else {
- if (navbar) {
- navbar.classList.remove('scrolled');
- }
- }
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+    }
  });
  }
 
@@ -4739,7 +4752,36 @@ To participate in WeFi's ecosystem:
  }
  
  }); // End of DOMContentLoaded
- </script>
+</script>
+
+
+  <script>
+  /* Smart navbar: hide on scroll-down, reveal on scroll-up */
+  (function(){
+    var nav     = document.querySelector('.navbar');
+    var lastY   = 0;
+    var threshold = 6; /* px of scroll intent before reacting */
+
+    if (!nav) return;
+
+    function onScroll(){
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      if (y <= 80) {
+        /* Near top – always visible */
+        nav.classList.remove('navbar-hidden');
+      } else if (y > lastY + threshold) {
+        /* Scrolling DOWN */
+        nav.classList.add('navbar-hidden');
+      } else if (y < lastY - threshold) {
+        /* Scrolling UP */
+        nav.classList.remove('navbar-hidden');
+      }
+      lastY = y;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+  </script>
 
 </body>
 </html>
