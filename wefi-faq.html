@@ -507,11 +507,12 @@
  justify-content: center;
  
  /* Fluid padding */
- padding: clamp(14px, 2vh, 18px) clamp(24px, 4vw, 40px);
+ padding: 12px 28px;
  
  /* Sizing */
  min-height: 44px;
  min-width: fit-content;
+  width: fit-content;
  
  /* Styling */
  border-radius: 50px;
@@ -1098,7 +1099,8 @@
  }
  
  .btn {
- width: 100%;
+ width: fit-content;
+ max-width: 100%;
  }
  
  .faq-question {
@@ -1695,6 +1697,61 @@
  </div>
 
  </div>
+ 
+ <!-- CATEGORY 6: ADVANCED TOPICS -->
+ <div class="faq-category">
+ <div class="faq-category-header">
+ <div class="faq-category-label">Category 6</div>
+ <h2 class="faq-category-name">Advanced Topics</h2>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ What are the 4 Algorithmic Rules governing WFI?
+ </button>
+ <div class="faq-answer">
+ <div class="faq-answer-content"><p>The 4 Algorithmic Rules create a self-stabilizing WFI economy. (1) Systematic Halving: emission rate halves every 2 years, creating progressive scarcity. (2) Mathematical Supply Control: new token blocks only release when Energy levels confirm ecosystem readiness. (3) Algorithmic Amortization: older ITO Units gradually reduce in efficiency, ensuring fair access for new participants. (4) Energy as Proxy Unit: Energy generation signals real product demand before new supply is released. <a href="https://www.deobankdefi.com/wfi-token.html" class="inline-link">See full WFI tokenomics ←</a></p></div>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ What is Advanced Farming and how does it compare to Daily Farming?
+ </button>
+ <div class="faq-answer">
+ <div class="faq-answer-content"><p>Daily Farming accrues Energy gradually day by day, with a Time Factor multiplier that grows the longer WFI stays in your account. Advanced Farming commits your WFI for a fixed period (1 to 5 years) and issues 100% of the Energy upfront at the maximum Time Factor for that commitment period. This makes Advanced Farming significantly more rewarding than Daily Farming over the same timeframe. You can also extend your Advanced Farming commitment at any time.</p></div>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ What is the Loyalty Coefficient (LC (Loyalty Coefficient)) and how is it used?
+ </button>
+ <div class="faq-answer">
+ <div class="faq-answer-content"><p>The Loyalty Coefficient (LC) is WeFi's behavior-based credit scoring system. It replaces traditional credit scores with real-time onchain metadata. The AI Orchestration Layer tracks interaction quality, repayment promptness, and long-term ecosystem engagement to build a Trust Profile. A higher LC unlocks access to the Decentralized Credit System (DCS (Decentralized Credit System)) for collateral-free loans, higher credit limits, and lower interest rates - all without paperwork or traditional credit bureau checks.</p></div>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ My country is geo-blocked. How do I access WeFi?
+ </button>
+ <div class="faq-answer">
+ <div class="faq-answer-content"><p>If you see "Service not available in your region" when accessing the WeFi platform, you need a VPN to bypass the geo-restriction. We recommend Proton VPN: it is 100% free, has no ads, and works on all devices including iOS, Android, Windows, Mac, and as a browser extension. Download it at <a href="https://protonvpn.com/free-vpn" target="_blank" class="inline-link">protonvpn.com/free-vpn</a>, connect to an available server, then access the WeFi registration page. <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="inline-link">See the full Getting Started guide ←</a></p></div>
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ What is the difference between a Distributed Custody wallet and a Non-Custodial NFC (Near Field Communication) wallet?
+ </button>
+ <div class="faq-answer">
+ <div class="faq-answer-content"><p>The Distributed Custody (MPC (Multi-Party Computation)) Wallet is the default operational wallet. It uses Multi-Party Computation to distribute key shares between your device and regulated infrastructure, enabling daily banking - card payments, transfers, and mining - while keeping assets in individual onchain wallets. The Non-Custodial NFC Wallet is a hardware card designed for long-term asset storage. Private keys live on the physical card. Funds only move when you physically tap the card. Neither WeFi nor its partners can access NFC wallet funds.</p></div>
+ </div>
+ </div>
+
+ </div>
+
  </section>
 
  <!-- FINAL CTA -->
@@ -1717,8 +1774,9 @@
  </div>
  </section>
 
- <!-- FOOTER -->
- <footer class="footer">
+ 
+
+<footer class="footer">
  <div class="footer-container">
  <div class="footer-grid">
  <div class="footer-column">
@@ -1880,51 +1938,6 @@
  });
  });
  </script>
-
-    <!-- ADDITIONAL FAQ ENTRIES - NEW CONTENT -->
-    <section class="section" style="background:var(--near-black);">
-      <div class="section-container">
-        <div class="mini-faq fade-in-on-scroll">
-          <h2 class="faq-title">More <span class="highlight">Questions</span> Answered</h2>
-
-          <div class="faq-item">
-            <button class="faq-question">What are the 4 Algorithmic Rules governing WFI?</button>
-            <div class="faq-answer">
-              The 4 Algorithmic Rules create a self-stabilizing WFI economy. (1) Systematic Halving: emission rate halves every 2 years, creating progressive scarcity. (2) Mathematical Supply Control: new token blocks only release when Energy levels confirm ecosystem readiness. (3) Algorithmic Amortization: older ITO Units gradually reduce in efficiency, ensuring fair access for new participants. (4) Energy as Proxy Unit: Energy generation signals real product demand before new supply is released. <a href="https://www.deobankdefi.com/wfi-token.html" class="inline-link">See full WFI tokenomics ←</a>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">What is Advanced Farming and how does it compare to Daily Farming?</button>
-            <div class="faq-answer">
-              Daily Farming accrues Energy gradually day by day, with a Time Factor multiplier that grows the longer WFI stays in your account. Advanced Farming commits your WFI for a fixed period (1 to 5 years) and issues 100% of the Energy upfront at the maximum Time Factor for that commitment period. This makes Advanced Farming significantly more rewarding than Daily Farming over the same timeframe. You can also extend your Advanced Farming commitment at any time.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">What is the Loyalty Coefficient (LC (Loyalty Coefficient)) and how is it used?</button>
-            <div class="faq-answer">
-              The Loyalty Coefficient (LC) is WeFi's behavior-based credit scoring system. It replaces traditional credit scores with real-time onchain metadata. The AI Orchestration Layer tracks interaction quality, repayment promptness, and long-term ecosystem engagement to build a Trust Profile. A higher LC unlocks access to the Decentralized Credit System (DCS (Decentralized Credit System)) for collateral-free loans, higher credit limits, and lower interest rates - all without paperwork or traditional credit bureau checks.
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">My country is geo-blocked. How do I access WeFi?</button>
-            <div class="faq-answer">
-              If you see "Service not available in your region" when accessing the WeFi platform, you need a VPN to bypass the geo-restriction. We recommend Proton VPN: it is 100% free, has no ads, and works on all devices including iOS, Android, Windows, Mac, and as a browser extension. Download it at <a href="https://protonvpn.com/free-vpn" target="_blank" class="inline-link">protonvpn.com/free-vpn</a>, connect to an available server, then access the WeFi registration page. <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="inline-link">See the full Getting Started guide ←</a>
-            </div>
-          </div>
-
-          <div class="faq-item">
-            <button class="faq-question">What is the difference between a Distributed Custody wallet and a Non-Custodial NFC (Near Field Communication) wallet?</button>
-            <div class="faq-answer">
-              The Distributed Custody (MPC (Multi-Party Computation)) Wallet is the default operational wallet. It uses Multi-Party Computation to distribute key shares between your device and regulated infrastructure, enabling daily banking - card payments, transfers, and mining - while keeping assets in individual onchain wallets. The Non-Custodial NFC Wallet is a hardware card designed for long-term asset storage. Private keys live on the physical card. Funds only move when you physically tap the card. Neither WeFi nor its partners can access NFC wallet funds.
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
 
 </body>
 </html>
