@@ -126,7 +126,7 @@
 
  --section-padding: 80px;
  --section-padding-mobile: 40px;
- --spacing-hero-top: clamp(20px, 4vh, 40px);
+ --spacing-hero-top: clamp(36px, 5vh, 48px);
  --spacing-hero-bottom: clamp(20px, 3vh, 30px);
  --spacing-hero-inline: clamp(20px, 5vw, 60px);
 
@@ -1656,8 +1656,7 @@
     .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
     .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
     @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}.vpn-cta-wrap{width:100%;align-items:center}}
-    
-    /* ===== DISCLAIMER BAR - MOBILE RESPONSIVE ===== */
+
     /* On mobile the long text wraps to 2 lines and pushes everything down.
        Shrink font + padding so it stays one compact line at all widths. */
     #disclaimer-bar { height: auto; }
@@ -1748,7 +1747,25 @@
       transform: translateY(-150%) !important;
     }
     /* ================================================================ */
-</style>
+
+    
+    /* ===== CTA BUTTONS: STACKED COLUMN ON ALL SCREENS ===== */
+    .cta-buttons,
+    .btn-group,
+    .step-cta-buttons,
+    .faq-cta,
+    .final-cta-buttons,
+    .hero-cta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      gap: 14px !important;
+    }
+    /* ======================================================= */
+
+    </style>
 
  <script type="application/ld+json">
  {
@@ -1842,6 +1859,8 @@
 </head>
 
 <body>
+</div>
+
  <!-- Navigation -->
  <nav class="navbar">
  <div class="nav-container">
@@ -1946,7 +1965,7 @@
  <span class="feature-icon">👥</span>
  <h3 class="feature-title">Veteran Leadership</h3>
  <p class="feature-description">
- Founded by experienced WeFi leadership (Tether co-founder), Roman Rossov (ex-Wise), and Maksym Sakharov (ex-Exflow CEO). A team with proven track records in crypto and fintech.
+ Founded by WeFi leadership (Tether co-founder), Roman Rossov (ex-Wise), and Maksym Sakharov (ex-Exflow CEO). A team with proven track records in crypto and fintech.
  </p>
  </div>
 
@@ -2111,7 +2130,7 @@
  <div class="section-badge" style="color: white;">📈 ACCUMULATION STRATEGIES</div>
  <h2 class="section-title">How to <span class="highlight">Earn & Accumulate</span> WFI</h2>
  <p class="section-description">
- Multiple paths to build your WFI holdings and maximize participation opportunities.
+ Multiple paths to build your WFI holdings and maximize ecosystem participation.
  </p>
  </div>
 
@@ -2160,7 +2179,7 @@
  <li>Staking for extended periods</li>
  </ul>
  <p class="cta-description" style="margin-top: 20px;">
- This approach leverages immediate mining rewards, participation opportunities from staking, and market exposure for maximum long-term growth.
+ This approach leverages immediate mining rewards, ecosystem participation from staking, and market exposure for maximum long-term growth.
  </p>
  <div class="btn-group">
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary"><span>Start Your WFI Journey</span></a>
@@ -2302,7 +2321,7 @@
  <p class="cta-description" style="margin-top: 20px;">
  Starting now places you ahead of the curve.
  </p>
- <div class="btn-group" style="margin-top: 30px;">
+ <div class="btn-group" style="margin-top: 30px; display:flex; justify-content:center; align-items:center;">
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary"><span>Claim Your Early Adopter Position Now</span></a>
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
      
@@ -2420,7 +2439,7 @@
  <div class="faq-item">
  <button class="faq-question">Can I trust the WeFi team?</button>
  <div class="faq-answer">
- WeFi is led by experienced WeFi leadership (Tether co-founder and ex-CEO), Roman Rossov (ex-Product Director at Wise), and Maksym Sakharov (ex-CEO at Exflow). This is a team of proven crypto and fintech veterans with multi-billion dollar track records. They're building for the long term, not a quick exit.
+ WeFi is led by WeFi leadership (Tether co-founder and ex-CEO), Roman Rossov (ex-Product Director at Wise), and Maksym Sakharov (ex-CEO at Exflow). This is a team of proven crypto and fintech veterans with multi-billion dollar track records. They're building for the long term, not a quick exit.
  </div>
  </div>
 
@@ -2436,7 +2455,7 @@
  <div class="faq-answer">
  <strong>Step 1:</strong> <a href="https://app.wechain.ai/register?ref=xn1nq150v0" class="inline-link" target="_blank" rel="noopener">Register for free at WeFi</a>.<br>
  <strong>Step 2:</strong> Fund your account with USDT or fiat via IBAN (instantly converted).<br>
- <strong>Step 3:</strong> Purchase ITO Units to mine WFI, buy WFI on exchanges (BitMart, BingX, PancakeSwap), or stake WFI for participation opportunities.<br>
+ <strong>Step 3:</strong> Purchase ITO Units to mine WFI, buy WFI on exchanges (BitMart, BingX, PancakeSwap), or stake WFI for ecosystem participation.<br>
  <strong>Step 4:</strong> Optionally join the referral program to earn instant commissions.<br>
  No technical experience required. No equipment needed. Just start.
  </div>
@@ -2451,7 +2470,7 @@
  <div class="cta-section">
  <h2 class="cta-title">Ready to Build <span class="highlight">Generational Wealth</span> with WFI?</h2>
  <p class="cta-description">
- Join thousands of early adopters earning participation opportunities through ITO mining, staking, and the World's First Deobanking Platform ecosystem. The best time to start was yesterday. The second best time is right now.
+ Join thousands of early adopters earning ecosystem participation through ITO mining, staking, and the World's First Deobanking Platform ecosystem. The best time to start was yesterday. The second best time is right now.
  </p>
  <div class="btn-group">
  <a href="https://app.wechain.ai/register?ref=xn1nq150v0" target="_blank" rel="noopener" class="btn btn-primary"><span>Get Started with WFI</span></a>
@@ -2758,13 +2777,13 @@
                  <div class="footer-section">
  <h3>Independent KOL (Key Opinion Leader) Resource</h3>
  <ul class="footer-links">
- <li><a href="https://www.wefi.co" target="_blank">WeFi Official Website</a></li>
- <li><a href="https://app.wechain.ai" target="_blank">WeChain Dashboard</a></li>
- <li><a href="https://new.salepoint.io/login" target="_blank">Affiliates Dashboard</a></li>
- <li><a href="https://wechain.ai" target="_blank">WeChain Blockchain</a></li>
- <li><a href="https://t.me/wefi_announcements" target="_blank">WeFi Announcements</a></li>
- <li><a href="https://t.me/+MwwbZbsjFEVjNmVi" target="_blank">Affiliate Announcements</a></li>
- <li><a href="https://www.youtube.com/@wefi.official" target="_blank">YouTube Channel</a></li>
+ <li><a href="https://www.wefi.co" target="_blank" rel="noopener noreferrer">WeFi Official Website</a></li>
+ <li><a href="https://app.wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Dashboard</a></li>
+ <li><a href="https://new.salepoint.io/login" target="_blank" rel="noopener noreferrer">Affiliates Dashboard</a></li>
+ <li><a href="https://wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Blockchain</a></li>
+ <li><a href="https://t.me/wefi_announcements" target="_blank" rel="noopener noreferrer">WeFi Announcements</a></li>
+ <li><a href="https://t.me/+MwwbZbsjFEVjNmVi" target="_blank" rel="noopener noreferrer">Affiliate Announcements</a></li>
+ <li><a href="https://www.youtube.com/@wefi.official" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
  </ul>
  </div>
 
@@ -3201,7 +3220,7 @@
 
  // Initialize YouTube Player
  function initYouTubePlayer(videoId) {
- return new offers((resolve, reject) => {
+ return new Promise((resolve, reject) => {
  try {
  console.log('Initializing YouTube player for video:', videoId);
  
