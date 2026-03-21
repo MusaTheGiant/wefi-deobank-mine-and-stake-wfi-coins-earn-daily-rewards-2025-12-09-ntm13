@@ -966,7 +966,16 @@
  .ito-cta-button {
  order: 7;
  }
- 
+
+ /* Bond the CTA button and VPN block together, always below the button */
+ .cta-group {
+ order: 8;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ width: 100%;
+ }
+
  .ito-hero-subtitle {
  font-size: 18px;
  }
@@ -3143,6 +3152,16 @@
     @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}}
 
 
+    
+    /* ===== CTA GROUP: bonds button + VPN block so order never breaks ===== */
+    .cta-group{display:flex;flex-direction:column;align-items:flex-start;gap:0;width:fit-content}
+    .cta-group .btn,.cta-group .ito-cta-button,.cta-group .tutorial-cta{order:1}
+    .cta-group .vpn-cta-wrap{order:2;margin-top:12px}
+    @media(max-width:768px){
+      .cta-group{width:100%;align-items:center}
+      .cta-group .btn{width:100%}
+    }
+
     </style>
 </head>
 <body>
@@ -3231,14 +3250,14 @@
     Join the revolution that's redefining banking.
     </p>
     
-    <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="ito-cta-button">
+    <div class="cta-group"><a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="ito-cta-button">
     <span>Get Started - Buy ITO Units</span>
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
     <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     </a>
-    
 <div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+</div>
     </div>
     
     <!-- YouTube Video Container -->
