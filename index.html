@@ -3135,12 +3135,13 @@
  }
  
     /* ===== VPN NOTICE COMPONENT ===== */
-    .vpn-notice{display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,rgba(0,217,255,0.06),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.25);border-radius:12px;padding:14px 18px;margin-top:16px;max-width:520px;cursor:pointer;transition:all 0.25s ease;text-decoration:none}.vpn-notice:hover{background:linear-gradient(135deg,rgba(0,217,255,0.12),rgba(0,217,255,0.07));border-color:rgba(0,217,255,0.55);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.15)}
-    .vpn-notice-icon{font-size:20px;flex-shrink:0;margin-top:1px}
-    .vpn-notice-text{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6}
-    .vpn-notice-text strong{color:#00D9FF;font-weight:600}
-    .vpn-notice-text a{color:#00D9FF;font-weight:600;text-decoration:none;border-bottom:1px solid rgba(0,217,255,0.4)}
-    .vpn-notice-text a:hover{color:#C7F160}
+    /* ===== VPN BUTTON COMPONENT ===== */
+    .vpn-cta-wrap{margin-top:12px;display:flex;flex-direction:column;align-items:flex-start;gap:0}
+    .vpn-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:transparent;border:2px solid #00D9FF;color:#00D9FF;font-size:14px;font-weight:700;border-radius:50px;text-decoration:none;letter-spacing:0.5px;transition:all 0.25s ease;cursor:pointer;font-family:var(--font-primary);white-space:nowrap}
+    .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2);border-color:#00D9FF}
+    .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:380px}
+    @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}}
+
 
     </style>
 </head>
@@ -3236,15 +3237,8 @@
     <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     </a>
-    <!-- VPN Notice - Geo-blocked regions -->
-    <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;"><div class="vpn-notice">
-      <span class="vpn-notice-icon">🛡️</span>
-      <p class="vpn-notice-text">
-        <strong>Seeing "Service not available in your region"?</strong> Use 
-        <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer">Proton VPN - 100% Free</a> 
-        to bypass geo-restrictions. Available on all devices and browsers. No ads, no limits.
-      </p>
-    </div></a>
+    
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
     </div>
     
     <!-- YouTube Video Container -->
