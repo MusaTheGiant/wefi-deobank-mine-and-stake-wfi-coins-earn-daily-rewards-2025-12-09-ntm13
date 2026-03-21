@@ -129,7 +129,7 @@
  --section-padding-mobile: 60px;
  
  /* NEW: Fluid spacing system using clamp - OPTIMIZED FOR MOBILE */
- --spacing-hero-top: clamp(20px, 4vh, 40px);
+ --spacing-hero-top: calc(42px + clamp(36px, 5vh, 48px));
  --spacing-hero-bottom: clamp(20px, 3vh, 30px);
  --spacing-hero-inline: clamp(20px, 5vw, 60px);
  
@@ -200,7 +200,7 @@
  /* ===== NAVIGATION ===== */
  .navbar {
  position: fixed;
- top: 0;
+ top: 42px; /* Below disclaimer bar */
  left: 0;
  right: 0;
  z-index: 1000;
