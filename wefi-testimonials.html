@@ -1775,7 +1775,7 @@
  border-bottom-color: var(--bright-green);
  }
  
- .faq-answer.active {
+ .faq-item.active .faq-answer {
  max-height: 600px; /* Increased to accommodate longer answers with links */
  padding-top: 10px;
  padding-bottom: 5px;
@@ -1788,7 +1788,7 @@
  line-height: 1.8; /* Better readability on mobile */
  }
  
- .faq-answer.active {
+ .faq-item.active .faq-answer {
  max-height: 800px; /* Much larger for mobile text wrapping */
  }
  }
@@ -1799,13 +1799,13 @@
  line-height: 1.9; /* Extra spacing for small screens */
  }
  
- .faq-answer.active {
+ .faq-item.active .faq-answer {
  max-height: 1000px; /* Generous height for small screens where text wraps most */
  }
  }
  
  @media (max-width: 360px) {
- .faq-answer.active {
+ .faq-item.active .faq-answer {
  max-height: 1200px; /* Maximum for very small screens */
  }
  }
