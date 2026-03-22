@@ -2553,6 +2553,9 @@
  } else {
  if (scrollToTopBtn) {
  scrollToTopBtn.classList.remove('visible');
+ scrollToTopBtn.addEventListener('click', function() {
+ window.scrollTo({ top: 0, behavior: 'smooth' });
+ });
  }
  }
  });
