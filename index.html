@@ -3984,5 +3984,57 @@
 
   </script>
 
+<script>
+  /* ===== WFI TOKEN PRICE FETCHER (index.html) ===== */
+  (function() {
+    var PAIR_URL = 'https://api.dexscreener.com/latest/dex/pairs/bsc/0xdbbb8c123f0ee395efcaaf6b3285562470ab40e0';
+    var priceEl  = document.getElementById('wfi-current-price');
+    var athEl    = document.getElementById('wfi-ath-price');
+
+    function fmt(num) {
+      if (!isFinite(num)) return null;
+      if (num >= 1)       return '$' + num.toFixed(2);
+      if (num >= 0.01)    return '$' + num.toFixed(4);
+      return '$' + num.toFixed(6);
+    }
+
+    function fetchPrice() {
+      fetch(PAIR_URL + '?t=' + Date.now())
+        .then(function(r) { return r.ok ? r.json() : null; })
+        .then(function(data) {
+          if (!data) throw new Error('no data');
+          var pair = data.pair || (data.pairs && data.pairs[0]);
+          if (!pair) throw new Error('no pair');
+
+          /* Current price */
+          var price = parseFloat(pair.priceUsd);
+          if (priceEl) {
+            priceEl.textContent = isFinite(price) ? fmt(price) : 'Unavailable';
+          }
+
+          /* ATH: DexScreener does not provide ATH — show chart link */
+          if (athEl) {
+            var chartUrl = 'https://dexscreener.com/bsc/0xdbbb8c123f0ee395efcaaf6b3285562470ab40e0';
+            athEl.innerHTML = '<a href="' + chartUrl + '" target="_blank" rel="noopener noreferrer" style="color:var(--lime-green);text-decoration:none;font-weight:600;">View Chart →</a>';
+          }
+        })
+        .catch(function() {
+          var fallback = '<a href="https://dexscreener.com/bsc/0xdbbb8c123f0ee395efcaaf6b3285562470ab40e0" target="_blank" rel="noopener noreferrer" style="color:var(--lime-green);text-decoration:none;font-weight:600;">View Live →</a>';
+          if (priceEl) priceEl.innerHTML = fallback;
+          if (athEl)   athEl.innerHTML   = fallback;
+        });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fetchPrice);
+    } else {
+      fetchPrice();
+    }
+    setInterval(fetchPrice, 30000);
+  })();
+  /* ===== END WFI TOKEN PRICE FETCHER ===== */
+
+  </script>
+
 </body>
 </html>
