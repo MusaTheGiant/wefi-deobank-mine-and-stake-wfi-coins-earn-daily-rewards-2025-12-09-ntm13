@@ -513,21 +513,38 @@
  }
  
  .founder-card {
- background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(30, 30, 30, 0.5));
+ background: linear-gradient(145deg, rgba(32, 34, 28, 0.95), rgba(22, 24, 20, 0.98));
  border-radius: 24px;
  padding: 50px;
- border: 1px solid rgba(199, 241, 96, 0.2);
+ border: 1px solid rgba(199, 241, 96, 0.22);
  display: flex;
  gap: 40px;
  align-items: center;
- transition: all 0.3s ease;
  margin-top: 40px;
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.08),
+   0 4px 8px rgba(0, 0, 0, 0.6),
+   0 12px 24px rgba(0, 0, 0, 0.5),
+   0 24px 48px rgba(0, 0, 0, 0.35),
+   inset 0 1px 0 rgba(199, 241, 96, 0.18),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+ transition:
+   transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   border-color 0.38s ease;
  }
  
  .founder-card:hover {
- transform: translateY(-5px);
- border-color: var(--lime-green);
- box-shadow: 0 20px 60px rgba(199, 241, 96, 0.15);
+ transform: translateY(-8px) scale(1.01);
+ border-color: rgba(199, 241, 96, 0.6);
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.25),
+   0 8px 16px rgba(0, 0, 0, 0.7),
+   0 20px 40px rgba(0, 0, 0, 0.6),
+   0 40px 64px rgba(0, 0, 0, 0.4),
+   0 0 60px rgba(199, 241, 96, 0.12),
+   inset 0 1px 0 rgba(199, 241, 96, 0.35),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.6);
  }
  
  .founder-image {
@@ -1561,13 +1578,25 @@
  }
  
  .feature-card {
- background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(30, 30, 30, 0.8));
- border: 1px solid rgba(199, 241, 96, 0.2);
+ background: linear-gradient(145deg, rgba(32, 34, 28, 0.95), rgba(22, 24, 20, 0.98));
+ border: 1px solid rgba(199, 241, 96, 0.22);
  border-radius: 16px;
  padding: 40px;
- transition: all 0.3s ease;
  position: relative;
  overflow: hidden;
+ /* Visible elevation on dark bg: use bright edge + colored ambient, not dark shadows */
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.08),
+   0 4px 8px rgba(0, 0, 0, 0.6),
+   0 12px 24px rgba(0, 0, 0, 0.5),
+   0 24px 48px rgba(0, 0, 0, 0.35),
+   inset 0 1px 0 rgba(199, 241, 96, 0.18),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+   inset 1px 0 0 rgba(255, 255, 255, 0.03);
+ transition:
+   transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   border-color 0.38s ease;
  }
  
  .feature-card::before {
@@ -1581,11 +1610,19 @@
  transform: scaleX(0);
  transition: transform 0.3s ease;
  }
- 
+
  .feature-card:hover {
- transform: translateY(-5px);
- border-color: var(--lime-green);
- box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+ transform: translateY(-10px) scale(1.02);
+ border-color: rgba(199, 241, 96, 0.6);
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.25),
+   0 8px 16px rgba(0, 0, 0, 0.7),
+   0 20px 40px rgba(0, 0, 0, 0.6),
+   0 40px 64px rgba(0, 0, 0, 0.4),
+   0 0 60px rgba(199, 241, 96, 0.12),
+   0 0 120px rgba(199, 241, 96, 0.06),
+   inset 0 1px 0 rgba(199, 241, 96, 0.35),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.6);
  }
  
  /* Highlight effect when scrolling back to card after video */
@@ -2024,14 +2061,24 @@
  }
  
  .download-card {
- background: var(--dark-charcoal);
- border: 1px solid rgba(199, 241, 96, 0.15);
+ background: linear-gradient(145deg, rgba(30, 32, 28, 0.98), rgba(20, 22, 18, 1));
+ border: 1px solid rgba(199, 241, 96, 0.2);
  border-radius: 16px;
  padding: 40px 30px;
  text-align: center;
- transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
  position: relative;
  overflow: hidden;
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.08),
+   0 4px 8px rgba(0, 0, 0, 0.6),
+   0 12px 24px rgba(0, 0, 0, 0.5),
+   0 24px 48px rgba(0, 0, 0, 0.35),
+   inset 0 1px 0 rgba(199, 241, 96, 0.18),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+ transition:
+   transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   border-color 0.38s ease;
  }
  
  .download-card::before {
@@ -2048,11 +2095,19 @@
  }
  
  .download-card:hover {
- transform: translateY(-8px);
- border-color: var(--lime-green);
- box-shadow: 0 20px 40px rgba(199, 241, 96, 0.15);
+ transform: translateY(-10px) scale(1.02);
+ border-color: rgba(199, 241, 96, 0.6);
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.25),
+   0 8px 16px rgba(0, 0, 0, 0.7),
+   0 20px 40px rgba(0, 0, 0, 0.6),
+   0 40px 64px rgba(0, 0, 0, 0.4),
+   0 0 60px rgba(199, 241, 96, 0.12),
+   0 0 120px rgba(199, 241, 96, 0.06),
+   inset 0 1px 0 rgba(199, 241, 96, 0.35),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.6);
  }
- 
+
  .download-card:hover::before {
  transform: scaleX(1);
  }
@@ -3073,9 +3128,9 @@
  
  /* ===== SCROLL ANIMATIONS ===== */
  .fade-in-on-scroll {
- opacity: 1;
- transform: translateY(0);
- transition: opacity 0.6s ease, transform 0.6s ease;
+ opacity: 0;
+ transform: translateY(30px);
+ transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
  }
  
  .fade-in-on-scroll.visible {
@@ -3210,9 +3265,308 @@
   box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
 }
 
+/* ============================================================
+   PREMIUM ANIMATION ENHANCEMENT LAYER
+   Sections: (1) Background depth, (2) Card 3D tilt,
+   (3) Shimmer & glow, (4) Stagger reveals, (5) Button polish,
+   (6) Micro-interactions, (7) Active nav
+   ============================================================ */
+
+/* --- (1) AMBIENT BACKGROUND BLOBS --- */
+.bg-blob-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0;
+  animation: blobFloat 14s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.bg-blob-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(199, 241, 96, 0.07) 0%, transparent 70%);
+  top: 10%; left: -8%;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+.bg-blob-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.06) 0%, transparent 70%);
+  top: 50%; right: -6%;
+  animation-delay: -6s;
+  animation-duration: 22s;
+}
+.bg-blob-3 {
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.05) 0%, transparent 70%);
+  bottom: 20%; left: 40%;
+  animation-delay: -11s;
+  animation-duration: 16s;
+}
+@keyframes blobFloat {
+  0%   { transform: translate(0, 0) scale(1);     opacity: 0.6; }
+  33%  { transform: translate(30px, -40px) scale(1.05); opacity: 0.9; }
+  66%  { transform: translate(-20px, 30px) scale(0.97); opacity: 0.7; }
+  100% { transform: translate(0, 0) scale(1);     opacity: 0.6; }
+}
+@media (max-width: 768px) {
+  .bg-blob { opacity: 0 !important; }
+}
+
+/* --- (2) CARD 3D TILT FOUNDATION --- */
+.feature-card,
+.download-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+  /* Transition handled per-card above for specificity */
+}
+
+/* Depth layer inside each tilt card */
+.feature-card > *,
+.download-card > * {
+  transform: translateZ(0px);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Combined premium hover - consistent across all card types */
+.feature-card:hover,
+.download-card:hover {
+  border-color: rgba(199, 241, 96, 0.6) !important;
+  box-shadow:
+    0 0 0 1px rgba(199, 241, 96, 0.25),
+    0 8px 16px rgba(0, 0, 0, 0.7),
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 40px 64px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(199, 241, 96, 0.12),
+    0 0 120px rgba(199, 241, 96, 0.06),
+    inset 0 1px 0 rgba(199, 241, 96, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+/* --- (3) CARD SHIMMER EFFECT --- */
+.feature-card,
+.download-card {
+  position: relative;
+  overflow: hidden;
+}
+.card-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+  border-radius: inherit;
+}
+.feature-card:hover .card-shimmer,
+.download-card:hover .card-shimmer {
+  opacity: 1;
+  animation: shimmerPass 1.2s ease forwards;
+}
+@keyframes shimmerPass {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* --- (4) STAGGER REVEAL HELPERS --- */
+.stagger-child {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.stagger-child.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- (5) BUTTON POLISH - press state & glow ring --- */
+.btn-primary:active,
+.btn-secondary:active,
+.ito-cta-button:active,
+.download-btn:active,
+.nav-cta:active {
+  transform: translateY(0) scale(0.97) !important;
+  box-shadow: none !important;
+}
+
+/* Glow ring on CTA buttons */
+.btn-primary,
+.btn-secondary,
+.ito-cta-button {
+  box-shadow:
+    0 10px 30px rgba(199, 241, 96, 0.25),
+    0 0 0 0 rgba(199, 241, 96, 0);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.3s ease !important;
+}
+.btn-primary:hover,
+.btn-secondary:hover,
+.ito-cta-button:hover {
+  box-shadow:
+    0 16px 40px rgba(199, 241, 96, 0.45),
+    0 0 0 4px rgba(199, 241, 96, 0.1) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* --- (6) MICRO-INTERACTIONS --- */
+
+/* Footer links: icon nudge */
+.footer-links a:hover .social-icon {
+  transform: scale(1.2) translateY(-2px) rotate(-4deg);
+}
+
+/* Nav link: underline slide with glow */
+.nav-link::after {
+  box-shadow: 0 2px 8px rgba(199, 241, 96, 0.4);
+}
+
+/* Feature CTA links: arrow nudge */
+.feature-cta:hover,
+.feature-cta-link:hover {
+  color: var(--bright-green);
+  transform: translateX(5px);
+  text-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+}
+
+/* Check circle pulse on hover */
+.ito-benefits-list li:hover .check-circle {
+  background: rgba(199, 241, 96, 0.15);
+  border-color: var(--lime-green);
+  transform: scale(1.12);
+  transition: all 0.25s ease;
+}
+
+/* FAQ question hover lift */
+.faq-question:hover {
+  color: var(--lime-green);
+  padding-left: 8px;
+  transition: all 0.25s ease;
+}
+
+/* --- (7) ENHANCED NAVBAR --- */
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.96) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(199, 241, 96, 0.12) !important;
+}
+
+/* Active nav link state */
+.nav-link.nav-active {
+  color: var(--lime-green);
+}
+.nav-link.nav-active::after {
+  width: 100%;
+}
+
+/* --- (8) SECTION HEADER REVEAL --- */
+.section-header {
+  will-change: opacity, transform;
+}
+
+/* --- (9) HERO BADGE PULSE GLOW --- */
+.ito-badge {
+  animation: badgePulse 3s ease-in-out infinite;
+}
+@keyframes badgePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(199, 241, 96, 0); }
+  50%       { box-shadow: 0 0 18px 4px rgba(199, 241, 96, 0.12); }
+}
+
+/* --- (10) VIDEO CONTAINER ENHANCED HOVER --- */
+.youtube-video-container:hover {
+  transform: translateY(-6px) scale(1.01) !important;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px var(--lime-green),
+    0 0 50px rgba(199, 241, 96, 0.15) !important;
+}
+
+/* --- MOBILE ELEVATION TUNING ---
+   On small screens shadows are halved in spread and opacity.
+   The inset edge light stays because it reads as physical thickness
+   even without the deep floor shadow. No translateY lift on touch
+   devices since there is no hover state on mobile - cards just sit
+   elevated in their resting state which is enough premium feel.
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .feature-card,
+  .download-card,
+  .founder-card {
+    box-shadow:
+      0 0 0 1px rgba(199, 241, 96, 0.1),
+      0 3px 6px rgba(0, 0, 0, 0.55),
+      0 8px 16px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(199, 241, 96, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4) !important;
+    transition:
+      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.35s ease !important;
+  }
+  .feature-card:active,
+  .download-card:active {
+    box-shadow:
+      0 0 0 1px rgba(199, 241, 96, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(199, 241, 96, 0.2) !important;
+    border-color: rgba(199, 241, 96, 0.45) !important;
+    transform: scale(0.99) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-card,
+  .download-card {
+    box-shadow:
+      0 0 0 1px rgba(199, 241, 96, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 6px 12px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(199, 241, 96, 0.12) !important;
+  }
+}
+
+/* --- REDUCED MOTION OVERRIDE --- */
+@media (prefers-reduced-motion: reduce) {
+  .bg-blob,
+  .card-shimmer,
+  .stagger-child,
+  .fade-in-on-scroll {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
     </style>
 </head>
 <body>
+ <!-- AMBIENT BACKGROUND DEPTH LAYER -->
+ <div class="bg-blob-layer" aria-hidden="true">
+   <div class="bg-blob bg-blob-1"></div>
+   <div class="bg-blob bg-blob-2"></div>
+   <div class="bg-blob bg-blob-3"></div>
+ </div>
+
  <!-- COMPLIANCE DISCLAIMER -->
  <div id="disclaimer-bar" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(10, 10, 10, 0.98)); border-bottom: 2px solid #C7F160; padding: 12px 20px; text-align: center; position: fixed; top: 0; left: 0; right: 0; z-index: 1001; backdrop-filter: blur(10px);">
  <div style="max-width: 1200px; margin: 0 auto;">
@@ -4035,6 +4389,251 @@
   /* ===== END WFI TOKEN PRICE FETCHER ===== */
 
   </script>
+
+<script>
+/* ================================================================
+   PREMIUM ANIMATION ENGINE
+   Blocks: (A) Stagger reveal, (B) Card 3D tilt,
+           (C) Active nav section, (D) Shimmer injection
+   All uses transform + opacity only. No layout triggers.
+   ================================================================ */
+(function() {
+  'use strict';
+
+  /* ---- UTILITY ---- */
+  function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
+  function qsa(sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); }
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ================================================================
+     A. STAGGER REVEAL
+     Marks all .feature-card and .download-card inside each grid
+     with .stagger-child so they animate in sequence when the
+     grid container enters the viewport.
+     ================================================================ */
+  function initStaggerReveal() {
+    if (!('IntersectionObserver' in window)) return;
+
+    /* Tag every card as a stagger child and assign delay */
+    qsa('.feature-grid, .downloads-grid').forEach(function(grid) {
+      qsa('.feature-card, .download-card', grid).forEach(function(card, i) {
+        card.classList.add('stagger-child');
+        /* Remove any existing fade-in-on-scroll to avoid conflict */
+        card.classList.remove('fade-in-on-scroll');
+        card.style.transitionDelay = (i * 110) + 'ms';
+      });
+    });
+
+    var staggerObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          /* Reveal all children in this grid with their stagger delays */
+          qsa('.stagger-child', entry.target).forEach(function(child) {
+            child.classList.add('visible');
+          });
+          staggerObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    qsa('.feature-grid, .downloads-grid').forEach(function(grid) {
+      staggerObs.observe(grid);
+    });
+
+    /* Also handle any remaining .fade-in-on-scroll elements */
+    var fadeObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    qsa('.fade-in-on-scroll').forEach(function(el) {
+      fadeObs.observe(el);
+    });
+  }
+
+  /* ================================================================
+     B. CARD 3D TILT
+     Applies a subtle perspective tilt to cards based on mouse
+     position relative to the card center. Max 7 degrees.
+     Only activates on non-touch devices.
+     ================================================================ */
+  function initCardTilt() {
+    if (prefersReduced) return;
+    /* Skip on touch devices */
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    /* Skip on small screens */
+    if (window.innerWidth < 769) return;
+
+    var MAX_TILT = 6; /* degrees */
+    var SCALE    = 1.015;
+
+    /* Resting shadow value - matches CSS visible elevation */
+    var SHADOW_REST =
+      '0 0 0 1px rgba(199,241,96,0.08),' +
+      '0 4px 8px rgba(0,0,0,0.6),' +
+      '0 12px 24px rgba(0,0,0,0.5),' +
+      '0 24px 48px rgba(0,0,0,0.35),' +
+      'inset 0 1px 0 rgba(199,241,96,0.18),' +
+      'inset 0 -1px 0 rgba(0,0,0,0.5)';
+
+    /* Hover shadow value */
+    var SHADOW_HOVER =
+      '0 0 0 1px rgba(199,241,96,0.25),' +
+      '0 8px 16px rgba(0,0,0,0.7),' +
+      '0 20px 40px rgba(0,0,0,0.6),' +
+      '0 40px 64px rgba(0,0,0,0.4),' +
+      '0 0 60px rgba(199,241,96,0.12),' +
+      '0 0 120px rgba(199,241,96,0.06),' +
+      'inset 0 1px 0 rgba(199,241,96,0.35),' +
+      'inset 0 -1px 0 rgba(0,0,0,0.6)';
+
+    qsa('.feature-card, .download-card').forEach(function(card) {
+      /* Inject shimmer div */
+      var shimmer = document.createElement('div');
+      shimmer.className = 'card-shimmer';
+      card.appendChild(shimmer);
+
+      card.addEventListener('mousemove', function(e) {
+        var rect   = card.getBoundingClientRect();
+        var cx     = rect.left + rect.width  / 2;
+        var cy     = rect.top  + rect.height / 2;
+        var dx     = (e.clientX - cx) / (rect.width  / 2);
+        var dy     = (e.clientY - cy) / (rect.height / 2);
+        var tiltX  = -(dy * MAX_TILT).toFixed(2);
+        var tiltY  =  (dx * MAX_TILT).toFixed(2);
+
+        card.style.transform =
+          'perspective(900px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) scale(' + SCALE + ')';
+        card.style.boxShadow = SHADOW_HOVER;
+        card.style.transition = 'transform 0.1s ease, box-shadow 0.15s ease, border-color 0.3s ease';
+      });
+
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+        card.style.boxShadow = SHADOW_REST;
+        card.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1), border-color 0.4s ease';
+      });
+    });
+  }
+
+  /* ================================================================
+     C. ACTIVE NAV SECTION HIGHLIGHTING
+     Uses IntersectionObserver to detect which section is in view
+     and highlights the matching nav link.
+     ================================================================ */
+  function initActiveNav() {
+    if (!('IntersectionObserver' in window)) return;
+
+    var navLinks = qsa('.nav-link');
+    if (!navLinks.length) return;
+
+    /* Build map of section id -> nav link */
+    var sectionMap = {};
+    navLinks.forEach(function(link) {
+      var href = link.getAttribute('href') || '';
+      var hash = href.split('#')[1];
+      if (hash) sectionMap[hash] = link;
+    });
+
+    var activeSection = null;
+
+    var secObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        var id = entry.target.getAttribute('id');
+        if (!id || !sectionMap[id]) return;
+        if (entry.isIntersecting) {
+          if (activeSection) activeSection.classList.remove('nav-active');
+          activeSection = sectionMap[id];
+          activeSection.classList.add('nav-active');
+        }
+      });
+    }, { threshold: 0.35 });
+
+    Object.keys(sectionMap).forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) secObs.observe(el);
+    });
+  }
+
+  /* ================================================================
+     D. SMOOTH ANCHOR ENHANCED (already exists, we reinforce timing)
+     ================================================================ */
+  function initSmoothScroll() {
+    qsa('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        var id = (a.getAttribute('href') || '').slice(1);
+        if (!id) return;
+        var target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  /* ================================================================
+     E. NAVBAR SCROLL SHADOW
+     Ensure scrolled class is applied for glassmorphism enhancement.
+     ================================================================ */
+  function initNavbarEnhance() {
+    var nav = qs('.navbar');
+    if (!nav) return;
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 40) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  }
+
+  /* ================================================================
+     F. HERO CONTENT ENTRANCE STAGGER
+     Staggers the hero content items on page load for a polished
+     first impression.
+     ================================================================ */
+  function initHeroEntrance() {
+    if (prefersReduced) return;
+    var heroItems = qsa('.ito-hero-content > *');
+    heroItems.forEach(function(el, i) {
+      el.style.opacity    = '0';
+      el.style.transform  = 'translateY(24px)';
+      el.style.transition = 'opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1)';
+      el.style.transitionDelay = (i * 90 + 100) + 'ms';
+      /* Trigger after a tiny paint delay */
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          el.style.opacity   = '1';
+          el.style.transform = 'translateY(0)';
+        });
+      });
+    });
+  }
+
+  /* ================================================================
+     INIT ALL
+     ================================================================ */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  function init() {
+    initStaggerReveal();
+    initCardTilt();
+    initActiveNav();
+    initSmoothScroll();
+    initNavbarEnhance();
+    initHeroEntrance();
+  }
+
+})();
+</script>
 
 </body>
 </html>
