@@ -513,21 +513,38 @@
  }
  
  .founder-card {
- background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(30, 30, 30, 0.5));
+ background: linear-gradient(145deg, rgba(32, 34, 28, 0.95), rgba(22, 24, 20, 0.98));
  border-radius: 24px;
  padding: 50px;
- border: 1px solid rgba(199, 241, 96, 0.2);
+ border: 1px solid rgba(199, 241, 96, 0.22);
  display: flex;
  gap: 40px;
  align-items: center;
- transition: all 0.3s ease;
  margin-top: 40px;
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.08),
+   0 4px 8px rgba(0, 0, 0, 0.6),
+   0 12px 24px rgba(0, 0, 0, 0.5),
+   0 24px 48px rgba(0, 0, 0, 0.35),
+   inset 0 1px 0 rgba(199, 241, 96, 0.18),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+ transition:
+   transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   border-color 0.38s ease;
  }
  
  .founder-card:hover {
- transform: translateY(-5px);
- border-color: var(--lime-green);
- box-shadow: 0 20px 60px rgba(199, 241, 96, 0.15);
+ transform: translateY(-8px) scale(1.01);
+ border-color: rgba(199, 241, 96, 0.6);
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.25),
+   0 8px 16px rgba(0, 0, 0, 0.7),
+   0 20px 40px rgba(0, 0, 0, 0.6),
+   0 40px 64px rgba(0, 0, 0, 0.4),
+   0 0 60px rgba(199, 241, 96, 0.12),
+   inset 0 1px 0 rgba(199, 241, 96, 0.35),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.6);
  }
  
  .founder-image {
@@ -1561,13 +1578,25 @@
  }
  
  .feature-card {
- background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(30, 30, 30, 0.8));
- border: 1px solid rgba(199, 241, 96, 0.2);
+ background: linear-gradient(145deg, rgba(32, 34, 28, 0.95), rgba(22, 24, 20, 0.98));
+ border: 1px solid rgba(199, 241, 96, 0.22);
  border-radius: 16px;
  padding: 40px;
- transition: all 0.3s ease;
  position: relative;
  overflow: hidden;
+ /* Visible elevation on dark bg: use bright edge + colored ambient, not dark shadows */
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.08),
+   0 4px 8px rgba(0, 0, 0, 0.6),
+   0 12px 24px rgba(0, 0, 0, 0.5),
+   0 24px 48px rgba(0, 0, 0, 0.35),
+   inset 0 1px 0 rgba(199, 241, 96, 0.18),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.5),
+   inset 1px 0 0 rgba(255, 255, 255, 0.03);
+ transition:
+   transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   border-color 0.38s ease;
  }
  
  .feature-card::before {
@@ -1581,11 +1610,19 @@
  transform: scaleX(0);
  transition: transform 0.3s ease;
  }
- 
+
  .feature-card:hover {
- transform: translateY(-5px);
- border-color: var(--lime-green);
- box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+ transform: translateY(-10px) scale(1.02);
+ border-color: rgba(199, 241, 96, 0.6);
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.25),
+   0 8px 16px rgba(0, 0, 0, 0.7),
+   0 20px 40px rgba(0, 0, 0, 0.6),
+   0 40px 64px rgba(0, 0, 0, 0.4),
+   0 0 60px rgba(199, 241, 96, 0.12),
+   0 0 120px rgba(199, 241, 96, 0.06),
+   inset 0 1px 0 rgba(199, 241, 96, 0.35),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.6);
  }
  
  /* Highlight effect when scrolling back to card after video */
@@ -2024,14 +2061,24 @@
  }
  
  .download-card {
- background: var(--dark-charcoal);
- border: 1px solid rgba(199, 241, 96, 0.15);
+ background: linear-gradient(145deg, rgba(30, 32, 28, 0.98), rgba(20, 22, 18, 1));
+ border: 1px solid rgba(199, 241, 96, 0.2);
  border-radius: 16px;
  padding: 40px 30px;
  text-align: center;
- transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
  position: relative;
  overflow: hidden;
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.08),
+   0 4px 8px rgba(0, 0, 0, 0.6),
+   0 12px 24px rgba(0, 0, 0, 0.5),
+   0 24px 48px rgba(0, 0, 0, 0.35),
+   inset 0 1px 0 rgba(199, 241, 96, 0.18),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+ transition:
+   transform 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   box-shadow 0.38s cubic-bezier(0.4, 0, 0.2, 1),
+   border-color 0.38s ease;
  }
  
  .download-card::before {
@@ -2048,11 +2095,19 @@
  }
  
  .download-card:hover {
- transform: translateY(-8px);
- border-color: var(--lime-green);
- box-shadow: 0 20px 40px rgba(199, 241, 96, 0.15);
+ transform: translateY(-10px) scale(1.02);
+ border-color: rgba(199, 241, 96, 0.6);
+ box-shadow:
+   0 0 0 1px rgba(199, 241, 96, 0.25),
+   0 8px 16px rgba(0, 0, 0, 0.7),
+   0 20px 40px rgba(0, 0, 0, 0.6),
+   0 40px 64px rgba(0, 0, 0, 0.4),
+   0 0 60px rgba(199, 241, 96, 0.12),
+   0 0 120px rgba(199, 241, 96, 0.06),
+   inset 0 1px 0 rgba(199, 241, 96, 0.35),
+   inset 0 -1px 0 rgba(0, 0, 0, 0.6);
  }
- 
+
  .download-card:hover::before {
  transform: scaleX(1);
  }
@@ -3269,10 +3324,7 @@
 .download-card {
   transform-style: preserve-3d;
   will-change: transform;
-  transition:
-    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.4s ease !important;
+  /* Transition handled per-card above for specificity */
 }
 
 /* Depth layer inside each tilt card */
@@ -3282,14 +3334,19 @@
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* JS will add inline styles for tilt; this handles the glow on hover */
+/* Combined premium hover - consistent across all card types */
 .feature-card:hover,
 .download-card:hover {
-  border-color: rgba(199, 241, 96, 0.5) !important;
+  border-color: rgba(199, 241, 96, 0.6) !important;
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(199, 241, 96, 0.2),
-    0 0 40px rgba(199, 241, 96, 0.08) !important;
+    0 0 0 1px rgba(199, 241, 96, 0.25),
+    0 8px 16px rgba(0, 0, 0, 0.7),
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 40px 64px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(199, 241, 96, 0.12),
+    0 0 120px rgba(199, 241, 96, 0.06),
+    inset 0 1px 0 rgba(199, 241, 96, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.6) !important;
 }
 
 /* --- (3) CARD SHIMMER EFFECT --- */
@@ -3442,6 +3499,49 @@
     0 32px 80px rgba(0, 0, 0, 0.55),
     0 0 0 1px var(--lime-green),
     0 0 50px rgba(199, 241, 96, 0.15) !important;
+}
+
+/* --- MOBILE ELEVATION TUNING ---
+   On small screens shadows are halved in spread and opacity.
+   The inset edge light stays because it reads as physical thickness
+   even without the deep floor shadow. No translateY lift on touch
+   devices since there is no hover state on mobile - cards just sit
+   elevated in their resting state which is enough premium feel.
+   ---------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .feature-card,
+  .download-card,
+  .founder-card {
+    box-shadow:
+      0 0 0 1px rgba(199, 241, 96, 0.1),
+      0 3px 6px rgba(0, 0, 0, 0.55),
+      0 8px 16px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(199, 241, 96, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.4) !important;
+    transition:
+      box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      border-color 0.35s ease !important;
+  }
+  .feature-card:active,
+  .download-card:active {
+    box-shadow:
+      0 0 0 1px rgba(199, 241, 96, 0.2),
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(199, 241, 96, 0.2) !important;
+    border-color: rgba(199, 241, 96, 0.45) !important;
+    transform: scale(0.99) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-card,
+  .download-card {
+    box-shadow:
+      0 0 0 1px rgba(199, 241, 96, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.5),
+      0 6px 12px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(199, 241, 96, 0.12) !important;
+  }
 }
 
 /* --- REDUCED MOTION OVERRIDE --- */
@@ -4365,9 +4465,31 @@
     if (prefersReduced) return;
     /* Skip on touch devices */
     if (window.matchMedia('(pointer: coarse)').matches) return;
+    /* Skip on small screens */
+    if (window.innerWidth < 769) return;
 
     var MAX_TILT = 6; /* degrees */
-    var SCALE    = 1.025;
+    var SCALE    = 1.015;
+
+    /* Resting shadow value - matches CSS visible elevation */
+    var SHADOW_REST =
+      '0 0 0 1px rgba(199,241,96,0.08),' +
+      '0 4px 8px rgba(0,0,0,0.6),' +
+      '0 12px 24px rgba(0,0,0,0.5),' +
+      '0 24px 48px rgba(0,0,0,0.35),' +
+      'inset 0 1px 0 rgba(199,241,96,0.18),' +
+      'inset 0 -1px 0 rgba(0,0,0,0.5)';
+
+    /* Hover shadow value */
+    var SHADOW_HOVER =
+      '0 0 0 1px rgba(199,241,96,0.25),' +
+      '0 8px 16px rgba(0,0,0,0.7),' +
+      '0 20px 40px rgba(0,0,0,0.6),' +
+      '0 40px 64px rgba(0,0,0,0.4),' +
+      '0 0 60px rgba(199,241,96,0.12),' +
+      '0 0 120px rgba(199,241,96,0.06),' +
+      'inset 0 1px 0 rgba(199,241,96,0.35),' +
+      'inset 0 -1px 0 rgba(0,0,0,0.6)';
 
     qsa('.feature-card, .download-card').forEach(function(card) {
       /* Inject shimmer div */
@@ -4386,12 +4508,14 @@
 
         card.style.transform =
           'perspective(900px) rotateX(' + tiltX + 'deg) rotateY(' + tiltY + 'deg) scale(' + SCALE + ')';
-        card.style.transition = 'transform 0.1s ease, box-shadow 0.3s ease, border-color 0.3s ease';
+        card.style.boxShadow = SHADOW_HOVER;
+        card.style.transition = 'transform 0.1s ease, box-shadow 0.15s ease, border-color 0.3s ease';
       });
 
       card.addEventListener('mouseleave', function() {
         card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
-        card.style.transition = 'transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease';
+        card.style.boxShadow = SHADOW_REST;
+        card.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1), box-shadow 0.45s cubic-bezier(0.4,0,0.2,1), border-color 0.4s ease';
       });
     });
   }
