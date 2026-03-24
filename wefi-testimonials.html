@@ -3439,6 +3439,46 @@
   }
 }
 
+/* ================================================================
+   NAV CTA BUTTON — UNIFIED MOBILE SIZING
+   Overrides all per-page fragmented breakpoint rules.
+   Target: 40px touch target, 13px font, consistent across all
+   mobile widths. Not too small, not too big.
+   ================================================================ */
+
+/* Tablet / large mobile (≤768px) */
+@media (max-width: 768px) {
+  .nav-cta {
+    padding: 10px 20px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
+    right: 16px !important;
+    /* Remove any entrance animation offset */
+    opacity: 1 !important;
+    transform: translateY(-50%) !important; /* keep vertical centering */
+  }
+}
+
+/* Small mobile (≤480px) */
+@media (max-width: 480px) {
+  .nav-cta {
+    padding: 10px 18px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
+    right: 14px !important;
+  }
+}
+
+/* Tiny screens (≤360px) */
+@media (max-width: 360px) {
+  .nav-cta {
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
+    right: 12px !important;
+  }
+}
+
 </style>
 
  <script type="application/ld+json">
@@ -4617,12 +4657,10 @@
     }
     var logo     = document.querySelector('.logo');
     var navLinks = qsa('.nav-link');
-    var navCta   = document.querySelector('.nav-cta');
     fireLoad(logo, 'axiom-t4-left', 80);
     navLinks.forEach(function (link, i) {
       fireLoad(link, 'axiom-t4-right', 160 + i * 70);
     });
-    fireLoad(navCta, 'axiom-t4-right', 160 + navLinks.length * 70);
   }
 
   /* ================================================================
