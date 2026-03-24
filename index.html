@@ -3557,6 +3557,109 @@
   }
 }
 
+/* ================================================================
+   AXIOM ANIMATION SYSTEM v1.0
+   Scroll-triggered entrance animations - comprehensive coverage.
+   Targets every element category not already handled by the
+   existing fade-in-on-scroll / stagger-child / initHeroEntrance
+   systems. Injected as a clean, non-conflicting layer.
+   ================================================================ */
+
+/* --- BASE: Elements start invisible via JS class injection ---
+   .axiom-ready is added by JS so the page degrades gracefully
+   (elements stay visible) if JavaScript fails to execute.
+   ---------------------------------------------------------------- */
+.axiom-ready {
+  will-change: opacity, transform;
+}
+
+/* -----------------------------------------------------------
+   TIER 1: Headings & section titles
+   Motion: Fade up from 20px below
+   Duration: 0.9s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t1 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity  0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 2: Cards, video containers, trust logos, images
+   Motion: Scale up from 0.96 + subtle lift
+   Duration: 0.8s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t2 {
+  opacity: 0;
+  transform: scale(0.96) translateY(18px);
+  transition:
+    opacity  0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 3: Paragraphs, buttons, list items, CTA links
+   Motion: Gentle fade up from 12px
+   Duration: 0.7s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t3 {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 4 — HORIZONTAL SLIDES (Nav & footer columns)
+   T4-LEFT: Slides in from the left (logo, left-side items)
+   T4-RIGHT: Slides in from the right (nav links, CTA)
+   Duration: 0.6s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t4-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition:
+    opacity  0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.axiom-t4-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition:
+    opacity  0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   VISIBLE STATE — locks element at final resting position.
+   All tiers resolve to this class once in viewport.
+   ----------------------------------------------------------- */
+.axiom-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* -----------------------------------------------------------
+   REDUCED MOTION OVERRIDE
+   If user has requested reduced motion, skip all axiom
+   animations immediately and show everything at full opacity.
+   ----------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .axiom-t1,
+  .axiom-t2,
+  .axiom-t3,
+  .axiom-t4-left,
+  .axiom-t4-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
     </style>
 </head>
 <body>
@@ -4633,6 +4736,269 @@
   }
 
 })();
+</script>
+
+<!-- ================================================================
+     AXIOM ANIMATION SYSTEM v1.0 — Scroll-triggered entrance engine
+     ================================================================
+     Architecture:
+       - IntersectionObserver only. Zero scroll event listeners.
+       - 4 animation tiers mapped to visual role of each element.
+       - 0.12s stagger between grouped siblings (cards, nav links, etc.)
+       - One-shot: animates once, observer disconnects, state locked.
+       - Graceful degradation: opacity:0 set by JS; HTML stays clean.
+       - Respects prefers-reduced-motion at both CSS and JS levels.
+       - Does NOT re-animate elements already handled by:
+           (a) .fade-in-on-scroll / initStaggerReveal
+           (b) .ito-hero-content > * / initHeroEntrance
+     ================================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---------------------------------------------------------------
+     GUARD 1: Reduced motion — exit immediately, show everything.
+     --------------------------------------------------------------- */
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return;
+
+  /* ---------------------------------------------------------------
+     GUARD 2: IntersectionObserver not supported — show everything.
+     --------------------------------------------------------------- */
+  if (!('IntersectionObserver' in window)) return;
+
+  /* ---------------------------------------------------------------
+     UTILITIES
+     --------------------------------------------------------------- */
+  function qsa(sel, ctx) {
+    return Array.prototype.slice.call((ctx || document).querySelectorAll(sel));
+  }
+
+  /* Check if element should be skipped:
+     - Already has an axiom tier class (registered twice guard)
+     - Lives inside .ito-hero-content (handled by initHeroEntrance)
+     - Is or is a child of a .fade-in-on-scroll element
+       (those are handled by the existing stagger reveal system)
+     - Is a fixed UI element (navbar, disclaimer, modal, scroll-btn) */
+  function shouldSkip(el) {
+    if (!el) return true;
+    if (el.classList.contains('axiom-done')) return true;
+    if (el.closest('.ito-hero-content')) return true;
+    if (el.classList.contains('fade-in-on-scroll')) return true;
+    if (el.closest('.fade-in-on-scroll')) return true;
+    if (el.classList.contains('stagger-child')) return true;
+    if (el.closest('.stagger-child')) return true;
+    /* Skip fixed / overlay elements */
+    if (el.classList.contains('navbar')) return true;
+    if (el.id === 'disclaimer-bar') return true;
+    if (el.classList.contains('video-modal')) return true;
+    if (el.classList.contains('scroll-to-top')) return true;
+    if (el.classList.contains('bg-blob-layer')) return true;
+    return false;
+  }
+
+  /* ---------------------------------------------------------------
+     OBSERVER — single shared observer for all scroll-triggered tiers
+     threshold 0.12 with a -50px bottom margin gives a clean trigger
+     just as the element clears the fold, not too early.
+     --------------------------------------------------------------- */
+  var scrollObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.classList.add('axiom-visible', 'axiom-done');
+      scrollObs.unobserve(el);
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  /* ---------------------------------------------------------------
+     REGISTER — assign tier class + optional delay, then observe
+     --------------------------------------------------------------- */
+  function register(el, tierClass, delayMs) {
+    if (shouldSkip(el)) return;
+    el.classList.add(tierClass, 'axiom-ready', 'axiom-done');
+    /* Mark done before observe so double-registration guard works */
+    if (delayMs) el.style.transitionDelay = delayMs + 'ms';
+    /* Unmark done flag used above — the real "done" is set by observer */
+    el.classList.remove('axiom-done');
+    scrollObs.observe(el);
+  }
+
+  /* Register a NodeList/Array with 0.12s stagger between siblings */
+  function registerGroup(els, tierClass, baseDelayMs) {
+    els.forEach(function (el, i) {
+      register(el, tierClass, (baseDelayMs || 0) + i * 120);
+    });
+  }
+
+  /* ================================================================
+     NAV ENTRANCE — fires on page load (not scroll) because the nav
+     is immediately visible. Logo slides from left; links + CTA from
+     right with a cascading stagger.
+     ================================================================ */
+  function initNavEntrance() {
+    var logo = document.querySelector('.logo');
+    var navLinks = qsa('.nav-link');
+    var navCta = document.querySelector('.nav-cta');
+
+    function fireLoad(el, tierClass, delay) {
+      if (!el) return;
+      el.classList.add(tierClass, 'axiom-ready');
+      el.style.transitionDelay = delay + 'ms';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          el.classList.add('axiom-visible', 'axiom-done');
+        });
+      });
+    }
+
+    /* Logo: slide from left, fires first */
+    fireLoad(logo, 'axiom-t4-left', 80);
+
+    /* Nav links: cascade from right */
+    navLinks.forEach(function (link, i) {
+      fireLoad(link, 'axiom-t4-right', 160 + i * 70);
+    });
+
+    /* Nav CTA: last in the cascade */
+    fireLoad(navCta, 'axiom-t4-right', 160 + navLinks.length * 70);
+  }
+
+  /* ================================================================
+     HERO VISUAL — the right-side video panel is outside
+     .ito-hero-content so initHeroEntrance doesn't touch it.
+     We give it a Tier 2 (scale) entrance.
+     ================================================================ */
+  function initHeroVisual() {
+    var visual = document.querySelector('.ito-hero-visual');
+    if (!visual) return;
+    visual.classList.add('axiom-t2', 'axiom-ready');
+    visual.style.transitionDelay = '200ms';
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        visual.classList.add('axiom-visible', 'axiom-done');
+      });
+    });
+  }
+
+  /* ================================================================
+     TRUST SECTION
+     Headings → Tier 1 | Logos → Tier 2 staggered
+     ================================================================ */
+  function initTrustSection() {
+    qsa('.trust-heading').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    registerGroup(qsa('.trust-logo'), 'axiom-t2', 0);
+  }
+
+  /* ================================================================
+     DOWNLOADS SECTION
+     Header → Tier 1 | Cards → Tier 2 staggered | Footer → Tier 3
+     (download-cards are not marked fade-in-on-scroll in the HTML)
+     ================================================================ */
+  function initDownloadsSection() {
+    var dlHeader = document.querySelector('.downloads-header');
+    if (dlHeader) {
+      var dlTitle    = dlHeader.querySelector('.section-title');
+      var dlSubtitle = dlHeader.querySelector('.section-subtitle');
+      register(dlTitle,    'axiom-t1', 0);
+      register(dlSubtitle, 'axiom-t1', 120);
+    }
+
+    registerGroup(qsa('.download-card'), 'axiom-t2', 0);
+
+    qsa('.downloads-footer').forEach(function (el) {
+      register(el, 'axiom-t3', 0);
+    });
+  }
+
+  /* ================================================================
+     STANDALONE CTA BUTTONS
+     .btn elements that live outside .fade-in-on-scroll wrappers
+     (e.g. the "Join the Revolution" / "Get Started" / "Comp Plan"
+     CTA rows). Tier 3.
+     ================================================================ */
+  function initStandaloneButtons() {
+    qsa('.btn, .ito-cta-button, .vpn-btn').forEach(function (el) {
+      register(el, 'axiom-t3', 60);
+    });
+    /* VPN wrap blocks */
+    qsa('.vpn-cta-wrap').forEach(function (el) {
+      register(el, 'axiom-t3', 80);
+    });
+  }
+
+  /* ================================================================
+     FOOTER
+     VPN block  → Tier 2 (prominent card-like block)
+     Columns    → Tier 1 staggered (each .footer-section)
+     Column H3s → Tier 1 (slightly ahead of their lists)
+     List items → Tier 3 staggered within each column
+     Disclaimer → Tier 3
+     Bottom bar → Tier 3
+     ================================================================ */
+  function initFooter() {
+    /* VPN block at top of footer */
+    var vpnBlock = document.querySelector('.vpn-footer-block');
+    register(vpnBlock, 'axiom-t2', 0);
+
+    /* Footer columns — staggered left to right */
+    var footerSections = qsa('.footer-section');
+    registerGroup(footerSections, 'axiom-t1', 0);
+
+    /* Column headings (h3) — slightly after the column itself */
+    footerSections.forEach(function (section, colIdx) {
+      var heading = section.querySelector('h3');
+      register(heading, 'axiom-t1', colIdx * 120 + 60);
+
+      /* List items within column — staggered */
+      var items = qsa('li', section);
+      items.forEach(function (li, i) {
+        register(li, 'axiom-t3', colIdx * 120 + 80 + i * 80);
+      });
+    });
+
+    /* Disclaimer block */
+    register(document.querySelector('.disclaimer'), 'axiom-t3', 0);
+
+    /* Footer bottom copyright bar */
+    register(document.querySelector('.footer-bottom'), 'axiom-t3', 120);
+  }
+
+  /* ================================================================
+     FAQ CTA BUTTON
+     The "View Complete FAQ Page" btn sits outside the
+     .mini-faq.fade-in-on-scroll wrapper.
+     ================================================================ */
+  function initFaqCta() {
+    var faqCta = document.querySelector('.faq-cta');
+    register(faqCta, 'axiom-t3', 0);
+  }
+
+  /* ================================================================
+     INIT — wire everything up after DOM is ready
+     ================================================================ */
+  function init() {
+    initNavEntrance();
+    initHeroVisual();
+    initTrustSection();
+    initDownloadsSection();
+    initStandaloneButtons();
+    initFooter();
+    initFaqCta();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+}());
 </script>
 
 </body>
