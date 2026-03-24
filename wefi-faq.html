@@ -1258,7 +1258,107 @@
     }
     /* ======================================================= */
 
-    </style>
+    
+/* ================================================================
+   AXIOM ANIMATION SYSTEM v1.0
+   Scroll-triggered entrance animations — comprehensive coverage.
+   Injected as a clean, non-conflicting layer on top of all
+   existing animation systems on this page.
+   ================================================================ */
+
+/* --- BASE: Elements start invisible via JS class injection ---
+   .axiom-ready is added by JS so the page degrades gracefully
+   if JavaScript fails to execute.
+   ---------------------------------------------------------------- */
+.axiom-ready {
+  will-change: opacity, transform;
+}
+
+/* -----------------------------------------------------------
+   TIER 1: Headings, section titles, section headers
+   Motion: Fade up from 20px below
+   Duration: 0.9s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t1 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity  0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 2: Cards, video containers, images, prominent blocks
+   Motion: Scale up from 0.96 + subtle lift
+   Duration: 0.8s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t2 {
+  opacity: 0;
+  transform: scale(0.96) translateY(18px);
+  transition:
+    opacity  0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 3: Paragraphs, buttons, list items, captions
+   Motion: Gentle fade up from 12px
+   Duration: 0.7s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t3 {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 4: Horizontal slides for nav and footer columns
+   T4-LEFT: Logo and left-side items
+   T4-RIGHT: Nav links and right-side items
+   Duration: 0.6s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t4-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition:
+    opacity  0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.axiom-t4-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition:
+    opacity  0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   VISIBLE STATE — final resting position for all tiers.
+   ----------------------------------------------------------- */
+.axiom-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* -----------------------------------------------------------
+   REDUCED MOTION OVERRIDE
+   ----------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .axiom-t1,
+  .axiom-t2,
+  .axiom-t3,
+  .axiom-t4-left,
+  .axiom-t4-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+</style>
 
  <script type="application/ld+json">
  {
@@ -1963,6 +2063,378 @@
   (function(){ var el = document.getElementById('currentYear'); if(el) el.textContent = new Date().getFullYear(); })();
 
 
+</script>
+
+
+<!-- ================================================================
+     AXIOM ANIMATION SYSTEM v1.0 — Scroll-triggered entrance engine
+     ================================================================
+     Universal engine: covers all element types across all 7 pages
+     of the DeobankDeFi site. Each init function queries broadly
+     and silently skips elements that don't exist on the page.
+
+     Architecture:
+       - IntersectionObserver only. Zero scroll event listeners.
+       - 4 tiers mapped to visual role of each element.
+       - 0.12s stagger between grouped siblings.
+       - One-shot: animates once, observer disconnects, state locked.
+       - Graceful degradation: opacity:0 set by JS only.
+       - Respects prefers-reduced-motion at CSS and JS levels.
+       - Guards against double-animating .fade-in-on-scroll elements.
+     ================================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---------------------------------------------------------------
+     GUARD 1: Reduced motion — exit, show everything.
+     --------------------------------------------------------------- */
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return;
+
+  /* ---------------------------------------------------------------
+     GUARD 2: IntersectionObserver not supported — exit.
+     --------------------------------------------------------------- */
+  if (!('IntersectionObserver' in window)) return;
+
+  /* ---------------------------------------------------------------
+     UTILITIES
+     --------------------------------------------------------------- */
+  function qsa(sel, ctx) {
+    return Array.prototype.slice.call((ctx || document).querySelectorAll(sel));
+  }
+
+  /* Skip elements already handled by existing animation systems,
+     fixed UI chrome, or elements already registered by AXIOM. */
+  function shouldSkip(el) {
+    if (!el || !el.classList) return true;
+    if (el.classList.contains('axiom-done')) return true;
+    /* Existing systems — do not double-animate */
+    if (el.classList.contains('fade-in-on-scroll')) return true;
+    if (el.closest && el.closest('.fade-in-on-scroll')) return true;
+    if (el.classList.contains('stagger-child')) return true;
+    if (el.closest && el.closest('.stagger-child')) return true;
+    /* Hero content is handled by initHeroEntrance or initHeroContent */
+    if (el.closest && el.closest('.hero-content')) return true;
+    if (el.closest && el.closest('.ito-hero-content')) return true;
+    /* Fixed / overlay chrome */
+    if (el.classList.contains('navbar')) return true;
+    if (el.id === 'disclaimer-bar') return true;
+    if (el.classList.contains('video-modal')) return true;
+    if (el.classList.contains('scroll-to-top')) return true;
+    if (el.classList.contains('bg-blob-layer')) return true;
+    if (el.classList.contains('bg-blob')) return true;
+    return false;
+  }
+
+  /* ---------------------------------------------------------------
+     SCROLL OBSERVER — shared, one-shot per element
+     --------------------------------------------------------------- */
+  var scrollObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.classList.add('axiom-visible', 'axiom-done');
+      scrollObs.unobserve(el);
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  /* ---------------------------------------------------------------
+     REGISTER helpers
+     --------------------------------------------------------------- */
+  function register(el, tierClass, delayMs) {
+    if (shouldSkip(el)) return;
+    el.classList.add('axiom-done'); /* temp flag to block double-reg */
+    el.classList.add(tierClass, 'axiom-ready');
+    if (delayMs) el.style.transitionDelay = delayMs + 'ms';
+    el.classList.remove('axiom-done'); /* real done set by observer */
+    scrollObs.observe(el);
+  }
+
+  function registerGroup(els, tierClass, baseDelay) {
+    els.forEach(function (el, i) {
+      register(el, tierClass, (baseDelay || 0) + i * 120);
+    });
+  }
+
+  /* ================================================================
+     NAV ENTRANCE — page load (not scroll), logo left / links right
+     ================================================================ */
+  function initNavEntrance() {
+    function fireLoad(el, tierClass, delay) {
+      if (!el || shouldSkip(el)) return;
+      el.classList.add(tierClass, 'axiom-ready');
+      el.style.transitionDelay = delay + 'ms';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          el.classList.add('axiom-visible', 'axiom-done');
+        });
+      });
+    }
+    var logo     = document.querySelector('.logo');
+    var navLinks = qsa('.nav-link');
+    var navCta   = document.querySelector('.nav-cta');
+    fireLoad(logo, 'axiom-t4-left', 80);
+    navLinks.forEach(function (link, i) {
+      fireLoad(link, 'axiom-t4-right', 160 + i * 70);
+    });
+    fireLoad(navCta, 'axiom-t4-right', 160 + navLinks.length * 70);
+  }
+
+  /* ================================================================
+     HERO CONTENT ENTRANCE — fires on page load.
+     Handles .hero-content > * (all 7 inner pages) AND
+     .ito-hero-visual (index.html hero visual panel).
+     ================================================================ */
+  function initHeroContent() {
+    /* Inner pages: .hero-content direct children */
+    var heroItems = qsa('.hero-content > *');
+    heroItems.forEach(function (el, i) {
+      if (el.classList.contains('axiom-done')) return;
+      el.classList.add('axiom-t1', 'axiom-ready');
+      el.style.transitionDelay = (i * 100 + 100) + 'ms';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          el.classList.add('axiom-visible', 'axiom-done');
+        });
+      });
+    });
+    /* index.html hero visual panel (scale entrance) */
+    var heroVisual = document.querySelector('.ito-hero-visual');
+    if (heroVisual && !heroVisual.classList.contains('axiom-done')) {
+      heroVisual.classList.add('axiom-t2', 'axiom-ready');
+      heroVisual.style.transitionDelay = '220ms';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          heroVisual.classList.add('axiom-visible', 'axiom-done');
+        });
+      });
+    }
+  }
+
+  /* ================================================================
+     SECTION HEADERS — Tier 1 (all pages share this pattern)
+     Covers: .section-header, .section-badge, .downloads-header,
+     standalone .section-title / .section-subtitle not inside a
+     .section-header wrapper.
+     ================================================================ */
+  function initSectionHeaders() {
+    /* Whole header blocks */
+    qsa('.section-header:not(.fade-in-on-scroll)').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    qsa('.downloads-header').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    /* Individual badges */
+    qsa('.section-badge').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    /* Standalone titles/subtitles not inside an already-animated header */
+    qsa('.section-title').forEach(function (el) {
+      if (!el.closest('.section-header') && !el.closest('.fade-in-on-scroll') && !el.closest('.mini-faq')) {
+        register(el, 'axiom-t1', 0);
+      }
+    });
+    qsa('.section-subtitle').forEach(function (el) {
+      if (!el.closest('.section-header') && !el.closest('.fade-in-on-scroll')) {
+        register(el, 'axiom-t1', 60);
+      }
+    });
+    qsa('.section-description').forEach(function (el) {
+      register(el, 'axiom-t3', 80);
+    });
+  }
+
+  /* ================================================================
+     CARDS — Tier 2, staggered within each grid/container
+     Covers every card type across all 7 pages.
+     ================================================================ */
+  function initCards() {
+    var cardSelectors = [
+      '.feature-card:not(.fade-in-on-scroll)',
+      '.step-card',
+      '.stat-card:not(.fade-in-on-scroll)',
+      '.video-card',
+      '.tutorial-card',
+      '.confidence-card',
+      '.download-card',
+      '.team-card:not(.fade-in-on-scroll)',
+      '.mission-card:not(.fade-in-on-scroll)',
+      '.comparison-card:not(.fade-in-on-scroll)',
+      '.plan-card',
+      '.tier-card',
+      '.bonus-card',
+      '.founder-card',
+      '.faq-category-header'
+    ];
+
+    /* Group cards by their parent container so stagger is
+       per-row/per-grid, not across the entire page */
+    var seen = [];
+    cardSelectors.forEach(function (sel) {
+      qsa(sel).forEach(function (card) {
+        if (seen.indexOf(card) > -1) return;
+        seen.push(card);
+      });
+    });
+
+    /* Group by parent for stagger */
+    var parentMap = {};
+    seen.forEach(function (card) {
+      var p = card.parentElement;
+      if (!p) return;
+      var key = p;
+      if (!parentMap[key]) parentMap[key] = [];
+      parentMap[key].push(card);
+    });
+
+    Object.keys(parentMap).forEach(function (key) {
+      parentMap[key].forEach(function (card, i) {
+        register(card, 'axiom-t2', i * 120);
+      });
+    });
+  }
+
+  /* ================================================================
+     VIDEO CONTAINERS — Tier 2
+     Covers: .youtube-video-container, .tutorial-video, .video-thumbnail
+     ================================================================ */
+  function initVideoContainers() {
+    registerGroup(
+      qsa('.youtube-video-container, .tutorial-video, .video-thumbnail-wrapper'),
+      'axiom-t2', 0
+    );
+  }
+
+  /* ================================================================
+     TRUST SECTION — headings Tier 1, logos Tier 2 staggered
+     ================================================================ */
+  function initTrustSection() {
+    qsa('.trust-heading').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    registerGroup(qsa('.trust-logo'), 'axiom-t2', 0);
+  }
+
+  /* ================================================================
+     STANDALONE BUTTONS & CTA BLOCKS — Tier 3
+     Only buttons/wraps NOT inside a card or .fade-in-on-scroll block.
+     ================================================================ */
+  function initButtons() {
+    var btnSelectors = [
+      '.btn',
+      '.ito-cta-button',
+      '.vpn-btn',
+      '.vpn-cta-wrap',
+      '.download-btn',
+      '.faq-cta',
+      '.cta-buttons',
+      '.final-cta',
+      '.final-cta-content'
+    ];
+    btnSelectors.forEach(function (sel) {
+      qsa(sel).forEach(function (el) {
+        /* Skip if inside a card (card will animate the whole block) */
+        if (
+          !el.closest('.feature-card') &&
+          !el.closest('.step-card') &&
+          !el.closest('.download-card') &&
+          !el.closest('.tutorial-card') &&
+          !el.closest('.video-card') &&
+          !el.closest('.comparison-card') &&
+          !el.closest('.confidence-card') &&
+          !el.closest('.fade-in-on-scroll') &&
+          !el.closest('.mini-faq')
+        ) {
+          register(el, 'axiom-t3', 60);
+        }
+      });
+    });
+  }
+
+  /* ================================================================
+     STAT NUMBERS — Tier 1 staggered (wfi-token, about-wefi)
+     ================================================================ */
+  function initStats() {
+    registerGroup(
+      qsa('.stat-card:not(.fade-in-on-scroll), .stat-item, .stat-block'),
+      'axiom-t2', 0
+    );
+  }
+
+  /* ================================================================
+     TIMELINE / STEP ITEMS — Tier 2 staggered
+     (wefi-getting-started-guide, wefi-compensation-plan)
+     ================================================================ */
+  function initTimeline() {
+    registerGroup(qsa('.timeline-item, .step-item, .process-step'), 'axiom-t2', 0);
+  }
+
+  /* ================================================================
+     FAQ SECTION — category headers Tier 1, CTA Tier 3
+     ================================================================ */
+  function initFaqSection() {
+    qsa('.faq-category-header').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    qsa('.final-cta-title').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    qsa('.final-cta-description').forEach(function (el) {
+      register(el, 'axiom-t3', 80);
+    });
+  }
+
+  /* ================================================================
+     FOOTER — VPN block Tier 2, columns Tier 1 staggered,
+     list items Tier 3 cascaded, disclaimer/bottom Tier 3.
+     ================================================================ */
+  function initFooter() {
+    var vpnBlock = document.querySelector('.vpn-footer-block');
+    if (vpnBlock) register(vpnBlock, 'axiom-t2', 0);
+
+    var footerSections = qsa('.footer-section');
+    footerSections.forEach(function (section, colIdx) {
+      register(section, 'axiom-t1', colIdx * 120);
+      var heading = section.querySelector('h3');
+      if (heading) register(heading, 'axiom-t1', colIdx * 120 + 60);
+      qsa('li', section).forEach(function (li, i) {
+        register(li, 'axiom-t3', colIdx * 120 + 80 + i * 80);
+      });
+    });
+
+    register(document.querySelector('.disclaimer'), 'axiom-t3', 0);
+    register(document.querySelector('.footer-bottom'), 'axiom-t3', 120);
+  }
+
+  /* ================================================================
+     INIT ALL
+     ================================================================ */
+  function init() {
+    initNavEntrance();
+    initHeroContent();
+    initSectionHeaders();
+    initCards();
+    initVideoContainers();
+    initTrustSection();
+    initButtons();
+    initStats();
+    initTimeline();
+    initFaqSection();
+    initFooter();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+}());
 </script>
 
 </body>
