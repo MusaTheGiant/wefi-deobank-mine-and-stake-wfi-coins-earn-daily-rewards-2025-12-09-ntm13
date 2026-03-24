@@ -1,0 +1,3967 @@
+<!--
+  UPDATE LOG - about-wefi.html
+  - Added JSON-LD Organization + WebPage schema
+  - Updated title, meta description, OG/Twitter tags
+  - Updated content with accurate WeFi source material (WeChain, Deobank Model, 3 pillars, ecosystem participants)
+  - Added VPN notice next to all affiliate CTAs
+  - Fixed compliance language throughout
+  - Preserved all CSS, layout, brand colors unchanged
+  COMPLIANCE: WeFi described as tech company, not bank. No investment claims. No guaranteed returns.
+-->
+<!--
+  ================================================================
+  UPDATE LOG - about-wefi.html
+  ================================================================
+  CHANGES:
+  - Updated title, meta description, OG/Twitter tags
+  - Added JSON-LD Organization + WebPage schema
+  - Replaced outdated/vague content with source-file accurate content
+  - Added WeFi three-pillar architecture section (WeChain, Deobank Model, WFI+Energy)
+  - Added Ecosystem Participants section (WeFi, Deobanks, End-Users)
+  - Added Onchain Accounting Book / trust machine section
+  - Added VPN notices on all affiliate CTAs
+  - Fixed all compliance-flagged language
+  PRESERVED: All CSS variables, typography, layout, nav, footer
+  COMPLIANCE: No bank claims, no investment language, no guaranteed returns
+  ================================================================
+-->
+<!--
+  ================================================================
+  UPDATE LOG - about-wefi.html
+  ================================================================
+  CHANGES MADE:
+  - Updated page title, meta description, OG/Twitter tags
+  - Added JSON-LD Organization + WebPage schema
+  - Replaced outdated/vague content with source file accuracy:
+    WeFi ecosystem overview, WeChain pillars, Deobank model,
+    Onchain Accounting Book, three participant groups
+  - Added VPN notice next to all affiliate CTAs
+  - Added internal links to wfi-token.html and getting-started
+  - Updated H1/H2/H3 hierarchy for semantic SEO
+  - Compliance: WeFi described as technology company, not bank
+  
+  PRESERVED: All CSS variables, brand colors, layout, typography
+  ================================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+ <title>About WeFi: World's First Deobanking Platform - WeChain, Deobank Model & WFI Token | DeobankDeFi</title>
+ 
+ <!-- SEO Meta Tags -->
+ <meta name="description" content="WeFi is the world's first Deobanking Platform - a technology company building decentralized onchain banking infrastructure via WeChain. Learn about the Deobank Model, WFI token economy, and Cloud-Based Mining. Independent KOL resource.">
+ <meta name="keywords" content="About WeFi, WeFi Deobanking Platform, WeFi leadership, Tether co-founder, is WeFi legit, WeFi security, WeFi technology, WeFi blockchain, WeFi licenses, WeFi Guinness World Record, decentralized banking, crypto Deobanking Platform, WeFi vs traditional banks, how WeFi works, wefi Deobanking Platform, wefi crypto Deobanking Platform, wefi Deobanking Platform platform, wefi digital Deobanking Platform, wefi blockchain banking, wefi decentralized banking system">
+ <meta name="author" content="DeobankDeFi">
+ 
+ <!-- Cache Control - Force Fresh Load -->
+ <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+ <meta http-equiv="Pragma" content="no-cache">
+ <meta http-equiv="Expires" content="0">
+ 
+ <!-- Open Graph Meta Tags -->
+ <meta property="og:title" content="About WeFi: World's First Deobanking Platform - WeChain, WFI Token & the Deobank Model Explained">
+ <meta property="og:description" content="WeFi builds WeChain blockchain and the Deobank Model to replace legacy banking rails with transparent, programmable, onchain financial infrastructure. Independent KOL resource.">
+ <meta property="og:type" content="website">
+ <meta property="og:url" content="https://www.deobankdefi.com/about-wefi.html">
+ <meta property="og:image" content="https://www.deobankdefi.com/images/favicon.png">
+ 
+ <!-- Twitter Card -->
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:title" content="About WeFi: World's First Deobanking Platform - WeChain, WFI Token & Deobanks">
+ <meta name="twitter:description" content="WeFi builds decentralized onchain banking infrastructure on WeChain. Community-first token distribution, zero legacy fees, and real user sovereignty.">
+ <meta name="twitter:image" content="https://www.deobankdefi.com/images/favicon.png">
+ 
+ <!-- Canonical URL -->
+ <link rel="canonical" href="https://www.deobankdefi.com/about-wefi.html">
+ 
+ <!-- Favicon -->
+ <link rel="icon" href="https://www.deobankdefi.com/images/favicon.png">
+ 
+ <!-- Font Awesome 6 - For Social Media Icons -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+ 
+ <!-- Vimeo Player API -->
+ <script src="https://player.vimeo.com/api/player.js" async></script>
+ 
+ <!-- YouTube IFrame API - For video modal -->
+ <script src="https://www.youtube.com/iframe_api" async></script>
+ 
+ <!-- Google Fonts - Inter & Space Grotesk -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ 
+ <style>
+ /* ===== CSS VARIABLES - WeFi Branding ===== */
+ :root {
+ /* Primary Colors */
+ --lime-light: #D4EF89;
+ --lime-green: #C7F160;
+ --bright-green: #00FF88;
+ --spotify-green: #1ED760;
+ 
+ /* Dark Backgrounds */
+ --black: #000000;
+ --near-black: #0A0A0A;
+ --dark-charcoal: #1A1A1A;
+ --very-dark-gray: #1B1B1B;
+ --near-black-2: #1E1E1E;
+ 
+ /* Accent Colors */
+ --cyan: #00D9FF;
+ --dodger-blue: #1E90FF;
+ --royal-blue: #4169E1;
+ --light-blue: #3B82F6;
+ 
+ /* Utility Colors */
+ --white: #FFFFFF;
+ --light-gray: #F5F5F5;
+ --gray: #808080;
+ --medium-gray: #4A4A4A;
+ 
+ /* Typography */
+ --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+ 
+ /* Spacing - Original */
+ --section-padding: 120px;
+ --section-padding-mobile: 60px;
+ 
+ /* NEW: Fluid spacing system using clamp - OPTIMIZED FOR MOBILE */
+ --spacing-hero-top: clamp(36px, 5vh, 48px);
+ --spacing-hero-bottom: clamp(20px, 3vh, 30px);
+ --spacing-hero-inline: clamp(20px, 5vw, 60px);
+ 
+ /* NEW: Safe area support */
+ --safe-area-top: env(safe-area-inset-top, 0px);
+ --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+ --safe-area-left: env(safe-area-inset-left, 0px);
+ --safe-area-right: env(safe-area-inset-right, 0px);
+ 
+ /* Navbar height for calculation - OPTIMIZED */
+ --navbar-height: 56px;
+ 
+ /* NEW: Dynamic viewport height with fallback */
+ --viewport-height: 100dvh;
+ }
+ 
+ /* Fallback for browsers without dvh support */
+ @supports not (height: 100dvh) {
+ :root {
+ --viewport-height: 100vh;
+ }
+ }
+ 
+ /* ===== RESET & BASE STYLES ===== */
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ 
+ html {
+ scroll-behavior: smooth;
+ overflow-x: hidden;
+ }
+ 
+ body {
+ /* Touch optimization for mobile browsers */
+ -webkit-tap-highlight-color: rgba(199, 241, 96, 0.2);
+ -webkit-touch-callout: none;
+ font-family: var(--font-primary);
+ background-color: var(--black);
+ color: var(--white);
+ line-height: 1.6;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ text-rendering: optimizeLegibility;
+ overflow-x: hidden;
+ }
+ 
+ /* Cross-browser text rendering */
+ * {
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ }
+ 
+ /* Responsive media - prevent overflow */
+ img, video, iframe {
+ max-width: 100%;
+ height: auto;
+ }
+ 
+ /* Prevent word overflow */
+ h1, h2, h3, h4, h5, h6, p {
+ word-wrap: break-word;
+ overflow-wrap: break-word;
+ }
+ 
+ /* ===== NAVIGATION ===== */
+ .navbar {
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 1000;
+ background: rgba(0, 0, 0, 0.95);
+ backdrop-filter: blur(10px);
+ border-bottom: 1px solid rgba(212, 239, 137, 0.1);
+ transition: all 0.3s ease;
+ }
+ 
+ .navbar.scrolled {
+ background: rgba(0, 0, 0, 0.98);
+ box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
+ }
+ 
+ .nav-container {
+ max-width: 1400px;
+ margin: 0 auto;
+ padding: 16px 40px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ position: relative;
+ }
+ 
+ .logo {
+ font-size: 28px;
+ font-weight: 800;
+ letter-spacing: -1px;
+ color: var(--lime-green);
+ font-family: "Space Grotesk", sans-serif;
+ }
+ 
+ .nav-menu {
+ display: flex;
+ gap: 40px;
+ list-style: none;
+ align-items: center;
+ }
+ 
+ .nav-link {
+ color: var(--white);
+ text-decoration: none;
+ font-weight: 500;
+ font-size: 15px;
+ transition: all 0.3s ease;
+ position: relative;
+ }
+ 
+ .nav-link::after {
+ content: '';
+ position: absolute;
+ bottom: -5px;
+ left: 0;
+ width: 0;
+ height: 2px;
+ background: var(--lime-green);
+ transition: width 0.3s ease;
+ }
+ 
+ .nav-link:hover {
+ color: var(--lime-green);
+ }
+ 
+ .nav-link:hover::after {
+ width: 100%;
+ }
+ 
+ /* Navigation CTA Button */
+ .nav-cta {
+ display: inline-block;
+ padding: 10px 24px;
+ border-radius: 50px;
+ text-decoration: none;
+ font-weight: 600;
+ font-size: 14px;
+ background: var(--lime-green);
+ color: var(--black);
+ transition: all 0.3s ease;
+ box-shadow: 0 4px 15px rgba(199, 241, 96, 0.3);
+ white-space: nowrap;
+ min-height: 44px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
+ 
+ .nav-cta:hover {
+ transform: translateY(-2px);
+ box-shadow: 0 6px 20px rgba(199, 241, 96, 0.5);
+ }
+ 
+ .nav-cta:active {
+ transform: translateY(0);
+ }
+ 
+ /* Mobile Menu */
+ .mobile-menu-btn {
+ display: none;
+ flex-direction: column;
+ gap: 5px;
+ cursor: pointer;
+ padding: 10px;
+ }
+ 
+ .mobile-menu-btn span {
+ width: 25px;
+ height: 3px;
+ background: var(--white);
+ transition: all 0.3s ease;
+ border-radius: 2px;
+ }
+ 
+ /* ========================================
+ HERO SECTION - PRODUCTION-READY SOLUTION
+ ======================================== */
+ 
+ /* === Hero Section Base Styles === */
+ .hero {
+ /* Optimized height for compact layout */
+ min-height: auto;
+ 
+ /* Fluid padding with safe area compensation and navbar offset */
+ padding-block-start: calc(var(--navbar-height) + var(--spacing-hero-top) + var(--safe-area-top));
+ padding-block-end: calc(var(--spacing-hero-bottom) + var(--safe-area-bottom));
+ padding-inline: calc(var(--spacing-hero-inline) + max(var(--safe-area-left), var(--safe-area-right)));
+ 
+ /* Layout */
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ overflow: hidden;
+ 
+ /* Background */
+ background: linear-gradient(135deg, #000000 0%, #0A0A0A 50%, #1A1A1A 100%);
+ 
+ /* provides content is above fold on all devices */
+ box-sizing: border-box;
+ }
+ 
+ /* === Background Animation (Performance Optimized) === */
+ .hero::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: 
+ radial-gradient(circle at 20% 30%, rgba(199, 241, 96, 0.1) 0%, transparent 50%),
+ radial-gradient(circle at 80% 70%, rgba(0, 255, 136, 0.08) 0%, transparent 50%);
+ 
+ /* GPU-accelerated animation */
+ will-change: opacity;
+ animation: pulse 8s ease-in-out infinite;
+ }
+ 
+ @keyframes pulse {
+ 0%, 100% { opacity: 0.5; }
+ 50% { opacity: 1; }
+ }
+ 
+ /* Reduce motion for accessibility */
+ @media (prefers-reduced-motion: reduce) {
+ .hero::before {
+ animation: none;
+ opacity: 0.7;
+ }
+ }
+ 
+ /* === Hero Container (Single Padding Layer) === */
+ .hero-content {
+ /* Maximum readable width */
+ max-width: min(1400px, 100% - 2rem);
+ width: 100%;
+ margin-inline: auto;
+ 
+ /* Layout */
+ text-align: center;
+ position: relative;
+ z-index: 10;
+ 
+ /* NO additional padding - handled by .hero */
+ padding: 0;
+ }
+ 
+ /* === Responsive Container Width === */
+ @media (min-width: 1440px) {
+ .hero-content {
+ max-width: 1200px;
+ }
+ }
+ 
+ /* === Hero Badge - Fully Responsive === */
+ .hero-badge {
+ /* Layout */
+ display: inline-block;
+ 
+ /* Styling */
+ background: linear-gradient(135deg, rgba(199, 241, 96, 0.15), rgba(0, 255, 136, 0.15));
+ border: 1px solid rgba(199, 241, 96, 0.4);
+ border-radius: 50px;
+ box-shadow: 0 4px 15px rgba(199, 241, 96, 0.1);
+ 
+ /* Fluid padding and spacing - OPTIMIZED */
+ padding: clamp(8px, 1.5vw, 12px) clamp(18px, 3vw, 28px);
+ margin-block-end: clamp(12px, 2vh, 16px);
+ 
+ /* Fluid typography */
+ font-size: clamp(11px, 1.8vw, 13px);
+ font-weight: 600;
+ color: #FFFFFF;
+ letter-spacing: clamp(0.5px, 0.1vw, 0.8px);
+ text-transform: uppercase;
+ 
+ /* Text handling */
+ white-space: nowrap;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ max-width: 100%;
+ 
+ /* Animation */
+ animation: fadeInUp 0.6s ease-out;
+ }
+ 
+ /* === Hero Title - Continuous Fluid Typography === */
+ .hero-title {
+ /* Perfect fluid scale from mobile to desktop */
+ font-size: clamp(1.5rem, 4vw + 1rem, 3.625rem);
+ font-weight: 900;
+ line-height: 1.2;
+ letter-spacing: clamp(-0.5px, -0.1vw, -1px);
+ 
+ /* Spacing - OPTIMIZED */
+ margin-block-end: clamp(10px, 1.5vh, 14px);
+ 
+ /* Font */
+ font-family: "Space Grotesk", sans-serif;
+ word-spacing: 0.1em;
+ color: var(--white);
+ 
+ /* Prevent orphans and improve text wrapping */
+ text-wrap: balance;
+ hyphens: auto;
+ 
+ /* Animation */
+ animation: fadeInUp 0.8s ease-out;
+ }
+ 
+ /* Fallback for browsers without text-wrap */
+ @supports not (text-wrap: balance) {
+ .hero-title {
+ overflow-wrap: break-word;
+ word-wrap: break-word;
+ }
+ }
+ 
+ /* === Gradient Highlight === */
+ .hero-title .highlight {
+ color: var(--lime-green);
+ display: inline;
+ }
+ 
+ /* === Hero Subtitle === */
+ .hero-subtitle {
+ font-size: clamp(1.125rem, 2vw + 0.5rem, 1.75rem);
+ font-weight: 600;
+ color: var(--lime-light);
+ line-height: 1.4;
+ 
+ /* Spacing - OPTIMIZED */
+ margin-block-end: clamp(10px, 1.5vh, 12px);
+ 
+ /* Readability */
+ max-width: 750px;
+ margin-inline: auto;
+ word-spacing: 0.05em;
+ 
+ /* Animation */
+ animation: fadeInUp 0.8s ease-out 0.2s backwards;
+ }
+ 
+ /* === Hero Description === */
+ .hero-description {
+ font-size: clamp(0.9375rem, 1.5vw + 0.5rem, 1.125rem);
+ color: rgba(255, 255, 255, 0.8);
+ line-height: 1.7;
+ 
+ /* Optimal reading width */
+ max-width: min(750px, 100%);
+ margin-inline: auto;
+ margin-block-end: clamp(20px, 3vh, 28px);
+ 
+ /* Readability */
+ word-spacing: 0.03em;
+ 
+ /* Animation */
+ animation: fadeInUp 0.8s ease-out 0.4s backwards;
+ }
+ 
+ /* === CTA Buttons Container === */
+ .cta-buttons {
+ display: flex;
+ gap: clamp(12px, 2vw, 20px);
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ 
+ /* Vertical gap when wrapped */
+ row-gap: clamp(12px, 2vh, 16px);
+ 
+ /* Animation */
+ animation: fadeInUp 0.8s ease-out 0.6s backwards;
+ }
+ 
+ /* === Animation Keyframes === */
+ @keyframes fadeInUp {
+ from {
+ opacity: 0;
+ transform: translateY(30px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
+ 
+ /* === Button Base Styles === */
+ .btn {
+ /* Layout */
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ 
+ /* Fluid padding */
+ padding: 12px 28px;
+ 
+ /* Sizing */
+ min-height: 44px;
+ min-width: fit-content;
+  width: fit-content;
+ 
+ /* Styling */
+ border-radius: 50px;
+ text-decoration: none;
+ border: none;
+ cursor: pointer;
+ 
+ /* Typography */
+ font-family: var(--font-primary);
+ font-weight: 700;
+ font-size: clamp(0.875rem, 1.5vw, 1rem);
+ letter-spacing: 0.5px;
+ text-align: center;
+ white-space: nowrap;
+ 
+ /* Effects */
+ position: relative;
+ overflow: hidden;
+ transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+ 
+ /* provides text is clickable */
+ user-select: none;
+ }
+ 
+ /* Ripple effect on click */
+ .btn::before {
+ content: '';
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ width: 0;
+ height: 0;
+ border-radius: 50%;
+ background: rgba(255, 255, 255, 0.3);
+ transform: translate(-50%, -50%);
+ transition: width 0.6s ease, height 0.6s ease;
+ pointer-events: none;
+ }
+ 
+ .btn:active::before {
+ width: 400px;
+ height: 400px;
+ }
+ 
+ /* Shimmer effect */
+ .btn::after {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -100%;
+ width: 50%;
+ height: 200%;
+ background: linear-gradient(90deg, 
+ transparent 0%, 
+ rgba(255, 255, 255, 0.1) 50%, 
+ transparent 100%);
+ transform: skewX(-25deg);
+ transition: left 0.8s ease;
+ }
+ 
+ .btn:hover::after {
+ left: 200%;
+ }
+ 
+ .btn span {
+ position: relative;
+ z-index: 1;
+ }
+ 
+ .btn-primary {
+ background: var(--lime-green);
+ color: var(--black);
+ box-shadow: 0 10px 30px rgba(199, 241, 96, 0.3);
+ }
+ 
+ .btn-primary:hover {
+ transform: translateY(-3px) scale(1.02);
+ box-shadow: 0 15px 40px rgba(199, 241, 96, 0.5);
+ }
+ 
+ .btn-primary:active {
+ transform: translateY(-1px) scale(0.98);
+ }
+ 
+ .btn-secondary {
+ background: transparent;
+ color: var(--white);
+ border: 2px solid var(--lime-green);
+ }
+ 
+ .btn-secondary:hover {
+ background: rgba(199, 241, 96, 0.1);
+ transform: translateY(-3px) scale(1.02);
+ box-shadow: 0 10px 30px rgba(199, 241, 96, 0.2);
+ }
+ 
+ .btn-secondary:active {
+ transform: translateY(-1px) scale(0.98);
+ }
+ 
+ /* === Responsive Button Adjustments === */
+ @media (max-width: 380px) {
+ .btn {
+ white-space: normal;
+ word-break: break-word;
+ hyphens: auto;
+ padding: 12px 20px;
+ min-width: 120px;
+ }
+ }
+ 
+ /* === Tablet Landscape Optimization === */
+ @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+ :root {
+ --spacing-hero-top: clamp(60px, 10vh, 90px);
+ --spacing-hero-bottom: clamp(30px, 6vh, 50px);
+ }
+ 
+ .hero {
+ min-height: 100vh;
+ }
+ }
+ 
+ /* === Short Viewport Height Adjustment === */
+ @media (max-height: 600px) and (orientation: landscape) {
+ :root {
+ --spacing-hero-top: 60px;
+ --spacing-hero-bottom: 30px;
+ }
+ 
+ .hero-title {
+ font-size: clamp(1.25rem, 3vw + 0.5rem, 2rem);
+ }
+ 
+ .hero-description {
+ font-size: clamp(0.875rem, 1.2vw + 0.5rem, 1rem);
+ }
+ }
+ 
+ /* === High-DPI Display Optimization === */
+ @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+ .hero-title,
+ .hero-subtitle,
+ .hero-description {
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+ text-rendering: optimizeLegibility;
+ }
+ }
+ 
+ /* === Reduced Motion Support === */
+ @media (prefers-reduced-motion: reduce) {
+ .hero::before,
+ .hero-badge,
+ .hero-title,
+ .hero-subtitle,
+ .hero-description,
+ .cta-buttons {
+ animation: none;
+ }
+ 
+ .btn {
+ transition: none;
+ }
+ }
+ 
+ /* === Print Styles === */
+ @media print {
+ .hero {
+ min-height: auto;
+ padding: 20px;
+ page-break-inside: avoid;
+ }
+ 
+ .hero::before {
+ display: none;
+ }
+ }
+ 
+ /* === MOBILE-SPECIFIC HERO OPTIMIZATIONS === */
+ @media (max-width: 768px) {
+ .hero {
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
+ padding-block-end: calc(15px + var(--safe-area-bottom));
+ }
+ 
+ .hero-badge {
+ margin-block-end: 10px;
+ }
+ 
+ .hero-title {
+ margin-block-end: 10px;
+ }
+ 
+ .hero-description {
+ margin-block-end: 18px;
+ }
+ }
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+ nav {
+ padding: 12px 15px;
+ }
+ 
+ .nav-logo {
+ font-size: 18px;
+ }
+ 
+ .nav-cta {
+ padding: 8px 16px;
+ font-size: 13px;
+ }
+ 
+ body {
+ font-size: 15px;
+ line-height: 1.6;
+ }
+}
+ 
+ @media (max-width: 480px) {
+ .hero { padding-top: calc(var(--navbar-height) + 72px); }
+ 
+ .hero-badge {
+ margin-block-end: 8px;
+ }
+ 
+ .hero-title {
+ margin-block-end: 8px;
+ }
+ 
+ .hero-description {
+ margin-block-end: 16px;
+ }
+ }
+ 
+ @media (max-width: 360px) {
+ .hero {
+ padding-block-start: calc(var(--navbar-height) + 72px + var(--safe-area-top));
+ padding-block-end: calc(10px + var(--safe-area-bottom));
+ }
+ }
+ 
+ /* ===== SECTION STYLES ===== */
+ .section {
+ padding: 80px 40px;
+ position: relative;
+ overflow: hidden;
+ }
+ 
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 20px;
+ }
+ 
+ .section-header {
+ text-align: center;
+ margin-bottom: 60px;
+ }
+ 
+ .section-title {
+ font-size: clamp(32px, 5vw, 48px);
+ font-weight: 800;
+ margin-bottom: 16px;
+ letter-spacing: -0.8px;
+ line-height: 1.2;
+ word-spacing: 0.05em;
+ font-family: "Space Grotesk", sans-serif;
+ color: var(--white);
+ }
+ 
+ .section-title .highlight {
+ color: var(--lime-green);
+ }
+ 
+ .section-subtitle {
+ font-size: 18px;
+ color: rgba(255, 255, 255, 0.6);
+ max-width: 700px;
+ margin: 0 auto;
+ }
+ 
+ /* ===== STORY SECTION ===== */
+ .story-content {
+ background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(30, 30, 30, 0.5));
+ border-radius: 24px;
+ padding: 60px 50px;
+ border: 1px solid rgba(199, 241, 96, 0.2);
+ margin-bottom: 60px;
+ }
+ 
+ .story-text {
+ font-size: 18px;
+ color: rgba(255, 255, 255, 0.8);
+ line-height: 1.9;
+ margin-bottom: 25px;
+ }
+ 
+ .story-highlight {
+ background: linear-gradient(135deg, rgba(199, 241, 96, 0.1), rgba(0, 255, 136, 0.1));
+ border-left: 3px solid var(--lime-green);
+ padding: 30px 35px;
+ border-radius: 12px;
+ margin: 35px 0;
+ }
+ 
+ .story-highlight p {
+ font-size: 20px;
+ color: var(--lime-light);
+ font-weight: 600;
+ line-height: 1.7;
+ }
+ 
+ /* ===== DEOBANKING PLATFORM VS NEOBANK ===== */
+ .comparison-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 30px;
+ margin-top: 50px;
+ }
+ 
+ .comparison-card {
+ background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(30, 30, 30, 0.5));
+ border-radius: 20px;
+ padding: 40px 35px;
+ border: 1px solid rgba(199, 241, 96, 0.2);
+ transition: all 0.3s ease;
+ position: relative;
+ overflow: hidden;
+ }
+ 
+ .comparison-card:hover {
+ transform: translateY(-5px);
+ border-color: var(--lime-green);
+ box-shadow: 0 20px 60px rgba(199, 241, 96, 0.2);
+ }
+ 
+ .comparison-card::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ height: 4px;
+ background: linear-gradient(90deg, var(--lime-green), var(--bright-green));
+ transform: scaleX(0);
+ transform-origin: left;
+ transition: transform 0.3s ease;
+ }
+ 
+ .comparison-card:hover::before {
+ transform: scaleX(1);
+ }
+ 
+ .comparison-icon {
+ font-size: 48px;
+ margin-bottom: 20px;
+ }
+ 
+ .comparison-title {
+ font-size: 24px;
+ font-weight: 700;
+ margin-bottom: 15px;
+ color: var(--lime-light);
+ font-family: "Space Grotesk", sans-serif;
+ }
+ 
+ .comparison-description {
+ color: rgba(255, 255, 255, 0.7);
+ line-height: 1.7;
+ margin-bottom: 20px;
+ }
+ 
+ .comparison-features {
+ list-style: none;
+ }
+ 
+ .comparison-features li {
+ padding-left: 35px;
+ position: relative;
+ margin-bottom: 12px;
+ color: rgba(255, 255, 255, 0.8);
+ }
+ 
+ .comparison-features li::before {
+ content: '✓';
+ position: absolute;
+ left: 0;
+ top: 2px;
+ color: var(--white);
+ font-weight: bold;
+ font-size: 14px;
+ width: 22px;
+ height: 22px;
+ border-radius: 50%;
+ border: 2px solid var(--white);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ background: transparent;
+ }
+ 
+ /* ===== TEAM SECTION ===== */
+ .team-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 35px;
+ margin-top: 50px;
+ }
+ 
+ .team-card {
+ background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(30, 30, 30, 0.5));
+ border-radius: 20px;
+ padding: 35px;
+ border: 1px solid rgba(199, 241, 96, 0.2);
+ text-align: center;
+ transition: all 0.3s ease;
+ }
+ 
+ .team-card:hover {
+ transform: translateY(-8px);
+ border-color: var(--lime-green);
+ box-shadow: 0 20px 60px rgba(199, 241, 96, 0.2);
+ }
+ 
+ .team-image {
+ width: 120px;
+ height: 120px;
+ border-radius: 50%;
+ margin: 0 auto 20px;
+ background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 48px;
+ border: 3px solid rgba(199, 241, 96, 0.3);
+ }
+ 
+ .team-name {
+ font-size: 22px;
+ font-weight: 700;
+ margin-bottom: 8px;
+ color: var(--white);
+ font-family: "Space Grotesk", sans-serif;
+ }
+ 
+ .team-role {
+ font-size: 15px;
+ color: var(--lime-green);
+ font-weight: 600;
+ margin-bottom: 12px;
+ }
+ 
+ .team-bio {
+ font-size: 14px;
+ color: rgba(255, 255, 255, 0.6);
+ line-height: 1.6;
+ }
+ 
+ /* ===== MISSION & VISION ===== */
+ .mission-vision {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 40px;
+ margin-top: 50px;
+ }
+ 
+ .mission-card {
+ background: linear-gradient(135deg, rgba(199, 241, 96, 0.05), rgba(0, 255, 136, 0.05));
+ border-radius: 20px;
+ padding: 45px 40px;
+ border: 1px solid rgba(199, 241, 96, 0.3);
+ }
+ 
+ .mission-icon {
+ font-size: 52px;
+ margin-bottom: 25px;
+ }
+ 
+ .mission-title {
+ font-size: 28px;
+ font-weight: 700;
+ margin-bottom: 20px;
+ color: var(--lime-green);
+ font-family: "Space Grotesk", sans-serif;
+ }
+ 
+ .mission-text {
+ font-size: 17px;
+ color: rgba(255, 255, 255, 0.8);
+ line-height: 1.8;
+ }
+ 
+ /* ===== STATS SECTION ===== */
+ .stats-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 30px;
+ margin-top: 50px;
+ }
+ 
+ .stat-card {
+ text-align: center;
+ padding: 35px 25px;
+ background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(30, 30, 30, 0.5));
+ border-radius: 16px;
+ border: 1px solid rgba(199, 241, 96, 0.2);
+ }
+ 
+ .stat-number {
+ font-size: 48px;
+ font-weight: 900;
+ background: linear-gradient(135deg, var(--lime-green), var(--bright-green));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ background-clip: text;
+ margin-bottom: 10px;
+ }
+ 
+ .stat-label {
+ font-size: 16px;
+ color: rgba(255, 255, 255, 0.7);
+ font-weight: 500;
+ }
+ 
+ /* ===== MINI FAQ SECTION ===== */
+ .mini-faq {
+ background: linear-gradient(135deg, rgba(26, 26, 26, 0.5), rgba(30, 30, 30, 0.5));
+ border-radius: 20px;
+ padding: 60px 40px;
+ margin-top: 80px;
+ border: 1px solid rgba(199, 241, 96, 0.2);
+ }
+ 
+ .faq-title {
+ text-align: center;
+ font-size: 32px;
+ font-weight: 700;
+ margin-bottom: 40px;
+ color: var(--lime-light);
+ font-family: "Space Grotesk", sans-serif;
+ }
+ 
+ .faq-item {
+ margin-bottom: 25px;
+ border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+ padding-bottom: 25px;
+ }
+ 
+ .faq-item:last-child {
+ border-bottom: none;
+ }
+ 
+ .faq-question {
+ background: transparent;
+ border: none;
+ width: 100%;
+ text-align: left;
+ padding: 18px 0;
+ font-size: 19px;
+ font-weight: 600;
+ color: var(--white);
+ cursor: pointer;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ font-family: var(--font-primary);
+ transition: color 0.3s ease;
+ line-height: 1.4;
+ }
+ 
+ .faq-question:hover {
+ color: var(--lime-green);
+ }
+ 
+ .faq-question::after {
+ content: '+';
+ font-size: 28px;
+ color: var(--lime-green);
+ transition: transform 0.3s ease;
+ margin-left: 15px;
+ flex-shrink: 0;
+ }
+ 
+ .faq-question.active::after {
+ transform: rotate(45deg);
+ }
+ 
+ .faq-answer {
+ max-height: 0;
+ overflow: hidden;
+ transition: max-height 0.4s ease;
+ color: rgba(255, 255, 255, 0.7);
+ line-height: 1.8;
+ font-size: 16px;
+ }
+ 
+ .faq-answer.active {
+ max-height: 500px;
+ padding-top: 10px;
+ padding-bottom: 5px;
+ }
+ 
+ /* Mobile FAQ optimization */
+ @media (max-width: 768px) {
+ .faq-answer {
+ font-size: 15px;
+ line-height: 1.8;
+ }
+ 
+ .faq-answer.active {
+ max-height: 800px;
+ }
+ 
+ .faq-question {
+ font-size: 17px;
+ }
+ }
+ 
+ @media (max-width: 480px) {
+ .faq-answer {
+ font-size: 14px;
+ line-height: 1.9;
+ }
+ 
+ .faq-answer.active {
+ max-height: 1000px;
+ }
+ 
+ .faq-question {
+ font-size: 16px;
+ }
+ }
+ 
+ .faq-cta {
+ text-align: center;
+ margin-top: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+ 
+ /* ===== FOOTER ===== */
+ .footer {
+ background: var(--near-black);
+ padding: 60px 40px 30px;
+ border-top: 1px solid rgba(199, 241, 96, 0.1);
+ }
+ 
+ .footer-container {
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+ 
+ .footer-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 40px;
+ margin-bottom: 40px;
+ }
+ 
+ .footer-section h3 {
+ color: var(--lime-green);
+ margin-bottom: 20px;
+ font-size: 18px;
+ font-weight: 700;
+ }
+ 
+ .footer-links {
+ list-style: none;
+ }
+ 
+ .footer-links li {
+ margin-bottom: 12px;
+ }
+ 
+ .footer-links a {
+ color: rgba(255, 255, 255, 0.6);
+ text-decoration: none;
+ transition: color 0.3s ease;
+ font-size: 15px;
+ }
+ 
+ .footer-links a:hover {
+ color: var(--lime-green);
+ }
+ 
+ /* ===== SOCIAL MEDIA ICONS - CONVERSION OPTIMIZED ===== */
+ .footer-links a .social-icon {
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ width: 24px;
+ height: 24px;
+ margin-right: 12px;
+ font-size: 16px;
+ transition: all 0.3s ease;
+ vertical-align: middle;
+ }
+ 
+ /* Font Awesome 6 Font Family Declarations */
+ .fa-brands {
+ font-family: "Font Awesome 6 Brands";
+ font-weight: 400;
+ }
+ 
+ .fa-solid {
+ font-family: "Font Awesome 6 Free";
+ font-weight: 900;
+ }
+ 
+ /* Platform-Specific Brand Colors */
+ .footer-links a .fa-whatsapp {
+ color: #25D366;
+ }
+ 
+ .footer-links a .fa-users {
+ color: #00E676;
+ }
+ 
+ .footer-links a .fa-facebook {
+ color: #1877F2;
+ }
+ 
+ .footer-links a .fa-youtube {
+ color: #FF0000;
+ }
+ 
+ /* Hover Effects - Scale & Glow */
+ .footer-links a:hover .social-icon {
+ transform: scale(1.2) translateY(-2px);
+ }
+ 
+ .footer-links a:hover .fa-whatsapp {
+ filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.6));
+ }
+ 
+ .footer-links a:hover .fa-users {
+ filter: drop-shadow(0 0 8px rgba(0, 230, 118, 0.6));
+ }
+ 
+ .footer-links a:hover .fa-facebook {
+ filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.6));
+ }
+ 
+ .footer-links a:hover .fa-youtube {
+ filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.6));
+ }
+ 
+ /* Mobile Optimization - Larger Touch Targets */
+ @media (max-width: 768px) {
+ .footer-links a .social-icon {
+ width: 28px;
+ height: 28px;
+ font-size: 18px;
+ margin-right: 14px;
+ }
+ 
+ .footer-links a {
+ font-size: 15px;
+ font-weight: 500;
+ }
+ }
+ 
+ .vpn-footer-block{background:linear-gradient(135deg,rgba(0,217,255,0.08),rgba(0,217,255,0.03));border:1px solid rgba(0,217,255,0.3);border-radius:16px;padding:30px 36px;margin-bottom:36px;display:flex;flex-direction:column;gap:18px}
+    .vpn-footer-block__top{display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap}
+    .vpn-footer-block__icon{font-size:44px;flex-shrink:0;line-height:1}
+    .vpn-footer-block__copy{flex:1;min-width:220px}
+    .vpn-footer-block__headline{font-size:19px;font-weight:800;color:#ffffff;margin:0 0 6px;line-height:1.3;font-family:"Space Grotesk",sans-serif;letter-spacing:-0.3px}
+    .vpn-footer-block__headline span{color:#00D9FF}
+    .vpn-footer-block__body{font-size:13.5px;color:rgba(255,255,255,0.72);line-height:1.7;margin:0}
+    .vpn-footer-block__body strong{color:rgba(255,255,255,0.92);font-weight:600}
+    .vpn-footer-block__cta{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;background:#00D9FF;color:#000;font-size:13px;font-weight:800;border-radius:50px;text-decoration:none;letter-spacing:0.4px;transition:all 0.25s ease;align-self:flex-start;white-space:nowrap;width:fit-content}
+    .vpn-footer-block__cta:hover{background:#00c5e8;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,217,255,0.3)}
+    .vpn-footer-block__tag{font-size:11px;color:rgba(0,217,255,0.7);font-weight:600;letter-spacing:0.8px;text-transform:uppercase;margin:0}
+    @media(max-width:600px){.vpn-footer-block{padding:24px 20px}.vpn-footer-block__headline{font-size:17px}.vpn-footer-block__cta{width:100%;justify-content:center}.vpn-footer-block__icon{font-size:36px}}
+ 
+ .footer-bottom {
+ text-align: center;
+ padding-top: 30px;
+ border-top: 1px solid rgba(255, 255, 255, 0.1);
+ color: rgba(255, 255, 255, 0.5);
+ font-size: 14px;
+ }
+ 
+ .disclaimer {
+ font-size: 13px;
+ color: rgba(255, 255, 255, 0.4);
+ max-width: 900px;
+ margin: 20px auto 0;
+ line-height: 1.6;
+ }
+ 
+ /* ===== RESPONSIVE DESIGN ===== */
+ @media (max-width: 768px) {
+ :root {
+ --section-padding: 60px;
+ }
+ 
+ /* CRITICAL FIX: Reduce logo size on mobile to prevent overlap with badge */
+ .logo { font-size: 20px; letter-spacing: -0.5px; }
+ 
+ .nav-menu {
+ position: fixed;
+ top: 60px;
+ left: -100%;
+ flex-direction: column;
+ background: rgba(0, 0, 0, 0.98);
+ width: 100%;
+ padding: 40px;
+ gap: 20px;
+ transition: left 0.3s ease;
+ border-top: 1px solid rgba(199, 241, 96, 0.2);
+ z-index: 999;
+ }
+ 
+ .nav-menu.active {
+ left: 0;
+ }
+ 
+ .mobile-menu-btn {
+ display: flex;
+ position: absolute;
+ left: 50%;
+ transform: translateX(-50%);
+ }
+ 
+ .nav-cta {
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ right: 20px;
+ padding: 8px 16px;
+ font-size: 12px;
+ min-height: 36px;
+ }
+ 
+ .nav-container {
+ padding: 14px 20px;
+ }
+ 
+ .section {
+ padding: 30px 20px;
+ }
+ 
+ .section-title {
+ font-size: clamp(28px, 6vw, 40px);
+ }
+ 
+ .section-subtitle {
+ font-size: 15px;
+ }
+ 
+ .story-content {
+ padding: 40px 25px;
+ }
+ 
+ .story-text {
+ font-size: 16px;
+ }
+ 
+ .story-highlight p {
+ font-size: 18px;
+ }
+ 
+ .comparison-grid {
+ grid-template-columns: 1fr;
+ }
+ 
+ .comparison-card {
+ padding: 30px 25px;
+ }
+ 
+ .comparison-title {
+ font-size: 22px;
+ }
+ 
+ .team-grid {
+ grid-template-columns: 1fr;
+ }
+ 
+ .team-card {
+ padding: 30px 25px;
+ }
+ 
+ .mission-vision {
+ grid-template-columns: 1fr;
+ }
+ 
+ .mission-card {
+ padding: 35px 30px;
+ }
+ 
+ .mission-title {
+ font-size: 24px;
+ }
+ 
+ .stats-grid {
+ grid-template-columns: 1fr;
+ }
+ 
+ .mini-faq {
+ padding: 40px 20px;
+ }
+ 
+ .faq-title {
+ font-size: 26px;
+ }
+ 
+ .faq-question {
+ font-size: 16px;
+ padding: 12px 0;
+ }
+ 
+ .footer {
+ padding: 40px 20px 20px;
+ }
+ 
+ .footer-grid {
+ grid-template-columns: 1fr;
+ }
+ }
+ 
+ @media (max-width: 480px) {
+ /* Further reduce logo size on very small screens */
+ .logo { }
+ 
+ .nav-container {
+ padding: 12px 15px;
+ }
+ 
+ .nav-cta {
+ padding: 6px 12px;
+ font-size: 11px;
+ min-height: 32px;
+ right: 15px;
+ }
+ 
+ .section {
+ padding: 25px 15px;
+ }
+ 
+ .section-title {
+ font-size: 26px;
+ margin-bottom: 12px;
+ }
+ 
+ .section-subtitle {
+ font-size: 14px;
+ }
+ 
+ .story-content {
+ padding: 30px 20px;
+ border-radius: 16px;
+ }
+ 
+ .story-text {
+ font-size: 15px;
+ line-height: 1.7;
+ }
+ 
+ .story-highlight {
+ padding: 20px 20px;
+ margin: 25px 0;
+ }
+ 
+ .story-highlight p {
+ font-size: 16px;
+ }
+ 
+ .comparison-card {
+ padding: 25px 20px;
+ }
+ 
+ .comparison-icon {
+ font-size: 40px;
+ }
+ 
+ .comparison-title {
+ font-size: 20px;
+ }
+ 
+ .comparison-description {
+ font-size: 14px;
+ }
+ 
+ .team-card {
+ padding: 25px 20px;
+ }
+ 
+ .team-image {
+ width: 100px;
+ height: 100px;
+ font-size: 40px;
+ }
+ 
+ .team-name {
+ font-size: 20px;
+ }
+ 
+ .team-role {
+ font-size: 14px;
+ }
+ 
+ .team-bio {
+ font-size: 13px;
+ }
+ 
+ .mission-card {
+ padding: 30px 25px;
+ }
+ 
+ .mission-icon {
+ font-size: 44px;
+ }
+ 
+ .mission-title {
+ font-size: 22px;
+ }
+ 
+ .mission-text {
+ font-size: 15px;
+ }
+ 
+ .stat-card {
+ padding: 25px 20px;
+ }
+ 
+ .stat-number {
+ font-size: 40px;
+ }
+ 
+ .stat-label {
+ font-size: 14px;
+ }
+ 
+ .mini-faq {
+ padding: 30px 15px;
+ }
+ 
+ .faq-title {
+ font-size: 24px;
+ margin-bottom: 30px;
+ }
+ 
+ .faq-question {
+ font-size: 15px;
+ padding: 10px 0;
+ }
+ 
+ .faq-answer {
+ font-size: 14px;
+ line-height: 1.6;
+ }
+ 
+ .footer {
+ padding: 35px 15px 15px;
+ }
+ 
+ .website-clone-offer {
+ padding: 20px;
+ }
+ 
+ .website-clone-offer p {
+ font-size: 14px;
+ }
+ 
+ .website-clone-offer a {
+ font-size: 15px;
+ }
+ 
+ .footer-section h3 {
+ font-size: 16px;
+ }
+ 
+ .footer-links a {
+ font-size: 14px;
+ }
+ 
+ .disclaimer {
+ font-size: 12px;
+ }
+ 
+ .footer-bottom {
+ font-size: 12px;
+ }
+ }
+ 
+ @media (max-width: 360px) {
+ .logo { }
+ 
+ .nav-cta {
+ padding: 5px 10px;
+ font-size: 10px;
+ min-height: 30px;
+ right: 12px;
+ }
+ 
+ .mobile-menu-btn {
+ padding: 8px;
+ }
+ 
+ .mobile-menu-btn span {
+ width: 22px;
+ height: 2px;
+ }
+ 
+ .hero {
+ padding: 75px 12px 15px;
+ }
+ 
+ .hero-title {
+ font-size: 24px;
+ }
+ 
+ .hero-badge {
+ padding: 7px 16px;
+ font-size: 10px;
+ }
+ 
+ .hero-description {
+ font-size: 14px;
+ margin-bottom: 14px;
+ }
+ 
+ .btn {
+ padding: 12px 14px;
+ font-size: 12px;
+ min-width: 110px;
+ }
+ 
+ .section {
+ padding: 25px 12px;
+ }
+ 
+ .section-title {
+ font-size: 24px;
+ }
+ 
+ .container {
+ padding: 0 12px;
+ }
+ }
+ 
+ /* ===== ANIMATIONS ===== */
+ @keyframes fadeIn {
+ from {
+ opacity: 0;
+ transform: translateY(30px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ }
+ 
+ .fade-in-on-scroll {
+ opacity: 0;
+ animation: fadeIn 0.8s ease forwards;
+ }
+ 
+ /* ===== SCROLL TO TOP BUTTON ===== */
+ 
+ .scroll-arrow {
+ position: relative;
+ z-index: 1;
+ font-size: 24px;
+ font-weight: 700;
+ color: var(--black);
+ }
+ 
+ @media (max-width: 768px) {
+ }
+ 
+ @media (max-width: 480px) {
+ }
+ 
+ /* ===== VIDEO MODAL ===== */
+ .video-modal {
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(0, 0, 0, 0.95);
+ z-index: 10000;
+ opacity: 0;
+ transition: opacity 0.4s ease;
+ backdrop-filter: blur(10px);
+ -webkit-backdrop-filter: blur(10px);
+ }
+ 
+ .video-modal.active {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ opacity: 1;
+ }
+ 
+ .video-container {
+ position: relative;
+ width: 90%;
+ max-width: 1200px;
+ max-height: 85vh; /* Critical: Prevents video from exceeding viewport height */
+ background: linear-gradient(135deg, rgba(26, 26, 26, 0.95), rgba(30, 30, 30, 0.95));
+ border-radius: 20px;
+ padding: 8px;
+ box-shadow: 
+ 0 25px 80px rgba(0, 255, 136, 0.3),
+ 0 0 0 1px rgba(199, 241, 96, 0.3),
+ inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+ transform: scale(0.8);
+ opacity: 0;
+ transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+ }
+ 
+ .video-modal.active .video-container {
+ transform: scale(1);
+ opacity: 1;
+ }
+ 
+ .video-modal.closing .video-container {
+ transform: scale(0.8);
+ opacity: 0;
+ transition: all 0.4s cubic-bezier(0.6, 0.04, 0.98, 0.34);
+ }
+ 
+ .video-wrapper {
+ position: relative;
+ width: 100%;
+ padding-bottom: 56.25%; /* 16:9 aspect ratio - fallback for older browsers */
+ background: #000;
+ border-radius: 16px;
+ overflow: hidden;
+ box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
+ }
+ 
+ /* Modern aspect-ratio support */
+ @supports (aspect-ratio: 16 / 9) {
+ .video-wrapper {
+ aspect-ratio: 16 / 9;
+ }
+ }
+ 
+ /* Height-constrained wrapper for laptops */
+ @media (max-height: 900px) and (min-width: 769px) {
+ .video-wrapper {
+ padding-bottom: 0;
+ height: calc(85vh - 100px); /* Account for modal padding, close button, and margins */
+ }
+ 
+ @supports (aspect-ratio: 16 / 9) {
+ .video-wrapper {
+ aspect-ratio: 16 / 9;
+ height: auto;
+ max-height: calc(85vh - 100px);
+ }
+ }
+ }
+ 
+ @media (max-height: 800px) and (min-width: 769px) {
+ .video-wrapper {
+ height: calc(78vh - 100px);
+ }
+ 
+ @supports (aspect-ratio: 16 / 9) {
+ .video-wrapper {
+ max-height: calc(78vh - 100px);
+ }
+ }
+ }
+ 
+ @media (max-height: 768px) and (min-width: 769px) {
+ .video-wrapper {
+ height: calc(70vh - 100px);
+ }
+ 
+ @supports (aspect-ratio: 16 / 9) {
+ .video-wrapper {
+ max-height: calc(70vh - 100px);
+ }
+ }
+ }
+ 
+ /* Extra safeguard: provides wrapper never exceeds container */
+ @media (min-width: 769px) {
+ .video-wrapper {
+ max-height: calc(85vh - 120px);
+ }
+ }
+ 
+ .video-wrapper::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: linear-gradient(135deg, 
+ rgba(199, 241, 96, 0.1) 0%, 
+ transparent 50%, 
+ rgba(0, 255, 136, 0.1) 100%);
+ pointer-events: none;
+ z-index: 1;
+ opacity: 0.3;
+ }
+ 
+ .video-wrapper iframe {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ border: none;
+ border-radius: 16px;
+ object-fit: contain; /* provides video fits perfectly without cropping */
+ }
+ 
+ /* provides iframe fills wrapper on laptops with height constraints */
+ @media (min-width: 769px) {
+ .video-wrapper iframe {
+ object-fit: fill; /* Fill the container on larger screens */
+ }
+ }
+ 
+ .video-close {
+ position: absolute;
+ top: -50px;
+ right: 0;
+ background: rgba(199, 241, 96, 0.1);
+ border: 2px solid var(--lime-green);
+ color: var(--white);
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ font-size: 24px;
+ font-weight: 300;
+ transition: all 0.3s ease;
+ z-index: 10001;
+ }
+ 
+ .video-close:hover {
+ background: var(--lime-green);
+ color: var(--black);
+ transform: rotate(90deg) scale(1.1);
+ box-shadow: 0 5px 20px rgba(199, 241, 96, 0.4);
+ }
+ 
+ /* Video loading state */
+ .video-loading {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ z-index: 2;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 20px;
+ background: rgba(0, 0, 0, 0.8);
+ padding: 40px 60px;
+ border-radius: 16px;
+ border: 2px solid var(--lime-green);
+ box-shadow: 0 10px 40px rgba(199, 241, 96, 0.3);
+ }
+ 
+ .video-loading-spinner {
+ width: 60px;
+ height: 60px;
+ border: 4px solid rgba(199, 241, 96, 0.2);
+ border-top-color: var(--lime-green);
+ border-radius: 50%;
+ animation: spin 1s linear infinite;
+ }
+ 
+ .video-loading-text {
+ color: var(--white);
+ font-size: 18px;
+ font-weight: 600;
+ text-align: center;
+ letter-spacing: 0.5px;
+ }
+ 
+ .video-loading-subtext {
+ color: rgba(255, 255, 255, 0.7);
+ font-size: 14px;
+ text-align: center;
+ }
+ 
+ @keyframes spin {
+ to { transform: rotate(360deg); }
+ }
+ 
+ /* Hide loading when video is ready */
+ .video-loading.hidden {
+ display: none;
+ }
+ 
+ /* Mobile responsive loading indicator */
+ @media (max-width: 768px) {
+ .video-loading {
+ padding: 30px 40px;
+ gap: 15px;
+ }
+ 
+ .video-loading-spinner {
+ width: 50px;
+ height: 50px;
+ }
+ 
+ .video-loading-text {
+ font-size: 16px;
+ }
+ 
+ .video-loading-subtext {
+ font-size: 13px;
+ }
+ }
+ 
+ @media (max-width: 480px) {
+ .video-loading {
+ padding: 25px 30px;
+ gap: 12px;
+ }
+ 
+ .video-loading-spinner {
+ width: 40px;
+ height: 40px;
+ border-width: 3px;
+ }
+ 
+ .video-loading-text {
+ font-size: 15px;
+ }
+ 
+ .video-loading-subtext {
+ font-size: 12px;
+ }
+ }
+ 
+ /* Mobile responsive video modal */
+ @media (max-width: 768px) {
+ .video-container {
+ width: 95%;
+ padding: 6px;
+ border-radius: 16px;
+ }
+ 
+ .video-wrapper {
+ border-radius: 12px;
+ }
+ 
+ .video-close {
+ top: -45px;
+ width: 36px;
+ height: 36px;
+ font-size: 20px;
+ }
+ }
+ 
+ /* ===== TABLET-SPECIFIC OPTIMIZATIONS (769px - 1024px) ===== */
+ /* These rules provides videos play perfectly on iPad, Android tablets, and all tablet devices */
+ @media (min-width: 769px) and (max-width: 1024px) {
+ .video-modal {
+ /* provides proper stacking and interaction on tablets */
+ -webkit-overflow-scrolling: touch;
+ touch-action: manipulation;
+ }
+ 
+ .video-container {
+ width: 92%;
+ max-width: 900px;
+ padding: 8px;
+ }
+ 
+ .video-wrapper {
+ /* provides proper aspect ratio on tablets */
+ padding-bottom: 56.25%;
+ }
+ 
+ .video-wrapper iframe,
+ .video-wrapper > div[id^="youtube-player-"] {
+ /* Critical for tablet video playback */
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100% !important;
+ height: 100% !important;
+ border: none;
+ -webkit-transform: translateZ(0);
+ transform: translateZ(0);
+ -webkit-backface-visibility: hidden;
+ backface-visibility: hidden;
+ }
+ 
+ .video-close {
+ /* Larger touch target for tablets */
+ width: 44px;
+ height: 44px;
+ font-size: 26px;
+ top: -55px;
+ }
+ }
+ 
+ /* iPad Portrait (768x1024) */
+ @media (min-width: 768px) and (max-width: 768px) and (orientation: portrait) {
+ .video-container {
+ width: 94%;
+ max-height: 80vh;
+ }
+ }
+ 
+ /* iPad Landscape (1024x768) */
+ @media (min-width: 1024px) and (max-width: 1024px) and (orientation: landscape) {
+ .video-container {
+ width: 90%;
+ max-height: 75vh;
+ }
+ }
+ 
+ /* iPad Pro Portrait (1024x1366) */
+ @media (min-width: 1024px) and (max-width: 1024px) and (min-height: 1300px) and (orientation: portrait) {
+ .video-container {
+ width: 92%;
+ max-height: 70vh;
+ }
+ }
+ 
+ /* iPad Pro Landscape (1366x1024) */
+ @media (min-width: 1366px) and (max-width: 1366px) and (max-height: 1024px) and (orientation: landscape) {
+ .video-container {
+ width: 88%;
+ max-height: 75vh;
+ }
+ }
+ 
+ /* Laptop screen optimization (768px - 1600px width) */
+ @media (min-width: 769px) and (max-width: 1600px) {
+ .video-container {
+ width: 85%;
+ max-width: min(1000px, calc((85vh - 120px) * 16 / 9)); /* Width limited by height on laptops */
+ }
+ }
+ 
+ /* Small laptops (768px - 1024px width) */
+ @media (min-width: 769px) and (max-width: 1024px) {
+ .video-container {
+ width: 90%;
+ max-width: min(850px, calc((85vh - 120px) * 16 / 9));
+ }
+ }
+ 
+ /* Very small laptop screens (specific height constraints) */
+ @media (max-width: 1366px) and (max-height: 768px) {
+ .video-container {
+ width: 80%;
+ max-width: min(900px, calc((70vh - 120px) * 16 / 9));
+ max-height: 70vh;
+ }
+ }
+ 
+ /* MacBook Air 13" and similar (1440x900) */
+ @media (min-width: 1367px) and (max-width: 1440px) and (min-height: 850px) and (max-height: 950px) {
+ .video-container {
+ width: 85%;
+ max-width: min(1000px, calc((75vh - 120px) * 16 / 9));
+ max-height: 75vh;
+ }
+ }
+ 
+ /* Standard 1080p laptops */
+ @media (min-width: 1600px) and (max-height: 1080px) {
+ .video-container {
+ width: 80%;
+ max-width: min(1100px, calc((80vh - 120px) * 16 / 9));
+ max-height: 80vh;
+ }
+ }
+ 
+ @media (max-width: 480px) {
+ .video-container {
+ width: 98%;
+ padding: 4px;
+ border-radius: 12px;
+ }
+ 
+ .video-wrapper {
+ border-radius: 10px;
+ }
+ 
+ .video-close {
+ top: -40px;
+ width: 32px;
+ height: 32px;
+ font-size: 18px;
+ }
+ }
+ 
+ /* Utility Classes */
+ .text-center {
+ text-align: center;
+ }
+ 
+ .mt-40 {
+ margin-top: 40px;
+ }
+ 
+ .mb-40 {
+ margin-bottom: 40px;
+ }
+ 
+ /* ===== SCROLL ANIMATIONS ===== */
+ .fade-in-on-scroll {
+ opacity: 0;
+ transform: translateY(30px);
+ transition: opacity 0.6s ease, transform 0.6s ease;
+ }
+ 
+ .fade-in-on-scroll.visible {
+ opacity: 1;
+ transform: translateY(0);
+ }
+ 
+    
+    
+    
+    /* ===== VPN BUTTON COMPONENT ===== */
+    .vpn-cta-wrap{margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:0;width:fit-content;margin-left:auto;margin-right:auto;text-align:center}
+    .vpn-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:transparent;border:2px solid #00D9FF;color:#00D9FF;font-size:14px;font-weight:700;border-radius:50px;text-decoration:none;letter-spacing:0.5px;transition:all 0.25s ease;cursor:pointer;font-family:var(--font-primary);white-space:nowrap}
+    .vpn-btn:hover{background:rgba(0,217,255,0.1);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,217,255,0.2)}
+    .vpn-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-top:7px;line-height:1.5;max-width:400px}
+    @media(max-width:768px){.vpn-btn{font-size:13px;padding:10px 20px}.vpn-sub{font-size:11px}.vpn-cta-wrap{width:100%;align-items:center}}
+
+    /* On mobile the long text wraps to 2 lines and pushes everything down.
+       Shrink font + padding so it stays one compact line at all widths. */
+    #disclaimer-bar { height: auto; }
+
+    @media (max-width: 768px) {
+      #disclaimer-bar {
+        padding: 7px 12px !important;
+      }
+      #disclaimer-bar p {
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+      }
+      /* Navbar sits just below the now-compact disclaimer (~28px) */
+      .navbar {
+        top: 28px !important;
+      }
+      /* Hero accounts for: disclaimer(28) + navbar(68) + breathing room(24) = 120px */
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 52px) !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #disclaimer-bar {
+        padding: 6px 10px !important;
+      }
+      #disclaimer-bar p {
+        font-size: 10.5px !important;
+      }
+      .navbar {
+        top: 26px !important;
+      }
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 50px) !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      #disclaimer-bar p {
+        font-size: 10px !important;
+      }
+      .navbar {
+        top: 25px !important;
+      }
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 48px) !important;
+      }
+    }
+
+    
+    /* ===== HERO SECTION - UNIVERSAL MOBILE CLEARANCE FIX =====
+       Stack height: disclaimer(~28px) + navbar(56-68px) = ~84-96px
+       Hero padding = stack + breathing room
+       Using calc() with --navbar-height ensures pages with different
+       navbar heights all get correct clearance automatically.
+    ===== */
+    @media (max-width: 768px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 58px) !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 54px) !important;
+      }
+    }
+    @media (max-width: 360px) {
+      .hero,
+      .page-hero,
+      .ito-hero {
+        padding-top: calc(var(--navbar-height) + 60px) !important;
+      }
+    }
+
+    
+    /* ===== SMART NAVBAR: hide on scroll-down, show on scroll-up ===== */
+    .navbar {
+      will-change: transform;
+      transition: transform 0.32s cubic-bezier(0.4,0,0.2,1),
+                  background 0.3s ease,
+                  box-shadow 0.3s ease !important;
+    }
+    .navbar-hidden {
+      transform: translateY(-150%) !important;
+    }
+    /* ================================================================ */
+
+    .scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--lime-green);
+  color: var(--black);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 999;
+  border: none;
+  font-size: 24px;
+}
+    .scroll-to-top.visible { opacity: 1; visibility: visible; }
+    .scroll-to-top:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(199, 241, 96, 0.4);
+}
+
+    
+    /* ===== CTA BUTTONS: STACKED COLUMN ON ALL SCREENS ===== */
+    .cta-buttons,
+    .btn-group,
+    .step-cta-buttons,
+    .faq-cta,
+    .final-cta-buttons,
+    .hero-cta {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      gap: 14px !important;
+    }
+    /* ======================================================= */
+
+    /* ================================================================
+   AXIOM ANIMATION SYSTEM v1.0
+   Scroll-triggered entrance animations — comprehensive coverage.
+   Injected as a clean, non-conflicting layer on top of all
+   existing animation systems on this page.
+   ================================================================ */
+
+/* --- BASE: Elements start invisible via JS class injection ---
+   .axiom-ready is added by JS so the page degrades gracefully
+   if JavaScript fails to execute.
+   ---------------------------------------------------------------- */
+.axiom-ready {
+  will-change: opacity, transform;
+}
+
+/* -----------------------------------------------------------
+   TIER 1: Headings, section titles, section headers
+   Motion: Fade up from 20px below
+   Duration: 0.9s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t1 {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity  0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 2: Cards, video containers, images, prominent blocks
+   Motion: Scale up from 0.96 + subtle lift
+   Duration: 0.8s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t2 {
+  opacity: 0;
+  transform: scale(0.96) translateY(18px);
+  transition:
+    opacity  0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 3: Paragraphs, buttons, list items, captions
+   Motion: Gentle fade up from 12px
+   Duration: 0.7s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t3 {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity  0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   TIER 4: Horizontal slides for nav and footer columns
+   T4-LEFT: Logo and left-side items
+   T4-RIGHT: Nav links and right-side items
+   Duration: 0.6s | Easing: premium deceleration
+   ----------------------------------------------------------- */
+.axiom-t4-left {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition:
+    opacity  0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.axiom-t4-right {
+  opacity: 0;
+  transform: translateX(28px);
+  transition:
+    opacity  0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------------------------
+   VISIBLE STATE — final resting position for all tiers.
+   ----------------------------------------------------------- */
+.axiom-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* -----------------------------------------------------------
+   REDUCED MOTION OVERRIDE
+   ----------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .axiom-t1,
+  .axiom-t2,
+  .axiom-t3,
+  .axiom-t4-left,
+  .axiom-t4-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ================================================================
+   NAV CTA BUTTON — UNIFIED MOBILE SIZING
+   Overrides all per-page fragmented breakpoint rules.
+   Target: 40px touch target, 13px font, consistent across all
+   mobile widths. Not too small, not too big.
+   ================================================================ */
+
+/* Tablet / large mobile (≤768px) */
+@media (max-width: 768px) {
+  .nav-cta {
+    padding: 10px 20px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
+    right: 16px !important;
+    /* Remove any entrance animation offset */
+    opacity: 1 !important;
+    transform: translateY(-50%) !important; /* keep vertical centering */
+  }
+}
+
+/* Small mobile (≤480px) */
+@media (max-width: 480px) {
+  .nav-cta {
+    padding: 10px 18px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
+    right: 14px !important;
+  }
+}
+
+/* Tiny screens (≤360px) */
+@media (max-width: 360px) {
+  .nav-cta {
+    padding: 10px 16px !important;
+    font-size: 13px !important;
+    min-height: 40px !important;
+    right: 12px !important;
+  }
+}
+
+
+</style>
+
+ <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "About WeFi - World's First Deobanking Platform",
+   "url": "https://www.deobankdefi.com/about-wefi.html",
+   "description": "WeFi is a technology company building the WeChain blockchain and Deobank Model. Learn about the three ecosystem participants, WeChain network advantages, WFI token economy, and how WeFi replaces legacy banking with transparent onchain infrastructure.",
+   "isPartOf": {"@type": "WebSite", "name": "DeobankDeFi", "url": "https://www.deobankdefi.com"},
+   "about": {
+     "@type": "Organization",
+     "name": "WeFi",
+     "url": "https://www.wefi.co",
+     "description": "WeFi is a technology company that builds and maintains the WeChain blockchain network, the Deobank Model, and the WFI token economy. WeFi is not a licensed bank. It provides onchain infrastructure enabling regulated Deobank service providers to deliver financial services.",
+     "sameAs": ["https://www.wefi.co", "https://wechain.ai"]
+   }
+ }
+ </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "About WeFi - World's First Deobanking Platform",
+  "url": "https://www.deobankdefi.com/about-wefi.html",
+  "description": "WeFi is the technology company behind WeChain and the Deobank Model. Learn about the three architectural pillars: WeChain, Deobank Model, and the WFI token economy.",
+  "about": {
+    "@type": "Organization",
+    "name": "WeFi",
+    "description": "WeFi is a technology company that develops decentralized onchain banking infrastructure including WeChain blockchain, Deobank Model, Cloud-Based Mining, and the WFI token economy.",
+    "url": "https://www.wefi.co"
+  },
+  "isPartOf": {"@type": "WebSite", "name": "DeobankDeFi", "url": "https://www.deobankdefi.com"}
+}
+</script>
+<!-- JSON-LD Schema -->
+ <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "WebPage",
+   "name": "About WeFi - World's First Deobanking Platform",
+   "url": "https://www.deobankdefi.com/about-wefi.html",
+   "description": "WeFi is a technology company building the WeChain blockchain and Deobank Model infrastructure. Learn about its three architectural pillars: WeChain network, Deobank Model, and the WFI token economy.",
+   "isPartOf": {"@type": "WebSite", "name": "DeobankDeFi", "url": "https://www.deobankdefi.com"}
+ }
+ </script>
+ <script type="application/ld+json">
+ {
+   "@context": "https://schema.org",
+   "@type": "Organization",
+   "name": "WeFi",
+   "description": "WeFi is a technology company that builds and maintains the WeChain blockchain network and the Deobank Model infrastructure. It is not a bank. It provides regulatory-ready onchain banking rails for Deobank service providers.",
+   "url": "https://www.wefi.co",
+   "sameAs": ["https://wechain.ai", "https://t.me/wefi_announcements"]
+ }
+ </script>
+</head>
+<body>
+</div>
+
+ </style>
+</head>
+<body>
+ <!-- NAVIGATION -->
+ <nav class="navbar">
+ <div class="nav-container">
+ <a href="https://www.deobankdefi.com" style="text-decoration: none;">
+ <div class="logo">DeobankDeFi</div>
+ </a>
+ <ul class="nav-menu" id="navMenu">
+ <li><a href="https://www.deobankdefi.com/" class="nav-link">Home</a></li>
+ <li><a href="https://www.deobankdefi.com/wfi-token.html" class="nav-link">WFI Token</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-compensation-plan.html" class="nav-link">Comp Plan</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-testimonials.html" class="nav-link">Testimonials</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-video-tutorials" class="nav-link">Video Tutorials</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="nav-link">Getting Started</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-faq.html" class="nav-link">FAQ</a></li>
+ </ul>
+ <div class="mobile-menu-btn" id="mobileMenuBtn">
+ <span></span>
+ <span></span>
+ <span></span>
+ </div>
+ <a href="https://app.wefi.co/register?ref=lrngx9bw14" class="nav-cta" target="_blank" rel="noopener noreferrer">Sign Up</a>
+ </div>
+ </nav>
+
+ <!-- HERO SECTION -->
+ <section class="hero">
+ <div class="hero-content">
+ <div class="hero-badge">Founded by Crypto Legends</div>
+ <h1 class="hero-title">The Future of <span class="highlight">Finance</span> Is Here</h1>
+ <p class="hero-description">
+ WeFi is revolutionizing global finance by combining the best of traditional banking with blockchain technology. Founded by WeFi leadership, Blockchain Industry Leader, we're creating a financial system that puts you in control.
+ </p>
+ <div class="cta-buttons">
+ <a href="https://app.wefi.co/register?ref=lrngx9bw14" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+ <span>Join WeFi Now</span>
+ </a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
+ 
+ </div>
+ </div>
+ </section>
+
+ <!-- THE WEFI STORY -->
+ <section class="section" id="story">
+ <div class="container">
+ <div class="section-header">
+ <h2 class="section-title">The <span class="highlight">WeFi</span> Story</h2>
+ <p class="section-subtitle">How we're building the world's first decentralized on-chain Deobanking Platform</p>
+ </div>
+ 
+ <div class="story-content fade-in-on-scroll">
+ <p class="story-text">
+ In September 2024, a revolutionary idea became reality. WeFi launched as the World's First Deobanking Platform (Decentralized On-Chain Deobanking Platform), fundamentally changing how people interact with money. Unlike traditional banks that control your funds or neobanks that simply digitize old systems, WeFi operates entirely on blockchain technology, giving you true ownership and control.
+ </p>
+ 
+ <div class="story-highlight">
+ <p>Our vision is simple yet powerful: Financial access is a fundamental human right. Everyone deserves the freedom to control their money, regardless of where they live or how wealthy they are.</p>
+ </div>
+ 
+ <p class="story-text">
+ At WeFi, we believe the outdated traditional banking model has failed billions of people. That's why we're building something better. A system that's inclusive, transparent, and built on the principles of decentralization. With advanced AI-driven compliance and Zero-Knowledge Proofs, we bring institutional-grade security while maintaining your privacy.
+ </p>
+ 
+ <p class="story-text">
+ Today, WeFi serves a global community with features like crypto-collateralized WeFi Cards, custodial and self-custody wallets, stablecoin management, global remittances, and AI-powered compliance. We're not just building a platform. We're creating a financial revolution that empowers 1.4 billion unbanked individuals worldwide.
+ </p>
+ 
+ 
+ </div>
+ </div>
+ </section>
+
+ <!-- DEOBANKING PLATFORM VS NEOBANK -->
+ <section class="section" id="comparison">
+ <div class="container">
+ <div class="section-header">
+ <h2 class="section-title">Why <span class="highlight">Deobanks</span> Change Everything</h2>
+ <p class="section-subtitle">Understanding the evolution from traditional banks to true financial freedom</p>
+ </div>
+ 
+ <div class="comparison-grid">
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">🏦</div>
+ <h3 class="comparison-title">Traditional Banks</h3>
+ <p class="comparison-description">
+ Physical branches, bureaucracy, and limited access. Your money, their control.
+ </p>
+ <ul class="comparison-features">
+ <li>Control your funds</li>
+ <li>Limited hours and access</li>
+ <li>High fees and restrictions</li>
+ <li>Slow international transfers</li>
+ <li>Excludes 1.4 billion people</li>
+ </ul>
+ </div>
+ 
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">📱</div>
+ <h3 class="comparison-title">Neobanks</h3>
+ <p class="comparison-description">
+ Digital-only banks with modern interfaces but same old problems underneath.
+ </p>
+ <ul class="comparison-features">
+ <li>Still depend on traditional banks</li>
+ <li>Better UX (User Experience), same control issues</li>
+ <li>Can freeze your accounts</li>
+ <li>Centralized infrastructure</li>
+ <li>Limited to fiat currencies</li>
+ </ul>
+ </div>
+ 
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">🏛️⛓️</div>
+ <h3 class="comparison-title">WeFi Deobanking Platform</h3>
+ <p class="comparison-description">
+ Fully decentralized, on-chain banking. True ownership. Real freedom.
+ </p>
+ <ul class="comparison-features">
+ <li>YOU control your funds (self-custody)</li>
+ <li>Transparent blockchain transactions</li>
+ <li>Global access, no restrictions</li>
+ <li>Instant borderless payments</li>
+ <li>Earn yield through DeFi (Decentralized Finance)</li>
+ <li>AI-powered compliance</li>
+ <li>No account freezes or holds</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </section>
+
+<!-- ECOSYSTEM PARTICIPANTS SECTION -->
+    <section class="section" style="background:var(--near-black);">
+      <div class="section-container">
+        <div class="section-header fade-in-on-scroll">
+          <h2 class="section-title">The <span class="highlight">Three Participants</span> of the WeFi Ecosystem</h2>
+          <p class="section-subtitle">A self-reinforcing network where builders, service providers, and users all benefit together.</p>
+        </div>
+        <div class="comparison-grid">
+
+          <div class="comparison-card fade-in-on-scroll">
+            <div class="comparison-icon">⚙️</div>
+            <h3 class="comparison-title">WeFi</h3>
+            <p style="font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(199,241,96,0.6);margin:-8px 0 16px;">Builders &amp; Maintainers</p>
+            <p class="comparison-description">WeFi builds and maintains the WeChain blockchain, develops the modular Deobank protocols, and governs the WFI token economy. It is the infrastructure layer everything else runs on.</p>
+          </div>
+
+          <div class="comparison-card fade-in-on-scroll">
+            <div class="comparison-icon">🏛️</div>
+            <h3 class="comparison-title">Deobanks</h3>
+            <p style="font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(199,241,96,0.6);margin:-8px 0 16px;">Service Providers</p>
+            <p class="comparison-description">Fintechs, banks, and payment networks that operate on WeChain. They handle regional compliance, provide banking interfaces, and connect end-users to the ecosystem while earning network rewards.</p>
+          </div>
+
+          <div class="comparison-card fade-in-on-scroll">
+            <div class="comparison-icon">👥</div>
+            <h3 class="comparison-title">End-Users</h3>
+            <p style="font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(199,241,96,0.6);margin:-8px 0 16px;">The Community</p>
+            <p class="comparison-description">Users drive economic velocity through daily activity. They earn WFI tokens through Cloud-Based Mining and Spending-as-Mining, while retaining full self-custody of their assets.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ONCHAIN ACCOUNTING BOOK SECTION -->
+    <section class="section">
+      <div class="section-container">
+        <div class="section-header fade-in-on-scroll">
+          <h2 class="section-title">The <span class="highlight">Trust Machine</span>: Onchain Accounting Book</h2>
+          <p class="section-subtitle">Every transaction on WeChain is immutable, publicly verifiable, and mathematically certain. No blind trust required.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-bottom:40px;">
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:16px;padding:30px;text-align:center;">
+            <div style="font-size:36px;margin-bottom:12px;">🔒</div>
+            <h4 style="color:var(--lime-green);font-size:18px;font-weight:700;margin-bottom:10px;font-family:'Space Grotesk',sans-serif;">Immutable</h4>
+            <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;">Transactions cannot be deleted, altered, or forged once recorded on WeChain.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:16px;padding:30px;text-align:center;">
+            <div style="font-size:36px;margin-bottom:12px;">🔍</div>
+            <h4 style="color:var(--lime-green);font-size:18px;font-weight:700;margin-bottom:10px;font-family:'Space Grotesk',sans-serif;">Verifiable</h4>
+            <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;">Every user and regulator can verify solvency and transaction integrity in real time.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:16px;padding:30px;text-align:center;">
+            <div style="font-size:36px;margin-bottom:12px;">🌐</div>
+            <h4 style="color:var(--lime-green);font-size:18px;font-weight:700;margin-bottom:10px;font-family:'Space Grotesk',sans-serif;">Public</h4>
+            <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;">No hidden ledgers. Open system where every transaction is blockchain-recorded.</p>
+          </div>
+          <div style="background:linear-gradient(135deg,rgba(26,26,26,0.8),rgba(30,30,30,0.8));border:1px solid rgba(199,241,96,0.15);border-radius:16px;padding:30px;text-align:center;">
+            <div style="font-size:36px;margin-bottom:12px;">⚡</div>
+            <h4 style="color:var(--lime-green);font-size:18px;font-weight:700;margin-bottom:10px;font-family:'Space Grotesk',sans-serif;">Real-Time</h4>
+            <p style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;">Instant settlement. No delayed reporting. No opaque internal processing.</p>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" class="btn btn-primary"><span>Explore the WeFi Ecosystem ←</span></a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+        </div>
+      </div>
+    </section>
+
+
+
+ <!-- FOUNDER & TEAM -->
+ <section class="section" id="team">
+ <div class="container">
+ <div class="section-header">
+ <h2 class="section-title">Led by <span class="highlight">Crypto Legends</span></h2>
+ <p class="section-subtitle">40+ specialists from Tether, Wise, Binance, WeFi Card, and major financial institutions</p>
+ </div>
+ 
+ <div class="team-grid">
+ <div class="team-card fade-in-on-scroll">
+ <div class="team-image">
+ <div style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid rgba(199, 241, 96, 0.3);"><span style="font-size: 48px; font-weight: 700; color: #C7F160;">W</span></div>
+ </div>
+ <h3 class="team-name">WeFi leadership</h3>
+ <p class="team-role">Chairman & Board Member</p>
+ <p class="team-bio">
+ Experienced blockchain and financial technology leadership with proven track record.. Pioneer in bridging crypto and traditional finance.
+ </p>
+ </div>
+ 
+ <div class="team-card fade-in-on-scroll">
+ <div class="team-image">
+ <div style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; border: 2px solid rgba(199, 241, 96, 0.3);"><span style="font-size: 48px; font-weight: 700; color: #C7F160;">W</span></div>
+ </div>
+ <h3 class="team-name">Maksym Sakharov</h3>
+ <p class="team-role">Group CEO & Co-Founder</p>
+ <p class="team-bio">
+ Co-founder and former CEO of Exflow. 10+ years in finance and technology, 5+ years in crypto. Visionary leader driving WeFi's hybrid banking model.
+ </p>
+ </div>
+ 
+ <div class="team-card fade-in-on-scroll">
+ <div class="team-image" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(199, 241, 96, 0.3);"><span style="font-size: 48px; font-weight: 700; color: #C7F160;">R</span></div>
+ <h3 class="team-name">Roman Rossov</h3>
+ <p class="team-role">Board Member</p>
+ <p class="team-bio">
+ Former Product Director at Wise, one of the world's leading fintech companies. Expert in global financial products and user experience.
+ </p>
+ </div>
+ 
+ <div class="team-card fade-in-on-scroll">
+ <div class="team-image" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(199, 241, 96, 0.3);"><span style="font-size: 48px; font-weight: 700; color: #C7F160;">K</span></div>
+ <h3 class="team-name">Khaled Suleiman</h3>
+ <p class="team-role">Board Member</p>
+ <p class="team-bio">
+ Former CEO at National Deobanking Platform of Abu Dhabi. Decades of experience in traditional banking and financial regulation.
+ </p>
+ </div>
+ 
+ <div class="team-card fade-in-on-scroll">
+ <div class="team-image" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(199, 241, 96, 0.3);"><span style="font-size: 48px; font-weight: 700; color: #C7F160;">Y</span></div>
+ <h3 class="team-name">Yusuf Mirakhmedov</h3>
+ <p class="team-role">Board Member</p>
+ <p class="team-bio">
+ Former COO at Tradeleaf. Expert in operational excellence and scaling financial technology platforms.
+ </p>
+ </div>
+ 
+ <div class="team-card fade-in-on-scroll">
+ <div class="team-image" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(199, 241, 96, 0.3);"><span style="font-size: 48px; font-weight: 700; color: #C7F160;">M</span></div>
+ <h3 class="team-name">Michael Batuev</h3>
+ <p class="team-role">Global Head of Payments</p>
+ <p class="team-bio">
+ Ex-WeFi Card Executive with 18+ years in fintech. Led global digital payments, mobile solutions, and contactless innovation at WeFi Card. Former Tangem leader in self-custody payment technology.
+ </p>
+ </div>
+ 
+ <div class="team-card fade-in-on-scroll">
+ <div class="team-image" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center; border: 2px solid rgba(199, 241, 96, 0.3);"><span style="font-size: 48px; font-weight: 700; color: #C7F160;">A</span></div>
+ <h3 class="team-name">Elite Advisory Board</h3>
+ <p class="team-role">Industry Veterans</p>
+ <p class="team-bio">
+ Includes former executives from Binance, WeFi Card, Bitpanda, and other global financial leaders. Combined expertise spans decades.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- MISSION & VISION -->
+ <section class="section">
+ <div class="container">
+ <div class="section-header">
+ <h2 class="section-title">Our <span class="highlight">Mission & Vision</span></h2>
+ <p class="section-subtitle">Building the financial system the world deserves</p>
+ </div>
+ 
+ <div class="mission-vision">
+ <div class="mission-card fade-in-on-scroll">
+ <div class="mission-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(199, 241, 96, 0.1), rgba(199, 241, 96, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(199, 241, 96, 0.3); font-size: 32px; font-weight: 700; color: #C7F160;">M</div>
+ <h3 class="mission-title">Our Mission</h3>
+ <p class="mission-text">
+ To reshape the outdated traditional banking model into a more inclusive, smart, and robust system by leveraging decentralized networks and the latest technological advances while ensuring regulatory compliance that adapts to both global standards and local requirements.
+ </p>
+ </div>
+ 
+ <div class="mission-card fade-in-on-scroll">
+ <div class="mission-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(199, 241, 96, 0.1), rgba(199, 241, 96, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(199, 241, 96, 0.3); font-size: 32px; font-weight: 700; color: #C7F160;">V</div>
+ <h3 class="mission-title">Our Vision</h3>
+ <p class="mission-text">
+ A future where everyone can assert their financial freedom through a secure, accessible, compliant, and fair financial system. No matter where you live or how wealthy you are, you deserve access to the global economy.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- STATS & ACHIEVEMENTS -->
+ <section class="section">
+ <div class="container">
+ <div class="section-header">
+ <h2 class="section-title"><span class="highlight">WeFi</span> by the Numbers</h2>
+ <p class="section-subtitle">Real results from a revolutionary platform</p>
+ </div>
+ 
+ <div class="stats-grid">
+ <div class="stat-card fade-in-on-scroll">
+ <div class="stat-number">1.4B</div>
+ <div class="stat-label">Target Unbanked Users</div>
+ </div>
+ 
+ <div class="stat-card fade-in-on-scroll">
+ <div class="stat-number">140M+</div>
+ <div class="stat-label">Merchants Accepting WeFi Card</div>
+ </div>
+ 
+ <div class="stat-card fade-in-on-scroll">
+ <div class="stat-number">35M+</div>
+ <div class="stat-label">WFI Tokens Mined</div>
+ </div>
+ 
+ <div class="stat-card fade-in-on-scroll">
+ <div class="stat-number">40+</div>
+ <div class="stat-label">Team Specialists</div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- KEY FEATURES -->
+ <section class="section">
+ <div class="container">
+ <div class="section-header">
+ <h2 class="section-title">What Makes <span class="highlight">WeFi Different</span></h2>
+ <p class="section-subtitle">Innovation meets practicality in every feature</p>
+ </div>
+ 
+ <div class="comparison-grid">
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">🔐</div>
+ <h3 class="comparison-title">Self-Custody Wallets</h3>
+ <p class="comparison-description">
+ Full control over your assets. Your keys, your crypto. No intermediaries, no account freezes.
+ </p>
+ </div>
+ 
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">💳</div>
+ <h3 class="comparison-title">Crypto WeFi Cards</h3>
+ <p class="comparison-description">
+ Spend your crypto anywhere WeFi Card is accepted. 140+ million merchants worldwide.
+ </p>
+ </div>
+ 
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">🤖</div>
+ <h3 class="comparison-title">AI-Powered Compliance</h3>
+ <p class="comparison-description">
+ Advanced AI nodes detect fraud and provides regulatory compliance automatically and securely.
+ </p>
+ </div>
+ 
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">🌐</div>
+ <h3 class="comparison-title">Global Remittances</h3>
+ <p class="comparison-description">
+ Send money across borders instantly with minimal fees. No banks, no delays.
+ </p>
+ </div>
+ 
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">💰</div>
+ <h3 class="comparison-title">Staking & Yields</h3>
+ <p class="comparison-description">
+ Participate in mining through staking. Typical competitive rates on stablecoins.
+ </p>
+ </div>
+ 
+ <div class="comparison-card fade-in-on-scroll">
+ <div class="comparison-icon">🔒</div>
+ <h3 class="comparison-title">Zero-Knowledge Proofs</h3>
+ <p class="comparison-description">
+ Privacy-preserving verification technology. Prove who you are without revealing personal data.
+ </p>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- MINI FAQ -->
+ <section class="section">
+ <div class="container">
+ <div class="mini-faq fade-in-on-scroll">
+ <h2 class="faq-title">Your Questions Answered</h2>
+ 
+ <div class="faq-item">
+ <button class="faq-question">
+ What is WeFi and how does it work?
+ </button>
+ <div class="faq-answer">
+ WeFi is the World's First Deobanking Platform (Decentralized On-Chain Deobanking Platform), combining traditional banking services with blockchain technology. Unlike conventional banks that control your money, WeFi operates entirely on-chain, giving you true ownership through self-custody wallets. You can Participate in mining, access global markets instantly, use crypto-backed WeFi Cards, and manage stablecoins with complete transparency. Every transaction is recorded on the blockchain, ensuring security and accountability without intermediaries. <a href="https://www.deobankdefi.com/wefi-getting-started-guide.html" style="color: var(--lime-green); text-decoration: underline;">See how to get started</a>. <a href="#story" style="color: var(--lime-green); text-decoration: underline;">Learn more about our story</a>. <a href="https://www.deobankdefi.com/wefi-video-tutorials" style="color: var(--lime-green); text-decoration: underline;">Watch video tutorials</a>.
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ Who created WeFi and are they credible?
+ </button>
+ <div class="faq-answer">
+ WeFi was founded by WeFi leadership, co-Experienced blockchain and financial technology leadership with proven track record.. The leadership team includes Maksym Sakharov (Group CEO), Roman Rossov (former Product Director at Wise), Khaled Suleiman (former CEO at National Deobanking Platform of Abu Dhabi), and 40+ specialists from Tether, Binance, WeFi Card, and Bitpanda. This is not an experiment. It is a platform built by proven crypto and finance veterans with decades of combined expertise. <a href="#team" style="color: var(--lime-green); text-decoration: underline;">Meet the full team</a>.
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ Is WeFi legitimate and properly regulated?
+ </button>
+ <div class="faq-answer">
+ Yes. WeFi implements advanced AI-driven compliance that detects and prevents financial crimes in real-time, including money laundering and fraud. We use Zero-Knowledge Proofs for privacy-preserving verification while maintaining full regulatory compliance across multiple jurisdictions. Our team includes former executives from regulated financial institutions like the National Deobanking Platform of Abu Dhabi, ensuring we meet both global standards and local requirements. WeFi is registered, compliant, and operates with institutional-grade security protocols.
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ What is the WFI token and what is its utility?
+ </button>
+ <div class="faq-answer">
+ The WFI token is WeFi's native utility token that powers the entire ecosystem. It provides governance rights, staking rewards, transaction fee discounts, and access to exclusive platform features. Token holders can Participate in mining through staking, participate in platform governance decisions, and benefit from deflationary tokenomics as the circulating supply decreases over time. The WFI token creates alignment between users and the platform's long-term success, making it a core component of the WeFi financial revolution. <a href="https://www.deobankdefi.com/wfi-token.html" style="color: var(--lime-green); text-decoration: underline;">Explore WFI token details</a>.
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ Is WeFi a network marketing company or MLM?
+ </button>
+ <div class="faq-answer">
+ WeFi is a financial technology company providing decentralized banking services. While WeFi offers an <a href="https://www.deobankdefi.com/wefi-compensation-plan.html" style="color: var(--lime-green); text-decoration: underline;">affiliate program</a> that rewards users for sharing the platform, this is a standard referral system similar to what companies like Airbnb, Uber, and Coinbase use. You can use WeFi's banking services, earn yield on deposits, and access DeFi features without ever referring anyone. The affiliate program is optional and designed to reward community growth, not to create a recruitment-focused business model. Your success with WeFi comes from using the platform's financial services, not from recruiting.
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ Do I have to recruit people to make money with WeFi?
+ </button>
+ <div class="faq-answer">
+ No. You can earn with WeFi in multiple ways without recruiting anyone. Earn staking rewards on stablecoin deposits, participate in DeFi yield farming, stake WFI tokens for rewards, and access global markets through our platform. The affiliate program is completely optional. Many users simply use WeFi as their primary banking solution and earn through financial activities alone. Referrals are a bonus opportunity, not a requirement. Your financial success with WeFi is determined by how you use the platform's banking and DeFi features, not by building a downline.
+ </div>
+ </div>
+
+ <div class="faq-item">
+ <button class="faq-question">
+ What makes WeFi different from competitors?
+ </button>
+ <div class="faq-answer">
+ WeFi is the only platform that combines traditional banking, DeFi, and blockchain in a fully decentralized on-chain structure. Traditional banks control your funds and limit your access. Neobanks simply digitize old systems. Crypto exchanges focus on trading, not banking. WeFi provides self-custody wallets, on-chain transparency, global access without borders, institutional-grade security, AI-powered compliance, and multiple income streams all in one platform. Founded by Tether's co-founder with a team from Wise, Binance, and major banks, WeFi delivers proven expertise that competitors cannot match. <a href="#comparison" style="color: var(--lime-green); text-decoration: underline;">See detailed comparison</a>.
+ </div>
+ </div>
+
+ <div class="faq-cta">
+ <a href="https://www.deobankdefi.com/wefi-faq.html" class="btn btn-secondary">
+ <span>View Complete FAQ Page →</span>
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- FINAL CTA -->
+ <section class="section">
+ <div class="container">
+ <div class="story-content fade-in-on-scroll" style="text-align: center;">
+ <h2 class="section-title" style="margin-bottom: 25px;">Ready to Experience True <span class="highlight">Financial Freedom</span>?</h2>
+ <p class="story-text" style="font-size: 20px; margin-bottom: 40px;">
+ Join thousands of people who've already discovered the power of decentralized banking. Your financial revolution starts today.
+ </p>
+ <div class="cta-buttons">
+ <a href="https://app.wefi.co/register?ref=lrngx9bw14" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+ <span>Start Earning with WeFi</span>
+ </a>
+<div class="vpn-cta-wrap"><a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-btn">🛡️ USE PROTON VPN</a><p class="vpn-sub">❌ Geo-blocked? ✔️ Use Proton VPN (100% Free), no ads to access WeFi.</p></div>
+     
+ <a href="https://www.deobankdefi.com/wfi-token.html" class="btn btn-secondary">
+ <span>Learn About WFI Token</span>
+ </a>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- VIDEO MODAL -->
+ <div class="video-modal" id="videoModal">
+ <div class="video-container">
+ <div class="video-close" onclick="closeVideoModal()">×</div>
+ <div class="video-wrapper">
+ <div class="video-loading" id="videoLoading">
+ <div class="video-loading-spinner"></div>
+ <div class="video-loading-text">Loading WeFi Video...</div>
+ <div class="video-loading-subtext">Please wait a moment</div>
+ </div>
+ <iframe 
+ id="vimeoPlayer"
+ src=""
+ frameborder="0"
+ allow="autoplay; fullscreen; picture-in-picture"
+ allowfullscreen
+ ></iframe>
+ </div>
+ </div>
+ </div>
+
+ <!-- FOOTER -->
+ <footer class="footer">
+ <div class="footer-container">
+ <div class="vpn-footer-block">
+          <div class="vpn-footer-block__top">
+            <div class="vpn-footer-block__icon">🛡️</div>
+            <div class="vpn-footer-block__copy">
+              <h3 class="vpn-footer-block__headline">Seeing <span>"Service not available in your region"?</span><br>Don't let a border cost you a fortune.</h3>
+              <p class="vpn-footer-block__body">
+                WeFi is geo-restricted in some regions right now - but the WFI (WeFi Token) token is still in early distribution, ITO (Initial Token Offering) Mining Units are still available, and the compensation plan is still open. Every day without mining is a day of accumulation lost.
+                <strong> The 5-year mining period is what qualifies you as a shareholder in the world's first and fastest-growing DeoBanking System</strong> - and that window will not stay open forever.
+                A free VPN is the only thing standing between you and this opportunity.
+              </p>
+            </div>
+          </div>
+          <a href="https://protonvpn.com/free-vpn" target="_blank" rel="noopener noreferrer" class="vpn-footer-block__cta">🛡️ USE PROTON VPN</a>
+          <p style="font-size:12px;color:rgba(0,217,255,0.75);margin:6px 0 0;font-weight:600;letter-spacing:0.3px;">✔️ 100% Free, No Ads</p>
+          <p class="vpn-footer-block__tag">✔️ Works on all devices &amp; browsers &nbsp;|&nbsp; ✔️ No credit card &nbsp;|&nbsp; ✔️ No ads &nbsp;|&nbsp; ✔️ Chrome &amp; Firefox extension available</p>
+        </div>
+ 
+ <div class="footer-grid">
+ <div class="footer-section">
+ <h3>Connect With KOL</h3>
+ <ul class="footer-links">
+ <li><a href="https://wa.me/251723430471" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp social-icon"></i>WhatsApp</a></li>
+ </ul>
+ </div>
+ <div class="footer-section">
+ <h3>Quick Links</h3>
+ <ul class="footer-links">
+ <li><a href="https://www.deobankdefi.com">Home</a></li>
+ <li><a href="https://www.deobankdefi.com/about-wefi.html">About WeFi</a></li>
+ <li><a href="https://www.deobankdefi.com/wfi-token.html">WFI Token</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-compensation-plan.html">Compensation Plan</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-testimonials.html">Testimonials</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-video-tutorials">Video Tutorials</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-getting-started-guide.html">Getting Started Guide</a></li>
+ <li><a href="https://www.deobankdefi.com/wefi-faq.html">FAQ</a></li>
+ </ul>
+ </div>
+
+
+                 <div class="footer-section">
+ <h3>Independent KOL (Key Opinion Leader) Resource</h3>
+ <ul class="footer-links">
+ <li><a href="https://www.wefi.co" target="_blank" rel="noopener noreferrer">WeFi Official Website</a></li>
+ <li><a href="https://app.wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Dashboard</a></li>
+ <li><a href="https://new.salepoint.io/login" target="_blank" rel="noopener noreferrer">Affiliates Dashboard</a></li>
+ <li><a href="https://wechain.ai" target="_blank" rel="noopener noreferrer">WeChain Blockchain</a></li>
+ <li><a href="https://t.me/wefi_announcements" target="_blank" rel="noopener noreferrer">WeFi Announcements</a></li>
+ <li><a href="https://t.me/+MwwbZbsjFEVjNmVi" target="_blank" rel="noopener noreferrer">Affiliate Announcements</a></li>
+ <li><a href="https://www.youtube.com/@wefi.official" target="_blank" rel="noopener noreferrer">YouTube Channel</a></li>
+ </ul>
+ </div>
+
+ <div class="footer-section">
+                    <h3>Legal & Compliance</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.deobankdefi.com/terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="https://www.deobankdefi.com/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="https://www.deobankdefi.com/disclaimer.html">Disclaimer</a></li>
+                        <li><a href="https://www.deobankdefi.com/node-agreement.html">Node Agreement</a></li>
+                        <li><a href="https://www.deobankdefi.com/wfi-utilization.html">WFI Utilization</a></li>
+                    </ul>
+                </div>
+ </div>
+ 
+ <!-- Disclaimer -->
+ <div class="disclaimer">
+ <strong>Important Disclaimer:</strong> This information is not financial advice. Cryptocurrency participation carries risk. We encourage you to conduct your own research and consult with qualified financial advisors. The responsibility for any decisions rests solely with you. WeFi ITO (Initial Token Offering) units represent technology purchases, not securities. Past performance does not potential future results. All projections and potential earnings are estimates and not guarantees.
+ </div>
+
+ <!-- Footer Bottom -->
+ <div class="footer-bottom">
+ <p>&copy; <span id="currentYear"></span> DeobankDeFi.com | Empowering Financial Freedom Through WeFi | All Rights Reserved</p>
+ <p style="margin-top: 10px; font-size: 12px;">Referral Code: lrngx9bw14 | Independent KOL</p>
+ </div>
+ </div>
+ </footer>
+
+ <!-- SCROLL TO TOP BUTTON -->
+ <button class="scroll-to-top" id="scrollToTopBtn" type="button">↑</button>
+
+ <!-- JAVASCRIPT -->
+ <script>
+ console.log('✅ About WeFi page script loading...');
+ 
+ // ===== VIDEO MODAL VARIABLES (GLOBAL) =====
+ let vimeoPlayer = null;
+ let youtubePlayer = null;
+ let videoModal = null;
+ let videoIframe = null;
+ 
+ // Initialize YouTube API Ready Flag on window object for global access
+ window.youtubeAPIReady = false;
+ 
+ // ===== VIDEO MODAL FUNCTIONS =====
+ 
+ // Wait for Vimeo API
+ function waitForVimeo(maxAttempts = 20, attemptDelay = 100) {
+ return new Promise((resolve, reject) => {
+ let attempts = 0;
+ const checkVimeo = () => {
+ attempts++;
+ if (window.Vimeo && window.Vimeo.Player) {
+ console.log('✅ Vimeo API Ready');
+ resolve();
+ } else if (attempts >= maxAttempts) {
+ reject(new Error('Vimeo API did not load in time'));
+ } else {
+ setTimeout(checkVimeo, attemptDelay);
+ }
+ };
+ checkVimeo();
+ });
+ }
+ 
+ // Initialize Vimeo Player
+ async function initVimeoPlayer(videoId) {
+ try {
+ console.log('🎬 Initializing Vimeo player for video:', videoId);
+ 
+ const loadingElement = document.getElementById('videoLoading');
+ if (loadingElement) {
+ loadingElement.classList.remove('hidden');
+ }
+ 
+ await waitForVimeo();
+ 
+ const vimeoUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&autopause=0&muted=0&controls=1&title=0&byline=0&portrait=0&color=C7F160&playsinline=1&dnt=1`;
+ 
+ videoIframe.src = vimeoUrl;
+ await new Promise(resolve => setTimeout(resolve, 500));
+ 
+ vimeoPlayer = new Vimeo.Player(videoIframe);
+ 
+ vimeoPlayer.on('play', function() {
+ console.log('▶️ Vimeo video playing');
+ if (loadingElement) loadingElement.classList.add('hidden');
+ });
+ 
+ vimeoPlayer.on('loaded', function() {
+ console.log('✅ Vimeo video loaded');
+ if (loadingElement) loadingElement.classList.add('hidden');
+ });
+ 
+ // Auto-close when ended - with proper cleanup
+ vimeoPlayer.on('ended', function() {
+ console.log('Vimeo video ended - initiating safe cleanup');
+ 
+ // Remove all event listeners before closing to prevent issues
+ try {
+ vimeoPlayer.off('ended');
+ vimeoPlayer.off('play');
+ vimeoPlayer.off('loaded');
+ vimeoPlayer.off('error');
+ } catch (error) {
+ console.warn('Error removing Vimeo listeners:', error);
+ }
+ 
+ // Close modal after a brief delay
+ setTimeout(function() {
+ closeVideoModal();
+ }, 500);
+ });
+ 
+ return true;
+ } catch (error) {
+ console.error('❌ Error initializing Vimeo player:', error);
+ const loadingElement = document.getElementById('videoLoading');
+ if (loadingElement) loadingElement.classList.add('hidden');
+ alert('Unable to load video. Please try again or refresh the page.');
+ closeVideoModal();
+ return false;
+ }
+ }
+ 
+ // Initialize YouTube Player 
+ function initYouTubePlayer(videoId) {
+ return new Promise((resolve, reject) => {
+ try {
+ console.log('Initializing YouTube player for video:', videoId);
+ 
+ const loadingElement = document.getElementById('videoLoading');
+ 
+ // Create container div for YouTube player
+ const playerDiv = document.createElement('div');
+ playerDiv.id = 'youtube-player-' + Date.now();
+ playerDiv.style.width = '100%';
+ playerDiv.style.height = '100%';
+ playerDiv.style.position = 'absolute';
+ playerDiv.style.top = '0';
+ playerDiv.style.left = '0';
+ 
+ // Clear iframe and add player div
+ videoIframe.style.display = 'none';
+ videoIframe.parentElement.appendChild(playerDiv);
+ 
+ // Check if YouTube API is ready
+ const initPlayer = () => {
+ if (!window.YT || !window.YT.Player || !window.youtubeAPIReady) {
+ console.log('Waiting for YouTube API...');
+ setTimeout(initPlayer, 100);
+ return;
+ }
+ 
+ console.log('Creating YouTube player...');
+ 
+ // Create YouTube player
+ youtubePlayer = new YT.Player(playerDiv.id, {
+ videoId: videoId,
+ width: '100%',
+ height: '100%',
+ playerVars: {
+ autoplay: 1,
+ rel: 0,
+ modestbranding: 1,
+ controls: 1,
+ showinfo: 0,
+ fs: 1,
+ iv_load_policy: 3,
+ color: 'white'
+ },
+ events: {
+ onReady: function(event) {
+ console.log('YouTube player ready');
+ if (loadingElement) {
+ loadingElement.classList.add('hidden');
+ }
+ event.target.playVideo();
+ resolve(true);
+ },
+ onStateChange: function(event) {
+ // Hide loading when playing
+ if (event.data === YT.PlayerState.PLAYING) {
+ console.log('YouTube video playing');
+ if (loadingElement) {
+ loadingElement.classList.add('hidden');
+ }
+ }
+ // Auto-close when ended
+ if (event.data === YT.PlayerState.ENDED) {
+ console.log('YouTube video ended');
+ setTimeout(closeVideoModal, 500);
+ }
+ },
+ onError: function(event) {
+ console.error('YouTube player error:', event);
+ if (loadingElement) {
+ loadingElement.classList.add('hidden');
+ }
+ alert('Unable to load YouTube video. Please try again.');
+ closeVideoModal();
+ reject(event);
+ }
+ }
+ });
+ };
+ 
+ initPlayer();
+ 
+ } catch (error) {
+ console.error('Error initializing YouTube player:', error);
+ const loadingElement = document.getElementById('videoLoading');
+ if (loadingElement) {
+ loadingElement.classList.add('hidden');
+ }
+ alert('Unable to load YouTube video. Please refresh the page and try again.');
+ closeVideoModal();
+ reject(error);
+ }
+ });
+ }
+ 
+ // Open Video Modal
+ window.openVideoModal = async function(event, platform = 'vimeo', videoId = '1145731075') {
+ console.log('🎬 openVideoModal called - Platform:', platform, 'VideoID:', videoId);
+ 
+ if (event) {
+ event.preventDefault();
+ }
+ 
+ // Get modal elements
+ videoModal = document.getElementById('videoModal');
+ videoIframe = document.getElementById('vimeoPlayer');
+ 
+ if (!videoModal || !videoIframe) {
+ console.error('❌ Modal elements not found!');
+ console.log('videoModal:', videoModal);
+ console.log('videoIframe:', videoIframe);
+ return;
+ }
+ 
+ console.log('✅ Modal elements found, opening modal...');
+ 
+ const loadingElement = document.getElementById('videoLoading');
+ if (loadingElement) {
+ loadingElement.classList.remove('hidden');
+ }
+ 
+ document.body.classList.add('modal-open');
+ if (videoModal) {
+     videoModal.classList.add('active');
+ }
+
+ 
+ await new Promise(resolve => setTimeout(resolve, 100));
+ 
+ if (platform === 'vimeo') {
+ vimeoPlayer = null;
+ await initVimeoPlayer(videoId);
+ } else if (platform === 'youtube') {
+ youtubePlayer = null;
+ await initYouTubePlayer(videoId);
+ }
+ };
+ 
+ // Close Video Modal
+ window.closeVideoModal = function() {
+ console.log('❌ Closing video modal');
+ 
+ if (!videoModal) {
+ videoModal = document.getElementById('videoModal');
+ }
+ 
+ if (!videoModal) return;
+ 
+ if (videoModal) {
+     videoModal.classList.add('closing');
+ }
+
+ 
+ if (vimeoPlayer) {
+ try {
+ console.log('Stopping Vimeo player...');
+ 
+ // Remove all event listeners first to prevent callbacks during destruction
+ vimeoPlayer.off('ended');
+ vimeoPlayer.off('play');
+ vimeoPlayer.off('loaded');
+ vimeoPlayer.off('error');
+ vimeoPlayer.off('pause');
+ 
+ // Pause the video
+ vimeoPlayer.pause().catch(function(error) {
+ console.warn('Error pausing Vimeo:', error);
+ });
+ 
+ // Unload the video to free resources
+ vimeoPlayer.unload().catch(function(error) {
+ console.warn('Error unloading Vimeo:', error);
+ });
+ 
+ // Small delay before destroying to provides operations complete
+ setTimeout(function() {
+ try {
+ if (vimeoPlayer) {
+ vimeoPlayer.destroy();
+ console.log('✓ Vimeo player destroyed successfully');
+ }
+ } catch (destroyError) {
+ console.warn('Error during Vimeo destroy:', destroyError);
+ }
+ }, 100);
+ 
+ } catch (error) {
+ console.error('Error stopping Vimeo:', error);
+ }
+ vimeoPlayer = null;
+ }
+ 
+ if (youtubePlayer) {
+ try {
+ youtubePlayer.stopVideo();
+ youtubePlayer.destroy();
+ } catch (error) {
+ console.error('Error stopping YouTube:', error);
+ }
+ youtubePlayer = null;
+ }
+ 
+ setTimeout(function() {
+ if (videoModal) {
+     videoModal.classList.remove('active');
+ }
+
+ if (videoModal) {
+     videoModal.classList.remove('closing');
+ }
+
+ if (videoIframe) {
+ videoIframe.src = 'about:blank'; // Clear to blank first
+ setTimeout(function() {
+ videoIframe.src = ''; // Then empty
+ }, 50);
+ videoIframe.style.display = '';
+ 
+ // Remove any YouTube player divs
+ const playerDivs = videoIframe.parentElement.querySelectorAll('[id^="youtube-player-"]');
+ playerDivs.forEach(div => div.remove());
+ }
+ 
+ document.body.classList.remove('modal-open');
+ 
+ const loadingElement = document.getElementById('videoLoading');
+ if (loadingElement) {
+ loadingElement.classList.remove('hidden');
+ }
+ }, 400);
+ };
+ 
+ // Scroll to Top Function
+ window.scrollToTop = function() {
+ window.scrollTo({
+ top: 0,
+ behavior: 'smooth'
+ });
+ };
+ 
+ console.log('✅ Video modal functions defined');
+ console.log('✅ typeof openVideoModal:', typeof window.openVideoModal);
+ 
+ // ===== DOM CONTENT LOADED =====
+ 
+  // ===== CORE NAVIGATION & UI =====
+  document.addEventListener('DOMContentLoaded', function() {
+
+    var cy = document.getElementById('currentYear');
+    if (cy) cy.textContent = new Date().getFullYear();
+
+    var navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+      });
+    }
+
+    var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    var navMenu = document.getElementById('navMenu');
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+      document.querySelectorAll('.nav-link').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navMenu.classList.remove('active');
+        });
+      });
+    }
+
+    var scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    if (scrollToTopBtn) {
+      scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) scrollToTopBtn.classList.add('visible');
+        else scrollToTopBtn.classList.remove('visible');
+      });
+    }
+
+    document.querySelectorAll('.faq-question').forEach(function(question) {
+      question.addEventListener('click', function() {
+        var answer = this.nextElementSibling;
+        var isActive = this.classList.contains('active');
+        document.querySelectorAll('.faq-question').forEach(function(q) {
+          q.classList.remove('active');
+          if (q.nextElementSibling) q.nextElementSibling.classList.remove('active');
+        });
+        if (!isActive) {
+          this.classList.add('active');
+          if (answer) answer.classList.add('active');
+        }
+      });
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+  }); // end DOMContentLoaded
+  // ===== END CORE NAVIGATION & UI =====
+
+ 
+ console.log('✅ Script fully loaded');
+</script>
+
+
+  <script>
+  /* Smart navbar: hide on scroll-down, reveal on scroll-up */
+  (function(){
+    var nav     = document.querySelector('.navbar');
+    var lastY   = 0;
+    var threshold = 6; /* px of scroll intent before reacting */
+
+    if (!nav) return;
+
+    function onScroll(){
+      var y = window.pageYOffset || document.documentElement.scrollTop;
+      if (y <= 80) {
+        /* Near top – always visible */
+        nav.classList.remove('navbar-hidden');
+      } else if (y > lastY + threshold) {
+        /* Scrolling DOWN */
+        nav.classList.add('navbar-hidden');
+      } else if (y < lastY - threshold) {
+        /* Scrolling UP */
+        nav.classList.remove('navbar-hidden');
+      }
+      lastY = y;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+  </script>
+
+
+<!-- ================================================================
+     AXIOM ANIMATION SYSTEM v1.0 — Scroll-triggered entrance engine
+     ================================================================
+     Universal engine: covers all element types across all 7 pages
+     of the DeobankDeFi site. Each init function queries broadly
+     and silently skips elements that don't exist on the page.
+
+     Architecture:
+       - IntersectionObserver only. Zero scroll event listeners.
+       - 4 tiers mapped to visual role of each element.
+       - 0.12s stagger between grouped siblings.
+       - One-shot: animates once, observer disconnects, state locked.
+       - Graceful degradation: opacity:0 set by JS only.
+       - Respects prefers-reduced-motion at CSS and JS levels.
+       - Guards against double-animating .fade-in-on-scroll elements.
+     ================================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ---------------------------------------------------------------
+     GUARD 1: Reduced motion — exit, show everything.
+     --------------------------------------------------------------- */
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reducedMotion) return;
+
+  /* ---------------------------------------------------------------
+     GUARD 2: IntersectionObserver not supported — exit.
+     --------------------------------------------------------------- */
+  if (!('IntersectionObserver' in window)) return;
+
+  /* ---------------------------------------------------------------
+     UTILITIES
+     --------------------------------------------------------------- */
+  function qsa(sel, ctx) {
+    return Array.prototype.slice.call((ctx || document).querySelectorAll(sel));
+  }
+
+  /* Skip elements already handled by existing animation systems,
+     fixed UI chrome, or elements already registered by AXIOM. */
+  function shouldSkip(el) {
+    if (!el || !el.classList) return true;
+    if (el.classList.contains('axiom-done')) return true;
+    /* Existing systems — do not double-animate */
+    if (el.classList.contains('fade-in-on-scroll')) return true;
+    if (el.closest && el.closest('.fade-in-on-scroll')) return true;
+    if (el.classList.contains('stagger-child')) return true;
+    if (el.closest && el.closest('.stagger-child')) return true;
+    /* Hero content is handled by initHeroEntrance or initHeroContent */
+    if (el.closest && el.closest('.hero-content')) return true;
+    if (el.closest && el.closest('.ito-hero-content')) return true;
+    /* Fixed / overlay chrome */
+    if (el.classList.contains('navbar')) return true;
+    if (el.id === 'disclaimer-bar') return true;
+    if (el.classList.contains('video-modal')) return true;
+    if (el.classList.contains('scroll-to-top')) return true;
+    if (el.classList.contains('bg-blob-layer')) return true;
+    if (el.classList.contains('bg-blob')) return true;
+    return false;
+  }
+
+  /* ---------------------------------------------------------------
+     SCROLL OBSERVER — shared, one-shot per element
+     --------------------------------------------------------------- */
+  var scrollObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      el.classList.add('axiom-visible', 'axiom-done');
+      scrollObs.unobserve(el);
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  /* ---------------------------------------------------------------
+     REGISTER helpers
+     --------------------------------------------------------------- */
+  function register(el, tierClass, delayMs) {
+    if (shouldSkip(el)) return;
+    el.classList.add('axiom-done'); /* temp flag to block double-reg */
+    el.classList.add(tierClass, 'axiom-ready');
+    if (delayMs) el.style.transitionDelay = delayMs + 'ms';
+    el.classList.remove('axiom-done'); /* real done set by observer */
+    scrollObs.observe(el);
+  }
+
+  function registerGroup(els, tierClass, baseDelay) {
+    els.forEach(function (el, i) {
+      register(el, tierClass, (baseDelay || 0) + i * 120);
+    });
+  }
+
+  /* ================================================================
+     NAV ENTRANCE — page load (not scroll), logo left / links right
+     ================================================================ */
+  function initNavEntrance() {
+    function fireLoad(el, tierClass, delay) {
+      if (!el || shouldSkip(el)) return;
+      el.classList.add(tierClass, 'axiom-ready');
+      el.style.transitionDelay = delay + 'ms';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          el.classList.add('axiom-visible', 'axiom-done');
+        });
+      });
+    }
+    var logo     = document.querySelector('.logo');
+    var navLinks = qsa('.nav-link');
+    fireLoad(logo, 'axiom-t4-left', 80);
+    navLinks.forEach(function (link, i) {
+      fireLoad(link, 'axiom-t4-right', 160 + i * 70);
+    });
+  }
+
+  /* ================================================================
+     HERO CONTENT ENTRANCE — fires on page load.
+     Handles .hero-content > * (all 7 inner pages) AND
+     .ito-hero-visual (index.html hero visual panel).
+     ================================================================ */
+  function initHeroContent() {
+    /* Inner pages: .hero-content direct children */
+    var heroItems = qsa('.hero-content > *');
+    heroItems.forEach(function (el, i) {
+      if (el.classList.contains('axiom-done')) return;
+      el.classList.add('axiom-t1', 'axiom-ready');
+      el.style.transitionDelay = (i * 100 + 100) + 'ms';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          el.classList.add('axiom-visible', 'axiom-done');
+        });
+      });
+    });
+    /* index.html hero visual panel (scale entrance) */
+    var heroVisual = document.querySelector('.ito-hero-visual');
+    if (heroVisual && !heroVisual.classList.contains('axiom-done')) {
+      heroVisual.classList.add('axiom-t2', 'axiom-ready');
+      heroVisual.style.transitionDelay = '220ms';
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          heroVisual.classList.add('axiom-visible', 'axiom-done');
+        });
+      });
+    }
+  }
+
+  /* ================================================================
+     SECTION HEADERS — Tier 1 (all pages share this pattern)
+     Covers: .section-header, .section-badge, .downloads-header,
+     standalone .section-title / .section-subtitle not inside a
+     .section-header wrapper.
+     ================================================================ */
+  function initSectionHeaders() {
+    /* Whole header blocks */
+    qsa('.section-header:not(.fade-in-on-scroll)').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    qsa('.downloads-header').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    /* Individual badges */
+    qsa('.section-badge').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    /* Standalone titles/subtitles not inside an already-animated header */
+    qsa('.section-title').forEach(function (el) {
+      if (!el.closest('.section-header') && !el.closest('.fade-in-on-scroll') && !el.closest('.mini-faq')) {
+        register(el, 'axiom-t1', 0);
+      }
+    });
+    qsa('.section-subtitle').forEach(function (el) {
+      if (!el.closest('.section-header') && !el.closest('.fade-in-on-scroll')) {
+        register(el, 'axiom-t1', 60);
+      }
+    });
+    qsa('.section-description').forEach(function (el) {
+      register(el, 'axiom-t3', 80);
+    });
+  }
+
+  /* ================================================================
+     CARDS — Tier 2, staggered within each grid/container
+     Covers every card type across all 7 pages.
+     ================================================================ */
+  function initCards() {
+    var cardSelectors = [
+      '.feature-card:not(.fade-in-on-scroll)',
+      '.step-card',
+      '.stat-card:not(.fade-in-on-scroll)',
+      '.video-card',
+      '.tutorial-card',
+      '.confidence-card',
+      '.download-card',
+      '.team-card:not(.fade-in-on-scroll)',
+      '.mission-card:not(.fade-in-on-scroll)',
+      '.comparison-card:not(.fade-in-on-scroll)',
+      '.plan-card',
+      '.tier-card',
+      '.bonus-card',
+      '.founder-card',
+      '.faq-category-header'
+    ];
+
+    /* Group cards by their parent container so stagger is
+       per-row/per-grid, not across the entire page */
+    var seen = [];
+    cardSelectors.forEach(function (sel) {
+      qsa(sel).forEach(function (card) {
+        if (seen.indexOf(card) > -1) return;
+        seen.push(card);
+      });
+    });
+
+    /* Group by parent for stagger */
+    var parentMap = {};
+    seen.forEach(function (card) {
+      var p = card.parentElement;
+      if (!p) return;
+      var key = p;
+      if (!parentMap[key]) parentMap[key] = [];
+      parentMap[key].push(card);
+    });
+
+    Object.keys(parentMap).forEach(function (key) {
+      parentMap[key].forEach(function (card, i) {
+        register(card, 'axiom-t2', i * 120);
+      });
+    });
+  }
+
+  /* ================================================================
+     VIDEO CONTAINERS — Tier 2
+     Covers: .youtube-video-container, .tutorial-video, .video-thumbnail
+     ================================================================ */
+  function initVideoContainers() {
+    registerGroup(
+      qsa('.youtube-video-container, .tutorial-video, .video-thumbnail-wrapper'),
+      'axiom-t2', 0
+    );
+  }
+
+  /* ================================================================
+     TRUST SECTION — headings Tier 1, logos Tier 2 staggered
+     ================================================================ */
+  function initTrustSection() {
+    qsa('.trust-heading').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    registerGroup(qsa('.trust-logo'), 'axiom-t2', 0);
+  }
+
+  /* ================================================================
+     STANDALONE BUTTONS & CTA BLOCKS — Tier 3
+     Only buttons/wraps NOT inside a card or .fade-in-on-scroll block.
+     ================================================================ */
+  function initButtons() {
+    var btnSelectors = [
+      '.btn',
+      '.ito-cta-button',
+      '.vpn-btn',
+      '.vpn-cta-wrap',
+      '.download-btn',
+      '.faq-cta',
+      '.cta-buttons',
+      '.final-cta',
+      '.final-cta-content'
+    ];
+    btnSelectors.forEach(function (sel) {
+      qsa(sel).forEach(function (el) {
+        /* Skip if inside a card (card will animate the whole block) */
+        if (
+          !el.closest('.feature-card') &&
+          !el.closest('.step-card') &&
+          !el.closest('.download-card') &&
+          !el.closest('.tutorial-card') &&
+          !el.closest('.video-card') &&
+          !el.closest('.comparison-card') &&
+          !el.closest('.confidence-card') &&
+          !el.closest('.fade-in-on-scroll') &&
+          !el.closest('.mini-faq')
+        ) {
+          register(el, 'axiom-t3', 60);
+        }
+      });
+    });
+  }
+
+  /* ================================================================
+     STAT NUMBERS — Tier 1 staggered (wfi-token, about-wefi)
+     ================================================================ */
+  function initStats() {
+    registerGroup(
+      qsa('.stat-card:not(.fade-in-on-scroll), .stat-item, .stat-block'),
+      'axiom-t2', 0
+    );
+  }
+
+  /* ================================================================
+     TIMELINE / STEP ITEMS — Tier 2 staggered
+     (wefi-getting-started-guide, wefi-compensation-plan)
+     ================================================================ */
+  function initTimeline() {
+    registerGroup(qsa('.timeline-item, .step-item, .process-step'), 'axiom-t2', 0);
+  }
+
+  /* ================================================================
+     FAQ SECTION — category headers Tier 1, CTA Tier 3
+     ================================================================ */
+  function initFaqSection() {
+    qsa('.faq-category-header').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    qsa('.final-cta-title').forEach(function (el) {
+      register(el, 'axiom-t1', 0);
+    });
+    qsa('.final-cta-description').forEach(function (el) {
+      register(el, 'axiom-t3', 80);
+    });
+  }
+
+  /* ================================================================
+     FOOTER — VPN block Tier 2, columns Tier 1 staggered,
+     list items Tier 3 cascaded, disclaimer/bottom Tier 3.
+     ================================================================ */
+  function initFooter() {
+    var vpnBlock = document.querySelector('.vpn-footer-block');
+    if (vpnBlock) register(vpnBlock, 'axiom-t2', 0);
+
+    var footerSections = qsa('.footer-section');
+    footerSections.forEach(function (section, colIdx) {
+      register(section, 'axiom-t1', colIdx * 120);
+      var heading = section.querySelector('h3');
+      if (heading) register(heading, 'axiom-t1', colIdx * 120 + 60);
+      qsa('li', section).forEach(function (li, i) {
+        register(li, 'axiom-t3', colIdx * 120 + 80 + i * 80);
+      });
+    });
+
+    register(document.querySelector('.disclaimer'), 'axiom-t3', 0);
+    register(document.querySelector('.footer-bottom'), 'axiom-t3', 120);
+  }
+
+  /* ================================================================
+     INIT ALL
+     ================================================================ */
+  /* ================================================================
+     FADE-IN-ON-SCROLL WIRING
+     about-wefi.html has 47 elements with .fade-in-on-scroll but no
+     dedicated observer to fire them. This function fills that gap:
+     watches every .fade-in-on-scroll element and adds .visible when
+     it enters the viewport, matching the CSS transition defined for
+     .fade-in-on-scroll.visible { opacity:1; transform:translateY(0) }
+     ================================================================ */
+  function initFadeInOnScroll() {
+    var elements = qsa('.fade-in-on-scroll');
+    if (!elements.length) return;
+
+    var fadeObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        fadeObs.unobserve(entry.target);
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    elements.forEach(function (el) {
+      fadeObs.observe(el);
+    });
+  }
+
+  function init() {
+    initNavEntrance();
+    initHeroContent();
+    initSectionHeaders();
+    initCards();
+    initVideoContainers();
+    initTrustSection();
+    initButtons();
+    initStats();
+    initTimeline();
+    initFaqSection();
+    initFooter();
+    initFadeInOnScroll();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+}());
+</script>
+
+</body>
+</html>
