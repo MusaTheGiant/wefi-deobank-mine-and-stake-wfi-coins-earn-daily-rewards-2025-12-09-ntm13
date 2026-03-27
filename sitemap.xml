@@ -1,31 +1,57 @@
-# DeobankDeFi - Independent WeFi KOL Educational Resource
-# https://www.deobankdefi.com
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-User-agent: *
-Allow: /
-Disallow:
+<url>
+  <loc>https://www.deobankdefi.com/</loc>
+  <lastmod>2026-03-27T16:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.deobankdefi.com/about-wefi.html</loc>
+  <lastmod>2026-03-27T16:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.deobankdefi.com/wfi-token.html</loc>
+  <lastmod>2026-03-27T16:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.deobankdefi.com/wefi-compensation-plan.html</loc>
+  <lastmod>2026-03-27T16:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+<url>
+  <loc>https://www.deobankdefi.com/wefi-faq.html</loc>
+  <lastmod>2026-03-27T16:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.deobankdefi.com/wefi-getting-started-guide.html</loc>
+  <lastmod>2026-03-27T16:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.deobankdefi.com/wefi-testimonials.html</loc>
+  <lastmod>2026-03-27T16:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.deobankdefi.com/wefi-video-tutorials.html</loc>
+  <lastmod>2026-03-27T16:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.80</priority>
+</url>
 
-# AI Search Crawlers - Explicitly Allowed
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-# Sitemap Location
-Sitemap: https://www.deobankdefi.com/sitemap.xml
+</urlset>
